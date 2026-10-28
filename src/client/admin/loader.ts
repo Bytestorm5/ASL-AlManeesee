@@ -22,7 +22,7 @@ import { checkProseMarkup, stripTags } from '../../shared/poem-data.ts';
 import {
   BATCH, BULK_KINDS, BatchFailure, buildWords, describeBayts, detectKind, expLoadable, explanationPatch,
   explanationState, expOf, indexDoc, isBulkKind, isFlagged, parseExplanations, parseTranslations, parseWords,
-  readJsonText, saveInBatches, sortedBayts, storedIsPlaceholder, translationPatch, translationState, withSwitches, wordsPatch,
+  proseText, readJsonText, saveInBatches, sortedBayts, storedIsPlaceholder, translationPatch, translationState, withSwitches, wordsPatch,
   wordsState,
   type BuiltWords, type BulkKind, type ExplanationEntry, type ExplanationState, type Parsed, type StoredVerse,
   type TranslationEntry, type TranslationPatch, type TranslationState, type WordsEntry, type WordsPatch,
@@ -400,7 +400,7 @@ function expRow(n: number, st: ExplanationState): HTMLTableRowElement {
   else {
     const src = want ?? expOf(v);
     const html = src.en ?? src.ur ?? src.ar ?? '';
-    const text = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    const text = proseText(html);
     snip.textContent = text.slice(0, 76) + (text.length > 76 ? '…' : '');
     if (!src.en && text) snip.dir = 'rtl';
   }

@@ -230,6 +230,12 @@ export function detectKind(json: unknown): BulkKind | null {
   return null;
 }
 
+/** Prose HTML as one line of plain text: a block boundary becomes a space,
+    an inline tag simply goes (so "<b>iẓhār</b>," stays "iẓhār,"). */
+export function proseText(html: string): string {
+  return String(html ?? '').replace(/<\/?(?:p|br|li|ul|ol)\b[^>]*>/gi, ' ').replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+}
+
 /** "⟨?⟩" marks a passage the translator wants checked. */
 export const isFlagged = (e: TranslationEntry): boolean => ((e.tr ?? '') + (e.ur ?? '') + (e.sharh ?? '')).includes('⟨?⟩');
 

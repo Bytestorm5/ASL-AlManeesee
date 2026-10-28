@@ -68,8 +68,8 @@ import { getPoem } from '../src/poems/index.ts';
 import type { PoemDoc, Verse } from '../src/poems/types.ts';
 import { stripTags } from '../src/shared/poem-data.ts';
 import {
-  BATCH, BULK_KINDS, BatchFailure, buildWords, describeBayts, explanationPatch, indexDoc, isBulkKind,
-  isFlagged, parseBaytSpec, parseBulk, readJsonText, saveInBatches, sortedBayts, storedIsPlaceholder,
+  BATCH, BULK_KINDS, BatchFailure, buildWords, describeBayts, detectKind, explanationPatch, indexDoc, isBulkKind,
+  isFlagged, parseBaytSpec, proseText, parseBulk, readJsonText, saveInBatches, sortedBayts, storedIsPlaceholder,
   translationPatch, withSwitches, wordsOf, wordsPatch, wordsState,
   type BuiltWords, type BulkKind, type ExplanationEntry, type TranslationEntry, type WordsEntry,
 } from '../src/shared/bulk.ts';
@@ -153,7 +153,9 @@ const read = readJsonText(text);
 if ('error' in read) die(`${FILE}: ${read.error}`);
 const json = (read as { json: unknown }).json;
 const parsed = parseBulk(KIND, json, config?.verses);
-if (parsed.problems.length) die(`${FILE} cannot be read as ${KIND}:`, '  ' + parsed.problems.join('\n  '));
+const seems = detectKind(json);
+const hint = seems && seems !== KIND ? `\nIt looks like a file of ${seems} — try --kind ${seems}.` : '';
+if (parsed.problems.length) die(`${FILE} cannot be read as ${KIND}:${hint}`, '  ' + parsed.problems.join('\n  '));
 
 const ALL = sortedBayts([...parsed.entries.keys(), ...parsed.invalid.keys()]);
 const LAST = ALL[ALL.length - 1] ?? 0;
@@ -170,7 +172,7 @@ if (missing.length) die(`no ${NOUN[KIND]} written for bayt ${describeBayts(missi
    because the next run would have to work out which half went in. */
 const unusable = BAYTS.filter((n) => parsed.invalid.has(n));
 if (unusable.length) {
-  die(`${FILE}: bayt ${describeBayts(unusable)} cannot be loaded as written —`,
+  die(`${FILE}: bayt ${describeBayts(unusable)} cannot be loaded as written —${hint}`,
     '  ' + unusable.flatMap((n) => parsed.invalid.get(n)!).join('\n  '));
 }
 
@@ -222,7 +224,7 @@ const verseOf = (n: number): Verse => stored.get(n)?.v ?? die(`bayt ${n} is not 
 const entryOf = <T>(n: number) => parsed.entries.get(n) as T;
 const show = (label: string, s: string | undefined, max = 300) => {
   if (!s) return;
-  const t = stripTags(s).replace(/\s+/g, ' ').trim();
+  const t = proseText(s);
   console.log(`   ${label.padEnd(6)} ${t.length > max ? t.slice(0, max) + '…' : t}`);
 };
 
