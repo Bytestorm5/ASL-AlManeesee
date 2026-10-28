@@ -238,9 +238,9 @@ header.hero::before{content:""; position:absolute; inset:0; opacity:.5;
        neighbour had a progress bar or a second line of byline just ended
        short, and the row looked ragged. */
     align-items:stretch;
-    /* every card the same height, not just the two in a row: al-Salsabīl's
-       name needs two lines in its plate, and without this the middle row
-       stood taller than the two around it. */
+    /* every card the same height, not just the two in a row: a long Arabic
+       name needs two lines in its plate, and without this that row stood
+       taller than the ones around it. */
     grid-auto-rows:1fr}
   html.bigscreen .mr-body{display:flex; align-items:stretch; column-gap:3px}
   html.bigscreen .mr-body>.mr-acts{align-self:auto; flex-direction:row; align-items:center; margin-top:auto; padding-top:9px; gap:7px}
