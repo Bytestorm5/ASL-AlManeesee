@@ -1,0 +1,182 @@
+{
+ "id": "example",
+ "chapters": [
+  {
+   "i": 1,
+   "ar": "مُقَدِّمَةٌ",
+   "tr": "Al-Muqaddimah",
+   "en": "Introduction",
+   "desc": "The opening of the fixture: the author, the praise, and the purpose of the poem.",
+   "verses": [
+    {
+     "n": 1,
+     "sadr": "يَقُولُ رَاجِي رَحۡمَةِ الۡغَفُورِ",
+     "ajuz": "دَوۡمًا سُلَيۡمَانُ هُوَ الۡجَمۡزُورِي",
+     "tr": "Says he who constantly hopes for the mercy of the Oft-Forgiving, forever, Sulayman Al-Jamzuri.",
+     "sadrW": [
+      {
+       "w": "يَقُولُ",
+       "g": "Says"
+      },
+      {
+       "w": "رَاجِي",
+       "g": "he who hopes for"
+      },
+      {
+       "w": "رَحۡمَةِ الۡغَفُورِ",
+       "g": "the mercy of the Oft-Forgiving"
+      }
+     ],
+     "ajuzW": [
+      {
+       "w": "دَوۡمًا",
+       "g": "always"
+      },
+      {
+       "w": "سُلَيۡمَانُ",
+       "g": "Sulaymān"
+      },
+      {
+       "w": "هُوَ الۡجَمۡزُورِي",
+       "g": "he is al-Jamzūrī"
+      }
+     ],
+     "ur": "کہتا ہے وہ جو ہمیشہ بخشنے والے کی رحمت کا امیدوار ہے، یعنی سلیمان جمزوری۔",
+     "exp": {
+      "en": "<p>The author opens by naming himself, as poets of didactic verse customarily do, and by describing himself as one who <i>hopes</i> for mercy.</p><p class=\"qline\"><span class=\"ar\">رَاجِي رَحۡمَةِ الۡغَفُورِ</span></p>",
+      "ur": "<p>مصنف اپنا نام ذکر کر کے آغاز کرتا ہے۔</p>"
+     }
+    },
+    {
+     "n": 2,
+     "sadr": "الۡحَمۡدُ لِلَّهِ مُصَلِّيًا عَلَى",
+     "ajuz": "مُحَمَّدٍ وَآلِهِ وَمَنۡ تَلاَ",
+     "tr": "All praise is due to Allah, while invoking blessings upon Muhammad, his family, and whoever follows [his path/recites].",
+     "sadrW": [
+      {
+       "w": "الۡحَمۡدُ لِلَّهِ",
+       "g": "All praise is due to Allāh"
+      },
+      {
+       "w": "مُصَلِّيًا",
+       "g": "invoking blessings"
+      },
+      {
+       "w": "عَلَى",
+       "g": "upon"
+      }
+     ],
+     "ajuzW": [
+      {
+       "w": "مُحَمَّدٍ",
+       "g": "Muḥammad"
+      },
+      {
+       "w": "وَآلِهِ",
+       "g": "and his family"
+      },
+      {
+       "w": "وَمَنۡ",
+       "g": "and whoever"
+      },
+      {
+       "w": "تَلاَ",
+       "g": "follows, recites"
+      }
+     ],
+     "ur": "تمام تعریفیں اللہ کے لیے ہیں، محمد پر، ان کی آل پر اور ہر اس شخص پر درود بھیجتے ہوئے جس نے «تَلَا» یعنی پیروی کی۔"
+    },
+    {
+     "n": 3,
+     "sadr": "وَبَعۡدُ: هَذَا النَّظۡمُ لِلۡمُرِيدِ",
+     "ajuz": "فِي النُّونِ وَالتَّنۡوِينِ وَالۡمُدُودِ",
+     "tr": "As for what follows: This poetic arrangement is for the seeker [of knowledge], regarding the rules of Nūn Sākinah, Tanwīn, and Mudūd (prolongations)."
+    },
+    {
+     "n": 4,
+     "sadr": "<span class=\"rmz ann\" data-tp=\"ب\">س</span>َمَّيۡتُهُ بِـ (تُحۡفَةِ الأَطۡفَالِ)",
+     "ajuz": "عَنۡ شَيۡخِنَا الۡمِيهِيِّ ذِي الۡكَمَالِ",
+     "tr": "I named it Tuhfat Al-Atfal (\"A Gift for Novices/Children\"), as transmitted from our teacher Al-Mihi, possessor of perfection."
+    },
+    {
+     "n": 5,
+     "sadr": "أَرۡجُو بِهِ أَنۡ يَنۡفَعَ الطُّلاَّبَا",
+     "ajuz": "وَالأَجۡرَ وَالۡقَبُولَ وَالثَّوَابَا",
+     "tr": "I hope thereby that it will benefit the students, and [I seek through it] reward, acceptance, and divine compensation.",
+     "sr": [
+      2
+     ],
+     "jr": [
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "i": 2,
+   "ar": "أَحۡكَامُ النُّونِ السَّاكِنَةِ وَالتَّنۡوِينِ",
+   "tr": "Aḥkām Al-Nūn Al-Sākinah wa Al-Tanwīn",
+   "en": "Rulings of Nūn Sākinah and Tanwīn",
+   "desc": "",
+   "note": "A chapter-level note, shown above the verses.",
+   "verses": [
+    {
+     "n": 6,
+     "sadr": "لِلنُّونِ إِنۡ تَسۡكُنۡ وَلِلتَّنۡوِينِ",
+     "ajuz": "أَرۡبَعُ أَحۡكَامٍ فَخُذۡ تَبۡيِينِي",
+     "tr": "For the Nūn when it carries no vowel (sākinah) and for the Tanwīn, there are four rulings, so take my clear explanation:",
+     "sadrW": [
+      {
+       "w": "لِلنُّونِ",
+       "g": "For the nūn"
+      },
+      {
+       "w": "إِنۡ تَسۡكُنۡ",
+       "g": "if it is unvowelled"
+      },
+      {
+       "w": "وَلِلتَّنۡوِينِ",
+       "g": "and for the tanwīn"
+      }
+     ],
+     "ajuzW": [
+      {
+       "w": "أَرۡبَعُ أَحۡكَامٍ",
+       "g": "there are four rulings"
+      },
+      {
+       "w": "فَخُذۡ",
+       "g": "so take"
+      },
+      {
+       "w": "تَبۡيِينِي",
+       "g": "my clear account"
+      }
+     ],
+     "exp": "<p>The four rulings are listed in the abyāt that follow: <b>iẓhār</b>, <b>idghām</b>, <b>iqlāb</b> and <b>ikhfāʾ</b>.</p>"
+    },
+    {
+     "n": 7,
+     "sadr": "فَالأَوَّلُ الإِظۡهَارُ قَبۡلَ أَحۡرُفِ",
+     "ajuz": "لِلۡحَلۡقِ سِتٍّ رُتِّبَتۡ فَلۡتَعۡرِفِ",
+     "tr": "The first is Al-Iẓhār (Clear Pronunciation) before the throat letters; there are six arranged in order, so know them:"
+    },
+    {
+     "n": 8,
+     "sadr": "هَمۡزٌ فَهَاءٌ ثُمَّ عَيۡنٌ حَاءُ",
+     "ajuz": "مُهۡمَلَتَانِ ثُمَّ غَيۡنٌ خَاءُ",
+     "tr": "Hamzah (ء) then Hā’ (هـ), then ‘Ayn (ع) and Ḥā’ (ح) without points, then Ghayn (غ) and Khā’ (خ).",
+     "kind": "list"
+    }
+   ]
+  }
+ ],
+ "variants": {
+  "2": {
+   "3": {
+    "sadr": "وَبَعۡدُ: ذَا النَّظۡمُ لِلۡمُرِيدِ",
+    "ajuz": "فِي النُّونِ وَالتَّنۡوِينِ وَالۡمُدُودِ"
+   }
+  }
+ }
+}

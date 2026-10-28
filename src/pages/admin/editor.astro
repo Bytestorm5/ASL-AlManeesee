@@ -1,0 +1,323 @@
+---
+/* The Bayt Editor (/admin/editor) — was text-editor.html. Edit one bayt at a
+   time: its hemistichs, the word cells the reading page renders them from,
+   the word meanings and the translations, with a toolbar for every piece of
+   markup verse text may carry. The script is src/client/admin/bayt-editor.ts. */
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import { ALL_POEMS } from '../../poems/index.ts';
+
+const none = ALL_POEMS.length === 0;
+---
+<AdminLayout title="Bayt Editor">
+<div class="wrap">
+  <a href="/admin" style="display:inline-block;margin:0 0 10px;font-size:.82rem;font-weight:600;color:#8a4447;text-decoration:none">← Admin</a>
+  <h1 id="h1">Bayt Editor</h1>
+  <p class="sub">Edit the bayt, the word-by-word meanings and the translation directly — with a Word-style toolbar for colours, ḥarakāt, small (ṣaghīra) letters and above-word rumūz. Save publishes straight to the live app.</p>
+
+  {none ? (
+    <div class="card" id="empty">
+      <p style="margin:0 0 8px"><b>No matn is registered yet</b>, so there is nothing to edit.</p>
+      <p class="sub" style="margin:0">To add one, give it an entry in <code>src/poems/registry.ts</code> (its id, titles and
+      number of abyāt — <code>docs/adding-a-matn.md</code> has the details) and deploy;
+      then bring its text in with <a href="/admin/import">Import a matn</a>. Every registered matn is listed here, drafts included.</p>
+    </div>
+  ) : (
+  <>
+  <!-- password gate -->
+  <div class="card" id="gate">
+    <label for="pw">Admin password</label>
+    <input type="password" id="pw" autocomplete="current-password" placeholder="••••••••">
+    <div class="row" style="margin-top:12px"><button id="unlock">Unlock</button></div>
+    <div class="msg" id="gateMsg"></div>
+  </div>
+
+  <!-- editor -->
+  <div id="editor" class="hidden">
+    <!-- ============ INLINE WYSIWYG ============ -->
+    <div class="card" id="paneInline">
+      <div class="navbar">
+        <label for="poemSel" style="margin:0">Matn</label>
+        <select id="poemSel" style="width:auto;padding:8px 10px"></select>
+        <button id="prevB" class="ghost">‹ Prev</button>
+        <label for="inum" style="margin:0">Bayt</label>
+        <input type="number" id="inum" min="1" placeholder="1">
+        <button id="goB" class="ghost">Go</button>
+        <button id="nextB" class="ghost">Next ›</button>
+        <span class="pos" id="ipos"></span>
+      </div>
+      <!-- hidden while the selected matn has no stored text to edit -->
+      <div id="inlineBody">
+
+      <div class="preview" id="livePrev">
+        <div class="plabel">Live preview — exactly as the app shows it</div>
+        <div class="couplet">
+          <div class="hemi sadr" id="pvSadr"></div>
+          <span class="vn" id="pvN"></span>
+          <div class="hemi ajuz" id="pvAjuz"></div>
+        </div>
+        <div class="ptr" id="pvTr"></div>
+      </div>
+
+      <!-- toolbar: every piece of markup the API accepts (ALLOWED_CLASSES in
+           src/shared/poem-data.ts), offered for every matn -->
+      <div class="toolbar" id="toolbar">
+        <div class="tgrp">
+          <span class="glab">Harakat — inserts at the cursor</span>
+          <button class="tb ar" data-ins="َ" title="fatḥa">ـَ</button>
+          <button class="tb ar" data-ins="ِ" title="kasra">ـِ</button>
+          <button class="tb ar" data-ins="ُ" title="ḍamma">ـُ</button>
+          <button class="tb ar" data-ins="ۡ" title="sukūn — muṣḥaf form (small dāl shape). This is the one these mutūn use.">ـۡ</button>
+          <button class="tb ar" data-ins="ْ" title="sukūn — plain circle (U+0652). Rare here; only for text that already uses it.">ـْ</button>
+          <button class="tb ar" data-ins="ّ" title="shadda">ـّ</button>
+          <button class="tb ar" data-ins="ً" title="fatḥatān">ـً</button>
+          <button class="tb ar" data-ins="ٍ" title="kasratān">ـٍ</button>
+          <button class="tb ar" data-ins="ٌ" title="ḍammatān">ـٌ</button>
+          <button class="tb ar" data-ins="ٰ" title="dagger/superscript alif">ـٰ</button>
+          <button class="tb ar" data-ins="ـٰ" title="alif ṣaghīra on a stretched join (kashida) — أُو۟لَـٰٓئِكَ. Use this when the small alif should sit on a stretch of its own instead of stacking on the ḥaraka.">ـٰـ</button>
+          <button class="tb ar" data-ins="ـ" title="kashida / tatweel on its own — stretches the join, so you can put any mark on it">ـــ</button>
+          <button class="tb ar" data-ins="ىٰ" title="alif ṣaghīra on an empty seat — a dotless yāʾ carrying the small alif, as in وَاشۡتَرَىٰهُ. Follow it with a kashida and the seat becomes the joined half-tooth used where a word is split across the two halves of a bayt: أَرَىٰـ ‖ ـكَهُمۡ.">ىٰ</button>
+          <button class="tb ar" data-ins=" ٰ" title="alif ṣaghīra with nothing under it — the mark alone over a gap, on an invisible bearer so it stays put and the word never breaks there."> ٰ</button>
+          <button class="tb ar" data-ins="ٓ" title="madda">ـٓ</button>
+          <button class="tb ar" data-ins="ٔ" title="hamza above">ـٔ</button>
+          <button class="tb ar" data-ins="ٱ" title="hamzat al-waṣl — alif carrying the waṣla (U+0671), as in ٱلۡحَمۡدُ. A letter, not a mark: it goes in where the alif goes, in place of a plain ا.">ٱ</button>
+          <button class="tb ar" data-ins="ٖ" title="alif below (silah)">ـٖ</button>
+          <button class="tb ar" data-ins="ٜ" title="imāla — the solid dot under the letter (U+065C), as in مَجۡرٜىٰهَا.">ـٜ</button>
+          <button class="tb" data-dot="1" title="solid circle standing in the word — a seat where a letter would be, for a softened hamza and the like. It takes a slot of its own and a ḥaraka can be put over it, so it behaves like a letter rather than a mark. Drawn by the page: the face has no spacing round dot, and the round ones it does have are marks that cannot carry a vowel."><span class="cbox" style="font-size:1.35rem;line-height:1;min-width:0;min-height:0;padding:0;display:inline-block"><span class="dot">&nbsp;</span></span></button>
+        </div>
+
+        <div class="tgrp">
+          <span class="glab">Small (ṣaghīra) letters</span>
+          <button class="tb" data-snoon="نِ" title="small connecting nūn (kasra) — like عَادًانِ">nūn <span class="ar" style="font-size:1.1rem">نِ</span></button>
+          <button class="tb" data-snoon="نَ" title="small nūn (fatḥa)">nūn <span class="ar" style="font-size:1.1rem">نَ</span></button>
+          <button class="tb" data-snoon="نُ" title="small nūn (ḍamma) — follows a ḍamma on the joined word">nūn <span class="ar" style="font-size:1.1rem">نُ</span></button>
+          <button class="tb" data-snoon="نْ" title="small nūn (sukūn)">nūn <span class="ar" style="font-size:1.1rem">نْ</span></button>
+          <button class="tb" data-wrapsmall="1" title="raise the selected letters as a small span">raise sel ⤴</button>
+          <button class="tb ar" data-ins="ۥ" title="small high wāw">ـۥ</button>
+          <button class="tb ar" data-ins="ۦ" title="small high yāʾ (silah)">ـۦ</button>
+        </div>
+
+        <div class="tgrp">
+          <span class="glab">Rumūz above a word — type any ramz here (the ones this matn already uses are suggested)</span>
+          <span class="tpill"><input type="text" id="annText" list="annList" placeholder="ramz e.g. ش or سما" dir="rtl">
+            <button class="tb" id="annApply" title="put this above the selected letter(s)">▲ above</button></span>
+          <datalist id="annList"></datalist>
+        </div>
+
+        <!-- The single letters only. A group word (سما, حق, صحبة …) stands for
+             different qurrāʾ in different qirāʾāt mutūn, so a fixed set of them
+             offered to every matn would be a wrong reading waiting to be
+             typeset; type one in the box above instead. -->
+        <div class="tgrp">
+          <span class="glab">Rumūz above a word — letters, in abjad order</span>
+          <button class="tb ar" data-ann="ا" title="ramz — 1st letter of the abjad">ا</button>
+          <button class="tb ar" data-ann="ب" title="ramz — 2nd letter of the abjad">ب</button>
+          <button class="tb ar" data-ann="ج" title="ramz — 3rd letter of the abjad">ج</button>
+          <button class="tb ar" data-ann="د" title="ramz — 4th letter of the abjad">د</button>
+          <button class="tb ar" data-ann="ه" title="ramz — 5th letter of the abjad">ه</button>
+          <button class="tb ar" data-ann="و" title="ramz — 6th letter of the abjad">و</button>
+          <button class="tb ar" data-ann="ز" title="ramz — 7th letter of the abjad">ز</button>
+          <button class="tb ar" data-ann="ح" title="ramz — 8th letter of the abjad">ح</button>
+          <button class="tb ar" data-ann="ط" title="ramz — 9th letter of the abjad">ط</button>
+          <button class="tb ar" data-ann="ي" title="ramz — 10th letter of the abjad">ي</button>
+          <button class="tb ar" data-ann="ك" title="ramz — 11th letter of the abjad">ك</button>
+          <button class="tb ar" data-ann="ل" title="ramz — 12th letter of the abjad">ل</button>
+          <button class="tb ar" data-ann="م" title="ramz — 13th letter of the abjad">م</button>
+          <button class="tb ar" data-ann="ن" title="ramz — 14th letter of the abjad">ن</button>
+          <button class="tb ar" data-ann="س" title="ramz — 15th letter of the abjad">س</button>
+          <button class="tb ar" data-ann="ع" title="ramz — 16th letter of the abjad">ع</button>
+          <button class="tb ar" data-ann="ف" title="ramz — 17th letter of the abjad">ف</button>
+          <button class="tb ar" data-ann="ص" title="ramz — 18th letter of the abjad">ص</button>
+          <button class="tb ar" data-ann="ق" title="ramz — 19th letter of the abjad">ق</button>
+          <button class="tb ar" data-ann="ر" title="ramz — 20th letter of the abjad">ر</button>
+          <button class="tb ar" data-ann="ش" title="ramz — 21st letter of the abjad">ش</button>
+          <button class="tb ar" data-ann="ت" title="ramz — 22nd letter of the abjad">ت</button>
+          <button class="tb ar" data-ann="ث" title="ramz — 23rd letter of the abjad">ث</button>
+          <button class="tb ar" data-ann="خ" title="ramz — 24th letter of the abjad">خ</button>
+          <button class="tb ar" data-ann="ذ" title="ramz — 25th letter of the abjad">ذ</button>
+          <button class="tb ar" data-ann="ض" title="ramz — 26th letter of the abjad">ض</button>
+          <button class="tb ar" data-ann="ظ" title="ramz — 27th letter of the abjad">ظ</button>
+          <button class="tb ar" data-ann="غ" title="ramz — 28th letter of the abjad">غ</button>
+        </div>
+
+        <div class="tgrp">
+          <span class="glab">Colour the selection</span>
+          <button class="tb sw" data-color="rmz" title="rmz"><span class="dot" style="background:#8a4447"></span>maroon</button>
+          <button class="tb sw" data-color="rmz2" title="rmz2"><span class="dot" style="background:#5e2c30"></span>deep</button>
+          <button class="tb sw" data-color="rmz3" title="rmz3"><span class="dot" style="background:#9a7526"></span>gold</button>
+          <button class="tb sw" data-color="rmz4" title="rmz4"><span class="dot" style="background:#a35a5d"></span>soft</button>
+          <button class="tb sw" data-color="rmz5" title="rmz5 — mid maroon"><span class="dot" style="background:#743a3e"></span>mid</button>
+          <button class="tb sw" data-color="rmz6" title="rmz6"><span class="dot" style="background:#6c585a"></span>ink</button>
+          <button class="tb sw" data-color="rmz7" title="rmz7 — the same mid maroon as rmz5, in both light and dark"><span class="dot" style="background:#743a3e"></span>mid 2</button>
+          <button class="tb sw" data-color="rd" title="red ink — a word printed in red in the edition the matn follows"><span class="dot" style="background:#b23122"></span>red ink</button>
+          <button class="tb sw" data-color="qur" title="a Qurʾānic word quoted inside the bayt"><span class="dot" style="background:#2e6b46"></span>Qurʾānic</button>
+          <button class="tb" data-clearfmt="1" title="remove colour / rumūz / small from the selection">clear ✕</button>
+        </div>
+        <div class="tgrp"><span class="focusnote" id="focusNote">Tap into a word box, select letters, then use the toolbar.</span></div>
+      </div>
+
+      <!-- cell editors -->
+      <div class="hemiblock">
+        <div class="hlabel">Ṣadr (first half) — right to left</div>
+        <div class="cells" id="cellsSadr"></div>
+      </div>
+      <div class="hemiblock">
+        <div class="hlabel">ʿAjuz (second half) — right to left</div>
+        <div class="cells" id="cellsAjuz"></div>
+      </div>
+      <div class="hemiblock">
+        <label for="trBox" style="margin-top:4px">English translation</label>
+        <textarea id="trBox" placeholder="translation…"></textarea>
+      </div>
+      <div class="hemiblock hidden" id="urBlock">
+        <label for="urBox" style="margin-top:4px">Urdu translation</label>
+        <textarea id="urBox" placeholder="اردو ترجمہ…" dir="rtl"
+          style="font-family:'Noto Nastaliq Urdu','Scheherazade New',serif;line-height:2.2"></textarea>
+      </div>
+
+      <div class="row" style="margin-top:8px">
+        <button id="stageInline" class="ghost">Stage bayt ✓</button>
+        <button id="revertInline" class="ghost">Revert to app</button>
+        <span class="sub" id="inlineMsg" style="margin:0"></span>
+      </div>
+    </div>
+    </div>
+
+    <!-- patch panel (shared) -->
+    <div class="card">
+      <div class="sub" id="srcNote" style="margin:-4px 0 10px"></div>
+      <div class="sub" style="margin:-4px 0 10px">Save publishes whatever is in the editor — you do not need to press “Stage bayt ✓” first. Staging is only for gathering several bayts before publishing them together.</div>
+      <div class="patchbar">
+        <span class="count"><span id="pcount">0</span> bayt(s) unsaved</span>
+        <button id="save" disabled>Save to the app</button>
+        <button id="clear" class="ghost" disabled>Clear</button>
+      </div>
+      <div class="msg" id="pmsg"></div>
+    </div>
+  </div>
+  </>
+  )}
+</div>
+
+<style is:global>
+  @font-face{font-family:'Scheherazade New';font-weight:400;font-display:swap;src:url("/fonts/ScheherazadeNew.woff2") format("woff2")}
+  @font-face{font-family:'Scheherazade New';font-weight:700;font-display:swap;src:url("/fonts/ScheherazadeNewB.woff2") format("woff2")}
+  :root{--madder:#8a4447;--madder-deep:#5e2c30;--cream:#faf6ec;--paper:#fffdf8;--edge:#e8dcc7;--ink:#3a2a2b;
+        --ok:#2e6b46;--warn:#9a6a14;
+        /* rmz palette — mirrors the app's light-theme colours so previews are faithful */
+        --lapis:#2a5b8a;--gilt-deep:#9a7526;--madder-soft:#a35a5d;--lapis-2:#743a3e;--ink-soft:#6c585a}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+       font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       padding:22px 12px 90px}
+  /* The editor is a workbench, not a reading page: the wider it is, the more
+     word cells fit on a row and the fewer rows the toolbar takes. Fills the
+     window up to a limit, so a very wide monitor does not stretch the English
+     translation into one unreadable line. */
+  .wrap{max-width:min(1500px, 95vw);margin:0 auto}
+  /* the two hemistich halves keep a sane measure even when the page is wide */
+  .ptr{max-width:900px;margin-inline:auto}
+  #trBox,#urBox{max-width:1100px}
+  h1{margin:0 0 3px;font-size:1.3rem;color:var(--madder-deep)}
+  .sub{margin:0 0 16px;color:#7a6a6b;font-size:.9rem}
+  .card{background:#fff;border:1px solid var(--edge);border-radius:16px;box-shadow:0 8px 30px rgba(94,44,48,.07);
+        padding:18px 18px;margin-bottom:16px}
+  label{display:block;font-weight:600;font-size:.9rem;margin:10px 0 6px}
+  input[type=password],input[type=number],input[type=text],textarea,select{width:100%;padding:10px 12px;border:1px solid var(--edge);
+        border-radius:10px;font:inherit;background:var(--paper);color:var(--ink)}
+  textarea{min-height:80px;resize:vertical}
+  textarea.ar{font-family:"Scheherazade New","Amiri",serif;font-size:1.5rem;line-height:2;direction:rtl;text-align:right}
+  button{font:inherit;font-weight:600;border:0;border-radius:999px;padding:9px 18px;cursor:pointer;background:var(--madder);color:#fff}
+  button.ghost{background:#f3ece0;color:var(--madder-deep)}
+  button:disabled{opacity:.5;cursor:default}
+  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .hidden{display:none}
+  .msg{margin-top:12px;padding:10px 12px;border-radius:10px;font-size:.9rem;display:none}
+  .msg.err{display:block;background:#fbeaea;color:#8a2a2a}
+  .msg.ok{display:block;background:#e8f3ec;color:var(--ok)}
+
+  /* ---- Arabic rendering shared with the reading page ----
+     Only the rules the preview needs, copied from src/styles/reading.css —
+     that stylesheet styles the whole reading page and cannot be loaded here. */
+  .hemi{font-family:"Scheherazade New","Amiri",serif;font-weight:400;font-size:1.9rem;line-height:2;
+        direction:rtl;color:#241a1b;padding:4px 2px}
+  .ann{position:relative}
+  .ann::after{content:attr(data-tp);position:absolute;top:-.35em;left:50%;transform:translateX(-50%);
+        font-size:.46em;line-height:1;font-weight:700;color:#8a4447;pointer-events:none;white-space:nowrap}
+  /* pinned, not var()-driven — the reading pages re-tint those per matn, and the
+     preview has to match what the app actually draws */
+  .rmz{color:#8a4447}.rmz2{color:#5e2c30}.rmz3{color:#9a7526}
+  .rmz4{color:#a35a5d}.rmz5{color:#743a3e}.rmz6{color:#6c585a}.rmz7{color:#743a3e}
+  /* red ink — a word printed red in the edition (the `rd` class, or a red-word
+     position stored with the bayt) */
+  .hemi .rd,.cbox .rd{color:#b23122}
+  /* a Qurʾānic word quoted inside a bayt — green so it reads apart from the
+     maroon rubrication the rumūz use */
+  .qur{color:#2e6b46}
+  .small-noon{font-size:.65em;position:relative;top:-.48em;line-height:1;margin-inline-end:.1em}
+  /* solid circle standing in the word — see the .hemi .dot note in reading.css */
+  .hemi .dot,.cbox .dot{position:relative;display:inline-block;width:.70em;text-align:center;line-height:2}
+  .hemi .dot::before,.cbox .dot::before{content:"";position:absolute;left:50%;top:50%;width:.42em;height:.42em;border-radius:50%;
+        background:currentColor;transform:translate(-50%,calc(-50% + .22em));pointer-events:none}
+  /* a word cell, as the reading page wraps it (render.ts hemiHTML) — its
+     padding is part of the line, so the preview keeps it */
+  .hemi .seg{position:relative;display:inline-block;vertical-align:baseline;border-radius:5px;padding:.04em .12em;outline:none}
+  .hemi .seg.fn-mark{padding:0;margin-inline-start:1px;font-size:.62em;vertical-align:super;color:var(--madder);font-weight:700}
+
+  /* ---- inline editor ---- */
+  .navbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+  .navbar input[type=number]{width:96px}
+  .navbar .pos{font-size:.82rem;color:#7a6a6b;margin-inline-start:auto}
+  .preview{background:var(--paper);border:1px solid var(--edge);border-radius:12px;padding:10px 12px;margin:6px 0 4px}
+  .plabel{font-size:.72rem;color:#9a8a80;letter-spacing:.04em;text-transform:uppercase;direction:ltr;margin-bottom:2px}
+  /* direction:rtl so the ṣadr sits on the RIGHT and the ʿajuz on the left, the
+     way the reading page lays a bayt out — without it the preview mirrors the
+     couplet while claiming to show it exactly as the app does. */
+  .couplet{display:flex;direction:rtl;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap}
+  .couplet .hemi{flex:1 1 42%;min-width:230px}
+  .couplet .hemi.sadr{text-align:left}.couplet .hemi.ajuz{text-align:right}
+  .vn{font-size:.8rem;color:var(--madder);border:1px solid var(--edge);border-radius:999px;padding:1px 9px}
+  .ptr{font-style:italic;color:#4b3b3c;margin-top:6px;font-size:.96rem;text-align:center}
+  .seg{position:relative}
+
+  /* toolbar */
+  .toolbar{position:sticky;top:0;z-index:5;background:#fff;border:1px solid var(--edge);border-radius:12px;
+        padding:8px 8px;margin:8px 0;box-shadow:0 4px 14px rgba(94,44,48,.06)}
+  .tgrp{display:flex;gap:5px;flex-wrap:wrap;align-items:center;padding:3px 0}
+  .tgrp + .tgrp{border-top:1px dashed var(--edge);margin-top:3px}
+  .tgrp .glab{font-size:.68rem;color:#9a8a80;text-transform:uppercase;letter-spacing:.03em;flex:0 0 100%}
+  .tb{background:#f3ece0;color:var(--ink);border-radius:8px;padding:6px 10px;font-weight:600;min-width:34px;line-height:1}
+  .tb.ar{font-family:"Scheherazade New","Amiri",serif;font-size:1.35rem;padding:2px 10px}
+  .tb.sw{display:inline-flex;align-items:center;gap:6px}
+  .tb .dot{width:13px;height:13px;border-radius:50%;display:inline-block;border:1px solid rgba(0,0,0,.15)}
+  .tb.on{outline:2px solid var(--madder)}
+  .tpill{display:inline-flex;gap:6px;align-items:center}
+  .tpill input{width:120px;padding:6px 9px}
+  .focusnote{font-size:.75rem;color:#9a8a80;margin-inline-start:auto}
+
+  /* cell editing grid */
+  .hemiblock{margin:10px 0}
+  .hemiblock > .hlabel{font-weight:700;color:var(--madder-deep);font-size:.85rem;margin:6px 0}
+  .cells{display:flex;flex-wrap:wrap;gap:8px;direction:rtl}
+  .cell{border:1px solid var(--edge);border-radius:12px;background:var(--paper);padding:6px 8px 8px;min-width:110px;flex:0 1 auto}
+  .cell.foc{border-color:var(--madder);box-shadow:0 0 0 2px rgba(138,68,71,.15)}
+  .cbox{font-family:"Scheherazade New","Amiri",serif;font-size:1.7rem;line-height:2.1;direction:rtl;color:#241a1b;
+        min-width:60px;min-height:1.8em;padding:2px 6px;border-radius:8px;outline:none;white-space:nowrap}
+  .cbox:focus{background:#fff}
+  .cbox .ann::after{color:#8a4447}
+  .cg{width:100%;margin-top:5px;font-size:.82rem;padding:5px 8px;direction:ltr;text-align:left}
+  .cctl{display:flex;gap:3px;margin-top:5px;direction:ltr;justify-content:flex-end}
+  .cctl button{background:#f3ece0;color:var(--madder-deep);border-radius:7px;padding:3px 8px;font-size:.72rem;font-weight:600}
+  .cctl button.danger{background:#fbeaea;color:#8a2a2a}
+  .addcell{align-self:center;background:#eef3ec;color:var(--ok);border-radius:10px;padding:8px 12px;font-size:.8rem}
+
+  .prev{background:var(--paper);border:1px solid var(--edge);border-radius:10px;padding:6px 10px;margin-top:6px}
+  th{color:#7a6a6b;font-weight:600}
+  .patchbar{position:sticky;bottom:0;background:#fff;border-top:1px solid var(--edge);padding:12px 16px;margin:0 -18px -18px;
+        border-radius:0 0 16px 16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .count{font-weight:700;color:var(--madder-deep)}
+  code{background:#f3ece0;padding:1px 5px;border-radius:5px;font-size:.85em}
+  #empty a{color:var(--madder)}
+  details{margin-top:8px}summary{cursor:pointer;color:var(--madder);font-size:.85rem}
+</style>
+<script>import '../../client/admin/bayt-editor.ts';</script>
+</AdminLayout>

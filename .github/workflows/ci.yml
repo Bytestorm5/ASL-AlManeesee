@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - run: npm ci
+      # Types (pages, worker, service worker, tests, scripts) and the worker's
+      # tests, which run inside workerd against a throwaway R2 bucket.
+      - run: npm run check
+      - run: npm test
+      # The production build — no example matn — must succeed on its own.
+      - run: npm run build
+      # The end-to-end smoke test: the example matn built in, served by the
+      # real worker, driven in Chromium.
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e

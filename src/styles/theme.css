@@ -1,0 +1,352 @@
+/* al-Asl Mutūn — Dark mode.
+   All dark styling lives here so it can be added or removed in one place.
+   Light mode is unchanged; the brand palette (madder + gilt on paper) is
+   preserved, only recast onto a deep warm ink for comfortable night reading.
+
+   How it works: theme.js sets <html data-theme="light|dark"> (resolving
+   "auto" against the device). Rules below key off data-theme="dark" and win
+   by specificity (:root[data-theme="dark"] …). Two new surface variables
+   (--surface, --surface-2) back the raised cards/buttons that were hard-coded
+   white; they default to their light values so nothing changes in light mode. */
+
+:root {
+  --surface:#fff; --surface-2:#f7f2e5;
+  /* panel (hero / chapter head / footer) gradient + dark-ink text on it.
+     Defaults are the house madder/rose; per-matn palettes below reassign them. */
+  --pnl-1:#d8b8b2; --pnl-2:#ceaba6; --pnl-3:#c2a09b; --pnl-txt:#5e2c30;
+}
+
+/* ============================================================
+   Per-matn accent palettes (light).
+   Only the rubrication accent + panel tint change; paper, gold,
+   type, emblem and layout stay constant. Set on <body class="matn-…">
+   (and on home cards via .matn-card.m-…). matn-madder = the default.
+   ============================================================ */
+body.matn-lapis, .matn-card.m-lapis, .matn-row.m-lapis, .cont-card.m-lapis, .bm-row.m-lapis {
+  --madder:#3c5a86; --madder-soft:#5a76a0;
+  --lapis:#233a5e; --lapis-2:#2e4a72; --lapis-3:#3c5a86;
+  --rose:#a9b6cc; --rose-2:#9db0c8; --rose-hi:#bcc6d8;
+  --pnl-1:#bcc6d8; --pnl-2:#a9b6cc; --pnl-3:#9db0c8; --pnl-txt:#233a5e;
+  --panel-soft:#33517d; --sage:#8496ab;
+  --emblem-filter:saturate(1.7) hue-rotate(205deg); /* madder star → lapis */
+}
+body.matn-verdigris, .matn-card.m-verdigris, .matn-row.m-verdigris, .cont-card.m-verdigris, .bm-row.m-verdigris {
+  --madder:#3f7458; --madder-soft:#5a917a;
+  --lapis:#274d3a; --lapis-2:#335f47; --lapis-3:#3f7458;
+  --rose:#adc0a9; --rose-2:#a1b79d; --rose-hi:#bdccb9;
+  --pnl-1:#bdccb9; --pnl-2:#adc0a9; --pnl-3:#a1b79d; --pnl-txt:#274d3a;
+  --panel-soft:#335f47; --sage:#7f9a86;
+  --emblem-filter:saturate(1.5) hue-rotate(122deg); /* madder star → verdigris */
+}
+body.matn-indigo, .matn-card.m-indigo, .matn-row.m-indigo, .cont-card.m-indigo, .bm-row.m-indigo {
+  --madder:#4c4f9e; --madder-soft:#6b6eb5;
+  --lapis:#2e3068; --lapis-2:#3a3d80; --lapis-3:#4c4f9e;
+  --rose:#b3b4d6; --rose-2:#a6a7cd; --rose-hi:#c3c4e0;
+  --pnl-1:#c3c4e0; --pnl-2:#b3b4d6; --pnl-3:#a6a7cd; --pnl-txt:#2e3068;
+  --panel-soft:#3a3d80; --sage:#8a8ba6;
+  /* 215deg landed the star on #275b84 — a steel blue 33° short of the indigo
+     the rest of the page uses, and all but indistinguishable from lapis above.
+     250deg brings it to #4a4f94, which is --madder to within two degrees of
+     hue. hue-rotate is a matrix approximation, not an HSL turn, so the angle
+     that reads right is not the one the arithmetic suggests — measured, not
+     reasoned. */
+  --emblem-filter:saturate(1.15) hue-rotate(250deg); /* madder star → indigo */
+}
+body.matn-plum, .matn-card.m-plum, .matn-row.m-plum, .cont-card.m-plum, .bm-row.m-plum {
+  --madder:#6d4f8c; --madder-soft:#8a6fa6;
+  --lapis:#41305e; --lapis-2:#523e71; --lapis-3:#6d4f8c;
+  --rose:#c0b2cf; --rose-2:#b5a5c7; --rose-hi:#cdc1d9;
+  --pnl-1:#cdc1d9; --pnl-2:#c0b2cf; --pnl-3:#b5a5c7; --pnl-txt:#41305e;
+  --panel-soft:#523e71; --sage:#94879f;
+  --emblem-filter:saturate(1.2) hue-rotate(285deg); /* madder star → plum */
+}
+/* Burnt amber — Tuḥfat al-Aṭfāl. Kept on the SIENNA side of amber on purpose:
+   a yellow amber would sit right on top of the gilt (#c0973c) that draws every
+   ornament on the page, and the accent has to stay legible against it. */
+body.matn-sienna, .matn-card.m-sienna, .matn-row.m-sienna, .cont-card.m-sienna, .bm-row.m-sienna {
+  --madder:#a05a22; --madder-soft:#bd7841;
+  --lapis:#6d3a12; --lapis-2:#88491b; --lapis-3:#a05a22;
+  --rose:#d7b399; --rose-2:#cba58a; --rose-hi:#e3c5ad;
+  --pnl-1:#e3c5ad; --pnl-2:#d7b399; --pnl-3:#cba58a; --pnl-txt:#6d3a12;
+  --panel-soft:#88491b; --sage:#a17f68;
+  --emblem-filter:saturate(1.9) hue-rotate(25deg); /* madder star → burnt amber */
+}
+
+/* Teal — sits between lapis and verdigris in hue, and stays distinct from
+   both at a glance when the three are listed together. */
+body.matn-teal, .matn-card.m-teal, .matn-row.m-teal, .cont-card.m-teal, .bm-row.m-teal {
+  --madder:#2b6f74; --madder-soft:#4c8b90;
+  --lapis:#1c4d51; --lapis-2:#245e63; --lapis-3:#2b6f74;
+  --rose:#a9c6c8; --rose-2:#9bbcbf; --rose-hi:#bcd3d5;
+  --pnl-1:#bcd3d5; --pnl-2:#a9c6c8; --pnl-3:#9bbcbf; --pnl-txt:#1c4d51;
+  --panel-soft:#245e63; --sage:#7fa09f;
+  --emblem-filter:saturate(1.4) hue-rotate(160deg); /* madder star → teal */
+}
+
+/* Tint the al-Asl star medallions to the matn accent. The emblem is a raster
+   PNG, so we hue-rotate it — and filter only the emblem (via ::before) so the
+   verse/chapter number sitting on top keeps its own colour. */
+body.matn-lapis .toc-num, body.matn-lapis .medallion,
+body.matn-verdigris .toc-num, body.matn-verdigris .medallion,
+body.matn-plum .toc-num, body.matn-plum .medallion,
+body.matn-sienna .toc-num, body.matn-sienna .medallion,
+body.matn-teal .toc-num, body.matn-teal .medallion,
+body.matn-indigo .toc-num, body.matn-indigo .medallion { background-image:none !important; }
+body.matn-lapis .toc-num::before, body.matn-lapis .medallion::before,
+body.matn-verdigris .toc-num::before, body.matn-verdigris .medallion::before,
+body.matn-plum .toc-num::before, body.matn-plum .medallion::before,
+body.matn-sienna .toc-num::before, body.matn-sienna .medallion::before,
+body.matn-teal .toc-num::before, body.matn-teal .medallion::before,
+body.matn-indigo .toc-num::before, body.matn-indigo .medallion::before {
+  content:""; position:absolute; inset:0; z-index:0;
+  background:var(--emblem) center/contain no-repeat;
+  filter:var(--emblem-filter);
+}
+body.matn-lapis .ch-medallion, body.matn-verdigris .ch-medallion,
+body.matn-plum .ch-medallion, body.matn-sienna .ch-medallion,
+body.matn-teal .ch-medallion, body.matn-indigo .ch-medallion {
+  filter:var(--emblem-filter) drop-shadow(0 3px 7px rgba(0,0,0,.28));
+}
+
+:root[data-theme="dark"] {
+  /* page + panels */
+  --paper:#17110f; --paper-2:#211712; --paper-edge:#3a2c26;
+  --surface:#241b16; --surface-2:#2c221c;
+  /* text */
+  --ink:#ece1d2; --ink-soft:#bcab9d; --sage:#a89187;
+  --cream:#f3e6da; --cream-dim:#cdb8ad; --panel-soft:#c9b3a8;
+  /* brand — hue kept, lifted for contrast on ink */
+  --madder:#d3797c; --madder-soft:#c06d70;
+  --gilt:#d4ab4f; --gilt-hi:#eccb72; --gilt-deep:#c49a3f;
+  /* maroon family: dark plates (used as backgrounds) + a light heading tone */
+  --lapis:#6e3438; --lapis-2:#864447; --lapis-3:#d98a8d;
+  --rose:#2b1819; --rose-2:#2b1819; --rose-hi:#331c1d;
+  --blush:#7a4f4a; --blush-soft:#4a2f2c;
+  --shadow: 0 1px 2px rgba(0,0,0,.45), 0 10px 30px rgba(0,0,0,.55);
+  /* dark panel gradient (per-matn tints below); default = deep madder */
+  --pnl-dk-1:#3a2122; --pnl-dk-2:#2b1819; --pnl-dk-3:#241415;
+}
+
+/* per-matn accent lifts + tinted dark panels */
+:root[data-theme="dark"] body.matn-lapis, :root[data-theme="dark"] .matn-card.m-lapis, :root[data-theme="dark"] .matn-row.m-lapis, :root[data-theme="dark"] .cont-card.m-lapis, :root[data-theme="dark"] .bm-row.m-lapis {
+  --madder:#7fa0cc; --madder-soft:#6f90bd;
+  --lapis:#33517d; --lapis-2:#3f5f8c; --lapis-3:#8fabd2;
+  --pnl-dk-1:#1f2a3c; --pnl-dk-2:#182231; --pnl-dk-3:#141b28;
+}
+:root[data-theme="dark"] body.matn-verdigris, :root[data-theme="dark"] .matn-card.m-verdigris, :root[data-theme="dark"] .matn-row.m-verdigris, :root[data-theme="dark"] .cont-card.m-verdigris, :root[data-theme="dark"] .bm-row.m-verdigris {
+  --madder:#79c091; --madder-soft:#6bb283;
+  --lapis:#2f5a43; --lapis-2:#3a6b50; --lapis-3:#84c79c;
+  --pnl-dk-1:#1e2c23; --pnl-dk-2:#17231b; --pnl-dk-3:#131c16;
+}
+:root[data-theme="dark"] body.matn-indigo, :root[data-theme="dark"] .matn-card.m-indigo, :root[data-theme="dark"] .matn-row.m-indigo, :root[data-theme="dark"] .cont-card.m-indigo, :root[data-theme="dark"] .bm-row.m-indigo {
+  --madder:#9b9ddd; --madder-soft:#8b8dce;
+  --lapis:#3b3e78; --lapis-2:#4a4d8c; --lapis-3:#adafe8;
+  --pnl-dk-1:#20223c; --pnl-dk-2:#191b2f; --pnl-dk-3:#141626;
+}
+:root[data-theme="dark"] body.matn-plum, :root[data-theme="dark"] .matn-card.m-plum, :root[data-theme="dark"] .matn-row.m-plum, :root[data-theme="dark"] .cont-card.m-plum, :root[data-theme="dark"] .bm-row.m-plum {
+  --madder:#af92d3; --madder-soft:#9f82c4;
+  --lapis:#4d3a6e; --lapis-2:#5c4880; --lapis-3:#bda1e0;
+  --pnl-dk-1:#291f3a; --pnl-dk-2:#20182d; --pnl-dk-3:#191323;
+}
+/* Burnt amber lifted for dark. Held deliberately orange rather than lifted
+   straight up: dark mode's gilt (#d4ab4f) is brighter than the light one, so a
+   paler amber here would read as gold on the very pages that are full of it. */
+:root[data-theme="dark"] body.matn-sienna, :root[data-theme="dark"] .matn-card.m-sienna, :root[data-theme="dark"] .matn-row.m-sienna, :root[data-theme="dark"] .cont-card.m-sienna, :root[data-theme="dark"] .bm-row.m-sienna {
+  --madder:#dd9663; --madder-soft:#cc8654;
+  --lapis:#7c4620; --lapis-2:#8f552a; --lapis-3:#e6ab80;
+  --pnl-dk-1:#352110; --pnl-dk-2:#2a190c; --pnl-dk-3:#221409;
+}
+:root[data-theme="dark"] body.matn-teal, :root[data-theme="dark"] .matn-card.m-teal, :root[data-theme="dark"] .matn-row.m-teal, :root[data-theme="dark"] .cont-card.m-teal, :root[data-theme="dark"] .bm-row.m-teal {
+  --madder:#6cb3b8; --madder-soft:#5da2a7;
+  --lapis:#1f5155; --lapis-2:#2a6469; --lapis-3:#8ac8cc;
+  --pnl-dk-1:#0f2a2c; --pnl-dk-2:#0b2123; --pnl-dk-3:#08191b;
+}
+
+/* ---- large "soft-rose" panels: recast dark, with light text ---- */
+:root[data-theme="dark"] header.hero,
+:root[data-theme="dark"] .ch-head,
+:root[data-theme="dark"] .mc-top,
+:root[data-theme="dark"] footer {
+  background:radial-gradient(1100px 460px at 50% -22%, rgba(255,240,232,.06), transparent 62%),
+             linear-gradient(155deg,var(--pnl-dk-1) 0%, var(--pnl-dk-2) 60%, var(--pnl-dk-3) 100%);
+  background-color:var(--pnl-dk-2);
+  color:var(--cream);
+}
+:root[data-theme="dark"] .hero .eyebrow,
+:root[data-theme="dark"] .ch-eyebrow { color:var(--gilt-hi) !important; }
+:root[data-theme="dark"] .hero h1.ar,
+:root[data-theme="dark"] .ch-ar,
+:root[data-theme="dark"] .mc-ar { color:#f3e3d7 !important; text-shadow:0 1px 14px rgba(0,0,0,.45) !important; }
+:root[data-theme="dark"] .hero .romantitle,
+:root[data-theme="dark"] .ch-en,
+:root[data-theme="dark"] .mc-tr { color:var(--gilt-hi) !important; }
+:root[data-theme="dark"] .hero .subtitle,
+:root[data-theme="dark"] .ch-desc,
+:root[data-theme="dark"] .ch-tr { color:var(--cream-dim) !important; }
+:root[data-theme="dark"] .chip {
+  color:#f3e3d7 !important; border-color:rgba(230,198,111,.28) !important;
+  background:rgba(255,255,255,.05) !important;
+}
+:root[data-theme="dark"] .chip b { color:var(--gilt-hi) !important; }
+:root[data-theme="dark"] .foot-tag { color:var(--cream) !important; }
+:root[data-theme="dark"] .foot-links a,
+:root[data-theme="dark"] .foot-copy a { color:var(--gilt-hi) !important; }
+:root[data-theme="dark"] .foot-links a:hover,
+:root[data-theme="dark"] .foot-copy a:hover { color:#fff !important; }
+:root[data-theme="dark"] .hero-star,
+:root[data-theme="dark"] .hero-emblem { filter:drop-shadow(0 2px 8px rgba(0,0,0,.5)); }
+/* logo plate stays light so the dark-ink wordmark PNG remains legible */
+
+/* ---- raised light surfaces → dark ---- */
+:root[data-theme="dark"] .brandbar-wrap {
+  background:linear-gradient(180deg,#241a15,var(--paper));
+}
+:root[data-theme="dark"] a.toc-card,
+:root[data-theme="dark"] a.matn-card,
+:root[data-theme="dark"] .matn-row,
+:root[data-theme="dark"] .cont-card,
+:root[data-theme="dark"] .prep-card,
+:root[data-theme="dark"] .outline li,
+:root[data-theme="dark"] .ayah-card {
+  background:linear-gradient(180deg,#241b16,#1c1410);
+}
+:root[data-theme="dark"] .toc-num span,
+:root[data-theme="dark"] .medallion .vn,
+:root[data-theme="dark"] .mc-emblem .ord { background:var(--surface-2); }
+:root[data-theme="dark"] .mc-emblem { background:var(--emblem) center/82% no-repeat, var(--paper-2); }
+/* home list rows + continue card */
+:root[data-theme="dark"] .mr-emblem,
+:root[data-theme="dark"] .cont-card .cc-emblem { background:var(--paper-2); }
+:root[data-theme="dark"] .mr-emblem .ord { background:var(--surface-2); }
+:root[data-theme="dark"] .mr-ar { color:var(--lapis-3); }
+:root[data-theme="dark"] .mr-mz { background:var(--surface); }
+:root[data-theme="dark"] .mr-read { color:#1c1410; }
+:root[data-theme="dark"] .mr-prog .bar { background:var(--surface-2); }
+:root[data-theme="dark"] .bm-card { background:linear-gradient(180deg,#241b16,#1c1410); }
+/* illuminated home plates: deep per-matn tinted panels in dark */
+:root[data-theme="dark"] .mr-plate,
+:root[data-theme="dark"] .cont-card {
+  background:radial-gradient(320px 160px at 50% -30%, rgba(255,240,232,.06), transparent 62%),
+             linear-gradient(155deg,var(--pnl-dk-1) 0%, var(--pnl-dk-2) 60%, var(--pnl-dk-3) 100%);
+}
+:root[data-theme="dark"] .mr-plate::after,
+:root[data-theme="dark"] .cont-card::after { border-color:rgba(230,198,111,.22); }
+:root[data-theme="dark"] .mr-ar { color:#f3e3d7; text-shadow:0 1px 10px rgba(0,0,0,.4); }
+:root[data-theme="dark"] .cont-card .cc-lbl { color:var(--gilt-hi); opacity:1; }
+:root[data-theme="dark"] .cont-card .cc-main { color:#f3e3d7; }
+:root[data-theme="dark"] .cont-card .cc-go { color:#1c1410; }
+:root[data-theme="dark"] .app-banner .ab-ar { color:var(--lapis-3); }
+:root[data-theme="dark"] .app-banner .ab-en { color:var(--gilt-hi); }
+:root[data-theme="dark"] .bm-row { border-top-color:var(--paper-edge); }
+:root[data-theme="dark"] .stats-card { background:linear-gradient(180deg,#241a15,var(--paper)); }
+:root[data-theme="dark"] .st::before { background:var(--paper-edge); }
+:root[data-theme="dark"] .st:nth-child(n+3) { border-top-color:var(--paper-edge); }
+:root[data-theme="dark"] .st .ic { background:var(--paper-2); color:#d9b45c; }
+:root[data-theme="dark"] .st .dots i { background:var(--paper-edge); }
+:root[data-theme="dark"] .st .dots i.on { background:#c49a3f; }
+:root[data-theme="dark"] .bm-row .bm-dot { box-shadow:0 0 0 3px #1c1410; }
+:root[data-theme="dark"] .bm-more { border-top-color:var(--paper-edge); }
+/* app "More" sheet */
+:root[data-theme="dark"] .appsheet .as-panel { background:var(--paper-2); }
+:root[data-theme="dark"] .appsheet .as-grip { background:#4a3a30; }
+:root[data-theme="dark"] .appsheet .as-row { border-top-color:var(--paper-edge); }
+:root[data-theme="dark"] .appsheet .as-div { background:var(--paper-edge); }
+:root[data-theme="dark"] .appsheet .as-num,
+:root[data-theme="dark"] .appsheet .as-acts button,
+:root[data-theme="dark"] .appsheet .as-theme button { background:var(--surface); }
+:root[data-theme="dark"] .appsheet .as-theme button.on { background:var(--madder); color:#1c1410; }
+/* The same for the other controls that fill with the accent when on: in dark
+   mode --madder is a light tint, and white text on it does not read. */
+:root[data-theme="dark"] .chnav-item.on .ar,
+:root[data-theme="dark"] .matn-switch .menu-pop a.active,
+:root[data-theme="dark"] .matn-switch .menu-pop a.active .ms-en,
+:root[data-theme="dark"] .noteact .note-save,
+:root[data-theme="dark"] .bm-verse-btn.on,
+:root[data-theme="dark"] .note-verse-btn.on { color:#1c1410; }
+:root[data-theme="dark"] .mc-tag { background:var(--surface-2); }
+:root[data-theme="dark"] .note {
+  background:linear-gradient(180deg,#2a1d18,#241813);
+}
+:root[data-theme="dark"] .status.soon { background:#3a201f; border-color:#5a2f2e; }
+:root[data-theme="dark"] .status.ready { color:#8fce9c; background:#1f2c22; border-color:#33513c; }
+
+/* nav + popovers */
+:root[data-theme="dark"] .navbar { background:rgba(23,17,15,.88); }
+:root[data-theme="dark"] .menu-pop,
+:root[data-theme="dark"] .pill,
+:root[data-theme="dark"] .copy-btn,
+:root[data-theme="dark"] .exp-toggle,
+:root[data-theme="dark"] .navprint,
+:root[data-theme="dark"] .guide-link a { background:var(--surface); }
+:root[data-theme="dark"] .nav-brand { color:var(--madder); }
+:root[data-theme="dark"] .btn-ghost { color:var(--gilt-hi); border-color:rgba(211,121,124,.5); }
+:root[data-theme="dark"] .btn-ghost:hover { background:rgba(211,121,124,.12); }
+
+/* explanation / word-gloss surfaces already ride --paper-2 & --lapis vars */
+
+/* ---- JS-injected panels (memorize, notes, help menu, bookmarks) ---- */
+/* These already use var(--x, fallback) for text/border; only their card
+   backgrounds were literal white, now variable-backed. A few semantic accent
+   colours are lifted for contrast on ink. */
+/* mastery = gilt gold (lifted for dark); learning stays amber; due stays red */
+:root[data-theme="dark"] .mzrate .got { color:#e6c66f; border-color:#5a4a1f; }
+:root[data-theme="dark"] .mzrate .got.on { background:#c49a3f; border-color:#c49a3f; color:#241b10; }
+:root[data-theme="dark"] .verse.mzp-learning .medallion .vn { background:var(--surface-2); color:#d9b45c; box-shadow:0 0 0 1.5px #a8862f; }
+:root[data-theme="dark"] .verse.mzp-mastered .medallion .vn { background:var(--surface-2); box-shadow:0 0 0 1.5px color-mix(in srgb,var(--madder) 80%,#fff); }
+:root[data-theme="dark"] .verse.mzp-due .medallion .vn { background:color-mix(in srgb,var(--madder) 24%,var(--surface-2)); color:color-mix(in srgb,var(--madder) 82%,#fff); box-shadow:0 0 0 1.5px var(--madder); }
+:root[data-theme="dark"] .mzcta.calm { background:#2c2413; color:#e6c66f; }
+:root[data-theme="dark"] .mzactions button.danger,
+:root[data-theme="dark"] .mzbar .mz-rvstart { color:#e58a8a; border-color:#5a2f2e; }
+:root[data-theme="dark"] .bk-note,
+:root[data-theme="dark"] .mzend .big,
+:root[data-theme="dark"] .mzbig small { color:inherit; }
+:root[data-theme="dark"] .mzbarline { background:var(--paper-edge); }
+
+/* Rumūz stay maroon (classical rubrication) — lift for dark.
+   The whole family is pinned in the pages, so every tone needs its lift here,
+   not just .rmz — otherwise the others fall back to a light-mode maroon that is
+   unreadable on the dark paper. */
+:root[data-theme="dark"] .rmz { color:#d98a8d; }
+:root[data-theme="dark"] .hemi .ann::after { color:#d98a8d; }
+:root[data-theme="dark"] .rmz2 { color:#c8797c; }
+:root[data-theme="dark"] .rmz3 { color:#c49a3f; }
+:root[data-theme="dark"] .rmz4 { color:#c06d70; }
+:root[data-theme="dark"] .rmz5 { color:#b76b6e; }
+:root[data-theme="dark"] .rmz6 { color:#bcab9d; }
+:root[data-theme="dark"] .rmz7 { color:#b76b6e; }
+/* a Qurʾānic word quoted inside a bayt — green rather than rubrication red, so
+   it needs its own lift off the dark paper for the same reason as the rest. */
+:root[data-theme="dark"] .qur { color:#7ab894; }
+
+/* per-verse note box */
+:root[data-theme="dark"] .verse-note { background:var(--surface-2); }
+
+/* walkthrough: dark stage + demo chips (revealed / hidden word) */
+:root[data-theme="dark"] .tour-stage { background:linear-gradient(180deg,var(--surface),var(--paper-2)); border-bottom-color:var(--paper-edge); }
+:root[data-theme="dark"] .scene.revealed .m-word { background:var(--surface-2); }
+:root[data-theme="dark"] .scene.revealed .h-w,
+:root[data-theme="dark"] .scene .l-w { background:var(--paper-2); }
+
+/* app-shell top bar + bottom nav */
+:root[data-theme="dark"] .apptop {
+  background:radial-gradient(560px 130px at 50% -40%, rgba(255,240,232,.05), transparent 62%),
+             linear-gradient(160deg,#33201c,#241b16 55%,#1c1410);
+  box-shadow:0 4px 16px rgba(0,0,0,.5);
+}
+:root[data-theme="dark"] .apptop .t { color:var(--gilt-hi); }
+:root[data-theme="dark"] .apptop::after { background:linear-gradient(90deg,transparent,rgba(212,171,79,.45),transparent); }
+:root[data-theme="dark"] .appnav { background:rgba(23,17,15,.98); border-top-color:var(--paper-edge); }
+
+/* Red ink (a print edition's red words) — lighter in dark mode */
+:root[data-theme="dark"] .hemi .seg.rd,
+:root[data-theme="dark"] .hemi .rd { color:#e5836f; }
+
+/* ---- User Guide (guide.html) ----
+   The guide sets its own light palette inline, and two of its surfaces were
+   hard-coded rather than taken from a variable — so in dark mode its section
+   cards stayed white while the text switched to the light-on-dark tones, and
+   the body copy all but vanished. Fixed here, where the rest of dark lives. */
+:root[data-theme="dark"] .gbar { background:rgba(23,17,15,.92); }
+:root[data-theme="dark"] details.g { background:var(--surface); box-shadow:0 4px 14px rgba(0,0,0,.35); }
+:root[data-theme="dark"] .tip { background:var(--surface-2); }
+:root[data-theme="dark"] .rings i { background:var(--surface); }

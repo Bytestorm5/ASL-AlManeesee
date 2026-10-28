@@ -1,0 +1,74 @@
+/* User Guide (src/pages/guide.astro). Dark mode lives in theme.css. */
+:root{
+  --paper:#f9f4ea; --paper-2:#efe3d3; --paper-edge:#e8dcc7;
+  --ink:#3a2a2b; --ink-soft:#6c585a; --madder:#8a4447; --sage:#9c7f80; --gilt:#c0973c; --gilt-deep:#a97b21;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper); color:var(--ink);
+  font-family:"Cormorant Garamond",Georgia,serif; font-size:1.12rem; line-height:1.6;
+  padding:0 0 calc(40px + env(safe-area-inset-bottom,0px)); -webkit-text-size-adjust:100%}
+.wrap{max-width:760px; margin:0 auto; padding:0 20px}
+
+.gbar{position:sticky; top:0; z-index:10; background:rgba(247,242,229,.92);
+  -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); border-bottom:1px solid var(--paper-edge)}
+.gbar-inner{max-width:760px; margin:0 auto; display:flex; align-items:center; gap:12px;
+  padding:calc(env(safe-area-inset-top,0px) + 11px) 20px 11px}
+.gback{display:inline-flex; align-items:center; gap:7px; text-decoration:none; color:var(--madder);
+  font-family:"Montserrat",sans-serif; font-weight:700; font-size:.82rem; -webkit-tap-highlight-color:transparent}
+.gback svg{width:17px; height:17px}
+.gbar .t{font-family:"Cinzel",serif; font-weight:700; color:var(--madder); font-size:1.02rem; letter-spacing:.02em}
+
+header.gh{text-align:center; padding:34px 20px 6px}
+header.gh .eyebrow{font-family:"Montserrat",sans-serif; letter-spacing:.28em; text-transform:uppercase;
+  font-size:.7rem; font-weight:700; color:var(--sage)}
+header.gh h1{font-family:"Cinzel",serif; font-weight:700; color:var(--madder); font-size:clamp(1.7rem,6vw,2.3rem);
+  margin:.25em 0 .1em; text-transform:uppercase; letter-spacing:.02em}
+header.gh p{color:var(--ink-soft); max-width:560px; margin:6px auto 0}
+header.gh .hint{font-family:"Montserrat",sans-serif; font-size:.74rem; font-weight:600; color:var(--sage); margin-top:10px}
+
+/* compact two-column rows — the whole guide is "control → what it does",
+   so it is set as a scannable table rather than paragraphs */
+.rows{margin:6px 0 0}
+.rows > div{display:grid; grid-template-columns:minmax(92px,33%) 1fr; gap:2px 13px;
+  padding:7px 0; border-top:1px solid var(--paper-edge)}
+.rows > div:first-child{border-top:0}
+.rows b{font-family:"Montserrat",sans-serif; font-size:.74rem; font-weight:700; line-height:1.5;
+  color:var(--madder); padding-top:2px}
+.rows span{color:var(--ink-soft); font-size:.97rem; line-height:1.42}
+.rows span i{font-style:normal; color:var(--sage)}
+.lede{color:var(--ink-soft); font-size:.95rem; margin:2px 0 4px}
+
+/* collapsible sections */
+details.g{border:1px solid var(--paper-edge); border-radius:14px; background:#fff; margin:12px 0 0;
+  overflow:hidden; box-shadow:0 4px 14px rgba(94,44,48,.04)}
+details.g > summary{list-style:none; cursor:pointer; display:flex; align-items:center; gap:11px; padding:15px 16px;
+  font-family:"Cinzel",serif; font-weight:600; text-transform:uppercase; letter-spacing:.03em; font-size:1.0rem;
+  color:var(--madder); -webkit-tap-highlight-color:transparent}
+details.g > summary::-webkit-details-marker{display:none}
+details.g > summary .ic{flex:0 0 auto; width:30px; height:30px; border-radius:50%; display:grid; place-items:center;
+  background:var(--paper); border:1px solid var(--paper-edge); color:var(--madder)}
+details.g > summary .ic svg{width:17px; height:17px}
+details.g > summary .sm-t{flex:1 1 auto}
+details.g > summary .chev{flex:0 0 auto; color:var(--sage); font-size:1.35rem; line-height:1; transition:transform .2s}
+details.g[open] > summary .chev{transform:rotate(90deg)}
+details.g[open] > summary{border-bottom:1px solid var(--paper-edge)}
+.g-body{padding:8px 18px 18px}
+.g-body h3{font-family:"Cormorant Garamond",serif; font-weight:700; color:var(--ink); font-size:1.16rem; margin:15px 0 2px}
+.g-body h3:first-child{margin-top:8px}
+.g-body p{margin:6px 0}
+.g-body ul{margin:6px 0; padding-left:1.1em}
+.g-body li{margin:5px 0}
+.pill{display:inline-block; font-family:"Montserrat",sans-serif; font-size:.72rem; font-weight:700;
+  color:var(--madder); background:var(--paper); border:1px solid var(--paper-edge); border-radius:20px;
+  padding:2px 10px; white-space:nowrap}
+.tip{font-family:"Montserrat",sans-serif; font-size:.82rem; color:var(--ink-soft);
+  background:#fbf7ee; border-left:3px solid var(--gilt); border-radius:8px; padding:10px 13px; margin-top:12px}
+.rings{display:flex; flex-wrap:wrap; gap:8px 16px; margin:8px 0;
+  font-family:"Montserrat",sans-serif; font-size:.8rem; font-weight:600; color:var(--ink-soft)}
+.rings span{display:inline-flex; align-items:center; gap:7px}
+.rings i{width:15px; height:15px; border-radius:50%; background:#fff; flex:0 0 auto}
+.divider{height:1px; background:var(--paper-edge); margin:26px 0 0}
+footer.gf{text-align:center; color:var(--sage); font-family:"Montserrat",sans-serif;
+  font-size:.78rem; margin-top:30px}
+footer.gf a{color:var(--madder)}

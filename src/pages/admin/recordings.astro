@@ -1,0 +1,157 @@
+---
+/* Recitation Manager (/admin/recordings): browse, listen to and delete the
+   uploaded recordings, edit the reciter list, and bulk-upload a ZIP of a
+   reciter's abyāt. The three are tabs, so only one list is ever on screen. */
+import AdminLayout from '../../layouts/AdminLayout.astro';
+---
+<AdminLayout title="Recitation Manager" back>
+<div class="card">
+  <h1>Recitation Manager</h1>
+  <p class="sub">Browse, listen to, and delete uploaded recitations, and manage the reciter list.</p>
+
+  <div id="gate">
+    <label for="pw">Password</label>
+    <div style="display:flex; gap:10px">
+      <input type="password" id="pw" style="flex:1; min-width:0" placeholder="Password" autocomplete="current-password">
+      <button class="btn-main" id="unlock">Unlock</button>
+    </div>
+    <div class="msg err" id="gateMsg"></div>
+  </div>
+
+  <div id="app" class="hidden">
+    <div class="tabs">
+      <button id="tabRec" class="active">Recordings</button>
+      <button id="tabReci">Reciters</button>
+      <button id="tabBulk">Bulk Upload</button>
+    </div>
+
+    <!-- Recordings -->
+    <section id="secRec">
+      <div class="toolbar">
+        <div>
+          <label for="poem">Matn</label>
+          <select id="poem"></select>
+        </div>
+        <div>
+          <label for="bayt">Bayt (optional)</label>
+          <input type="number" id="bayt" min="1" style="width:120px" placeholder="all">
+        </div>
+        <button class="btn-main" id="load">Load</button>
+      </div>
+      <div class="bulkbar hidden" id="recBulkBar">
+        <label><input type="checkbox" id="recSelAll">Select all</label>
+        <span class="cnt" id="recSelCount"></span>
+        <button class="btn-del" id="recDelSel" disabled>Delete selected</button>
+      </div>
+      <div id="recList"></div>
+      <div class="msg" id="recMsg"></div>
+    </section>
+
+    <!-- Reciters -->
+    <section id="secReci" class="hidden">
+      <div id="reciList"></div>
+      <div class="rrow" style="border-top:0; margin-top:6px">
+        <input class="id" id="newId" placeholder="id (e.g. abu-bakr)">
+        <input class="nm" id="newName" placeholder="Display name (e.g. Sheikh Abū Bakr)">
+        <button class="btn-ghost" id="addReci">Add</button>
+      </div>
+      <div class="hint">The id becomes the folder name in storage (lower-case, letters/numbers/hyphens). Names may be Arabic.</div>
+      <button class="btn-main" id="saveReci" style="margin-top:16px">Save reciter list</button>
+      <div class="msg" id="reciMsg"></div>
+    </section>
+
+    <!-- Bulk upload -->
+    <section id="secBulk" class="hidden">
+      <p class="hint" style="margin-top:0">Pick a ZIP of audio files named by bayt number — e.g. <code>1.mp3</code>,
+        <code>001.mp3</code>, <code>002.ogg</code> (leading zeros and sub-folders inside the ZIP are fine; anything
+        else in the filename is ignored). Each file is uploaded as that bayt's recording for the reciter below.</p>
+      <div class="toolbar">
+        <div>
+          <label for="bulkPoem">Matn</label>
+          <select id="bulkPoem"></select>
+        </div>
+        <div>
+          <label for="bulkReciter">Reciter</label>
+          <select id="bulkReciter"><option value="">— add a reciter first —</option></select>
+        </div>
+        <div>
+          <label for="bulkZip">ZIP file</label>
+          <input type="file" id="bulkZip" accept=".zip,application/zip">
+        </div>
+      </div>
+      <div id="bulkPreview"></div>
+      <button class="btn-main hidden" id="bulkUpload" style="margin-top:14px">Upload</button>
+      <div class="msg" id="bulkMsg"></div>
+    </section>
+  </div>
+</div>
+
+<style is:global>
+  :root{--madder:#8a4447; --madder-deep:#5e2c30; --cream:#faf6ec; --edge:#e8dcc7; --ink:#3a2a2b; --ok:#2e6b46; --muted:#7a6a6b}
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--cream); color:var(--ink);
+       font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       padding:28px 16px; display:flex; justify-content:center}
+  .card{width:100%; max-width:820px; background:#fff; border:1px solid var(--edge); border-radius:18px;
+        box-shadow:0 8px 30px rgba(94,44,48,.08); padding:26px 24px}
+  h1{margin:0 0 4px; font-size:1.35rem; color:var(--madder-deep)}
+  .sub{margin:0 0 20px; color:var(--muted); font-size:.9rem}
+  label{display:block; font-weight:600; font-size:.88rem; margin:14px 0 6px}
+  input, select{padding:9px 11px; border:1px solid var(--edge); border-radius:10px; font:inherit; background:#fffdf8; color:var(--ink)}
+  input:focus, select:focus{outline:2px solid var(--madder); outline-offset:1px}
+  button{font:inherit; font-weight:600; border:0; border-radius:999px; padding:9px 18px; cursor:pointer}
+  .btn-main{background:var(--madder); color:#fff}
+  .btn-main:disabled{opacity:.5; cursor:default}
+  .btn-ghost{background:#f3ece0; color:var(--madder-deep)}
+  .btn-del{background:#fbeaea; color:#a02a2a; padding:7px 14px}
+  .tabs{display:flex; gap:8px; margin:0 0 18px; flex-wrap:wrap}
+  .tabs button{background:#f3ece0; color:var(--madder-deep); flex:0 0 auto}
+  .tabs button.active{background:var(--madder); color:#fff}
+  .toolbar{display:flex; gap:10px; align-items:flex-end; flex-wrap:wrap}
+  .toolbar > div{display:flex; flex-direction:column; min-width:0; max-width:100%}
+  .grp{border:1px solid var(--edge); border-radius:12px; margin-top:14px; overflow:hidden}
+  .grp > h3{margin:0; padding:10px 14px; background:#f6efe2; font-size:.95rem; color:var(--madder-deep)}
+  .rec{display:flex; gap:12px; align-items:center; padding:10px 14px; border-top:1px solid #f0e7d6; flex-wrap:wrap}
+  .rec .who{font-weight:600; min-width:150px}
+  .rec .meta{color:var(--muted); font-size:.8rem}
+  .rec audio{height:34px; flex:1 1 220px; min-width:180px}
+  .msg{margin-top:14px; padding:10px 12px; border-radius:10px; font-size:.9rem; display:none}
+  .msg.err{display:block; background:#fbeaea; color:#8a2a2a}
+  .msg.err:empty{display:none}   /* no error yet: no empty pink bar under Unlock */
+  .msg.ok{display:block; background:#e8f3ec; color:var(--ok)}
+  .empty{color:var(--muted); padding:18px 4px; font-size:.92rem}
+  .empty code{background:#f3ece0; border-radius:4px; padding:1px 5px; font-size:.85em}
+  .rrow{display:flex; gap:10px; align-items:center; padding:8px 0; border-top:1px solid #f0e7d6}
+  .rrow input{min-width:0}
+  .rrow input.id{width:170px; flex:0 1 170px; font-family:ui-monospace,Menlo,Consolas,monospace}
+  .rrow input.nm{flex:1}
+  /* on a phone the id takes its own line, so the name keeps a usable width */
+  @media (max-width:520px){ .rrow{flex-wrap:wrap} .rrow input.id{flex:1 1 100%; width:auto} }
+  .bulkbar{display:flex; align-items:center; gap:14px; margin:14px 0 2px; flex-wrap:wrap}
+  .bulkbar label{display:flex; align-items:center; gap:7px; font-weight:600; font-size:.88rem; margin:0; cursor:pointer}
+  .bulkbar .cnt{color:var(--muted); font-size:.85rem}
+  .bulkbar .btn-del{margin-left:auto}
+  .bulkbar .btn-del:disabled{opacity:.5; cursor:default}
+  .rec .chk{flex:0 0 auto; width:17px; height:17px; margin:0; accent-color:var(--madder)}
+  .hidden{display:none}
+  .hint{font-size:.8rem; color:var(--muted); margin-top:4px}
+  .hint code{background:#f3ece0; border-radius:4px; padding:1px 5px; font-size:.85em}
+  .bsum{font-size:.85rem; color:var(--muted); margin:14px 0 4px}
+  .brow{display:flex; gap:10px; align-items:center; padding:7px 0; border-top:1px solid #f0e7d6; font-size:.9rem}
+  .brow .bayt{font-weight:600; min-width:70px; flex:0 0 auto}
+  .brow .fname{flex:1 1 auto; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:var(--muted)}
+  .brow .fsize{flex:0 0 auto; color:var(--muted); font-size:.82rem; min-width:56px; text-align:right}
+  .brow .bstat{flex:0 0 auto; min-width:80px; text-align:right; font-size:.82rem; font-weight:600}
+  .brow .bstat[data-s="pending"]{color:var(--muted)}
+  .brow .bstat[data-s="up"]{color:var(--madder)}
+  .brow .bstat[data-s="ok"]{color:var(--ok)}
+  .brow .bstat[data-s="err"]{color:#a02a2a}
+  .bskip{opacity:.6}
+  .bskip .fname{color:#a02a2a}
+  /* the files a ZIP could not match fold away under the matched list, so two
+     long lists are never stacked one after the other */
+  .bskipped{margin-top:10px; border-top:1px solid #f0e7d6}
+  .bskipped summary{cursor:pointer; padding:8px 0; font-size:.85rem; font-weight:600; color:var(--madder-deep)}
+</style>
+<script>import '../../client/admin/recordings.ts';</script>
+</AdminLayout>

@@ -1,0 +1,132 @@
+---
+/* Home — the collection's landing page and, in the installed app, its home
+   screen (src/client/app-shell.ts swaps the hero for an app bar and adds the
+   bottom tabs). The matn list is built here from the registry; progress,
+   bookmarks and "Continue" are filled in on the device by src/client/home.ts.
+   Until a matn is listed the page shows a calm "being prepared" card instead
+   of the list. */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Brandbar from '../components/Brandbar.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { SITE } from '../config/site.ts';
+import { listedPoems, poemHref } from '../client/page.ts';
+import { bootSplash, inlineBoot } from '../client/boot.ts';
+import { runSplash } from '../client/splash.ts';
+import '../styles/home.css';
+import '../styles/theme.css';
+
+const poems = listedPoems();
+const count = poems.length;
+const abyat = poems.reduce((s, p) => s + p.verses, 0);
+const collection = SITE.collection.en.replace(/^The /, '');
+const orgHost = SITE.org.url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+
+/* "Six Texts, One Path", counted from the registry. */
+const WORDS = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve'];
+const heading = count === 1 ? 'One Text to Begin' : `${WORDS[count] ?? count} Texts, One Path`;
+
+const rows = poems.map((p, i) => ({
+  p,
+  ord: i + 1,
+  meta: [p.author?.name, `${p.verses} abyāt`, p.subject].filter(Boolean).join(' · '),
+}));
+---
+<BaseLayout boot={[bootSplash]}>
+<link slot="head" rel="preload" as="image" href="/brand/emblem.png">
+<a id="top"></a>
+<div id="boot" aria-hidden="true"><div class="boot-wrap"><canvas id="bootfx"></canvas><i class="boot-star"></i></div></div>
+<script is:inline set:html={inlineBoot(runSplash)}></script>
+<Brandbar />
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">{SITE.collection.eyebrow}</div>
+    <h1 class="ar">{SITE.collection.ar}</h1>
+    <div class="romantitle">{SITE.collection.en}</div>
+    <div class="subtitle">{SITE.collection.description}</div>
+    <div class="rule"><i></i><b>۞</b><i></i></div>
+    <div class="meta-chips">
+      {count > 0 ? (
+        <>
+          <span class="chip"><b>{count}</b> {count === 1 ? 'matn' : 'mutūn'}</span>
+          <span class="chip"><b>{abyat}</b> abyāt</span>
+          <span class="chip">Read &amp; memorize</span>
+        </>
+      ) : (
+        <span class="chip">Collection in preparation</span>
+      )}
+    </div>
+  </div>
+</header>
+
+<section class="section home-main">
+  <div class="app-banner" aria-hidden="true">
+    <div class="ab-ar">{SITE.collection.ar}</div>
+    <div class="ab-en">{SITE.collection.en}</div>
+    <div class="ab-rule"><i></i><b>۞</b><i></i></div>
+  </div>
+  {count > 0 ? (
+    <>
+      <div id="contWrap" aria-live="polite"></div>
+      <div id="statsWrap" aria-label="Your study statistics"></div>
+      <div id="bmWrap"></div>
+      <div class="sec-head">
+        <div class="lbl">{SITE.collection.en}</div>
+        <h2>{heading}</h2>
+        <p>Begin where you are. Open a matn to read it — or go straight into Memorize mode.</p>
+      </div>
+      <div class="matn-list">
+        {rows.map(({ p, ord, meta }) => (
+          <div class={`matn-row m-${p.accent}`} data-poem={p.id} data-total={p.verses}>
+            <a class="mr-plate" href={poemHref(p.id)} aria-label={`Open ${p.titleEn}`}>
+              <span class="mr-emblem" role="img" aria-hidden="true"><span class="ord">{ord}</span></span>
+              <span class="mr-ar">{p.shortAr}</span>
+            </a>
+            <div class="mr-body">
+              <a class="mr-en" href={poemHref(p.id)}>{p.titleEn}</a>
+              <span class="mr-meta">{meta}</span>
+              <span class="mr-prog" hidden><span class="bar"><i></i></span><span class="pct"></span></span>
+              <span class="mr-goal" hidden></span>
+              <span class="mr-acts">
+                <a class="mr-btn mr-read" href={poemHref(p.id, { mode: 'read' })}>Read</a>
+                <a class="mr-btn mr-mz" href={poemHref(p.id, { mode: 'memorize' })}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4 2 9l10 5 10-5-10-5z"/><path d="M5 11.2V16c0 1.6 3.1 3 7 3s7-1.4 7-3v-4.8"/></svg>Memorize</a>
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
+  ) : (
+    <div class="prep">
+      <div class="prep-card">
+        <div class="prep-emblem" role="img" aria-hidden="true"></div>
+        <div class="lbl">In preparation</div>
+        <h3>The collection is being prepared</h3>
+        <p>The first texts are being edited and checked. Each one will appear here, ready to read and to memorize, as soon as it is published.</p>
+      </div>
+    </div>
+  )}
+  <div class="guide-link"><a href="/guide">📖 New here? Read the User Guide →</a></div>
+</section>
+
+<section class="section" id="texts">
+  <div class="prose" style="text-align:center">
+    <p>A <b>matn</b> (plural <b>mutūn</b>) is a foundational source text, set down in didactic verse or in prose, in which scholars distilled the essentials of a science so that it could be studied, transmitted, and often committed to memory. Each text in this collection is presented chapter by chapter and bayt by bayt, with its meaning, so that it can be read, understood and learned by heart.</p>
+  </div>
+</section>
+
+<section class="ayah" aria-label="Sūrat Ibrāhīm, verse 24">
+  <div class="ayah-card">
+    <svg class="ayah-sprout" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 22V8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M12 13.2c0-3.1 2.5-5.6 5.6-5.6C17.6 10.7 15.1 13.2 12 13.2Z" fill="currentColor" opacity=".9"/><path d="M12 11.4C12 8.3 9.5 5.8 6.4 5.8 6.4 8.9 8.9 11.4 12 11.4Z" fill="currentColor" opacity=".9"/><path d="M8.5 22h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    <div class="ayah-ar">أَلَمْ تَرَ كَيْفَ ضَرَبَ ٱللَّهُ مَثَلًا كَلِمَةً طَيِّبَةً كَشَجَرَةٍ طَيِّبَةٍ <span class="root">أَصْلُهَا</span> ثَابِتٌ وَفَرْعُهَا فِى ٱلسَّمَآءِ</div>
+    <div class="ayah-en">“Do you not see how Allah compares a good word to a good tree? Its root is firm and its branches reach the sky.”</div>
+    <div class="ayah-ref">Sūrat Ibrāhīm · 14 : 24</div>
+    <div class="ayah-tie"><b>al-Asl</b>, <span class="ar">الأَصْل</span>, “the root.” A good word, firmly rooted and flourishing upward, the spirit in which these mutūn are offered.</div>
+  </div>
+</section>
+
+<SiteFooter credit={`The al-Asl ${collection}`} showStores />
+<div class="print-only print-footer">{orgHost}&nbsp;&nbsp;·&nbsp;&nbsp;{SITE.org.name}&nbsp;·&nbsp;{collection}</div>
+
+<script>import '../client/entries/home.ts';</script>
+</BaseLayout>

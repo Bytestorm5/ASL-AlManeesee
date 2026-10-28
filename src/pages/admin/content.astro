@@ -1,0 +1,221 @@
+---
+/* The Content Editor — everything that sits under a bayt: its translations,
+   its explanation and (for a matn registered with `qiraat: true`) its
+   qirāʾāt cards, plus the per-bayt switches that show or hide each of them.
+   The matn pills come from the registry, drafts included; the logic is in
+   src/client/admin/content-editor.ts. */
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import { ALL_POEMS } from '../../poems/index.ts';
+---
+<AdminLayout title="Content Editor">
+<div class="card">
+  <a href="/admin" style="display:inline-block;margin:0 0 10px;font-size:.82rem;font-weight:600;color:#8a4447;text-decoration:none">← Admin</a>
+  <h1>Content Editor</h1>
+  <p class="sub">Everything that sits <em>under</em> a bayt: its translations and its explanation. Pick a matn,
+    pick which of them you are working on, then switch a bayt on or off for readers and write or correct its text.
+    A switch that is off hides that one thing from the reading page — the verse itself is untouched.
+    (The verse text is edited in the <a href="/admin/editor" style="color:#8a4447">Bayt Editor</a>.)</p>
+
+  {ALL_POEMS.length === 0 ? (
+    <div class="msg warn" id="noPoems">
+      No matn is registered yet, so there is nothing to edit.
+      Add one to <code>src/poems/registry.ts</code> and deploy, then import its text at <a href="/admin/import" style="color:inherit;font-weight:600">/admin/import</a>.
+    </div>
+  ) : (
+  <>
+  <!-- step 1: password -->
+  <div id="gate">
+    <label class="field" for="pw">Password</label>
+    <input type="password" id="pw" autocomplete="current-password" placeholder="Admin password">
+    <button class="btn-main" id="unlock">Unlock</button>
+    <div class="msg" id="gateMsg"></div>
+  </div>
+
+  <!-- step 2: the editor -->
+  <div id="editor" class="hidden">
+    <div class="toolbar bar">
+      <span class="bar-label">Matn</span>
+      {ALL_POEMS.map((p) => (
+        <button type="button" class="pill small poem" data-poem={p.id} title={p.draft ? `${p.titleEn} — draft, not listed for readers yet` : p.titleEn}>
+          {p.shortEn}{p.draft && <span class="dr"> (draft)</span>}
+        </button>
+      ))}
+    </div>
+    <div class="toolbar bar">
+      <span class="bar-label">Editing</span>
+      <span id="trackPills"></span>
+      <span class="ed-note hidden" id="trackNote">The explanation and the qirāʾāt cards share one switch per bayt.</span>
+    </div>
+
+    <div class="toolbar">
+      <input class="grow" type="search" id="search" inputmode="numeric" placeholder="Find a bayt number…">
+      <button type="button" class="pill active small filt" data-f="all">All</button>
+      <button type="button" class="pill small filt" data-f="on">Shown</button>
+      <button type="button" class="pill small filt" data-f="off">Hidden</button>
+      <button type="button" class="pill small filt" data-f="has">Written</button>
+      <button type="button" class="pill small filt" data-f="none">Blank</button>
+    </div>
+    <div class="toolbar" style="margin-top:0">
+      <button type="button" class="pill small" id="showAll">Show all</button>
+      <button type="button" class="pill small" id="hideAll">Hide all</button>
+      <span class="ed-note">Applies to the bayts currently listed.</span>
+    </div>
+    <p class="count" id="count"></p>
+
+    <div class="list" id="list"></div>
+
+    <div class="savebar">
+      <button class="btn-main" id="save" style="margin-top:0" disabled>Save changes</button>
+      <p class="dirty-note" id="dirtyNote">You have unsaved changes.</p>
+      <div class="msg" id="msg"></div>
+    </div>
+  </div>
+  </>
+  )}
+</div>
+
+<style is:global>
+  @font-face{font-family:'Scheherazade New';font-weight:400;font-display:swap;src:url("/fonts/ScheherazadeNew.woff2") format("woff2")}
+  @font-face{font-family:'Scheherazade New';font-weight:700;font-display:swap;src:url("/fonts/ScheherazadeNewB.woff2") format("woff2")}
+  @font-face{font-family:'Noto Nastaliq Urdu';font-weight:400;font-display:swap;src:url("/fonts/NotoNastaliqUrdu.woff2") format("woff2")}
+  :root{--madder:#8a4447; --madder-deep:#5e2c30; --cream:#faf6ec; --edge:#e8dcc7; --ink:#3a2a2b;
+        --ok:#2e6b46; --warn:#9a6a14; --paper:#f7f2e5; --paper-2:#fffdf8}
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--cream); color:var(--ink);
+       font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       min-height:100vh; display:flex; align-items:flex-start; justify-content:center; padding:32px 16px}
+  .card{width:100%; max-width:860px; background:#fff; border:1px solid var(--edge); border-radius:18px;
+        box-shadow:0 8px 30px rgba(94,44,48,.08); padding:28px 26px}
+  h1{margin:0 0 4px; font-size:1.35rem; color:var(--madder-deep)}
+  .sub{margin:0 0 22px; color:#7a6a6b; font-size:.92rem}
+  label.field{display:block; font-weight:600; font-size:.9rem; margin:16px 0 6px}
+  input[type=password], input[type=search], input[type=text], input[type=number], textarea, select{
+    width:100%; padding:10px 12px; border:1px solid var(--edge); border-radius:10px;
+    font:inherit; background:var(--paper-2); color:var(--ink)}
+  textarea{min-height:76px; resize:vertical; line-height:1.6}
+  input:focus, textarea:focus, select:focus, [contenteditable]:focus{outline:2px solid var(--madder); outline-offset:1px}
+  button{font:inherit; font-weight:600; border:0; border-radius:999px; padding:11px 22px; cursor:pointer}
+  .btn-main{background:var(--madder); color:#fff; width:100%; margin-top:20px}
+  .btn-main:disabled{opacity:.5; cursor:default}
+  .msg{margin-top:14px; padding:10px 12px; border-radius:10px; font-size:.9rem; display:none}
+  .msg.err{display:block; background:#fbeaea; color:#8a2a2a}
+  .msg.ok{display:block; background:#e8f3ec; color:var(--ok)}
+  .msg.warn{display:block; background:#fdf3e0; color:var(--warn)}
+  .hidden{display:none !important}
+
+  /* pills / toolbars */
+  .toolbar{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:6px 0 12px}
+  .toolbar .grow{flex:1 1 160px; min-width:140px; margin:0}
+  .pill{padding:8px 14px; border-radius:999px; background:var(--paper); color:var(--madder-deep);
+    border:1px solid var(--edge); font-size:.85rem; cursor:pointer}
+  .pill.active{background:var(--madder); color:#fff; border-color:var(--madder)}
+  .pill.small{padding:7px 12px; font-size:.8rem}
+  .pill:disabled{opacity:.4; cursor:default}
+  .pill .dr{font-weight:400; opacity:.8}
+  .bar{border-bottom:1px solid var(--edge); padding-bottom:14px; margin-bottom:14px}
+  .bar-label{font-size:.85rem; color:#7a6a6b; font-weight:700; margin-right:2px}
+  .count{font-size:.85rem; color:#7a6a6b; margin:0 0 10px}
+  .count b{color:var(--madder-deep)}
+
+  /* rows */
+  .list{max-height:62vh; overflow:auto; border:1px solid var(--edge); border-radius:12px; background:var(--paper-2)}
+  .row{border-bottom:1px solid #f0e7d6}
+  .row:last-child{border-bottom:0}
+  .rowhead{display:flex; align-items:center; gap:12px; padding:9px 14px}
+  .rowhead .n{flex:0 0 auto; font-size:.92rem; min-width:74px}
+  .rowhead .n b{color:var(--madder-deep)}
+  .prev{flex:1 1 auto; min-width:0; font-size:.85rem; color:#8a7a7a; white-space:nowrap;
+    overflow:hidden; text-overflow:ellipsis}
+  .prev.blank{color:#b8a04a; font-style:italic}
+  .prev.ar{font-family:'Scheherazade New',serif; font-size:1.05rem; direction:rtl; text-align:right}
+  .prev.ur{font-family:'Noto Nastaliq Urdu',serif; font-size:.95rem; direction:rtl; text-align:right}
+  .edit-b{flex:0 0 auto; background:transparent; color:var(--madder); border:1px solid var(--edge);
+    border-radius:999px; padding:5px 12px; font-size:.78rem}
+  .edit-b:hover{border-color:var(--madder)}
+  .row.open .edit-b{background:var(--madder); color:#fff; border-color:var(--madder)}
+  .row.open{background:#fffaf0}
+
+  /* switch */
+  .sw{position:relative; flex:0 0 auto; width:44px; height:26px; display:inline-block}
+  .sw input{position:absolute; opacity:0; width:100%; height:100%; margin:0; cursor:pointer}
+  .sw .track{position:absolute; inset:0; background:#d8ccb6; border-radius:999px; transition:background .15s}
+  .sw .knob{position:absolute; top:3px; left:3px; width:20px; height:20px; background:#fff; border-radius:50%;
+    box-shadow:0 1px 3px rgba(0,0,0,.25); transition:left .15s}
+  .sw input:checked + .track{background:var(--ok)}
+  .sw input:checked + .track + .knob{left:21px}
+  .sw input:focus-visible + .track{outline:2px solid var(--madder); outline-offset:2px}
+  .sw input:disabled{cursor:not-allowed}
+  .sw input:disabled + .track{opacity:.45}
+  .empty{padding:20px 14px; text-align:center; color:#a58f8f; font-size:.9rem}
+
+  /* editors */
+  .ed{padding:4px 14px 16px; border-top:1px dashed var(--edge)}
+  /* The bayt being edited, for orientation. Scheherazade, because the verse
+     carries the muṣḥaf marks and the UI font draws those as empty boxes. */
+  .ed .hint{font-size:1.05rem; color:#8a7a7a; margin:8px 0; direction:rtl; text-align:right;
+    font-family:'Scheherazade New',serif; line-height:1.8}
+  .ed .hint .bn{font-family:inherit; font-size:.78rem; color:#a58f8f}
+  .langtabs{display:inline-flex; gap:2px; background:var(--paper); border:1px solid var(--edge);
+    border-radius:9px; padding:2px; margin:10px 0 8px}
+  .langtabs button{font-size:.72rem; font-weight:700; color:#6c585a; background:transparent;
+    border:0; border-radius:7px; padding:4px 12px; line-height:1.25}
+  .langtabs button.on{background:var(--madder); color:#fff}
+  .langtabs button .dot{display:inline-block; width:5px; height:5px; border-radius:50%;
+    background:var(--ok); margin-inline-start:5px; vertical-align:middle}
+  .langtabs button.on .dot{background:#fff}
+  .rt-tools{display:flex; flex-wrap:wrap; gap:5px; margin-bottom:6px}
+  .rt-tools button{font-size:.74rem; font-weight:700; padding:5px 10px; border-radius:8px;
+    background:var(--paper); border:1px solid var(--edge); color:var(--madder-deep)}
+  .rt-tools button:hover{border-color:var(--madder)}
+  .rt{min-height:120px; padding:12px 14px; border:1px solid var(--edge); border-radius:10px;
+    background:var(--paper-2); line-height:1.6}
+  .rt p{margin:0 0 10px}
+  .rt p:last-child{margin-bottom:0}
+  .rt b{color:var(--madder)}
+  .rt i{font-style:italic}
+  .rt .ar{color:var(--madder); font-family:'Scheherazade New',serif; font-size:1.15em}
+  .rt .ur{font-family:'Noto Nastaliq Urdu',serif; line-height:2.05}
+  .rt .qline{text-align:center; font-size:1.15em; margin:10px 0}
+  .rt[dir=rtl]{text-align:right}
+  .rt.lang-ur{font-family:'Noto Nastaliq Urdu',serif; line-height:2.2}
+  .rt.lang-ar{font-family:'Scheherazade New',serif; font-size:1.2rem; line-height:1.9}
+  textarea.ta-ur{font-family:'Noto Nastaliq Urdu',serif; line-height:2.2; direction:rtl; text-align:right}
+  textarea.ta-ar{font-family:'Scheherazade New',serif; font-size:1.2rem; direction:rtl; text-align:right}
+  .ed-actions{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:10px}
+  .ed-note{font-size:.78rem; color:#8a7a7a}
+
+  /* qirāʾāt card forms */
+  .qc{border:1px solid var(--edge); border-radius:12px; padding:12px 13px; margin:10px 0; background:var(--paper-2)}
+  .qc-head{display:flex; align-items:center; gap:8px; margin-bottom:8px}
+  .qc-badge{font-size:.6rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+    color:#fff; background:var(--madder); border-radius:6px; padding:2px 8px}
+  .qc-badge.rule{background:#9a7526}
+  .qc-head .sp{margin-inline-start:auto}
+  .grp{border-inline-start:2px solid var(--edge); padding-inline-start:10px; margin:8px 0}
+  .grp > .glabel{font-size:.72rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+    color:#8a7a7a; margin-bottom:4px}
+  .f{margin:7px 0}
+  .f > label{display:block; font-size:.75rem; font-weight:700; color:#6c585a; margin-bottom:3px}
+  .f3{display:grid; grid-template-columns:26px 1fr; gap:5px 7px; align-items:center}
+  .f3 .tag{font-size:.65rem; font-weight:700; color:#8a7a7a; text-align:center}
+  .f3 input[dir=rtl]{font-family:'Scheherazade New',serif; font-size:1.1rem}
+  .f3 input.u{font-family:'Noto Nastaliq Urdu',serif; font-size:.95rem}
+  .mini{padding:6px 12px; font-size:.75rem; border-radius:8px; background:var(--paper);
+    border:1px solid var(--edge); color:var(--madder-deep); font-weight:700}
+  .mini.danger{color:#8a2a2a}
+  .mini:hover{border-color:var(--madder)}
+  .chk{display:inline-flex; align-items:center; gap:6px; font-size:.8rem; font-weight:600; color:#6c585a}
+  .chk input{width:auto}
+
+  .savebar{position:sticky; bottom:0; background:#fff; padding-top:14px; margin-top:4px}
+  .dirty-note{font-size:.82rem; color:#8a2a2a; margin:8px 0 0; display:none}
+  .dirty-note.show{display:block}
+  @media (max-width:640px){
+    body{padding:16px 8px}
+    .card{padding:20px 14px}
+    .rowhead{flex-wrap:wrap}
+    .prev{flex-basis:100%; order:3}
+  }
+</style>
+<script>import '../../client/admin/content-editor.ts';</script>
+</AdminLayout>

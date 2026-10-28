@@ -1,0 +1,32 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "asl-almaneesee",
+  "main": "src/worker/index.ts",
+  "compatibility_date": "2026-10-20",
+  "upload_source_maps": true,
+  "observability": { "enabled": true },
+
+  /* The site is static (Astro builds it into dist/). Only the API and the
+     recordings run the worker; every other request is served straight from
+     the assets, with dist/_headers and dist/_redirects applied. */
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*", "/media/*"]
+  },
+
+  /* Everything stored: verse data, switches, recordings, the reciter list.
+     Create it once with: npx wrangler r2 bucket create asl-almaneesee */
+  "r2_buckets": [
+    { "binding": "STORE", "bucket_name": "asl-almaneesee" }
+  ],
+
+  /* The development fixture matn is compiled out of production builds;
+     `npm run dev:example` turns it on with --define. */
+  "define": { "__INCLUDE_EXAMPLE__": "false" }
+
+  /* Secrets (not in this file): ADMIN_PASSWORD — npx wrangler secret put ADMIN_PASSWORD
+     Locally they come from .dev.vars (see .dev.vars.example). */
+}

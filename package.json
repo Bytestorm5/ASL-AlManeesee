@@ -1,0 +1,42 @@
+{
+  "name": "asl-almaneesee",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "description": "al-Asl mut\u016bn reader: Astro static site + Hono API on Cloudflare Workers (R2 storage).",
+  "engines": {
+    "node": ">=22.23.4"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.ts",
+    "dev:example": "MUTUN_EXAMPLE=1 node scripts/dev.ts",
+    "build": "astro build",
+    "preview": "astro build && wrangler dev",
+    "preview:example": "MUTUN_EXAMPLE=1 astro build && wrangler dev --define __INCLUDE_EXAMPLE__:true",
+    "seed:example": "node scripts/seed-example.ts",
+    "deploy": "astro build && wrangler deploy",
+    "types": "wrangler types",
+    "check": "wrangler types && astro check && tsc -p src/worker && tsc -p src/sw && tsc -p tests && tsc -p scripts",
+    "test": "wrangler types && vitest run",
+    "test:e2e": "node scripts/e2e.ts",
+    "pdf": "node scripts/generate-pdfs.ts"
+  },
+  "dependencies": {
+    "astro": "^7.4.2",
+    "hono": "^4.13.14"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "@cloudflare/vitest-plugin": "^1.4.9",
+    "@types/node": "^22.20.5",
+    "esbuild": "^0.28.2",
+    "playwright": "^1.63.0",
+    "typescript": "^6.0.2",
+    "vitest": "^4.1.12",
+    "wrangler": "^4.154.0"
+  },
+  "allowScripts": {
+    "esbuild": true,
+    "workerd": true
+  }
+}

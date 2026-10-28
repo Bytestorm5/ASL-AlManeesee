@@ -1,0 +1,152 @@
+---
+/* The User Guide. Keep it in sync with what the app does: whenever a
+   reader-facing feature is added, changed or removed, update this page in
+   the same change (see CLAUDE.md). The list of mutūn comes from the registry. */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE, siteHost } from '../config/site.ts';
+import { listedPoems } from '../client/page.ts';
+import '../styles/guide.css';
+import '../styles/theme.css';
+
+const poems = listedPoems();
+const eyebrow = `al-Asl · ${SITE.collection.en}`;
+const host = siteHost();
+const orgHost = SITE.org.url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
+---
+<BaseLayout title="User Guide" description={`How to use ${SITE.appName}: getting around, reading, translations, word meanings, search, bookmarks, memorization and spaced-repetition review.`}>
+<div class="gbar"><div class="gbar-inner">
+  <a class="gback" href="/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Back</a>
+  <span class="t">User Guide</span>
+</div></div>
+
+<header class="gh">
+  <div class="eyebrow">{eyebrow}</div>
+  <h1>User Guide</h1>
+  <p>Every control, in one line each.</p>
+  <div class="hint">Tap a section to open it.</div>
+</header>
+
+<div class="wrap">
+
+  <p class="tip">New here? <b>▶ Show me around</b> — in a reading page’s <span class="pill">⋯ More</span>, or the app’s <b>More</b> tab — walks you through the screen you are on.</p>
+
+  <details class="g" open>
+    <summary><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.7 12 3.5l9 7.2"/><path d="M5.5 9.5V20h13V9.5"/></svg></span><span class="sm-t">Getting around</span><span class="chev">›</span></summary>
+    <div class="g-body">
+      <p class="lede">The website and the installed app hold the same texts; the app adds tabs, favorites, daily goals and offline recitations.</p>
+      <div class="rows">
+        <div><b>Top bar</b><span>Chapters · Search · Bookmarks · Listen · Notes · Memorize · <b>⋯ More</b> · <b>Mutūn ▾</b> (with more than one matn) · <b>Translation ▾</b></span></div>
+        <div><b>⋯ More</b><span>PDF · <b>▶ Show me around</b> · User guide · Nuskha (where a matn has more than one) · Appearance</span></div>
+        <div><b>Appearance</b><span>Auto · Light · Dark.</span></div>
+        <div><b>App tabs</b><span><b>Home · Collection · Marginalia · More</b>. On a matn: <b>Home · Read · Memorize · More</b>.</span></div>
+        <div><b>Home</b><span>Every matn, a <b>Continue</b> card back to your last bayt, and a strip showing overall progress, current streak and total study time.</span></div>
+        <div><b>Favorites</b><span>App → Collection → ★ on up to 2 mutūn; they lead Home, the rest stay in Collection.</span></div>
+        <div><b>Daily goal</b><span>App → More → 1–50 abyāt a day, set <b>per matn</b>. Each card shows <i>Goal today</i>.</span></div>
+        <div><b>Opening the app</b><span>The al-Asl star beats while the app settles. Tap it to go straight through.</span></div>
+        <div><b>Tablet</b><span>Larger bayt, mutūn two across, tabs gathered in the middle. Turns either way.</span></div>
+      </div>
+      <div class="tip">Not seeing a new feature? Fully close and reopen the installed app.</div>
+    </div>
+  </details>
+
+  <details class="g">
+    <summary><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2 2 0 0 1 6 3.5h5v17H6a2 2 0 0 0-2 2z"/><path d="M20 5.5a2 2 0 0 0-2-2h-5v17h5a2 2 0 0 1 2 2z"/></svg></span><span class="sm-t">The mutūn</span><span class="chev">›</span></summary>
+    <div class="g-body">
+      <p class="lede">{poems.length ? 'In teaching order. Each keeps its own colour and its own last mode. Nothing is locked — open whichever you are studying.' : 'The collection is being prepared; the texts will be listed here as they are added.'}</p>
+      {poems.length > 0 && (
+        <div class="rows">
+          {poems.map((p) => (
+            <div><b>{p.shortEn}</b><span>{[p.author?.name, `${p.verses.toLocaleString('en')} abyāt`, p.subject].filter(Boolean).join(' · ')}</span></div>
+          ))}
+        </div>
+      )}
+    </div>
+  </details>
+
+  <details class="g">
+    <summary><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16M4 12h10M4 19h16"/></svg></span><span class="sm-t">Reading</span><span class="chev">›</span></summary>
+    <div class="g-body">
+      <div class="rows">
+        <div><b>Translation ▾</b><span>English, and Urdu where it exists. Arabic is always shown.</span></div>
+        <div><b>Tap a word</b><span>Highlighted words give their meaning in a pop-up. Where the meaning is written in both languages it follows <b>Translation ▾</b> — reading in Urdu gives you the Urdu meaning.</span></div>
+        <div><b>Coloured letters</b><span>In the matn itself: maroon picks out a <i>ramz</i> — the letter standing for a reciter — and green marks a Qurʾānic word quoted inside the bayt.</span></div>
+        <div><b>Book button</b><span>An explanation of that bayt. Where one is written in more than one language, a small <b>EN / اردو / ع</b> switch chooses — and the choice sticks.</span></div>
+        <div><b>Qirāʾāt card</b><span><i>On the mutūn of the qirāʾāt.</i> The ۞ button gives the āyah, the disputed word, and who reads it how (your Ḥafṣ marked). General chapters give a rule card, explanatory ones a commentary (شرح) card. Arabic, English or Urdu.</span></div>
+        <div><b>Nuskha</b><span><i>Where a matn circulates in more than one nuskha.</i> Abyāt that differ between nuskhas carry ⇄ — compare them side by side. Pick your nuskha in <b>⋯ More</b>. Recitations follow the nuskha they were recorded in.</span></div>
+        <div><b>Copy</b><span>Arabic, the translations you have showing, and a reference.</span></div>
+        <div><b>PDF</b><span>⋯ More → Arabic only, or Arabic + English.</span></div>
+      </div>
+      <div class="tip">A button appears only where its content is ready. Translations and explanations are checked bayt by bayt, so more turn up over time.</div>
+    </div>
+  </details>
+
+  <details class="g">
+    <summary><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span><span class="sm-t">Finding your place</span><span class="chev">›</span></summary>
+    <div class="g-body">
+      <div class="rows">
+        <div><b>Chapters</b><span>Type a chapter name (no diacritics) or a number. A bayt number gives <b>Go to bayt N</b> — it lands there and flashes. Long mutūn start collapsed; <b>Show all chapters</b> opens the grid.</span></div>
+        <div><b>Chapter length</b><span>On every Contents card and repeated in the chapter’s own header.</span></div>
+        <div><b>Search</b><span>Any part of a bayt or a chapter title, in Arabic, no diacritics. A matching title brings up its whole chapter.</span></div>
+        <div><b>Ribbon</b><span>Tap a bayt’s ribbon. On the website Home gathers them from every matn; in the app that is the <b>Marginalia</b> tab, with your notes alongside.</span></div>
+        <div><b>Pen</b><span>Tap the pen; the note sits under the bayt. The Notes button lists that matn’s. Both are hidden in Memorize mode — and untouched.</span></div>
+      </div>
+    </div>
+  </details>
+
+  <details class="g">
+    <summary><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 2 9l10 5 10-5-10-5z"/><path d="M5 11.2V16c0 1.6 3.1 3 7 3s7-1.4 7-3v-4.8"/></svg></span><span class="sm-t">Memorizing (ḥifẓ)</span><span class="chev">›</span></summary>
+    <div class="g-body">
+      <div class="rows">
+        <div><b>Start</b><span><b>Memorize</b> in the top bar, on Home, or the app’s Memorize tab. One chapter at a time, words hidden.</span></div>
+        <div><b>Hide 1–4</b><span><b>1</b> last word · <b>2</b> second half · <b>3</b> first word only · <b>4</b> everything. Raise it as abyāt stick.</span></div>
+        <div><b>Check</b><span>Tap a blank, or the bayt number, to reveal — then <b>✓ Got it</b> or <b>↺ Review</b>.</span></div>
+        <div><b>Mastered</b><span>Two correct passes, or one at level 4.</span></div>
+        <div><b>Badge</b><span>The bayt number rings: learning · mastered · due. Always the matn’s own colour.</span></div>
+        <div><b>Options ▾</b><span>Reveal all · Tap reveals (a word or the bayt) · Hide mastered · Review due · Your progress.</span></div>
+        <div><b>Your progress</b><span>Mastery per chapter, your streak, today’s goal — and ↓ Back up · ↑ Restore · Reset chapter · Reset all.</span></div>
+        <div><b>Review</b><span>Mastered abyāt return after <b>1, 3, 7, 16, 35, 90 days</b>. The badge counts what is due; <b>Review due</b> drills only those, mixed across the matn.</span></div>
+        <div><b>✕</b><span>Leaves Memorize and goes back to reading.</span></div>
+      </div>
+      <p class="rings">
+        <span><i style="box-shadow:inset 0 0 0 2px #c9a13b"></i> learning</span>
+        <span><i style="box-shadow:inset 0 0 0 2px var(--madder)"></i> mastered</span>
+        <span><i style="background:color-mix(in srgb,var(--madder) 16%,#fff);box-shadow:inset 0 0 0 2px var(--madder)"></i> due</span>
+      </p>
+    </div>
+  </details>
+
+  <details class="g">
+    <summary><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13v-1a8 8 0 0 1 16 0v1"/><rect x="3" y="13" width="4" height="7" rx="1.5"/><rect x="17" y="13" width="4" height="7" rx="1.5"/></svg></span><span class="sm-t">Listening</span><span class="chev">›</span></summary>
+    <div class="g-body">
+      <div class="rows">
+        <div><b>▶ on a bayt</b><span>Plays, then runs on through the following abyāt, scrolling each into view. Tap the playing bayt to stop.</span></div>
+        <div><b>Listen &amp; Repeat</b><span><b>By bayt</b> or <b>By chapter</b> · Range · Repeat each bayt · Repeat the range (1–10 or ∞) · Speed 0.75×–2× · Pause to recite.</span></div>
+        <div><b>While looping</b><span>Tap any bayt in range to jump the loop there, settings kept. The screen stays awake. The website adds a player bar; the app has none.</span></div>
+        <div><b>Reciters</b><span>Where more than one reciter has recorded a matn, choose in <b>Listen &amp; Repeat</b>. The player names who you are hearing.</span></div>
+        <div><b>Kept as you listen</b><span>The abyāt a loop is about to reach are fetched before you get there and kept on the device — so it keeps its footing on a weak connection, and the second time round needs no connection at all.</span></div>
+        <div><b>Offline</b><span>Text, translations and fonts save by themselves. Recitations are a download, never taken without asking: the first time you play audio in a matn you are offered the rest of it, with the size shown. In the app you can also take it from <b>⋯ More → Download recitations</b>. One matn at a time, and it stays saved across updates.</span></div>
+      </div>
+    </div>
+  </details>
+
+  <details class="g">
+    <summary><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 8v4l3 2"/></svg></span><span class="sm-t">Your progress &amp; data</span><span class="chev">›</span></summary>
+    <div class="g-body">
+      <div class="rows">
+        <div><b>Where it lives</b><span>This device only. No account, nothing to sign into. Bookmarks, notes, memorization and appearance all save by themselves.</span></div>
+        <div><b>Move it</b><span><b>Your progress → ↓ Back up</b> (copy, share, or save a file), then <b>↑ Restore</b> on the other device. Carries mastery, review schedule, bookmarks and notes.</span></div>
+        <div><b>“won’t be saved”</b><span>The browser is blocking storage. In-app browser (Instagram, WhatsApp) → its ⋯ → <b>Open in browser</b>. Private/Incognito → a normal window. Blocked site data → allow <b>{host}</b>.</span></div>
+        <div><b>Surest fix</b><span>Install the app — an installed app always keeps your progress.</span></div>
+      </div>
+    </div>
+  </details>
+
+  <div class="divider"></div>
+  <footer class="gf">
+    {SITE.org.name} · {SITE.collection.en} · <a href="/">Home</a> · <a href="/privacy">Privacy</a><br>
+    <a href={SITE.org.url} target="_blank" rel="noopener">{orgHost}</a>
+  </footer>
+
+</div>
+<script>import '../client/entries/common.ts';</script>
+</BaseLayout>

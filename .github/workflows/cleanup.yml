@@ -1,0 +1,25 @@
+name: Cleanup stale claude/ branches
+
+on:
+  schedule:
+    # Every day at 03:00 UTC
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Only report what would be deleted"
+        type: boolean
+        required: false
+        default: true
+
+jobs:
+  cleanup:
+    uses: Bytestorm5/Bytestorm5/.github/workflows/cleanup-claude-branches.yml@main
+    permissions:
+      contents: write
+      pull-requests: read
+    with:
+      max_behind: 5
+      base_branch: main
+      # Scheduled runs delete for real; manual runs default to a dry run.
+      dry_run: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || false }}

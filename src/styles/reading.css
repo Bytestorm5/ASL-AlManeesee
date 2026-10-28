@@ -1,0 +1,525 @@
+/* Reading page — the stylesheet every matn shares (src/pages/[poem].astro).
+   Accent palettes are in theme.css (body.matn-<accent>), dark mode too. */
+@font-face{font-family:'Scheherazade New';font-style:normal;font-weight:400;font-display:swap;src:url("/fonts/ScheherazadeNew.woff2") format("woff2");}
+@font-face{font-family:'Scheherazade New';font-style:normal;font-weight:700;font-display:swap;src:url("/fonts/ScheherazadeNewB.woff2") format("woff2");}
+@font-face{font-family:'UrduNastaliq';font-display:swap;src:local('Jameel Noori Nastaleeq'),local('Jameel Noori Nastaleeq Regular'),local('JameelNooriNastaleeq'),url("/fonts/NotoNastaliqUrdu.woff2") format("woff2");}
+
+:root{
+  /* al-Asl Institute, exact palette sampled from the logo:
+     burgundy #8a4447 (wordmark) + blush #efc7b7 (medallion) on warm ivory.
+     Manuscript var-names retained; values reassigned to the brand. No gold. */
+  --lapis:#5e2c30; --lapis-2:#743a3e; --lapis-3:#8a4447;   /* maroon family: dark panels + primary */
+  --ink:#3a2a2b; --ink-soft:#6c585a;                        /* warm sepia-brown text */
+  --paper:#f9f4ea; --paper-2:#f3eada; --paper-edge:#e8dcc7; /* warm ivory */
+  --gilt:#c0973c; --gilt-hi:#e6c66f; --gilt-deep:#9a7526;   /* gilt illumination, restored for a rich look */
+  --madder:#8a4447; --madder-soft:#a35a5d;                  /* rubrication = brand burgundy */
+  --sage:#9c7f80;                                           /* muted taupe-rose captions */
+  --blush:#efc7b7; --blush-soft:#f6ddd2;
+  --rose:#ceaba6; --rose-2:#c2a09b; --rose-hi:#d8b8b2; --panel-soft:#53403d;                    /* exact logo blush accent */
+  --cream:#f6e9e2; --cream-dim:#d8bdb6;                     /* warm text on dark panels */
+  --emblem:url("/brand/emblem.png");
+  --logo:url("/brand/logo.png");
+  --shadow: 0 1px 2px rgba(14,38,56,.06), 0 8px 28px rgba(14,38,56,.07);
+  --maxw: 940px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Spectral",Georgia,serif; line-height:1.6;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  -webkit-text-size-adjust:100%; text-size-adjust:100%;
+}
+.ar{font-family:"Scheherazade New","Amiri",serif; direction:rtl;}
+
+/* Montserrat for the small-caps labels, echoes "INSTITUTE OF ISLAMIC SCIENCES" */
+.eyebrow, .toc-head .lbl, .ch-eyebrow, .ch-tr, .ayah-ref, .brandbar .tagline,
+.toggle, .foot-links{font-family:"Montserrat",sans-serif !important;}
+
+/* ---------- HERO ---------- */
+header.hero{
+  position:relative; color:var(--cream);
+  background:
+    radial-gradient(1100px 460px at 50% -22%, rgba(255,250,244,.4), transparent 62%),
+    radial-gradient(circle at 22% 128%, rgba(180,138,135,.28), transparent 58%),
+    linear-gradient(165deg,var(--pnl-1) 0%, var(--pnl-2) 55%, var(--pnl-3) 100%);
+  background-color:var(--rose);
+  overflow:hidden;
+  padding:clamp(40px,7vw,84px) 22px clamp(34px,5vw,60px);
+  text-align:center;
+}
+header.hero::before{ /* faint girih dot field */
+  content:""; position:absolute; inset:0; opacity:.5;
+  background-image:radial-gradient(rgba(230,198,111,.16) 1px, transparent 1.4px);
+  background-size:26px 26px; background-position:0 0;
+  -webkit-mask-image:radial-gradient(circle at 50% 35%, #000 25%, transparent 78%);
+          mask-image:radial-gradient(circle at 50% 35%, #000 25%, transparent 78%);
+  pointer-events:none;
+}
+.hero-inner{position:relative; max-width:760px; margin:0 auto}
+.hero-star{margin:0 auto 18px; width:96px; height:96px; background:var(--emblem) center/contain no-repeat; filter:drop-shadow(0 3px 10px rgba(0,0,0,.32))}
+.eyebrow{font-family:"Spectral"; letter-spacing:.42em; text-transform:uppercase;
+  font-size:.66rem; color:var(--gilt-hi); font-weight:500; margin-bottom:30px}
+.hero h1.ar{font-size:clamp(2.6rem,8vw,4.4rem); line-height:1.15; margin:.1em 0 .12em;
+  font-weight:700; color:#fbeee8; text-shadow:0 2px 18px rgba(0,0,0,.3)}
+.hero .romantitle{font-family:"Cinzel"; font-weight:600; text-transform:uppercase; letter-spacing:.04em;
+  font-size:clamp(1.15rem,3vw,1.55rem); color:var(--gilt-hi); }
+.hero .subtitle{font-family:"Cormorant Garamond"; font-size:clamp(1rem,2.4vw,1.18rem);
+  color:var(--cream-dim); max-width:560px; margin:14px auto 0; font-weight:500}
+.rule{display:flex; align-items:center; justify-content:center; gap:14px; margin:22px auto 0; max-width:340px}
+.rule i{height:1px; flex:1; background:linear-gradient(90deg,transparent,var(--gilt))}
+.rule i:last-child{background:linear-gradient(90deg,var(--gilt),transparent)}
+.rule b{color:var(--gilt); font-size:.9rem}
+.meta-chips{display:flex; flex-wrap:wrap; gap:9px 10px; justify-content:center; margin-top:26px}
+.chip{font-size:.74rem; letter-spacing:.06em; color:var(--cream);
+  border:1px solid rgba(230,198,111,.34); border-radius:30px; padding:6px 14px;
+  background:rgba(255,255,255,.03)}
+.chip b{color:var(--gilt-hi); font-weight:600}
+
+/* ---------- TOC ---------- */
+.toc-wrap{max-width:var(--maxw); margin:0 auto; padding:clamp(34px,5vw,56px) 22px 6px}
+.toc-head{text-align:center; margin-bottom:26px}
+.toc-head .lbl{font-family:"Spectral"; letter-spacing:.4em; text-transform:uppercase;
+  font-size:.66rem; color:var(--madder); font-weight:500}
+.toc-head h2{font-family:"Cinzel"; font-weight:600; text-transform:uppercase; letter-spacing:.03em;
+  font-size:clamp(1.5rem,3.6vw,2rem); margin:.2em 0 0; color:var(--lapis-3)}
+.toc-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(248px,1fr)); gap:12px; direction:rtl}
+.toc-grid>.toc-card{direction:ltr}
+a.toc-card{
+  display:flex; flex-direction:row-reverse; gap:13px; align-items:flex-start; text-decoration:none; color:inherit;
+  background:linear-gradient(180deg,#fdfaf1,var(--paper-2));
+  border:1px solid var(--paper-edge); border-radius:13px; padding:14px 15px;
+  box-shadow:var(--shadow); transition:transform .18s ease, box-shadow .18s ease, border-color .18s;
+}
+a.toc-card:hover{transform:translateY(-3px); border-color:var(--gilt);
+  box-shadow:0 10px 30px rgba(14,38,56,.12)}
+.toc-num{flex:0 0 auto; width:40px; height:40px; position:relative; margin-top:1px; display:grid; place-items:center; background:var(--emblem) center/contain no-repeat}
+.toc-num span{position:relative; z-index:2; font-family:"Cormorant Garamond"; font-weight:700; font-size:.68rem; color:var(--madder);
+  min-width:1.5em; height:1.5em; padding:0 .1em; border-radius:1em; background:#f8efe3; display:grid; place-items:center; box-shadow:0 0 0 1px rgba(151,115,34,.3)}
+.toc-card .tc-body{display:flex; flex-direction:column; align-items:flex-end; text-align:right; flex:1 1 auto; min-width:0}
+.toc-card .tc-en{font-family:"Cormorant Garamond"; font-weight:600; font-size:1.12rem; line-height:1.25; color:var(--ink); margin-top:3px}
+.toc-card .tc-ar{font-family:"Scheherazade New","Amiri"; direction:rtl; text-align:right; font-size:1.16rem; color:var(--madder); line-height:1.5; max-width:100%}
+.toc-card .tc-meta{font-size:.72rem; color:var(--sage); letter-spacing:.02em; margin-top:6px; font-style:italic}
+.toc-card .tc-abyat{font-family:"Scheherazade New","Amiri",serif; font-style:normal; font-size:1.06em; unicode-bidi:isolate; line-height:1}
+
+/* ---------- STICKY NAV ---------- */
+.navbar{position:sticky; top:0; z-index:40;
+  background:rgba(247,242,229,.86); backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--paper-edge); box-shadow:0 2px 16px rgba(14,38,56,.05)}
+.navbar-inner{max-width:1140px; margin:0 auto; display:flex; align-items:center; flex-wrap:wrap; gap:10px; padding:9px 16px}
+/* compact nav controls: dropdown menu (translation) */
+.menu{position:relative; flex:0 0 auto}
+.nav-menus{display:flex; align-items:center; gap:10px; flex:0 0 auto}
+/* clip stray horizontal overflow (e.g. word-gloss tooltips near the edge) so
+   the page never scrolls sideways and the fixed app tab bar stays on-screen */
+#main{overflow-x:clip}
+.menu .navprint{cursor:pointer; display:inline-flex; align-items:center; gap:5px}
+.menu .caret{font-size:.6rem}
+.menu-pop{position:absolute; right:0; top:calc(100% + 7px); min-width:170px; max-height:64vh; overflow-y:auto;
+  background:#fff; border:1px solid var(--paper-edge); border-radius:12px;
+  box-shadow:0 12px 30px rgba(14,38,56,.16); padding:5px; display:none; z-index:60}
+.menu-pop.open{display:block}
+.menu-pop a, .menu-pop button{display:flex; align-items:center; gap:8px; width:100%; text-align:left; box-sizing:border-box;
+  appearance:none; border:0; background:transparent; cursor:pointer; text-decoration:none;
+  color:var(--ink-soft); font-family:"Montserrat",sans-serif; font-size:.78rem; font-weight:500;
+  padding:9px 12px; border-radius:8px; white-space:nowrap}
+.menu-pop a:hover, .menu-pop button:hover{background:var(--paper); color:var(--madder)}
+/* checkable translation options: tick box on the left, highlight when on */
+.menu-pop button .tick{flex:0 0 auto; width:15px; height:15px; border:1.5px solid var(--paper-edge);
+  border-radius:4px; display:inline-grid; place-items:center; font-size:.7rem; line-height:1; color:transparent}
+.menu-pop button.active{background:var(--madder); color:#fbeee8}
+.menu-pop button.active .tick{border-color:#fbeee8; color:#fbeee8}
+.nav-brand{font-family:"Cormorant Garamond"; font-weight:600; color:var(--lapis); font-size:.96rem;
+  white-space:nowrap; flex:0 0 auto; letter-spacing:.01em}
+.nav-brand .ar{font-size:1.15rem; color:var(--madder); margin-right:2px}
+.pills{display:flex; gap:7px; overflow-x:auto; flex:1 1 auto; padding:5px 2px; scrollbar-width:thin;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 18px,#000 calc(100% - 18px),transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 18px,#000 calc(100% - 18px),transparent)}
+.pills::-webkit-scrollbar{height:5px}
+.pills::-webkit-scrollbar-thumb{background:var(--paper-edge); border-radius:4px}
+.pill{flex:0 0 auto; cursor:pointer; border:1px solid var(--paper-edge); background:#fff;
+  border-radius:24px; padding:5px 13px 5px 9px; font-size:.78rem; color:var(--ink-soft);
+  display:flex; align-items:center; gap:7px; text-decoration:none; transition:all .15s; white-space:nowrap}
+.pill .pn{font-family:"Cormorant Garamond"; font-weight:600; color:var(--madder); font-size:.85rem}
+.pill:hover{border-color:var(--gilt); color:var(--ink)}
+.pill.active{background:var(--lapis); border-color:var(--lapis); color:var(--cream)}
+.pill.active .pn{color:var(--gilt-hi)}
+.toggle{flex:0 0 auto; cursor:pointer; user-select:none; border:1px solid var(--madder);
+  background:var(--madder); color:#fbeee8; border-radius:24px; padding:6px 14px; font-size:.74rem;
+  font-weight:600; letter-spacing:.04em; display:flex; align-items:center; gap:7px; transition:all .15s;}
+.toggle[aria-pressed="false"]{background:transparent; color:var(--gilt-deep)}
+.toggle .dot{width:8px; height:8px; border-radius:50%; background:#fbeee8}
+.toggle[aria-pressed="false"] .dot{background:var(--madder); opacity:.5}
+
+/* ---------- CHAPTERS ---------- */
+main{max-width:var(--maxw); margin:0 auto; padding:10px 22px 40px}
+.chapter{padding-top:34px; scroll-margin-top:70px}
+.ch-head{position:relative; text-align:center; margin:26px 0 8px;
+  padding:26px 18px 24px; border-radius:16px; color:var(--cream); overflow:hidden;
+  background:radial-gradient(900px 300px at 50% -40%, rgba(255,250,244,.4),transparent 60%),
+            linear-gradient(155deg,var(--pnl-1),var(--pnl-2) 60%,var(--pnl-3));
+  box-shadow:0 10px 30px rgba(58,28,31,.22)}
+.ch-head::after{content:""; position:absolute; inset:7px; border:1px solid rgba(230,198,111,.30);
+  border-radius:11px; pointer-events:none}
+.ch-medallion{width:62px; height:62px; margin:0 auto 12px;
+  background:var(--emblem) center/contain no-repeat, radial-gradient(circle at 50% 50%, rgba(247,237,225,.14), transparent 60%);
+  filter:drop-shadow(0 3px 7px rgba(0,0,0,.28))}
+.ch-eyebrow{font-family:"Spectral"; letter-spacing:.4em; text-transform:uppercase; font-size:.62rem;
+  color:var(--gilt-hi); font-weight:500}
+.ch-ar{font-family:"Scheherazade New","Amiri"; direction:rtl; font-size:clamp(2rem,5.5vw,2.9rem); font-weight:700;
+  margin:.08em 0 .04em; color:#fbeee8}
+.ch-en{font-family:"Cormorant Garamond"; font-weight:600; font-size:clamp(1.1rem,2.6vw,1.4rem);
+  color:var(--gilt-hi); letter-spacing:.04em; font-style:italic}
+.ch-tr{font-size:.74rem; letter-spacing:.18em; text-transform:uppercase; color:var(--cream-dim); margin-top:7px}
+.ch-desc{max-width:520px; margin:13px auto 0; font-family:"Cormorant Garamond"; font-weight:500;
+  font-size:1.02rem; color:#f0ddd4; line-height:1.5}
+
+.note{display:flex; gap:12px; align-items:flex-start; margin:18px 4px 4px;
+  background:linear-gradient(180deg,#fbf6ea,#f5edda); border:1px solid var(--paper-edge);
+  border-left:3px solid var(--madder); border-radius:10px; padding:13px 16px;
+  font-size:.9rem; color:var(--ink-soft)}
+.note b{color:var(--madder)}
+.note .ic{color:var(--madder); font-size:1.1rem; line-height:1.2; flex:0 0 auto}
+
+/* verse line */
+.verses{margin-top:18px}
+.verse{position:relative; margin:0; padding:18px 6px 16px; border-bottom:1px solid var(--paper-edge);
+  transition:background .2s}
+.verse:hover{background:rgba(138,68,71,.05)}
+.verse:last-child{border-bottom:none}
+.couplet{display:flex; direction:rtl; align-items:center; gap:8px; cursor:pointer; -webkit-tap-highlight-color:transparent}
+.couplet,.hemi .seg{-webkit-tap-highlight-color:transparent; -webkit-touch-callout:none}
+.hemi .seg{-webkit-user-select:none; user-select:none}
+.hemi{flex:1 1 0; min-width:0; font-family:"Scheherazade New","Amiri"; font-weight:400;
+  font-size:clamp(1.45rem,3.6vw,2.02rem); line-height:1.95; color:var(--ink)}
+.hemi.sadr{text-align:left; padding-left:6px}
+.hemi.ajuz{text-align:right; padding-right:6px}
+/* word-by-word hover/tap gloss */
+.hemi .seg{position:relative; display:inline-block; vertical-align:baseline; cursor:pointer;
+  border-radius:5px; padding:.04em .12em;
+  transition:background .15s ease, color .15s ease; outline:none}
+.hemi .seg:focus-visible,.hemi .seg.seg-show{background:var(--paper-2); color:var(--madder)}
+@media (hover:hover){ .hemi .seg:hover{background:var(--paper-2); color:var(--madder)} }
+/* red ink — words a print edition sets in red (kept red through hover/focus) */
+.hemi .seg.rd,.hemi .rd{color:#b23122}
+/* small connecting-nūn mark (tanwīn/nūn sākinah sound carrying into the next
+   word) — rendered as a raised mark above the following word, matching the
+   printed matn convention */
+.small-noon{font-size:.65em; position:relative; top:-.48em; line-height:1; margin-inline-end:.1em}
+/* words without a word-by-word gloss: no tooltip, not styled as tappable */
+.hemi .seg.nog{cursor:default}
+@media (hover:hover){ .hemi .seg.nog:not(.rd):hover{background:transparent; color:inherit} }
+/* footnote marker on a word with an alternate reading — reuses the same
+   tap/hover-to-reveal tooltip as the word gloss (.seg[data-g]), just styled
+   as a small raised asterisk instead of a full word */
+.hemi .seg.fn-mark{padding:0; margin-inline-start:1px; font-size:.62em; vertical-align:super;
+  color:var(--madder); font-weight:700; border-radius:3px}
+.hemi .seg.fn-mark:hover,.hemi .seg.fn-mark:focus-visible,.hemi .seg.fn-mark.seg-show{background:transparent}
+.hemi .seg.rd:focus-visible,.hemi .seg.rd.seg-show{color:#b23122}
+@media (hover:hover){ .hemi .seg.rd:hover{color:#b23122} }
+/* Rubrication — the rumūz letters picked out in red inside a word, written as
+   <span class="rmz…"> in the bayt itself. Pinned to maroon rather than
+   var(--madder), so a matn's own accent (indigo, lapis…) never re-tints a
+   ramz. Dark-mode lifts live in theme.css, which already covers every matn. */
+.rmz{color:#8a4447}
+.rmz2{color:#5e2c30}
+.rmz3{color:#9a7526}
+.rmz4{color:#a35a5d}
+.rmz5{color:#743a3e}
+.rmz6{color:#6c585a}
+.rmz7{color:#743a3e}
+/* small rumūz letter printed above a word, drawn purely by CSS so it never
+   enters textContent — search and memorize read the words unpolluted. The
+   offset stays small: top anchors to the span's content box, whose top already
+   sits a full 1.34em ascent above the baseline. */
+.hemi .ann{position:relative}
+.hemi .ann::after{content:attr(data-tp); position:absolute; top:-.35em; left:50%; transform:translateX(-50%);
+  font-size:.46em; line-height:1; font-weight:700; color:#8a4447; pointer-events:none; white-space:nowrap}
+.hemi .seg:is([data-g],[data-gu])::after{content:attr(data-g); position:absolute; left:50%; bottom:100%;
+  transform:translateX(-50%) translateY(5px); margin-bottom:10px; width:max-content; max-width:210px;
+  white-space:normal; text-align:center; direction:ltr;
+  background:var(--lapis); color:#fff; font-family:"Cormorant Garamond",Georgia,serif; font-weight:600;
+  font-size:.84rem; line-height:1.25; letter-spacing:.01em; padding:6px 11px; border-radius:8px;
+  box-shadow:0 8px 22px rgba(58,42,43,.28); opacity:0; visibility:hidden; pointer-events:none;
+  transition:opacity .15s ease, transform .15s ease; z-index:40}
+.hemi .seg:is([data-g],[data-gu])::before{content:""; position:absolute; left:50%; bottom:100%;
+  transform:translateX(-50%) translateY(5px); margin-bottom:4px; border:6px solid transparent;
+  border-top-color:var(--lapis); opacity:0; visibility:hidden; pointer-events:none;
+  transition:opacity .15s ease, transform .15s ease; z-index:40}
+.hemi .seg:is([data-g],[data-gu]):focus-visible::after,.hemi .seg:is([data-g],[data-gu]):focus-visible::before,
+.hemi .seg.seg-show:is([data-g],[data-gu])::after,.hemi .seg.seg-show:is([data-g],[data-gu])::before{
+  opacity:1; visibility:visible; transform:translateX(-50%) translateY(0)}
+@media (hover:hover){
+  .hemi .seg:is([data-g],[data-gu]):hover::after,.hemi .seg:is([data-g],[data-gu]):hover::before{
+    opacity:1; visibility:visible; transform:translateX(-50%) translateY(0)}
+}
+/* The word meaning is written in both languages. English holds the tooltip by
+   default; the Urdu takes it when the reader is reading in Urdu, and also when
+   a word was glossed in Urdu alone. */
+.hemi .seg[data-gu]:not([data-g])::after,
+body.view-ur .hemi .seg[data-gu]::after{content:attr(data-gu);
+  font-family:'UrduNastaliq','Scheherazade New',serif; direction:rtl; font-weight:400;
+  font-size:1rem; line-height:1.95; padding:7px 12px 10px; max-width:230px}
+.medallion{flex:0 0 auto; width:46px; height:46px; position:relative; display:grid; place-items:center; background:var(--emblem) center/contain no-repeat}
+.medallion .vn{position:relative; z-index:2; font-family:"Cormorant Garamond"; font-weight:700;
+  font-size:.76rem; line-height:1; font-variant-numeric:lining-nums tabular-nums; color:var(--madder); min-width:1.55em; height:1.55em; padding:0 .12em; border-radius:1em;
+  background:#f8efe3; display:grid; place-items:center; box-shadow:0 0 0 1px rgba(151,115,34,.3)}
+.translation{margin:11px 56px 2px; padding-top:0; color:var(--ink-soft); font-size:.95rem;
+  line-height:1.55; display:flex; gap:10px; align-items:baseline;
+  animation:fade .25s ease}
+.translation .leaf{color:var(--madder); flex:0 0 auto; font-size:.9rem; transform:translateY(1px)}
+.translation .ar{font-size:1.12rem; color:var(--madder)}
+/* per-verse copy button (styled to match the explanation book icon) */
+.verse-actions{display:flex; justify-content:flex-end; align-items:center; gap:8px; margin:8px 56px 0}
+.verse-actions .exp-toggle{margin:0}
+.copy-btn{flex:0 0 auto; display:inline-grid; place-items:center; width:26px; height:26px; padding:0;
+  border-radius:50%; border:1px solid var(--paper-edge); background:#fff; color:var(--madder); cursor:pointer;
+  transition:background .15s, border-color .15s, color .15s; -webkit-tap-highlight-color:transparent}
+.copy-btn:hover{border-color:var(--gilt); background:var(--paper)}
+.copy-btn .ic{width:15px; height:15px; display:block}
+.copy-btn .ic-done,.copy-btn .lbl{display:none}
+.copy-btn.copied{background:var(--madder); color:#fff; border-color:var(--madder)}
+.copy-btn.copied .ic-copy{display:none}
+.copy-btn.copied .ic-done{display:block}
+@media (max-width:640px){ .verse-actions{margin-left:8px; margin-right:8px} }
+@media print{ .verse-actions{display:none !important} }
+.translation-ur{font-family:'UrduNastaliq','Noto Nastaliq Urdu',serif; direction:rtl;
+  margin:7px 56px 4px; gap:10px; align-items:baseline; font-size:1.02rem; line-height:2.35;
+  color:var(--ink-soft); animation:fade .25s ease}
+.translation-ur .leaf{color:var(--madder); flex:0 0 auto; font-size:.9rem; transform:scaleX(-1) translateY(1px)}
+.translation-ur .tr-text{flex:1 1 auto}
+/* Arabic quoted inside an Urdu passage, set in the Arabic face — see arInUrdu.
+   Stepped up a little so it reads level with the Nastaʿlīq beside it, and held
+   to line-height 1 so the taller face does not open up the Urdu line it sits
+   in. The translation row and the sharḥ card take the same treatment, and the
+   sharḥ keeps its own colour: the point here is the face, not a highlight. */
+.translation-ur .ar, .explanation .exp-ur .ar{font-size:1.12em; line-height:1}
+.explanation .exp-ur .ar{color:inherit}
+@media (max-width:560px){ .translation-ur{margin:7px 8px 4px; font-size:.95rem} }
+/* translations hidden by default; shown per the chosen view mode or a per-verse peek */
+.translation, .translation-ur{display:none}
+body.view-en .translation, body.view-both .translation{display:flex}
+body.view-ur .translation-ur, body.view-both .translation-ur{display:flex}
+.exp-toggle{flex:0 0 auto; margin-left:auto; align-self:center; display:inline-grid; place-items:center;
+  width:26px; height:26px; padding:0; border-radius:50%; border:1px solid var(--paper-edge);
+  background:#fff; color:var(--madder); cursor:pointer; transition:background .15s, border-color .15s, color .15s}
+.exp-toggle:hover{border-color:var(--gilt); background:var(--paper)}
+.exp-toggle svg{width:15px; height:15px; display:block}
+.verse.showExp .exp-toggle{background:var(--madder); color:#fff; border-color:var(--madder)}
+.explanation{display:none; margin:12px 56px 4px; padding:14px 17px; background:var(--paper-2);
+  border:1px solid var(--paper-edge); border-left:3px solid var(--madder); border-radius:9px;
+  color:var(--ink-soft); font-size:.92rem; line-height:1.62}
+.verse.showExp .explanation{display:block; animation:fade .25s ease}
+/* The 56px side inset is a reading measure for a wide screen. On a phone it is
+   112px of a 390px screen — nearly a third — spent on margin, which pushes an
+   explanation that is already long further down the page. The verse actions and
+   the Urdu translation were pulled in long ago; the English translation and the
+   explanation never were, so they sat narrower than the rows around them.
+   Explanations keep a little side padding of their own, so they give back less. */
+@media (max-width:640px){
+  .explanation{margin-left:8px; margin-right:8px; padding-left:13px; padding-right:13px}
+  .translation{margin-left:8px; margin-right:8px}
+}
+.explanation p{margin:0 0 10px}
+.explanation p:last-child{margin-bottom:0}
+.explanation b{color:var(--madder); font-weight:700}
+.explanation i{font-style:italic; color:var(--ink)}
+.explanation .ar{color:var(--madder)}
+.exp-by{margin-top:13px; padding-top:9px; border-top:1px solid var(--paper-edge);
+  font-family:"Cormorant Garamond","Spectral",serif; font-style:italic; font-size:.85rem;
+  color:var(--sage); text-align:right; letter-spacing:.02em}
+.tap-hint{font-size:.66rem; color:var(--sage); letter-spacing:.12em; text-transform:uppercase;
+  margin:9px 56px 0; opacity:.0; transition:opacity .2s}
+@keyframes fade{from{opacity:0; transform:translateY(3px)}to{opacity:1; transform:none}}
+
+/* word-inventory verse */
+.verse.wl .translation{display:none !important}
+.wl-tag{margin:9px 56px 0; font-size:.66rem; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--sage)}
+
+/* footer */
+footer{background:linear-gradient(160deg,var(--pnl-1),var(--pnl-2) 60%,var(--pnl-3)); color:var(--cream-dim);
+  text-align:center; padding:44px 22px 46px; margin-top:30px}
+footer .ar{font-family:"Scheherazade New","Amiri"; font-size:1.6rem; color:var(--madder); direction:rtl}
+footer .en{font-family:"Cormorant Garamond"; font-style:italic; font-size:1.05rem; margin-top:8px}
+footer .src{font-size:.74rem; opacity:.7; margin-top:18px; letter-spacing:.04em}
+.totop{position:fixed; right:18px; bottom:18px; z-index:50; width:44px; height:44px; border-radius:50%;
+  background:var(--lapis); color:var(--gilt-hi); border:1px solid var(--gilt); cursor:pointer;
+  display:grid; place-items:center; font-size:1.1rem; opacity:0; pointer-events:none;
+  transition:opacity .25s, transform .25s; box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.totop.show{opacity:1; pointer-events:auto}
+.totop:hover{transform:translateY(-3px)}
+
+@media (max-width:640px){
+  .couplet{flex-direction:column; align-items:stretch; gap:4px}
+  .hemi.sadr,.hemi.ajuz{text-align:center; padding:0}
+  .medallion{margin:2px auto; width:40px; height:40px; order:-1}
+  .translation{margin:11px 8px 2px}
+  .explanation{margin-left:10px; margin-right:10px; padding:12px 13px}
+  .wl-tag,.tap-hint{margin-left:8px; margin-right:8px}
+  .navbar-inner{padding:8px 12px}
+  .nav-brand{display:none}
+}
+
+/* Tablets (iPad and up). Below 900px the phone layout is right; above it the
+   page simply stopped growing — the couplet stayed in a 940px column with a
+   wide band of empty paper either side, and the toolbar ran 200px wider than
+   the verses sitting under it. Widen the measure, let the bayt grow with it,
+   and put the page furniture on that same measure. */
+@media (min-width:900px){
+  html.bigscreen{--maxw:1180px}
+  html.bigscreen .navbar-inner,html.bigscreen .brandbar,html.bigscreen .backbar{max-width:var(--maxw)}
+  /* floor is the old ceiling, so nothing shrinks as the breakpoint is crossed */
+  html.bigscreen .hemi{font-size:clamp(2.02rem,3.1vw,2.5rem)}
+}
+
+/* --- soft-rose large panels: dark ink on rose; maroon kept for accents/buttons --- */
+header.hero, .ch-head, .mc-top, footer{ color:var(--ink) }
+.hero .eyebrow, .ch-eyebrow{ color:var(--pnl-txt) !important }
+.hero h1.ar, .ch-ar, .mc-ar{ color:var(--pnl-txt) !important; text-shadow:0 1px 0 rgba(255,255,255,.28) }
+.hero .romantitle, .ch-en, .mc-tr{ color:var(--madder) !important }
+.hero .subtitle, .ch-desc, .ch-tr{ color:var(--panel-soft) !important }
+.hero-star, .hero-emblem{ filter:drop-shadow(0 2px 8px rgba(94,44,48,.22)) }
+.chip{ color:var(--pnl-txt) !important; border-color:rgba(94,44,48,.3) !important; background:rgba(255,253,249,.42) !important }
+.chip b{ color:var(--madder) !important }
+.rule b, .foot-rule b{ color:var(--gilt-deep) }
+.foot-tag{ color:var(--pnl-txt) }
+.foot-links a, .foot-copy a{ color:var(--madder) }
+.foot-links a:hover, .foot-copy a:hover{ color:var(--pnl-txt) }
+.navprint{ color:var(--madder) }
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important; transition:none !important; scroll-behavior:auto}
+}
+
+/* ---------- AL-ASL BRAND BAR ---------- */
+.brandbar-wrap{background:linear-gradient(180deg,#fbf7ec,var(--paper)); border-bottom:1px solid var(--paper-edge)}
+.brandbar{display:flex; align-items:center; justify-content:space-between; gap:16px;
+  max-width:1140px; margin:0 auto; padding:13px 22px; text-decoration:none}
+.brandbar-logo{height:46px; width:130px; flex:0 0 auto; background:var(--logo) left center/contain no-repeat}
+.brandbar .tagline{font-family:"Spectral"; font-size:.7rem; letter-spacing:.26em;
+  text-transform:uppercase; color:var(--gilt-deep); font-weight:500; white-space:nowrap}
+@media (max-width:560px){
+  .brandbar{justify-content:center; padding:12px 16px}
+  .brandbar .tagline{display:none}
+  .brandbar-logo{height:40px; width:112px}
+}
+
+/* ---------- BRANDED FOOTER ---------- */
+.foot-rule{display:flex; align-items:center; justify-content:center; gap:14px; margin:26px auto 4px; max-width:300px}
+.foot-rule i{height:1px; flex:1; background:linear-gradient(90deg,transparent,rgba(230,198,111,.5))}
+.foot-rule i:last-child{background:linear-gradient(90deg,rgba(230,198,111,.5),transparent)}
+.foot-rule b{color:var(--gilt-hi); font-size:.95rem}
+.foot-brand{margin-top:22px; display:flex; flex-direction:column; align-items:center; gap:13px}
+.foot-logo{background:#f7f2e5; border-radius:12px; padding:11px 18px; display:inline-flex;
+  box-shadow:0 4px 18px rgba(0,0,0,.28); transition:transform .18s ease}
+.foot-logo:hover{transform:translateY(-2px)}
+.foot-logo-img{height:42px; width:116px; background:var(--logo) center/contain no-repeat}
+.foot-tag{font-family:"Cormorant Garamond"; font-style:italic; font-size:1.08rem; color:var(--cream); margin:0}
+.foot-links{display:flex; flex-wrap:wrap; justify-content:center; margin:2px 0 0}
+.foot-links a{color:var(--pnl-txt); text-decoration:none; font-size:.82rem; letter-spacing:.04em; padding:2px 13px;
+  border-right:1px solid rgba(230,198,111,.3)}
+.foot-links a:last-child{border-right:none}
+.foot-links a:hover{color:var(--madder); text-decoration:underline}
+.foot-copy{font-size:.72rem; opacity:.74; margin:13px auto 0; max-width:560px; line-height:1.55; letter-spacing:.02em}
+.foot-copy a{color:var(--pnl-txt); text-decoration:none}
+.foot-copy a:hover{text-decoration:underline}
+
+/* back link + nav print */
+.backbar{max-width:1140px; margin:0 auto; padding:14px 22px 0}
+.backlink{font-family:"Montserrat",sans-serif; font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--madder); text-decoration:none; font-weight:500}
+.backlink:hover{color:var(--gilt-deep)}
+.navprint{font-family:"Montserrat",sans-serif; font-size:.72rem; font-weight:600; letter-spacing:.05em; color:var(--gilt-deep); text-decoration:none; border:1px solid var(--paper-edge); border-radius:24px; padding:6px 13px; white-space:nowrap; flex:0 0 auto; background:#fff}
+.navprint:hover{border-color:var(--gilt); color:var(--madder)}
+@media (max-width:560px){.navprint{padding:6px 10px}}
+
+/* ---------------- PRINT ---------------- */
+.print-only{display:none}
+@media print{
+  @page{ margin:24mm 15mm 18mm }
+  html,body{ background:#fff !important; color:#33262a !important }
+  .brandbar-wrap,.navbar,.totop,.backbar,footer{ display:none !important }
+  .print-only{ display:block }
+  .print-header{ position:fixed; top:-15mm; left:0; right:0; text-align:center }
+  .print-header .pl{ height:13mm; width:62mm; margin:0 auto; background:var(--logo) center/contain no-repeat }
+  .print-footer{ position:fixed; bottom:-12mm; left:0; right:0; text-align:center; font-family:"Montserrat",sans-serif; font-size:8.5pt; letter-spacing:.14em; color:var(--madder); padding-top:2mm; border-top:1px solid #e3d6bf }
+  header.hero{ background:#fff !important; color:var(--lapis) !important; padding:2mm 0 7mm }
+  header.hero::before{ display:none }
+  .hero-star{ filter:none }
+  .hero h1.ar,.hero .romantitle{ color:var(--lapis) !important; text-shadow:none !important }
+  .hero .subtitle,.eyebrow{ color:#5a4a45 !important }
+  .chip{ color:var(--madder) !important; border-color:#d9c7a6 !important; background:#fff !important }
+  .chip b{ color:var(--gilt-deep) !important }
+  .rule i{ background:linear-gradient(90deg,transparent,#caa24a) }
+  .ch-head{ background:#faf5ec !important; color:var(--lapis) !important; box-shadow:none !important; border:1px solid var(--paper-edge) }
+  .ch-head::after{ display:none }
+  .ch-ar,.ch-en,.ch-tr,.ch-desc{ color:var(--lapis) !important }
+  .ch-eyebrow{ color:var(--madder) !important }
+  .hemi{ color:#241a1b !important }
+  .verse .translation{ display:flex !important }
+  .verse,.couplet,.ayah-card,.note{ break-inside:avoid }
+  .ch-head{ break-after:avoid }
+  .ayah{ break-inside:avoid }
+}
+/*matn-inline-palette — keep panel colours correct on first paint, independent of theme.css caching*/:root{--pnl-1:#d8b8b2;--pnl-2:#ceaba6;--pnl-3:#c2a09b;--pnl-txt:#5e2c30}body.matn-indigo{--madder:#4c4f9e;--madder-soft:#6b6eb5;--lapis:#2e3068;--lapis-2:#3a3d80;--lapis-3:#4c4f9e;--rose:#b3b4d6;--rose-2:#a6a7cd;--rose-hi:#c3c4e0;--pnl-1:#c3c4e0;--pnl-2:#b3b4d6;--pnl-3:#a6a7cd;--pnl-txt:#2e3068;--panel-soft:#3a3d80;--sage:#8a8ba6}
+/* ---- Nuskha (edition) per-bayt compare (picker lives in the ⋯ More menu) ---- */
+.nk-mark{flex:0 0 auto;display:inline-grid;place-items:center;width:26px;height:26px;padding:0;border-radius:50%;border:1px solid var(--paper-edge);background:var(--surface);color:var(--madder);cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background .15s,border-color .15s}
+.nk-mark:hover{border-color:var(--gilt)}
+.nk-mark svg{width:14px;height:14px;display:block}
+.nkov{position:fixed;inset:0;z-index:460;background:rgba(58,42,43,.5);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);display:flex;align-items:center;justify-content:center;padding:18px;opacity:0;transition:opacity .18s}
+.nkov.show{opacity:1}
+.nkcard{width:100%;max-width:520px;max-height:90vh;overflow:auto;background:var(--paper);border-radius:16px;padding:18px 18px 20px;box-shadow:0 24px 60px rgba(0,0,0,.4);font-family:"Montserrat",sans-serif}
+.nkcard h3{font-family:"Cormorant Garamond",Georgia,serif;color:var(--madder);font-size:1.35rem;margin:0 0 12px}
+.nk-cmp{border:1px solid var(--paper-edge);border-radius:12px;padding:10px 14px;margin-bottom:10px;background:var(--surface)}
+.nk-cmp.cur{border-color:var(--gilt);box-shadow:inset 3px 0 0 var(--gilt)}
+.nk-tag{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--sage);margin-bottom:2px}
+.nk-ar{font-family:'Scheherazade New',serif;font-size:1.5rem;line-height:2.15;text-align:center;color:var(--ink)}
+.nk-note{font-size:.74rem;font-weight:600;color:var(--sage);margin:2px 2px 12px;line-height:1.5}
+.nk-switch{width:100%;cursor:pointer;border:0;border-radius:22px;background:var(--madder);color:#fbeee8;font-family:inherit;font-size:.88rem;font-weight:700;padding:11px}
+.nk-switch+.nk-switch{margin-top:8px}
+.nk-cancel{margin-top:8px;width:100%;border:0;background:transparent;color:var(--sage);font-family:inherit;font-size:.78rem;font-weight:700;cursor:pointer;padding:6px}
+@media print{.nk-mark{display:none!important}}
+/* Never let the page pan sideways — long RTL lines and mid-scroll fitting can
+   otherwise leave the whole text shifted off-screen on touch devices. */
+html,body{overflow-x:hidden;overflow-x:clip}/* a Qurʾānic word quoted inside a bayt — pinned, not var()-driven, so a
+   matn's own accent cannot re-tint it. Dark lift is in theme.css. */
+.qur{color:#2e6b46}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   Gathered from the other reading pages when the seven per-matn pages were
+   folded into one template: each rule below was carried by some of them and
+   is now available to every matn that uses the feature.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* a solid circle standing in the line (span.dot in verse text) */
+.hemi .dot{position:relative; display:inline-block; width:.70em; text-align:center; line-height:2}
+.hemi .dot::before{content:""; position:absolute; left:50%; top:50%;
+  width:.42em; height:.42em; border-radius:50%; background:currentColor;
+  transform:translate(-50%,calc(-50% + .22em)); pointer-events:none}
+
+/* fade each verse in as it arrives: a class on #main, not inline styles on
+   every verse (that pass was slow in itself on a long matn) */
+#main.reveal-on .verse, #main.reveal-on .ch-head{opacity:0; transform:translateY(10px); transition:opacity .5s ease, transform .5s ease}
+#main.reveal-on .verse.shown, #main.reveal-on .ch-head.shown{opacity:1; transform:none}
+
+.verse.has-tr .couplet{cursor:pointer}
+.pill .ar{font-size:1.02em}
+
+/* per-chapter PDF downloads (PoemConfig.pdf.chapters) */
+.ch-pdf-grp{display:inline-flex; gap:7px; margin-top:9px}
+.ch-pdf{display:inline-block; font-family:"Montserrat",sans-serif; font-size:.64rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--madder); text-decoration:none; border:1px solid var(--paper-edge); border-radius:20px; padding:4px 12px; background:#fff}
+.ch-pdf:hover{border-color:var(--gilt)}
+@media print{
+  .ch-pdf-grp,.ch-pdf,.navprint{display:none !important}
+  .toggle{display:none !important}
+  /* chapters the browser skips under content-visibility must still print */
+  section.chapter{content-visibility:visible !important; contain-intrinsic-size:none !important}
+}
+
+/* The page's own empty state: the matn is registered but its text has not
+   been imported yet (or the store could not be reached). */
+.matn-missing{max-width:560px; margin:48px auto; text-align:center; padding:26px 22px;
+  border:1px solid var(--paper-edge); border-radius:14px; background:var(--surface,#fff); color:var(--ink-soft)}
+.matn-missing h2{font-family:"Cinzel"; font-weight:600; font-size:1.1rem; letter-spacing:.03em; color:var(--lapis-3); margin:0 0 8px}
+.matn-missing p{margin:0; font-size:.95rem}
+

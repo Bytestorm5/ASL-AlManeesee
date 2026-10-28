@@ -1,0 +1,177 @@
+---
+/* "Why everything looks small" — where the viewport notice (src/client/storage-guard.ts)
+   sends a reader whose browser is requesting the desktop site: it measures
+   how the page is being laid out, says whether that is the problem, and walks
+   through switching it off. Public but noindex; it deliberately loads none of
+   the site's styles or features, so it reads the same in any state. */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE, siteHost } from '../config/site.ts';
+---
+<BaseLayout title="Why everything looks small" description="Checks how your browser is sizing the app, and shows how to put it right." noindex>
+<style is:global>
+  :root{--ink:#3a2a2b;--soft:#6c585a;--madder:#8a4447;--paper:#f9f4ea;--edge:#e8dcc7;--card:#fff;--gilt:#c0973c}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55;font-size:16px}
+  .wrap{max-width:620px;margin:0 auto;padding:24px 18px 60px}
+  h1{font-size:1.3rem;color:var(--madder);margin:0 0 4px}
+  .sub{color:var(--soft);font-size:.9rem;margin:0 0 20px}
+  .verdict{border-radius:14px;padding:16px 18px;margin:0 0 20px;background:var(--card);
+    border-left:5px solid var(--gilt);box-shadow:0 3px 12px rgba(58,28,31,.07)}
+  .verdict b{display:block;font-size:1.05rem;margin-bottom:4px}
+  .verdict.ok{border-left-color:#4c7a5a}
+  .verdict.bad{border-left-color:#c0392b}
+  .verdict span{color:var(--soft);font-size:.9rem}
+  h2{font-size:.78rem;text-transform:uppercase;letter-spacing:.09em;color:var(--gilt);margin:26px 0 8px}
+  ol{margin:0;padding-left:1.25em}
+  li{margin:9px 0}
+  .steps{background:var(--card);border-radius:12px;padding:16px 18px 16px 34px;
+    box-shadow:0 3px 12px rgba(58,28,31,.07);font-size:.92rem}
+  kbd{background:var(--paper);border:1px solid var(--edge);border-radius:5px;padding:1px 6px;
+    font-family:inherit;font-size:.86em;font-weight:600}
+  table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden;
+    box-shadow:0 3px 12px rgba(58,28,31,.07);font-size:.88rem}
+  td{padding:9px 12px;border-top:1px solid var(--edge);vertical-align:top}
+  tr:first-child td{border-top:0}
+  td:first-child{color:var(--soft);width:52%}
+  td:last-child{font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:600;word-break:break-word}
+  .btns{display:grid;gap:9px;margin:10px 0 0}
+  button{padding:14px;border:1px solid var(--edge);border-radius:12px;background:var(--card);
+    color:var(--ink);font:inherit;font-weight:600;cursor:pointer}
+  button.primary{background:var(--madder);color:#fff;border-color:var(--madder)}
+  .ok-msg{display:none;margin:12px 0 0;padding:11px 13px;border-radius:10px;background:#eaf3ec;
+    color:#2f5d40;font-size:.88rem;font-weight:600}
+  .ok-msg.show{display:block}
+  textarea{width:100%;height:150px;margin-top:10px;padding:10px;border:1px solid var(--edge);
+    border-radius:10px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.74rem;background:var(--card);color:var(--ink)}
+  details{margin-top:10px}
+  summary{cursor:pointer;color:var(--madder);font-weight:600;font-size:.9rem}
+</style>
+<div class="wrap">
+  <h1>Why everything looks small</h1>
+  <p class="sub">This page checks how your browser is sizing the app, and shows how to put it right.</p>
+
+  <div class="verdict" id="verdict"><b>Checking…</b><span></span></div>
+
+  <div id="fixWrap" hidden>
+    <h2>How to fix it</h2>
+    <div class="steps">
+      <ol>
+        <li>Open <b>Chrome</b> — the browser itself, not the {SITE.appName} app.</li>
+        <li>Go to <b>{siteHost()}</b>.</li>
+        <li>Tap <kbd>⋮</kbd> at the top right.</li>
+        <li>Look for <b>Desktop site</b>. If it has a tick, tap it to remove the tick.</li>
+        <li>If it was not ticked, go to <kbd>⋮</kbd> → <b>Settings</b> → <b>Site settings</b> → <b>Desktop site</b>, turn it off, and remove <b>{siteHost()}</b> from the list underneath.</li>
+        <li>Fully close the {SITE.appName} app — swipe it away from recent apps — and open it again.</li>
+      </ol>
+    </div>
+    <p class="sub" style="margin-top:12px">This setting is kept by Chrome against the website address, not by the app. That is why uninstalling and reinstalling the app never clears it.</p>
+  </div>
+
+  <h2>What this device reports</h2>
+  <table id="tbl"></table>
+
+  <details>
+    <summary>Advanced: force the card layout</summary>
+    <p class="sub" style="margin-top:8px">This only changes whether the app arranges cards for a phone or a tablet. It does <b>not</b> fix the sizing above — for that, follow the steps.</p>
+    <div class="btns">
+      <button id="bPhone">Phone layout</button>
+      <button id="bTablet">Tablet layout</button>
+      <button id="bAuto">Automatic</button>
+    </div>
+    <div class="ok-msg" id="ok"></div>
+  </details>
+
+  <h2>Send this to support</h2>
+  <div class="btns"><button id="bCopy" class="primary">Copy these details</button></div>
+  <textarea id="dump" readonly></textarea>
+</div>
+
+<script>
+  import { esc } from '../client/page.ts';
+
+  function mq(q: string): boolean { try { return matchMedia(q).matches; } catch { return false; } }
+  const $ = <T extends HTMLElement>(id: string): T => document.getElementById(id) as T;
+
+  function read() {
+    const s = window.screen || ({} as Screen);
+    const dpr = window.devicePixelRatio || 1;
+    const shortEdge = Math.min(s.width || 0, s.height || 0) * dpr;
+    let stored: string | null = null;
+    try { stored = localStorage.getItem('asl-wide'); } catch { /* blocked */ }
+    const finePointer = mq('(hover:hover) and (pointer:fine)');
+    // The same test as the tablet layout gate (bootLayoutGate in src/client/boot.ts).
+    const auto = finePointer || !shortEdge || shortEdge >= 1460;
+    const effective = stored === '1' || stored === '0' ? stored === '1' : auto;
+    // The layout viewport being far wider than the screen is the signature of
+    // a browser told to serve desktop pages; nothing else widens it like this.
+    const ratio = s.width && window.innerWidth ? window.innerWidth / s.width : 1;
+    return { s, dpr, shortEdge, stored, finePointer, auto, effective, ratio, desktopMode: ratio > 1.4 };
+  }
+
+  function render(): void {
+    const r = read();
+    const rows: [string, string | number][] = [
+      ['Layout width (CSS px)', window.innerWidth],
+      ['Layout height (CSS px)', window.innerHeight],
+      ['screen.width', r.s.width],
+      ['screen.height', r.s.height],
+      ['devicePixelRatio', r.dpr],
+      ['Layout is wider than screen by', r.ratio.toFixed(2) + '×'],
+      ['Desktop-site mode', r.desktopMode ? 'YES — this is the problem' : 'no'],
+      ['Short edge in device px', Math.round(r.shortEdge)],
+      ['(hover:hover) and (pointer:fine)', String(r.finePointer)],
+      ['(pointer:coarse)', String(mq('(pointer:coarse)'))],
+      ['navigator.maxTouchPoints', navigator.maxTouchPoints],
+      ['Running as installed app', String(mq('(display-mode: standalone)') || mq('(display-mode: fullscreen)') || mq('(display-mode: minimal-ui)'))],
+      ['Card layout — automatic', r.auto ? 'tablet' : 'phone'],
+      ['Card layout — saved override', r.stored === null ? 'none' : (r.stored === '1' ? 'tablet' : 'phone')],
+      ['Card layout — in use', r.effective ? 'tablet' : 'phone'],
+      ['User agent', navigator.userAgent],
+    ];
+    $('tbl').innerHTML = rows.map((x) => '<tr><td>' + x[0] + '</td><td>' + esc(x[1]) + '</td></tr>').join('');
+    $<HTMLTextAreaElement>('dump').value = rows.map((x) => x[0] + ': ' + x[1]).join('\n');
+
+    const v = $('verdict');
+    const vb = v.querySelector('b')!, vs = v.querySelector('span')!;
+    $('fixWrap').hidden = !r.desktopMode;
+    if (r.desktopMode) {
+      v.className = 'verdict bad';
+      vb.textContent = 'Everything is about ' + r.ratio.toFixed(1) + '× too small';
+      vs.textContent =
+        'Your browser is laying this app out for a screen ' + Math.round(r.s.width * r.ratio) +
+        ' pixels wide, when this screen is ' + r.s.width + '. That is the “desktop site” setting, and the app cannot ' +
+        'override it — but it takes a few seconds to turn off. The steps are below.';
+    } else {
+      v.className = 'verdict ok';
+      vb.textContent = 'Sizing looks correct';
+      vs.textContent =
+        'This app is being laid out for a ' + window.innerWidth + 'px screen, which matches your device. ' +
+        'If something still looks wrong, send the details below to support.';
+    }
+  }
+
+  function set(val: string | null, msg: string): void {
+    try { if (val === null) localStorage.removeItem('asl-wide'); else localStorage.setItem('asl-wide', val); } catch { /* blocked */ }
+    const ok = $('ok');
+    ok.textContent = msg + ' Fully close the app and reopen it.';
+    ok.className = 'ok-msg show';
+    render(); // so the table and the copied details agree
+  }
+  $('bPhone').addEventListener('click', () => set('0', 'Card layout pinned to phone.'));
+  $('bTablet').addEventListener('click', () => set('1', 'Card layout pinned to tablet.'));
+  $('bAuto').addEventListener('click', () => set(null, 'Card layout back to automatic.'));
+
+  $('bCopy').addEventListener('click', function (this: HTMLButtonElement) {
+    const t = $<HTMLTextAreaElement>('dump');
+    t.select();
+    const legacyCopy = (): void => { try { document.execCommand('copy'); } catch { /* ignore */ } };
+    // A WebView may refuse the async clipboard (a rejected promise, not a
+    // throw), so fall back to copying the selection either way.
+    try { navigator.clipboard.writeText(t.value).catch(legacyCopy); } catch { legacyCopy(); }
+    this.textContent = 'Copied';
+  });
+
+  render();
+</script>
+</BaseLayout>

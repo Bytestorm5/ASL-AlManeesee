@@ -1,0 +1,396 @@
+/* Home page (src/pages/index.astro). Accent palettes for the matn rows are in
+   theme.css (.matn-row.m-<accent>), dark mode too; theme.css is imported after
+   this file. */
+@font-face{font-family:'Scheherazade New';font-style:normal;font-weight:400;font-display:swap;src:url("/fonts/ScheherazadeNew.woff2") format("woff2");}
+@font-face{font-family:'Scheherazade New';font-style:normal;font-weight:700;font-display:swap;src:url("/fonts/ScheherazadeNewB.woff2") format("woff2");}
+
+:root{
+  --lapis:#5e2c30; --lapis-2:#743a3e; --lapis-3:#8a4447;
+  --ink:#3a2a2b; --ink-soft:#6c585a;
+  --paper:#f9f4ea; --paper-2:#f3eada; --paper-edge:#e8dcc7;
+  --gilt:#c0973c; --gilt-hi:#e6c66f; --gilt-deep:#9a7526;
+  --madder:#8a4447; --madder-soft:#a35a5d;
+  --sage:#9c7f80;
+  --blush:#efc7b7; --blush-soft:#f6ddd2;
+  --rose:#ceaba6; --rose-2:#c2a09b; --rose-hi:#d8b8b2; --panel-soft:#53403d;
+  --cream:#f6e9e2; --cream-dim:#d8bdb6;
+  --emblem:url("/brand/emblem.png"); --logo:url("/brand/logo.png");
+  --shadow:0 1px 2px rgba(58,28,31,.06), 0 8px 28px rgba(58,28,31,.08); --shadow-card:0 1px 3px rgba(58,28,31,.10), 0 5px 14px rgba(58,28,31,.10), 0 14px 30px rgba(58,28,31,.12);
+  --maxw:1040px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0; background:var(--paper); color:var(--ink); font-family:"Spectral",Georgia,serif;
+  line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility}
+.ar{font-family:"Scheherazade New","Amiri",serif; direction:rtl}
+.label{font-family:"Montserrat",sans-serif}
+a{color:inherit}
+
+/* brand bar */
+.brandbar-wrap{background:linear-gradient(180deg,#fbf7ec,var(--paper)); border-bottom:1px solid var(--paper-edge)}
+.brandbar{display:flex; align-items:center; justify-content:space-between; gap:16px;
+  max-width:1180px; margin:0 auto; padding:13px 22px; text-decoration:none}
+.brandbar-logo{height:46px; width:130px; flex:0 0 auto; background:var(--logo) left center/contain no-repeat}
+.brandbar .tagline{font-family:"Montserrat",sans-serif; font-size:.7rem; letter-spacing:.26em;
+  text-transform:uppercase; color:var(--gilt-deep); font-weight:500; white-space:nowrap}
+@media (max-width:560px){.brandbar{justify-content:center} .brandbar .tagline{display:none} .brandbar-logo{height:40px; width:112px}}
+
+/* hero */
+header.hero{position:relative; color:var(--cream); overflow:hidden; text-align:center;
+  padding:clamp(40px,7vw,82px) 22px clamp(32px,5vw,56px);
+  background:
+    radial-gradient(1100px 460px at 50% -22%, rgba(255,250,244,.4), transparent 62%),
+    radial-gradient(circle at 22% 128%, rgba(180,138,135,.28), transparent 58%),
+    linear-gradient(165deg,#d8b8b2 0%, #ceaba6 55%, #c2a09b 100%);
+  background-color:var(--rose)}
+header.hero::before{content:""; position:absolute; inset:0; opacity:.5;
+  background-image:radial-gradient(rgba(230,198,111,.16) 1px, transparent 1.4px); background-size:26px 26px;
+  -webkit-mask-image:radial-gradient(circle at 50% 35%, #000 25%, transparent 78%);
+          mask-image:radial-gradient(circle at 50% 35%, #000 25%, transparent 78%)}
+.hero-inner{position:relative; max-width:780px; margin:0 auto}
+.hero-emblem{width:92px; height:92px; margin:0 auto 18px; background:var(--emblem) center/contain no-repeat;
+  filter:drop-shadow(0 3px 10px rgba(0,0,0,.32))}
+.eyebrow{font-family:"Montserrat",sans-serif; letter-spacing:.36em; text-transform:uppercase;
+  font-size:.66rem; color:var(--gilt-hi); font-weight:500; margin-bottom:30px}
+.hero h1{margin:.05em 0 .1em; font-weight:700}
+.hero h1.ar{font-family:"Scheherazade New","Amiri"; font-size:clamp(2.4rem,8vw,4rem); line-height:1.15; color:#fbeee8;
+  text-shadow:0 2px 18px rgba(0,0,0,.3)}
+.hero .romantitle{font-family:"Cinzel"; font-weight:600; text-transform:uppercase; letter-spacing:.05em;
+  font-size:clamp(1.1rem,3vw,1.5rem); color:var(--gilt-hi)}
+.hero .subtitle{font-family:"Cormorant Garamond"; font-size:clamp(1.02rem,2.4vw,1.22rem);
+  color:var(--cream-dim); max-width:600px; margin:14px auto 0; font-weight:500; line-height:1.5}
+.rule{display:flex; align-items:center; justify-content:center; gap:14px; margin:22px auto 0; max-width:340px}
+.rule i{height:1px; flex:1; background:linear-gradient(90deg,transparent,var(--gilt))}
+.rule i:last-child{background:linear-gradient(90deg,var(--gilt),transparent)}
+.rule b{color:var(--gilt); font-size:.9rem}
+.meta-chips{display:flex; flex-wrap:wrap; gap:9px 10px; justify-content:center; margin-top:24px}
+.chip{font-family:"Montserrat",sans-serif; font-size:.7rem; letter-spacing:.05em; color:var(--cream);
+  border:1px solid rgba(230,198,111,.34); border-radius:30px; padding:6px 14px; background:rgba(255,255,255,.03)}
+.chip b{color:var(--gilt-hi); font-weight:600}
+
+/* action button */
+.actions{margin-top:26px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+.btn{font-family:"Montserrat",sans-serif; font-size:.74rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+  text-decoration:none; cursor:pointer; border-radius:26px; padding:11px 22px; transition:transform .15s, box-shadow .15s, background .15s; border:1px solid transparent}
+.btn-gold{background:linear-gradient(180deg,var(--madder),var(--lapis)); color:#f7ece2; box-shadow:0 4px 16px rgba(94,44,48,.32)}
+.btn-gold:hover{transform:translateY(-2px); box-shadow:0 7px 22px rgba(94,44,48,.4)}
+.btn-ghost{background:transparent; color:var(--lapis); border-color:rgba(94,44,48,.4)}
+.btn-ghost:hover{background:rgba(94,44,48,.08)}
+
+/* generic section heading */
+.section{max-width:var(--maxw); margin:0 auto; padding:clamp(34px,5vw,58px) 22px 0}
+.sec-head{text-align:center; margin-bottom:30px}
+.sec-head .lbl{font-family:"Montserrat",sans-serif; letter-spacing:.34em; text-transform:uppercase;
+  font-size:.66rem; color:var(--madder); font-weight:500}
+.sec-head h2{font-family:"Cinzel"; font-weight:600; text-transform:uppercase; letter-spacing:.03em;
+  font-size:clamp(1.5rem,3.6vw,2rem); margin:.2em 0 0; color:var(--lapis-3)}
+.sec-head p{font-family:"Cormorant Garamond"; font-size:1.12rem; color:var(--ink-soft); max-width:640px; margin:12px auto 0; line-height:1.5}
+
+/* intro prose */
+.prose{max-width:760px; margin:0 auto; padding:0 22px; font-size:1.04rem; color:var(--ink-soft)}
+.prose p{margin:0 0 14px}
+.prose b{color:var(--madder)}
+
+.guide-link{text-align:center; margin:22px 0 0}
+.guide-link a{display:inline-flex; align-items:center; gap:8px; text-decoration:none;
+  font-family:"Montserrat",sans-serif; font-size:.82rem; font-weight:700; color:var(--madder);
+  border:1px solid var(--paper-edge); background:#fff; border-radius:24px; padding:10px 18px;
+  -webkit-tap-highlight-color:transparent; transition:border-color .15s, background .15s}
+@media (hover:hover){.guide-link a:hover{border-color:var(--gilt); background:var(--paper-2)}}
+
+/* ---- vertical matn list: illuminated title-plate rows ---- */
+.home-main{padding-top:34px}
+.apphome .home-main{padding-top:10px}
+.apphome .home-main .sec-head{display:none}
+/* app-home banner (the web hero is hidden in app mode) */
+.app-banner{display:none}
+.apphome .app-banner{display:block; text-align:center; padding:8px 22px 0}
+.app-banner .ab-ar{font-family:"Scheherazade New","Amiri"; font-size:1.6rem; line-height:1.2; color:var(--madder)}
+.app-banner .ab-en{font-family:"Cinzel","Cormorant Garamond",serif; font-weight:600; text-transform:uppercase;
+  letter-spacing:.22em; font-size:.62rem; color:var(--gilt-deep); margin-top:2px}
+.app-banner .ab-rule{display:flex; align-items:center; justify-content:center; gap:10px; margin:6px auto 0; max-width:180px}
+.app-banner .ab-rule i{flex:1; height:1px; background:linear-gradient(90deg,transparent,var(--gilt))}
+.app-banner .ab-rule i:last-child{background:linear-gradient(90deg,var(--gilt),transparent)}
+.app-banner .ab-rule b{color:var(--gilt-deep); font-size:.95rem; line-height:1}
+#contWrap{max-width:760px; margin:0 auto 6px; padding:0 14px}
+/* continue card — a small illuminated plate in the matn's tint */
+.cont-card{position:relative; display:flex; align-items:center; gap:11px; text-decoration:none; overflow:hidden;
+  background:radial-gradient(430px 150px at 50% -35%, rgba(255,250,244,.5), transparent 62%),
+    linear-gradient(155deg,var(--pnl-1),var(--pnl-2) 60%,var(--pnl-3));
+  border:1px solid var(--paper-edge); border-radius:14px;
+  box-shadow:var(--shadow-card); padding:9px 12px; margin:2px 0 12px; -webkit-tap-highlight-color:transparent;
+  transition:transform .16s ease, border-color .16s, box-shadow .16s}
+.cont-card::after{content:""; position:absolute; inset:4px; border:1px solid rgba(230,198,111,.4); border-radius:10px; pointer-events:none}
+.apphome #contWrap{padding:12px 14px 0}
+@media (hover:hover){.cont-card:hover{transform:translateY(-2px); border-color:var(--gilt); box-shadow:0 14px 36px rgba(58,28,31,.16)}}
+.cont-card .cc-emblem{flex:0 0 auto; width:36px; height:36px; position:relative; display:grid; place-items:center;
+  border-radius:50%; background:#f9f4ea; box-shadow:0 2px 7px rgba(58,28,31,.22), inset 0 0 0 1px rgba(151,115,34,.25)}
+.cont-card .cc-emblem::before{content:""; position:absolute; inset:0; border-radius:50%;
+  background:var(--emblem) center/78% no-repeat; filter:var(--emblem-filter,none)}
+.cont-card .cc-body{flex:1 1 auto; min-width:0; display:flex; flex-direction:column; gap:2px; position:relative; z-index:1}
+.cont-card .cc-lbl{font-family:"Montserrat",sans-serif; font-size:.56rem; font-weight:700; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--pnl-txt); opacity:.75}
+.cont-card .cc-main{font-family:"Cormorant Garamond",serif; font-weight:700; font-size:1.02rem; line-height:1.25; color:var(--pnl-txt);
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+@media (max-width:430px){.cont-card .cc-emblem{display:none}.cont-card{gap:9px}}
+@media (max-width:374px){.cont-card .cc-main{font-size:.94rem}.cont-card .cc-go{padding:7px 11px;font-size:.64rem}}
+@media (max-width:334px){.cont-card .cc-main{font-size:.86rem}.cont-card .cc-lbl{font-size:.52rem}}
+.cont-card .cc-go{flex:0 0 auto; position:relative; z-index:1; font-family:"Montserrat",sans-serif; font-size:.68rem; font-weight:700; letter-spacing:.04em;
+  color:#fbeee8; background:var(--madder); border-radius:16px; padding:7px 13px; box-shadow:0 3px 9px rgba(58,28,31,.22)}
+#bmWrap{max-width:760px; margin:0 auto; padding:0 14px}
+/* ---- study stats strip ---- */
+#statsWrap{max-width:760px; margin:0 auto; padding:0 14px}
+.stats-card{display:grid; grid-template-columns:repeat(3,1fr); background:linear-gradient(180deg,#fdfaf1,var(--paper-2));
+  border:1px solid var(--paper-edge); border-radius:16px; box-shadow:var(--shadow-card); margin-bottom:10px; overflow:hidden}
+.st{padding:8px 8px 7px; text-align:center; position:relative}
+.st .hd{display:flex; align-items:center; justify-content:center; gap:5px; margin-bottom:1px}
+.st::before{content:""; position:absolute; left:0; top:16%; bottom:16%; width:1px; background:var(--paper-edge)}
+.st:first-child::before{display:none}
+.st .ic{width:20px; height:20px; flex:0 0 auto; border-radius:50%; background:#f4ead4; display:grid; place-items:center; color:var(--gilt-deep)}
+.st .ic svg{width:11px; height:11px}
+.st .lbl{font-family:"Montserrat",sans-serif; font-size:.53rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-soft,#6c585a)}
+.st .num{font-family:"Cormorant Garamond",serif; font-weight:700; font-size:1.3rem; line-height:1.1; color:var(--madder)}
+.st .num small{font-size:.8rem; font-weight:700}
+.st .sub{font-family:"Montserrat",sans-serif; font-size:.54rem; font-weight:600; color:var(--gilt-deep)}
+.st .dots{display:flex; gap:4px; justify-content:center; margin-top:3px}
+.st .dots i{width:6px; height:6px; border-radius:50%; background:var(--paper-edge)}
+.st .dots i.on{background:var(--gilt)}
+.st-rule{display:flex; align-items:center; justify-content:center; gap:10px; margin:0 auto 14px; max-width:180px}
+.st-rule i{flex:1; height:1px; background:linear-gradient(90deg,transparent,var(--gilt))}
+.st-rule i:last-child{background:linear-gradient(90deg,var(--gilt),transparent)}
+.st-rule b{color:var(--gilt-deep); font-size:.95rem; line-height:1}
+.bm-card{background:linear-gradient(180deg,#fdfaf1,var(--paper-2)); border:1px solid var(--paper-edge); border-radius:16px;
+  box-shadow:var(--shadow-card); padding:2px 16px 2px; margin-bottom:14px}
+.bm-card.open{padding-bottom:10px}
+.bm-card .bm-head{display:flex; align-items:center; gap:8px; width:100%; padding:12px 0; cursor:pointer;
+  border:0; background:transparent; text-align:inherit; -webkit-tap-highlight-color:transparent;
+  font-family:"Montserrat",sans-serif; font-size:.6rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--gilt-deep)}
+.bm-card .bm-head svg{width:13px; height:13px; color:var(--madder)}
+.bm-card .bm-count{min-width:17px; height:17px; padding:0 5px; border-radius:9px; background:var(--madder); color:#fbeee8;
+  display:inline-flex; align-items:center; justify-content:center; font-size:.58rem; letter-spacing:0}
+.bm-card .bm-chev{margin-left:auto; color:var(--madder); font-size:.8rem; letter-spacing:0; transition:transform .18s ease}
+.bm-card.open .bm-chev{transform:rotate(180deg)}
+.bm-card .bm-row, .bm-card .bm-more{display:none}
+.bm-card.open .bm-more{display:block}
+.bm-card.open .bm-row{display:flex; align-items:center; gap:11px; width:100%; text-align:inherit; padding:9px 0; text-decoration:none; color:inherit;
+  border-top:1px solid var(--paper-edge); cursor:pointer; -webkit-tap-highlight-color:transparent}
+.bm-row .bm-dot{flex:0 0 auto; width:9px; height:9px; border-radius:50%; background:var(--madder); box-shadow:0 0 0 3px var(--paper-2)}
+.bm-row .bm-body{flex:1 1 auto; min-width:0; display:flex; flex-direction:column; gap:1px}
+.bm-row .bm-t{font-family:"Montserrat",sans-serif; font-size:.72rem; font-weight:700; color:var(--ink)}
+.bm-row .bm-t b{color:var(--madder)}
+.bm-row .bm-ch{font-family:"Scheherazade New","Amiri"; direction:rtl; text-align:left; font-size:1.02rem; line-height:1.4; color:var(--ink-soft);
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.bm-row .bm-n{flex:0 0 auto; font-family:"Cormorant Garamond",serif; font-weight:700; font-size:1.05rem; color:var(--gilt-deep)}
+@media (hover:hover){.bm-row:hover .bm-t{color:var(--madder)}}
+.bm-more{display:block; width:100%; cursor:pointer; border:0; border-top:1px solid var(--paper-edge); background:transparent; padding:10px 0 6px;
+  font-family:"Montserrat",sans-serif; font-size:.66rem; font-weight:700; letter-spacing:.05em; color:var(--madder); -webkit-tap-highlight-color:transparent}
+.matn-list{max-width:760px; margin:0 auto; padding:0 14px; display:flex; flex-direction:column; gap:12px}
+.matn-row{position:relative; display:flex; align-items:stretch; overflow:hidden;
+  background:linear-gradient(180deg,#fdfaf1,var(--paper-2)); border:1px solid var(--paper-edge); border-radius:16px;
+  box-shadow:var(--shadow-card); transition:transform .16s ease, border-color .16s, box-shadow .16s}
+@media (hover:hover){.matn-row:hover{transform:translateY(-3px); border-color:var(--gilt); box-shadow:0 14px 36px rgba(58,28,31,.14)}}
+/* the illuminated title plate */
+.mr-plate{flex:0 0 124px; position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:8px; padding:16px 10px; text-decoration:none; text-align:center;
+  background:radial-gradient(260px 150px at 50% -30%, rgba(255,250,244,.5), transparent 60%),
+    linear-gradient(155deg,var(--pnl-1),var(--pnl-2) 60%,var(--pnl-3))}
+.mr-plate::after{content:""; position:absolute; inset:5px; border:1px solid rgba(230,198,111,.4); border-radius:11px; pointer-events:none}
+.mr-emblem{flex:0 0 auto; width:46px; height:46px; position:relative; display:grid; place-items:center;
+  border-radius:50%; background:#f9f4ea; box-shadow:0 3px 9px rgba(58,28,31,.22), inset 0 0 0 1px rgba(151,115,34,.25)}
+.mr-emblem::before{content:""; position:absolute; inset:0; border-radius:50%;
+  background:var(--emblem) center/82% no-repeat; filter:var(--emblem-filter,none)}
+.mr-emblem .ord{position:relative; z-index:2; font-family:"Cormorant Garamond"; font-weight:700; font-size:.72rem; color:var(--madder);
+  min-width:1.5em; height:1.5em; padding:0 .1em; border-radius:1em; background:#f8efe3; display:grid; place-items:center;
+  box-shadow:0 0 0 1px rgba(151,115,34,.3)}
+.mr-ar{font-family:"Scheherazade New","Amiri"; direction:rtl; font-size:1.44rem; line-height:1.25; color:var(--pnl-txt);
+  text-shadow:0 1px 0 rgba(255,255,255,.3)}
+.mr-body{flex:1 1 auto; min-width:0; display:flex; flex-direction:column; gap:3px; padding:13px 15px 12px}
+.mr-en{font-family:"Cinzel","Cormorant Garamond",serif; font-weight:600; text-transform:uppercase; letter-spacing:.05em;
+  font-size:.86rem; color:var(--lapis-3); text-decoration:none}
+@media (hover:hover){.mr-en:hover{color:var(--madder)}}
+.mr-meta{font-family:"Montserrat",sans-serif; font-size:.64rem; font-weight:500; letter-spacing:.02em; color:var(--ink-soft)}
+.mr-prog{display:flex; align-items:center; gap:8px; margin-top:4px}
+.mr-prog[hidden]{display:none}
+.mr-prog .bar{flex:1 1 44px; min-width:34px; max-width:150px; height:4px; border-radius:2px; background:var(--paper-edge); overflow:hidden}
+.mr-prog .bar i{display:block; width:0; height:100%; border-radius:2px; background:var(--gilt); transition:width .4s ease}
+.mr-prog .pct{font-family:"Montserrat",sans-serif; font-size:.6rem; font-weight:600; color:var(--gilt-deep); white-space:nowrap; flex:0 0 auto}
+.mr-goal{display:block; margin-top:4px; font-family:"Montserrat",sans-serif; font-size:.66rem; font-weight:600; color:var(--gilt-deep)}
+.mr-goal[hidden]{display:none}
+.mr-goal b{font-weight:700}
+.mr-acts{display:flex; flex-wrap:wrap; gap:7px; margin-top:auto; padding-top:9px}
+/* wide layouts: Read / Memorize stack in a right-hand column */
+@media (min-width:600px){
+  .mr-body{display:grid; grid-template-columns:minmax(0,1fr) auto; column-gap:18px; align-items:start}
+  .mr-body>.mr-en,.mr-body>.mr-meta,.mr-body>.mr-prog{grid-column:1}
+  .mr-body>.mr-acts{grid-column:2; grid-row:1/span 3; align-self:center; flex-direction:column; align-items:stretch; margin:0; padding:0; gap:8px}
+  .mr-acts .mr-btn{justify-content:center; padding:8px 18px}
+}
+/* Tablets (iPad and up): one 760px column of cards leaves a third of an iPad
+   screen empty either side, so pair them up. That halves each card to ~470px,
+   which is too narrow to also carve off a right-hand button column — so inside
+   the pair the card reverts to the stacked phone layout. Must come after the
+   600px block above: same specificity, so source order decides. */
+@media (min-width:900px){
+  html.bigscreen .matn-list{max-width:var(--maxw); padding:0 22px; display:grid; grid-template-columns:1fr 1fr;
+    /* stretch, not start: two cards side by side should share a height, and
+       .mr-acts already has margin-top:auto so the buttons sit on the bottom
+       edge of whichever card is taller. With align-items:start a card whose
+       neighbour had a progress bar or a second line of byline just ended
+       short, and the row looked ragged. */
+    align-items:stretch;
+    /* every card the same height, not just the two in a row: a long Arabic
+       name needs two lines in its plate, and without this that row stood
+       taller than the ones around it. */
+    grid-auto-rows:1fr}
+  html.bigscreen .mr-body{display:flex; align-items:stretch; column-gap:3px}
+  html.bigscreen .mr-body>.mr-acts{align-self:auto; flex-direction:row; align-items:center; margin-top:auto; padding-top:9px; gap:7px}
+}
+.mr-btn{display:inline-flex; align-items:center; justify-content:center; gap:5px; text-decoration:none;
+  font-family:"Montserrat",sans-serif; font-size:.63rem; font-weight:700; letter-spacing:.04em;
+  border-radius:15px; padding:7px 14px; -webkit-tap-highlight-color:transparent; transition:background .15s, border-color .15s, box-shadow .15s}
+.mr-btn svg{width:14px; height:14px}
+.mr-read{color:#fbeee8; background:var(--madder); border:1px solid var(--madder); box-shadow:0 2px 7px rgba(58,28,31,.18)}
+@media (hover:hover){.mr-read:hover{box-shadow:0 4px 12px rgba(58,28,31,.28)}}
+.mr-mz{color:var(--madder); background:var(--surface,#fff); border:1px solid var(--paper-edge)}
+@media (hover:hover){.mr-mz:hover{border-color:var(--gilt); background:var(--paper-2)}}
+@media (min-width:560px){.mr-plate{flex-basis:158px}.mr-ar{font-size:1.62rem}.mr-emblem{width:52px;height:52px}}
+@media (max-width:400px){.mr-plate{flex-basis:106px}.mr-ar{font-size:1.3rem}.mr-body{padding:12px 12px 11px}.mr-btn{padding:7px 11px}}
+@media (max-width:344px){.mr-plate{flex-basis:92px}.mr-ar{font-size:1.16rem}.mr-btn svg{display:none}}
+/* in-preparation notice */
+.prep{max-width:760px; margin:30px auto 0; padding:0 22px}
+.prep-card{position:relative; text-align:center; border-radius:16px; padding:30px 26px;
+  background:linear-gradient(180deg,#fdfaf1,var(--paper-2)); border:1px solid var(--paper-edge); box-shadow:var(--shadow)}
+.prep-card::before{content:""; position:absolute; inset:8px; border:1px solid rgba(151,115,34,.28); border-radius:10px; pointer-events:none}
+.prep-emblem{width:46px;height:46px;margin:0 auto 12px; background:var(--emblem) center/contain no-repeat; opacity:.9}
+.prep-card .lbl{font-family:"Montserrat",sans-serif; letter-spacing:.28em; text-transform:uppercase; font-size:.66rem; color:var(--madder); font-weight:500}
+.prep-card h3{font-family:"Cormorant Garamond"; font-weight:600; font-size:1.5rem; color:var(--lapis-3); margin:.2em 0 .3em}
+.prep-card p{color:var(--ink-soft); max-width:520px; margin:0 auto; font-size:1rem; line-height:1.55}
+
+/* outline list (themes) */
+.outline{max-width:760px; margin:26px auto 0; padding:0 22px}
+.outline ul{list-style:none; margin:0; padding:0; display:grid; gap:9px; grid-template-columns:1fr}
+@media (min-width:620px){.outline ul{grid-template-columns:1fr 1fr}}
+.outline li{display:flex; gap:11px; align-items:flex-start; background:linear-gradient(180deg,#fdfaf1,var(--paper-2));
+  border:1px solid var(--paper-edge); border-radius:12px; padding:12px 14px; box-shadow:var(--shadow); font-size:.95rem; color:var(--ink-soft)}
+.outline .lf{color:var(--madder); flex:0 0 auto}
+
+/* ayah band */
+.ayah{max-width:var(--maxw); margin:clamp(34px,5vw,52px) auto 0; padding:0 22px}
+.ayah-card{position:relative; text-align:center; border-radius:16px; padding:30px 26px 26px;
+  background:linear-gradient(180deg,#fdfaf1,var(--paper-2)); border:1px solid var(--paper-edge); box-shadow:var(--shadow)}
+.ayah-card::before{content:""; position:absolute; inset:8px; border:1px solid rgba(138,68,71,.28); border-radius:10px; pointer-events:none}
+.ayah-sprout{width:36px; height:36px; margin:0 auto 12px; display:block; color:var(--gilt-deep)}
+.ayah-ar{font-family:"Scheherazade New","Amiri"; direction:rtl; font-size:clamp(1.5rem,4.2vw,2.1rem); line-height:2.05; color:var(--ink)}
+.ayah-ar .root{color:var(--gilt-deep); font-weight:700}
+.ayah-en{font-family:"Cormorant Garamond"; font-style:italic; font-size:clamp(1.02rem,2.4vw,1.2rem); color:var(--ink-soft); max-width:560px; margin:13px auto 0; line-height:1.5}
+.ayah-ref{font-family:"Montserrat",sans-serif; font-size:.68rem; letter-spacing:.22em; text-transform:uppercase; color:var(--madder); margin-top:11px}
+.ayah-tie{font-family:"Cormorant Garamond"; font-size:1rem; color:var(--ink-soft); max-width:600px; margin:17px auto 0;
+  padding-top:15px; border-top:1px solid var(--paper-edge); line-height:1.55}
+.ayah-tie b{color:var(--gilt-deep); font-weight:600} .ayah-tie .ar{font-size:1.12rem; color:var(--gilt-deep)}
+
+/* footer */
+footer{background:linear-gradient(160deg,#d8b8b2,#ceaba6 60%,#c2a09b); color:var(--cream-dim); text-align:center; padding:46px 22px 46px; margin-top:40px}
+.foot-rule{display:flex; align-items:center; justify-content:center; gap:14px; margin:0 auto 22px; max-width:300px}
+.foot-rule i{height:1px; flex:1; background:linear-gradient(90deg,transparent,rgba(230,198,111,.5))}
+.foot-rule i:last-child{background:linear-gradient(90deg,rgba(230,198,111,.5),transparent)}
+.foot-rule b{color:var(--gilt-hi); font-size:.95rem}
+.foot-brand{display:flex; flex-direction:column; align-items:center; gap:13px}
+.foot-logo{background:#f7f2e5; border-radius:12px; padding:11px 18px; display:inline-flex; box-shadow:0 4px 18px rgba(0,0,0,.28); transition:transform .18s}
+.foot-logo:hover{transform:translateY(-2px)}
+.foot-logo-img{height:42px; width:116px; background:var(--logo) center/contain no-repeat}
+.foot-tag{font-family:"Cormorant Garamond"; font-style:italic; font-size:1.08rem; color:var(--cream); margin:0}
+.foot-links{display:flex; flex-wrap:wrap; justify-content:center; margin:2px 0 0}
+.foot-links a{font-family:"Montserrat",sans-serif; color:var(--gilt-hi); text-decoration:none; font-size:.78rem; letter-spacing:.04em; padding:2px 13px; border-right:1px solid rgba(230,198,111,.3)}
+.foot-links a:last-child{border-right:none}
+.foot-links a:hover{color:#fff; text-decoration:underline}
+.foot-copy{font-size:.72rem; opacity:.74; margin:13px auto 0; max-width:560px; line-height:1.55; letter-spacing:.02em}
+.foot-copy a{color:var(--gilt-hi); text-decoration:none}
+
+/* back link */
+.backbar{max-width:var(--maxw); margin:0 auto; padding:16px 22px 0}
+.backlink{font-family:"Montserrat",sans-serif; font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--madder); text-decoration:none; font-weight:500}
+.backlink:hover{color:var(--gilt-deep)}
+
+
+/* --- soft-rose large panels: dark ink on rose; maroon kept for accents/buttons --- */
+header.hero, .ch-head, .mc-top, footer{ color:var(--ink) }
+.hero .eyebrow, .ch-eyebrow{ color:#5e2c30 !important }
+.hero h1.ar, .ch-ar{ color:#5e2c30 !important; text-shadow:0 1px 0 rgba(255,255,255,.28) }
+.mc-ar{ color:var(--pnl-txt) !important; text-shadow:0 1px 0 rgba(255,255,255,.28) }
+.hero .romantitle, .ch-en, .mc-tr{ color:var(--madder) !important }
+.hero .subtitle, .ch-desc, .ch-tr{ color:var(--panel-soft) !important }
+.hero-star, .hero-emblem{ filter:drop-shadow(0 2px 8px rgba(94,44,48,.22)) }
+.chip{ color:#5e2c30 !important; border-color:rgba(94,44,48,.3) !important; background:rgba(255,253,249,.42) !important }
+.chip b{ color:var(--madder) !important }
+.rule b, .foot-rule b{ color:var(--gilt-deep) }
+.foot-tag{ color:#5e2c30 }
+.foot-links a, .foot-copy a{ color:var(--madder) }
+.foot-links a:hover, .foot-copy a:hover{ color:#5e2c30 }
+.navprint{ color:var(--madder) }
+
+@media (prefers-reduced-motion:reduce){*{animation:none !important; transition:none !important; scroll-behavior:auto}}
+
+/* ---------------- PRINT ---------------- */
+.print-only{display:none}
+@media print{
+  @page{ margin:24mm 15mm 18mm }
+  html,body{ background:#fff !important; color:#33262a !important }
+  .brandbar-wrap,.actions,.backbar,footer,.btn,.path{ display:none !important }
+  .print-only{ display:block }
+  .print-header{ position:fixed; top:-14mm; left:0; right:0; text-align:center }
+  .print-header .pl{ height:13mm; width:62mm; margin:0 auto; background:var(--logo) center/contain no-repeat }
+  .print-footer{ position:fixed; bottom:-12mm; left:0; right:0; text-align:center;
+     font-family:"Montserrat",sans-serif; font-size:8.5pt; letter-spacing:.14em; color:var(--madder); padding-top:2mm; border-top:1px solid #e3d6bf }
+  header.hero{ background:#fff !important; color:var(--lapis) !important; padding:2mm 0 6mm }
+  header.hero::before{ display:none }
+  .hero-emblem{ filter:none }
+  .hero h1.ar,.hero .romantitle{ color:var(--lapis) !important; text-shadow:none !important }
+  .hero .subtitle,.eyebrow{ color:#5a4a45 !important }
+  .chip{ color:var(--madder) !important; border-color:#d9c7a6 !important }
+  .chip b{ color:var(--gilt-deep) !important }
+  .rule i{ background:linear-gradient(90deg,transparent,#caa24a) }
+  .ayah-card,.prep-card,.outline li{ break-inside:avoid }
+  .sec-head h2,.prep-card h3{ color:var(--lapis) !important }
+}
+/* matn-inline-palette — the per-matn panel tints, kept with the page's own styles as on the reading page (theme.css, imported after this file, repeats them and adds dark mode). */
+:root{--pnl-1:#d8b8b2;--pnl-2:#ceaba6;--pnl-3:#c2a09b;--pnl-txt:#5e2c30}.matn-card.m-lapis,.matn-row.m-lapis,.cont-card.m-lapis,.bm-row.m-lapis{--madder:#3c5a86;--lapis-3:#3c5a86;--pnl-1:#bcc6d8;--pnl-2:#a9b6cc;--pnl-3:#9db0c8;--pnl-txt:#233a5e;--emblem-filter:saturate(1.7) hue-rotate(205deg)}.matn-card.m-verdigris,.matn-row.m-verdigris,.cont-card.m-verdigris,.bm-row.m-verdigris{--madder:#3f7458;--lapis-3:#3f7458;--pnl-1:#bdccb9;--pnl-2:#adc0a9;--pnl-3:#a1b79d;--pnl-txt:#274d3a;--emblem-filter:saturate(1.5) hue-rotate(122deg)}.matn-card.m-indigo,.matn-row.m-indigo,.cont-card.m-indigo,.bm-row.m-indigo{--madder:#4c4f9e;--lapis-3:#4c4f9e;--pnl-1:#c3c4e0;--pnl-2:#b3b4d6;--pnl-3:#a6a7cd;--pnl-txt:#2e3068;--emblem-filter:saturate(1.15) hue-rotate(250deg)}.matn-card.m-plum,.matn-row.m-plum,.cont-card.m-plum,.bm-row.m-plum{--madder:#6d4f8c;--lapis-3:#6d4f8c;--pnl-1:#cdc1d9;--pnl-2:#c0b2cf;--pnl-3:#b5a5c7;--pnl-txt:#41305e;--emblem-filter:saturate(1.2) hue-rotate(285deg)}.matn-card.m-sienna,.matn-row.m-sienna,.cont-card.m-sienna,.bm-row.m-sienna{--madder:#a05a22;--lapis-3:#a05a22;--pnl-1:#e3c5ad;--pnl-2:#d7b399;--pnl-3:#cba58a;--pnl-txt:#6d3a12;--emblem-filter:saturate(1.9) hue-rotate(25deg)}.matn-card.m-teal,.matn-row.m-teal,.cont-card.m-teal,.bm-row.m-teal{--madder:#2b6f74;--lapis-3:#2b6f74;--pnl-1:#bcd3d5;--pnl-2:#a9c6c8;--pnl-3:#9bbcbf;--pnl-txt:#1c4d51;--emblem-filter:saturate(1.4) hue-rotate(160deg)}
+/* Official store badges in the footer — website only (the installed app hides them) */
+.store-badges{display:flex;justify-content:center;align-items:center;gap:13px;margin:20px 0 2px}
+.store-badges a{display:block;line-height:0}
+.store-badges img{display:block;height:46px;width:auto}
+.store-badges a[aria-label="Get it on Google Play"] img{height:68px;margin:-11px 0}
+body.appmode .store-badges{display:none}
+@media print{.store-badges{display:none!important}}
+
+/* The launch splash. Hidden outright unless bootSplash (src/client/boot.ts)
+   opted in from <head>, so the website never pays for it; src/client/splash.ts
+   animates it and takes it down. Everything that moves moves on the compositor —
+   the star animates transform only, the glow and the sparks are one canvas —
+   because this runs while the phone is still busy starting the app. */
+#boot{display:none}
+html[data-boot] #boot{display:grid; place-items:center; position:fixed; inset:0; z-index:2147483000;
+  background:#f9f4ea;                      /* manifest background_color (SITE.theme.background), exactly */
+  overflow:hidden; overscroll-behavior:contain;
+  transition:opacity .55s ease, visibility .55s}
+#boot.gone{opacity:0; visibility:hidden; pointer-events:none}
+.boot-wrap{position:relative; width:132px; height:132px; display:grid; place-items:center}
+#bootfx{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+  width:480px; height:480px; pointer-events:none}
+.boot-star{position:relative; width:132px; height:132px; display:block;
+  background:var(--emblem) center/contain no-repeat;
+  filter:drop-shadow(0 3px 10px rgba(94,44,48,.18));
+  animation:bootBeat 1.55s ease-in-out infinite; will-change:transform}
+/* two thumps and a rest — the canvas brightens on the same curve */
+@keyframes bootBeat{
+  0%  {transform:scale(.940)}
+  14% {transform:scale(1.105)}
+  27% {transform:scale(1.000)}
+  39% {transform:scale(1.062)}
+  54% {transform:scale(.968)}
+  100%{transform:scale(.940)}
+}
+@media (prefers-reduced-motion:reduce){ .boot-star{animation:none; transform:scale(1)} }
+
+/* Empty collection: while no matn is listed the page shows a calm "being
+   prepared" card where the matn list goes (the .prep-card styles above). */
+.home-main .prep{margin:0 auto; padding:0 14px}

@@ -1,0 +1,65 @@
+---
+/* Every public page: the head (meta, icons, manifest, theme bootstrap) and
+   nothing else. Pages add their own stylesheet and scripts. */
+import { SITE, pageTitle } from '../config/site.ts';
+import { bootLayoutGate, bootTheme, inlineBoot } from '../client/boot.ts';
+import '../styles/fonts.css';
+
+interface Props {
+  /** Page name; " · <site>" is appended. Omit for the home page. */
+  title?: string;
+  /** Use this exact <title> instead. */
+  fullTitle?: string;
+  description?: string;
+  noindex?: boolean;
+  bodyClass?: string;
+  /** Registered matn id, on the reading pages. */
+  poem?: string;
+  ogType?: 'website' | 'article';
+  /** Extra pre-paint bootstraps for this page. */
+  boot?: Array<() => void>;
+}
+const { title, fullTitle, description = SITE.collection.description, noindex = false, bodyClass, poem, ogType = 'website', boot = [] } = Astro.props;
+const docTitle = fullTitle ?? pageTitle(title);
+/* build.format 'file' makes every pathname end in .html, but pages are served
+   without the extension (/guide, not /guide.html) and the home page at /. */
+const path = Astro.url.pathname.replace(/\.html$/, '').replace(/^\/index$/, '/');
+const canonical = new URL(path, Astro.site ?? SITE.url).toString();
+---
+<!doctype html>
+<html lang="en" dir="ltr" translate="no">
+<head>
+<meta charset="utf-8">
+<meta name="google" content="notranslate">
+<meta name="robots" content={noindex ? 'noindex, nofollow, notranslate' : 'notranslate'}>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{docTitle}</title>
+<meta name="description" content={description}>
+<meta name="author" content={SITE.org.name}>
+<link rel="canonical" href={canonical}>
+<meta name="theme-color" content={SITE.theme.color}>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content={SITE.appName}>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta property="og:site_name" content={SITE.org.name}>
+<meta property="og:title" content={docTitle}>
+<meta property="og:description" content={description}>
+<meta property="og:type" content={ogType}>
+<meta property="og:image" content={SITE.org.ogImage}>
+<script is:inline set:html={inlineBoot(bootLayoutGate, bootTheme, ...boot)}></script>
+<slot name="head" />
+{SITE.analyticsToken && (
+  <script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: SITE.analyticsToken })}></script>
+)}
+</head>
+<body class={bodyClass} data-poem={poem}>
+<slot />
+</body>
+</html>
