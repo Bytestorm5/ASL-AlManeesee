@@ -28,7 +28,7 @@ export function bootLayoutGate(): void {
 export function bootTheme(): void {
   try {
     const t = localStorage.getItem('asl-theme') || 'auto';
-    const m = window.matchMedia && matchMedia('(prefers-color-scheme:dark)').matches;
+    const m = typeof window.matchMedia === 'function' && matchMedia('(prefers-color-scheme:dark)').matches;
     document.documentElement.setAttribute('data-theme', t === 'dark' || (t !== 'light' && m) ? 'dark' : 'light');
   } catch { /* light is the default */ }
 }

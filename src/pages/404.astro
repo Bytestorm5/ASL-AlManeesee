@@ -1,0 +1,20 @@
+---
+/* Served by Workers static assets for any path that matches no file
+   (not_found_handling: "404-page"). */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Brandbar from '../components/Brandbar.astro';
+import { SITE } from '../config/site.ts';
+import '../styles/reading.css';
+import '../styles/theme.css';
+---
+<BaseLayout title="Not found" noindex>
+<Brandbar />
+<main id="main">
+  <div class="matn-missing">
+    <h2>This page could not be found</h2>
+    <p>It may have moved, or the address may be mistyped.</p>
+    <p style="margin-top:14px"><a href="/" style="color:var(--madder);font-weight:600">← {SITE.collection.en}</a></p>
+  </div>
+</main>
+<script>import '../client/entries/common.ts';</script>
+</BaseLayout>

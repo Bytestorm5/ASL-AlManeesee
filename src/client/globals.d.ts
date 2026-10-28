@@ -27,6 +27,42 @@ export interface AslExplanationApi {
   readonly lang: string;
 }
 
+/** What the offline manager reports about stored recitations. */
+export interface AslOfflineStatus {
+  total: number;
+  cached: number;
+  bytes: number;
+  bytesLeft: number;
+  complete: boolean;
+  poems: { poem: string; name: string; total: number; cached: number; bytes: number }[];
+}
+export interface AslOfflineApi {
+  /** Optionally limited to some recording sets (matn ids / edition sets). */
+  status(poems?: string[]): Promise<AslOfflineStatus>;
+  download(onProgress?: (done: number, total: number) => void, poems?: string[]): Promise<unknown>;
+  cancel(): void;
+  remove(poems?: string[]): Promise<unknown>;
+  prune(): Promise<unknown>;
+  /** Opens the "Listen offline" panel. */
+  open?: () => void;
+}
+export interface AslAudioApi {
+  available: boolean;
+  openPanel(): void;
+  /** Bayts the selected reciter has recorded. */
+  list: number[];
+  reciter: string | null;
+  reciters: AudioReciter[];
+}
+export interface AslSearchApi { close(): void; reset(): void; isActive(): boolean }
+export interface AslChapterJumpApi {
+  /** Open the chapter list, anchored to an element (default: its own button). */
+  open(anchor?: HTMLElement | null, opts?: Record<string, unknown>): void;
+  close(): void;
+  chapters: { sec: HTMLElement; id: string; num: string; ar: string; hay: string }[];
+  gotoBayt(n: number): void;
+}
+
 export interface AslSwitchMaps {
   enabled: Record<string, boolean>;
   trHidden: Record<string, boolean>;
@@ -55,11 +91,11 @@ declare global {
       fetchQiraat(poem: string): Promise<Record<string, unknown[]> | null>;
       fetchQiraatIndex(poem: string): Promise<number[] | null>;
     };
-    AslSearch?: { open(): void; close?(): void };
-    AslAudio?: Record<string, unknown>;
-    AslOffline?: Record<string, unknown>;
+    AslSearch?: AslSearchApi;
+    AslAudio?: AslAudioApi;
+    AslOffline?: AslOfflineApi;
     AslScrollSettle?: (el: Element, offset: number) => void;
-    AslChapterJump?: { open(): void };
+    AslChapterJump?: AslChapterJumpApi;
     AslRefreshHomeGoals?: () => void;
     AppTheme?: {
       mode(): 'auto' | 'light' | 'dark';

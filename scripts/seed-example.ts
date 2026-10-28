@@ -4,13 +4,13 @@
      npm run dev:example        (in one terminal: builds with the fixture, runs wrangler dev)
      npm run seed:example       (in another)
 
-   Reads the password from .dev.vars. Pass --origin to aim elsewhere. */
+   Reads the password from ADMIN_PASSWORD, else .dev.vars. Pass --origin to aim elsewhere. */
 import { readFile } from 'node:fs/promises';
 
 const origin = process.argv.includes('--origin') ? process.argv[process.argv.indexOf('--origin') + 1]! : 'http://127.0.0.1:8787';
 const vars = await readFile(new URL('../.dev.vars', import.meta.url), 'utf8').catch(() => '');
-const password = /^ADMIN_PASSWORD=(.*)$/m.exec(vars)?.[1]?.trim();
-if (!password) throw new Error('No ADMIN_PASSWORD in .dev.vars (copy .dev.vars.example)');
+const password = process.env.ADMIN_PASSWORD || /^ADMIN_PASSWORD=(.*)$/m.exec(vars)?.[1]?.trim();
+if (!password) throw new Error('No ADMIN_PASSWORD in the environment or .dev.vars (copy .dev.vars.example)');
 
 async function call(method: string, path: string, body: unknown): Promise<unknown> {
   const r = await fetch(origin + path, {

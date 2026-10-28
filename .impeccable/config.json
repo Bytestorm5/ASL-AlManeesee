@@ -1,0 +1,32 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "montserrat",
+        "createdAt": "2026-10-28T13:18:25.955Z",
+        "reason": "Existing brand typeface: Montserrat is the al-Asl label face throughout the original Mutūn site (Bytestorm5/ASL-Jazariyyah, e.g. its reading-page CSS: 'Montserrat for the small-caps labels'); this repo is a faithful port of that design"
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "src/client/storage-guard.ts"
+        ],
+        "createdAt": "2026-10-28T13:18:54.754Z",
+        "reason": "Existing design ported verbatim: the original Mutūn site (Bytestorm5/ASL-Jazariyyah) uses this rubricated left rule on its notes and notices (storage-guard.js, notes.js); this repo is a faithful port"
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "src/client/reading/notes.ts"
+        ],
+        "createdAt": "2026-10-28T13:18:54.767Z",
+        "reason": "Existing design ported verbatim: the original Mutūn site (Bytestorm5/ASL-Jazariyyah) uses this rubricated left rule on its notes and notices (storage-guard.js, notes.js); this repo is a faithful port"
+      }
+    ]
+  }
+}

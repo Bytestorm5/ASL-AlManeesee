@@ -168,3 +168,6 @@ android/app/build/
 android/build/
 *.aab
 *.apk
+
+# PDFs generated for the development fixture (npm run pdf against dev:example)
+public/pdf/example/

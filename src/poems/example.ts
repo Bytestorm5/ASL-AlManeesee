@@ -3,7 +3,7 @@ import type { PoemConfig } from './types.ts';
 /* A development fixture, not content: a short matn that exercises every
    feature of the reading page (word glosses, red ink, a ramz, both
    translations, an explanation, two editions, a word-list bayt, a qirāʾāt
-   panel).
+   panel, PDFs).
 
    It is registered only when the build is asked for it — `npm run dev:example`
    and the end-to-end tests — and never in a production build. Its text is in
@@ -28,4 +28,5 @@ export const EXAMPLE_POEM: PoemConfig = {
   kindLabels: { list: 'Word list' },
   arabicInUrdu: true,
   qiraat: true,
+  pdf: { whole: true, chapters: true },
 };

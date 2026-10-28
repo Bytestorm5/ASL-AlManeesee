@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE, siteHost } from '../config/site.ts';
+import { listedPoems } from '../client/page.ts';
+
+const poems = listedPoems();
+const names = poems.map((p) => p.titleEn);
+const list = names.length > 1 ? names.slice(0, -1).join(', ') + ' and ' + names[names.length - 1] : names[0];
+---
+<BaseLayout title="Privacy Policy" description={`How ${SITE.appName} handles your information.`}>
+<div class="wrap">
+  <h1>Privacy Policy</h1>
+  <p class="sub">{SITE.titleSuffix}{list && <> — {list}</>}</p>
+
+  <p>{SITE.titleSuffix} is a reading and memorization app for classical source texts{poems.length ? <> ({poems.length} at present)</> : null}. It is offered by the {SITE.org.name}. We have designed it to need as little of your information as possible.</p>
+
+  <h2>Information we collect</h2>
+  <p>We do <b>not</b> collect, store, or share any personal information. There is no account, no sign-in, and no tracking of who you are.</p>
+
+  <h2>Information stored on your device</h2>
+  <p>The app saves your reading preferences (such as which translation to show), bookmarks, personal notes, memorization progress and last reading position on your own device. All of this stays in your device's local storage, is never sent to us or to anyone else, and is removed if you clear the app's data. The Memorize panel's <b>Back&nbsp;up / Export</b> feature simply copies your progress for you to keep — it goes only where you paste it.</p>
+
+  <h2>Internet access</h2>
+  <p>The app shows pages from our website ({siteHost()}) and downloads the texts, fonts, recitation audio and any PDFs you open so that they can also be used offline. Standard, non-identifying technical requests (such as the page address being loaded) are handled by our hosting provider, Cloudflare, in the ordinary course of serving a website; we do not use them to identify individuals.</p>
+  {SITE.analyticsToken && (
+    <p>We count visits with Cloudflare Web Analytics, which uses no cookies and does not identify or follow individual visitors.</p>
+  )}
+
+  <h2>Distribution through app stores</h2>
+  <p>When the app is installed from Google Play or the Apple App&nbsp;Store, Google or Apple may collect certain information in accordance with their own policies (for example, basic installation and crash diagnostics). That collection is governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a> or <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a> respectively, not by us.</p>
+
+  <h2>Children</h2>
+  <p>The app contains only educational religious texts and their translations. It is suitable for all ages and does not collect information from anyone, including children.</p>
+
+  <h2>Changes</h2>
+  <p>If this policy changes, the updated version will be posted on this page.</p>
+
+  <h2>Contact</h2>
+  <p>For any question about this policy, please contact the {SITE.org.name} through <a href={SITE.org.links.find((l) => l.label === 'Contact')?.href ?? SITE.org.url} target="_blank" rel="noopener">{SITE.org.url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}</a>.</p>
+
+  <p class="updated">Last updated 28 October 2026 · {SITE.org.name} · <a href="/">Home</a> · <a href="/guide">User Guide</a></p>
+</div>
+<script>import '../client/entries/common.ts';</script>
+</BaseLayout>
+
+<style is:global>
+  :root{--ink:#3a2a2b;--ink-soft:#6c585a;--madder:#8a4447;--paper:#f9f4ea;--edge:#e8dcc7}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:Georgia,'Times New Roman',serif;line-height:1.65;font-size:1.02rem}
+  .wrap{max-width:720px;margin:0 auto;padding:40px 22px 64px}
+  h1{font-size:1.7rem;color:#5e2c30;margin:0 0 4px}
+  .sub{color:var(--ink-soft);font-style:italic;margin:0 0 26px}
+  h2{font-size:1.15rem;color:var(--madder);margin:30px 0 8px}
+  a{color:var(--madder)}
+  .updated{font-size:.85rem;color:var(--ink-soft);margin-top:34px;border-top:1px solid var(--edge);padding-top:14px}
+  :root[data-theme="dark"] body{background:#17110f;color:#e9dfd6}
+  :root[data-theme="dark"] h1{color:#e6c3bf}
+  :root[data-theme="dark"] .sub,:root[data-theme="dark"] .updated{color:#b9a9a3}
+  :root[data-theme="dark"] h2,:root[data-theme="dark"] a{color:#d99a9c}
+</style>
