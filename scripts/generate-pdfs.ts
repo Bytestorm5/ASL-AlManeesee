@@ -11,6 +11,9 @@
      npm run preview                 # builds dist/ and serves it with the API on :8787
      npm run pdf                     # in another terminal
 
+   With the development fixture (npm run preview:example), run
+   `MUTUN_EXAMPLE=1 npm run pdf`; its PDFs are gitignored.
+
    Commit the PDFs under public/pdf/ — they are served as static files.
    PDF_BASE_URL   where the site is (default http://127.0.0.1:8787)
    PDF_ONLY       a filter on the job label, e.g. "example" or "example ch02"
@@ -30,6 +33,8 @@ const CHROMIUM_PATH = process.env.PW_CHROMIUM || undefined;
 const CONCURRENCY = Number(process.env.PDF_CONCURRENCY || 4);
 const PRINT_CSS = path.join(ROOT, 'src/styles/pdf-print.css');
 const ORG_HOST = SITE.org.url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+/** The line under the cover page's chips. */
+const CREDIT = `Prepared for the al-Asl ${SITE.collection.en.replace(/^The /, '')} · ${ORG_HOST}`;
 
 const esc = (s: unknown) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
@@ -115,6 +120,7 @@ async function renderOne(browser: Browser, job: Job, emblem: string): Promise<vo
     }
     // The cover page and decorative pages, built on the page's own markup.
     await page.addStyleTag({ path: PRINT_CSS });
+    await page.addStyleTag({ content: `:root{--pdf-credit:${JSON.stringify(CREDIT)}}` });
 
     const outAbs = path.join(ROOT, job.outPath);
     await mkdir(path.dirname(outAbs), { recursive: true });

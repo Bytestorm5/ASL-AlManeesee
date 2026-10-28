@@ -67,7 +67,8 @@
   }
   .hero .chip b { color: var(--madder) !important }
   .hero-inner::after {
-    content: "Prepared for the al-Asl Mutūn collection · www.al-asl.com";
+    /* the credit line is set by scripts/generate-pdfs.ts from src/config/site.ts */
+    content: var(--pdf-credit, "");
     display: block; margin-top: 28px; font-family: "Montserrat", sans-serif;
     font-size: .68rem; letter-spacing: .05em; color: var(--ink-soft); opacity: .75;
   }

@@ -6,10 +6,13 @@ export type * from './types.ts';
 export { ACCENTS } from './types.ts';
 
 /* Replaced at build time: by Vite (astro.config.ts) for the pages, and by
-   Wrangler (`--define`) for the worker. Anywhere it is not defined — a Node
-   script, a unit test — `typeof` keeps it false. */
+   Wrangler (`--define`) for the worker. Where nothing defines it — a Node
+   script such as `npm run pdf` — the same MUTUN_EXAMPLE=1 switch the build
+   uses turns it on; otherwise it stays off. */
 declare const __INCLUDE_EXAMPLE__: boolean | undefined;
-const withExample = typeof __INCLUDE_EXAMPLE__ !== 'undefined' && __INCLUDE_EXAMPLE__ === true;
+const withExample = typeof __INCLUDE_EXAMPLE__ !== 'undefined'
+  ? __INCLUDE_EXAMPLE__ === true
+  : (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env?.MUTUN_EXAMPLE === '1';
 
 /** Every registered matn, drafts included. */
 export const ALL_POEMS: readonly PoemConfig[] = withExample ? [...REGISTRY, EXAMPLE_POEM] : REGISTRY;
