@@ -220,6 +220,9 @@ function checkHemistich(text: unknown, cells: unknown, f: string, wf: string, wh
   for (let i = 0; i < cells.length; i++) {
     const c: unknown = cells[i];
     if (!isObj(c) || typeof c.w !== 'string') { problems.push(`${where}: ${wf}[${i}] missing "w"`); continue; }
+    // An empty cell joins back as a double space — the hemistich and its cells
+    // could then never be made to agree, and the reading page would show a gap.
+    if (!c.w.trim()) { problems.push(`${where}: ${wf}[${i}] is an empty word`); continue; }
     /* `g` is the English word meaning, `gu` the Urdu one — a cell may carry
        either, both, or neither. */
     if (c.g != null && typeof c.g !== 'string') problems.push(`${where}: ${wf}[${i}] gloss must be a string`);

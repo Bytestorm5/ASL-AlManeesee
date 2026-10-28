@@ -27,7 +27,11 @@ describe('validateBayt', () => {
     const p = validateBayt({ n: 1, sadr: 'a b', ajuz: 'c', sadrW: [{ w: 'a' }, { w: 'x' }] });
     expect(p.join()).toMatch(/sadr ≠ space-join of sadrW/);
   });
-  it('treats an entry with only prose as a prose-only patch', () => {
+  it('refuses an empty word cell', () => {
+    const p = validateBayt({ n: 1, sadr: 'a  b', ajuz: 'c', sadrW: [{ w: 'a' }, { w: '' }, { w: 'b' }] });
+    expect(p.join()).toMatch(/sadrW\[1\] is an empty word/);
+  });
+    it('treats an entry with only prose as a prose-only patch', () => {
     expect(validateBayt({ n: 4, tr: 'A translation' })).toEqual([]);
   });
   it('keeps translations plain text', () => {
