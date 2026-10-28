@@ -116,6 +116,17 @@ sw.addEventListener('fetch', (event) => {
     return;
   }
 
+  /* The qirāʾāt panels (index and cards): network-first like the verses, so
+     an edit shows at once, with the last copy kept for reading offline. */
+  if (sameOrigin && /^\/api\/qiraat\/[^/]+(\/index)?$/.test(url.pathname)) {
+    event.respondWith(
+      fetch(req)
+        .then((res) => { if (res.status === 200) keep(RUNTIME, req, res); return res; })
+        .catch(() => caches.match(req).then((r) => r || Response.error())),
+    );
+    return;
+  }
+
   /* Other API routes are network-only: the audio manifest must always be
      fresh, and when offline the failed fetch is what the players fall back on. */
   if (sameOrigin && url.pathname.startsWith('/api/')) return;
