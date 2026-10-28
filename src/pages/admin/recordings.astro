@@ -117,6 +117,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   .rec audio{height:34px; flex:1 1 220px; min-width:180px}
   .msg{margin-top:14px; padding:10px 12px; border-radius:10px; font-size:.9rem; display:none}
   .msg.err{display:block; background:#fbeaea; color:#8a2a2a}
+  .msg.err:empty{display:none}   /* no error yet: no empty pink bar under Unlock */
   .msg.ok{display:block; background:#e8f3ec; color:var(--ok)}
   .empty{color:var(--muted); padding:18px 4px; font-size:.92rem}
   .empty code{background:#f3ece0; border-radius:4px; padding:1px 5px; font-size:.85em}

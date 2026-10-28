@@ -6,7 +6,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
 <AdminLayout title="Reciter Upload" back>
 <div class="card">
   <h1>Reciter Upload</h1>
-  <p class="sub">Upload or record a recitation for a single bayt. It is stored for review before it appears in the app.</p>
+  <p class="sub">Upload or record a recitation for a single bayt. It is live in the reader within about a minute of uploading; it can be removed in the Recitation Manager.</p>
 
   <!-- step 1: password -->
   <div id="gate">
@@ -129,6 +129,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   .progress-bar{height:100%; width:0%; background:var(--madder); transition:width .15s linear}
   .msg{margin-top:14px; padding:10px 12px; border-radius:10px; font-size:.9rem; display:none}
   .msg.err{display:block; background:#fbeaea; color:#8a2a2a}
+  .msg.err:empty{display:none}   /* no error yet: no empty pink bar under Unlock */
   .msg.ok{display:block; background:#e8f3ec; color:var(--ok)}
   .fmodal{position:fixed; inset:0; z-index:60; display:none; align-items:center; justify-content:center;
     background:rgba(58,42,43,.5); padding:20px}

@@ -36,7 +36,7 @@ const collection = SITE.collection.en.replace(/^The /, 'the ');
     </a>
     <a class="tool" href="/admin/orthography">
       <div class="t"><span class="ic">◌ۡ</span>Orthography</div>
-      <div class="d">Brings a matn to the way the collection writes Arabic (today: the sukūn as ۡ). Shows every change before it saves one, and what the verses say does not change.</div>
+      <div class="d">Brings a matn to the way the collection writes Arabic (today: the sukūn as <span class="mark">◌ۡ</span>). Shows every change before it saves one, and what the verses say does not change.</div>
       <span class="k">Password</span>
     </a>
   </div>
@@ -45,7 +45,7 @@ const collection = SITE.collection.en.replace(/^The /, 'the ');
   <div class="tools">
     <a class="tool" href="/admin/upload">
       <div class="t"><span class="ic">🎙</span>Reciter Upload</div>
-      <div class="d">Upload or record a recitation for a single bayt. Held for review before it reaches the app.</div>
+      <div class="d">Upload or record a recitation for a single bayt. It is live in the reader within about a minute, and can be removed in the Recitation Manager.</div>
       <span class="k">Password</span>
     </a>
     <a class="tool" href="/admin/recordings">
@@ -96,6 +96,8 @@ const collection = SITE.collection.en.replace(/^The /, 'the ');
   a.tool .t{font-weight:700; color:var(--madder-deep); display:flex; align-items:center; gap:9px}
   a.tool .t .ic{font-size:1.1rem; line-height:1}
   a.tool .d{font-size:.85rem; color:var(--soft); margin-top:6px}
+  /* a lone Arabic mark, shown on its dotted circle in the face the verses use */
+  a.tool .d .mark{font-family:"Scheherazade New","Amiri",serif; font-size:1.25em; line-height:1}
   a.tool .k{display:inline-block; margin-top:9px; font-size:.7rem; font-weight:700; letter-spacing:.06em;
             text-transform:uppercase; color:var(--warn); background:#fdf4e4; border-radius:999px; padding:3px 9px}
 
