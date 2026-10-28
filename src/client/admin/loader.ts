@@ -457,8 +457,8 @@ async function loadExplanations(ns: number[]): Promise<void> {
     log(`[${POEM.id}] loaded bayt ${describeBayts(bayts.map((b) => b.n))} — version ${from} → ${r.version}`);
     say(`${plural(r.applied, 'explanation')} loaded. `
       + (live.length
-        ? `Bayt ${describeBayts(live)} ${live.length === 1 ? 'was' : 'were'} already shown to readers, so `
-          + `${live.length === 1 ? 'its' : 'their'} text changed straight away; the rest stay hidden until you press Show.`
+        ? `Bayt ${describeBayts(live)} ${live.length === 1 ? 'was' : 'were'} already switched on for readers, so `
+          + `${live.length === 1 ? 'its' : 'their'} text shows straight away; the rest stay hidden until you press Show.`
         : 'Nothing is shown to readers yet — press Show on a bayt once you have read it.'), 'ok');
     await load();
   } catch (e) {
@@ -476,8 +476,8 @@ function confirmExplanations(): void {
      A bayt that is already shown is the exception, and saying "nothing
      becomes visible" without naming it would be untrue. */
   const note = live.length
-    ? `\n\nBayt ${describeBayts(live)} ${live.length === 1 ? 'is' : 'are'} already shown to readers, so `
-      + `${live.length === 1 ? 'its' : 'their'} text changes straight away. The rest stay hidden until you press Show.`
+    ? `\n\nBayt ${describeBayts(live)} ${live.length === 1 ? 'is' : 'are'} already switched on for readers, so `
+      + `${live.length === 1 ? 'its' : 'their'} text shows straight away. The rest stay hidden until you press Show.`
     : '\n\nThis only puts the text in place. None of them becomes visible to readers until you press Show on that bayt.';
   if (!confirm(`Load the written explanation for ${plural(todo.length, 'bayt', 'abyāt')} of ${POEM.titleEn}?${note}`)) return;
   void loadExplanations(todo);

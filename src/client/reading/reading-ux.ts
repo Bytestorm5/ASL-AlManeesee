@@ -55,6 +55,7 @@ export function init(): void {
     if (tip) { tip.remove(); tip = null; }
     btn!.classList.remove('trpulse');
     window.removeEventListener('resize', place);
+    window.removeEventListener('scroll', place);
     window.removeEventListener('scroll', maybe);
     btn!.removeEventListener('click', done);
     drop!.removeEventListener('click', done);
@@ -73,6 +74,10 @@ export function init(): void {
     document.body.appendChild(t);
     place();
     window.addEventListener('resize', place);
+    /* It appears while the bar is still rising to its pinned place (or the
+       page is still gliding there), so it follows the button rather than
+       being left behind mid-page. */
+    window.addEventListener('scroll', place, { passive: true });
     timer = window.setTimeout(done, 9000);
     t.addEventListener('click', (e) => { e.stopPropagation(); done(); btn!.click(); });
     btn!.addEventListener('click', done);
