@@ -1,0 +1,129 @@
+---
+/* Import a matn (/admin/import): read a Word file (or a finished .json
+   document) in the browser, show what came out of it, then store it as the
+   whole document of a registered matn. */
+import AdminLayout from '../../layouts/AdminLayout.astro';
+---
+<AdminLayout title="Import a matn" back>
+<div class="card">
+  <h1>Import a matn</h1>
+  <p class="sub">Drop the Word file, check what was read out of it, then store it.
+    This is the only way to add a matn that is not in storage yet — the bayt editor can
+    only change verses that are already there.</p>
+
+  <!-- step 1: password -->
+  <div id="gate">
+    <label for="pw">Password</label>
+    <input type="password" id="pw" autocomplete="current-password" placeholder="Admin password">
+    <button class="btn-main" id="unlock">Unlock</button>
+    <div class="msg err" id="gateMsg"></div>
+  </div>
+
+  <!-- step 2: pick the matn and drop the file -->
+  <div id="work" class="hidden">
+    <div class="msg warn hidden" id="noPoems">No matn is registered yet. Add it to <code>src/poems/registry.ts</code>
+      (that declares its id and how many abyāt it has) and deploy — then it can be imported here.</div>
+    <div class="row">
+      <div>
+        <label for="poem">Matn <a class="manage" href="/admin/editor" target="_blank">bayt editor ↗</a></label>
+        <select id="poem"></select>
+      </div>
+      <div>
+        <label for="sep">Hemistich separator</label>
+        <input type="text" id="sep" value=" ... " spellcheck="false">
+      </div>
+    </div>
+    <p class="note">A line in the Arabic block that contains the separator is a bayt
+      (<code>sadr</code> … <code>ʿajuz</code>); a line without one starts a chapter.
+      In the English block a numbered line is that bayt's translation, and
+      <code>Name (Transliteration)</code> is a chapter title.</p>
+
+    <label class="dropzone" id="dropzone">
+      <div class="dz-t" id="dzTitle">Drop a .docx or .json here, or tap to choose</div>
+      <div class="dz-s" id="dzSub">The file is read in this browser — nothing is sent until you press Store.</div>
+      <input type="file" id="file" accept=".docx,.json,application/json,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+    </label>
+    <div class="msg" id="parseMsg"></div>
+
+    <!-- step 3: what came out -->
+    <div id="preview" class="hidden">
+      <h2>What was read</h2>
+      <div class="stats" id="stats"></div>
+      <ul class="flags" id="flags"></ul>
+      <div class="prev"><table id="tbl"></table></div>
+      <button class="btn-main" id="store">Store this matn</button>
+      <button class="btn-ghost" id="dl">Download the JSON</button>
+      <button class="btn-danger hidden" id="replace">Replace the stored version</button>
+      <div class="msg" id="saveMsg"></div>
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  :root{--madder:#8a4447; --madder-deep:#5e2c30; --cream:#faf6ec; --edge:#e8dcc7; --ink:#3a2a2b;
+        --ok:#2e6b46; --warn:#8a5a12; --err:#a12b2b}
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--cream); color:var(--ink);
+       font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       min-height:100vh; display:flex; align-items:flex-start; justify-content:center; padding:32px 16px}
+  .card{width:100%; max-width:900px; background:#fff; border:1px solid var(--edge); border-radius:18px;
+        box-shadow:0 8px 30px rgba(94,44,48,.08); padding:28px 26px}
+  h1{margin:0 0 4px; font-size:1.35rem; color:var(--madder-deep)}
+  h2{margin:26px 0 8px; font-size:1.02rem; color:var(--madder-deep)}
+  .sub{margin:0 0 22px; color:#7a6a6b; font-size:.92rem}
+  a.manage{float:right; font-size:.82rem; color:var(--madder)}
+  label{display:block; font-weight:600; font-size:.9rem; margin:16px 0 6px}
+  input[type=password], input[type=text], select{
+    width:100%; padding:10px 12px; border:1px solid var(--edge); border-radius:10px;
+    font:inherit; background:#fffdf8; color:var(--ink)}
+  input:focus, select:focus{outline:2px solid var(--madder); outline-offset:1px}
+  .row{display:flex; gap:12px; flex-wrap:wrap}
+  .row > div{flex:1; min-width:180px}
+  button{font:inherit; font-weight:600; border:0; border-radius:999px; padding:11px 22px; cursor:pointer}
+  .btn-main{background:var(--madder); color:#fff; width:100%; margin-top:20px}
+  .btn-main:disabled{opacity:.5; cursor:default}
+  .btn-ghost{background:#f3ece0; color:var(--madder-deep); margin-top:12px}
+  .btn-danger{background:var(--err); color:#fff; margin-top:12px}
+  /* big drop target: the invisible file input covers the whole box, so both
+     clicking anywhere and dropping a file anywhere inside it just work */
+  .dropzone{display:block; position:relative; border:2px dashed var(--edge); border-radius:14px;
+    background:#fffdf8; padding:34px 16px; text-align:center; cursor:pointer;
+    transition:border-color .15s, background .15s}
+  .dropzone.drag{border-color:var(--madder); background:#faf0e8}
+  .dropzone input[type=file]{position:absolute; inset:0; width:100%; height:100%; opacity:0; cursor:pointer}
+  .dz-t{font-weight:600; color:var(--madder-deep)}
+  .dz-s{font-size:.86rem; color:#7a6a6b; margin-top:4px}
+  .hidden{display:none !important}
+  .msg{margin-top:12px; font-size:.9rem; min-height:1.2em; white-space:pre-wrap}
+  .msg.err{color:var(--err)} .msg.ok{color:var(--ok)} .msg.warn{color:var(--warn)}
+  #noPoems{white-space:normal; background:#fdf4e4; border-radius:10px; padding:10px 12px; margin:0 0 4px}
+  .stats{display:flex; gap:10px; flex-wrap:wrap; margin:14px 0 0}
+  .stat{background:#f7f1e6; border:1px solid var(--edge); border-radius:12px; padding:8px 14px; font-size:.86rem}
+  .stat b{display:block; font-size:1.15rem; color:var(--madder-deep)}
+  .stat.bad{background:#fbeaea; border-color:#e8c4c4}
+  .stat.bad b{color:var(--err)}
+  .flags{margin-top:12px; padding:0; list-style:none; font-size:.88rem}
+  .flags li{padding:5px 10px; border-radius:8px; margin-bottom:5px; background:#fdf4e4; color:var(--warn)}
+  .flags li.err{background:#fbeaea; color:var(--err)}
+  /* a long list of problems folds away, so it never pushes the preview and the
+     Store button off the page */
+  .flags li.more{background:none; padding:0}
+  .flags li.more summary{cursor:pointer; font-weight:600; color:var(--madder-deep); padding:3px 10px}
+  .flags li.more .flags{margin-top:6px}
+  /* the preview can be long and the Arabic can be wide — let it scroll on its own */
+  .prev{max-height:460px; overflow:auto; border:1px solid var(--edge); border-radius:12px; margin-top:12px; background:#fffdf8}
+  table{border-collapse:collapse; width:100%; font-size:.9rem}
+  th,td{text-align:left; padding:7px 10px; border-bottom:1px solid #f0e7d6; vertical-align:top}
+  th{position:sticky; top:0; background:#f7f1e6; font-size:.78rem; text-transform:uppercase;
+     letter-spacing:.04em; color:#7a6a6b; z-index:1}
+  tr.chap td{background:#f3ece0; font-weight:600; color:var(--madder-deep)}
+  td.ar{font-family:"Scheherazade New","Amiri","Traditional Arabic",serif; font-size:1.22rem;
+        line-height:1.9; direction:rtl; text-align:right; white-space:nowrap}
+  td.n{color:#9c8a8b; font-variant-numeric:tabular-nums; width:1%}
+  td.tr{color:#5c4e4f; min-width:220px}
+  td.tr em{color:var(--err); font-style:normal}
+  .note{font-size:.85rem; color:#7a6a6b; margin-top:10px}
+  code{background:#f3ece0; padding:1px 5px; border-radius:5px; font-size:.85em}
+</style>
+<script>import '../../client/admin/import.ts';</script>
+</AdminLayout>

@@ -1,0 +1,123 @@
+---
+/* The admin index (/admin): every tool that edits the collection, which
+   storage this copy of the site writes to, and what is stored right now. */
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import { SITE } from '../../config/site.ts';
+
+const collection = SITE.collection.en.replace(/^The /, 'the ');
+---
+<AdminLayout title="Admin">
+<div class="card">
+  <h1>Admin</h1>
+  <p class="sub">Everything that edits {collection}, in one place.</p>
+  <div class="where" id="where"><span class="dot"></span><span id="whereT">…</span></div>
+
+  <h2>The text</h2>
+  <div class="tools">
+    <a class="tool" href="/admin/editor">
+      <div class="t"><span class="ic">✎</span>Bayt Editor</div>
+      <div class="d">Edit any bayt, its word-by-word meanings and its translation, with a toolbar for colours, ḥarakāt, ṣaghīra letters and rumūz. Saving publishes to the live app.</div>
+      <span class="k">Password</span>
+    </a>
+    <a class="tool" href="/admin/import">
+      <div class="t"><span class="ic">⤓</span>Import a matn</div>
+      <div class="d">Drop a Word file, check what was read out of it, then store it as a new matn.</div>
+      <span class="k">Password</span>
+    </a>
+    <a class="tool" href="/admin/content">
+      <div class="t"><span class="ic">❧</span>Content Editor</div>
+      <div class="d">Translations, explanations and qirāʾāt cards for any matn — write or correct them, and switch each one on or off for readers.</div>
+      <span class="k">Password</span>
+    </a>
+    <a class="tool" href="/admin/loader">
+      <div class="t"><span class="ic">✦</span>Bulk Loader</div>
+      <div class="d">Explanations, word meanings and translations, written out for a whole matn — read bayt by bayt, then put into place in one go.</div>
+      <span class="k">Password</span>
+    </a>
+    <a class="tool" href="/admin/orthography">
+      <div class="t"><span class="ic">◌ۡ</span>Orthography</div>
+      <div class="d">Brings a matn to the way the collection writes Arabic — the sukūn, the connecting hamza, a mark that has drifted onto an alif. Shows every change before it saves one, and what the verses say does not change.</div>
+      <span class="k">Password</span>
+    </a>
+  </div>
+
+  <h2>The recitations</h2>
+  <div class="tools">
+    <a class="tool" href="/admin/upload">
+      <div class="t"><span class="ic">🎙</span>Reciter Upload</div>
+      <div class="d">Upload or record a recitation for a single bayt. Held for review before it reaches the app.</div>
+      <span class="k">Password</span>
+    </a>
+    <a class="tool" href="/admin/recordings">
+      <div class="t"><span class="ic">🗂</span>Recitation Manager</div>
+      <div class="d">Browse, listen to and delete uploaded recordings, and manage the reciter list.</div>
+      <span class="k">Password</span>
+    </a>
+  </div>
+
+  <h2>What is stored right now</h2>
+  <div class="stored" id="stored"><div class="msg">Reading the manifest…</div></div>
+
+  <div class="foot">
+    Every tool here asks for the admin password and writes to R2 storage.{' '}
+    <span id="shared"></span>{' '}
+    · <a href="/">The app</a> · <a href="/guide">User Guide</a>
+  </div>
+</div>
+
+<style is:global>
+  :root{--madder:#8a4447; --madder-deep:#5e2c30; --cream:#faf6ec; --edge:#e8dcc7; --ink:#3a2a2b;
+        --soft:#7a6a6b; --gilt:#c0973c; --gilt-deep:#a97b21;
+        --ok:#2e6b46; --warn:#8a5a12; --err:#a12b2b}
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--cream); color:var(--ink);
+       font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       min-height:100vh; display:flex; align-items:flex-start; justify-content:center; padding:32px 16px}
+  .card{width:100%; max-width:900px; background:#fff; border:1px solid var(--edge); border-radius:18px;
+        box-shadow:0 8px 30px rgba(94,44,48,.08); padding:28px 26px}
+  h1{margin:0 0 4px; font-size:1.35rem; color:var(--madder-deep)}
+  h2{margin:30px 0 10px; font-size:.78rem; text-transform:uppercase; letter-spacing:.13em; color:var(--soft)}
+  .sub{margin:0 0 6px; color:var(--soft); font-size:.92rem}
+
+  /* which storage am I writing to — every deployed host shares the one R2
+     bucket, while a local `wrangler dev` has its own, so say which this is */
+  .where{display:inline-flex; align-items:center; gap:8px; margin:14px 0 0; padding:7px 14px;
+         border-radius:999px; font-size:.82rem; font-weight:600; border:1px solid var(--edge); background:#fffdf8}
+  .where .dot{width:9px; height:9px; border-radius:50%; background:var(--gilt); flex:0 0 auto}
+  .where.live{border-color:#e8c4c4; background:#fbeaea; color:var(--err)}
+  .where.live .dot{background:var(--err)}
+
+  /* tools */
+  .tools{display:grid; grid-template-columns:repeat(auto-fill,minmax(255px,1fr)); gap:12px}
+  a.tool{display:block; text-decoration:none; color:inherit; background:#fffdf8;
+         border:1px solid var(--edge); border-radius:14px; padding:15px 16px;
+         transition:border-color .15s, box-shadow .15s, transform .15s}
+  a.tool:hover{border-color:var(--gilt); box-shadow:0 6px 18px rgba(58,28,31,.09); transform:translateY(-1px)}
+  a.tool .t{font-weight:700; color:var(--madder-deep); display:flex; align-items:center; gap:9px}
+  a.tool .t .ic{font-size:1.1rem; line-height:1}
+  a.tool .d{font-size:.85rem; color:var(--soft); margin-top:6px}
+  a.tool .k{display:inline-block; margin-top:9px; font-size:.7rem; font-weight:700; letter-spacing:.06em;
+            text-transform:uppercase; color:var(--warn); background:#fdf4e4; border-radius:999px; padding:3px 9px}
+
+  /* what is stored right now */
+  .stored{margin-top:10px; border:1px solid var(--edge); border-radius:14px; overflow:hidden; overflow-x:auto; background:#fffdf8}
+  table{border-collapse:collapse; width:100%; font-size:.88rem}
+  th,td{text-align:left; padding:8px 12px; border-bottom:1px solid #f0e7d6}
+  tr:last-child td{border-bottom:0}
+  th{background:#f7f1e6; font-size:.72rem; text-transform:uppercase; letter-spacing:.05em; color:var(--soft)}
+  td.v{font-variant-numeric:tabular-nums; color:var(--madder-deep); font-weight:700}
+  td.when{color:var(--soft); font-size:.82rem}
+  @media (max-width:520px){ th,td{padding:8px 8px} }
+  .pill{font-size:.72rem; font-weight:700; border-radius:999px; padding:2px 9px; white-space:nowrap}
+  .pill.ok{background:#e7f2ec; color:var(--ok)}
+  .pill.no{background:#fbeaea; color:var(--err)}
+  .pill.draft{background:#f3ece0; color:var(--soft); margin-left:2px}
+  .msg{padding:14px; font-size:.88rem; color:var(--soft)}
+  .msg a{color:var(--madder); font-weight:600}
+  .msg code{background:#f3ece0; padding:1px 5px; border-radius:5px; font-size:.9em}
+
+  .foot{margin-top:26px; padding-top:16px; border-top:1px solid #f0e7d6; font-size:.84rem; color:var(--soft)}
+  .foot a{color:var(--madder); font-weight:600}
+</style>
+<script>import '../../client/admin/index.ts';</script>
+</AdminLayout>

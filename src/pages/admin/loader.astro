@@ -1,0 +1,256 @@
+---
+/* The Bulk Loader — explanations, word meanings, and translations & sharḥ,
+   put into a matn's stored document many abyāt at a time from a JSON file the
+   admin chooses (docs/data-formats.md describes the three formats).
+
+   It replaces the Mutūn site's three loader pages, each of which was wired to
+   one matn's bundled data script (explanations-loader.html,
+   word-meanings-loader.html, urdu-loader.html). The matn picker comes from
+   the registry, drafts included; the rules are in src/shared/bulk.ts, shared
+   with the terminal version (scripts/load.ts), and the page logic is in
+   src/client/admin/loader.ts. */
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import { ALL_POEMS } from '../../poems/index.ts';
+import { BULK_KINDS } from '../../shared/bulk.ts';
+---
+<AdminLayout title="Bulk Loader">
+<div class="card">
+  <a class="backlink" href="/admin">← Admin</a>
+  <h1>Bulk Loader</h1>
+  <p class="sub">Puts a matn’s explanations, word meanings or translations into the store from a JSON file,
+  one bayt or all of them at a time. Every bayt is listed with its state before anything is sent, only what
+  would change is sent, and the Arabic is never retyped. Single bayts are edited in
+  the <a href="/admin/editor">Bayt Editor</a> and the <a href="/admin/content">Content Editor</a>.</p>
+
+  {ALL_POEMS.length === 0 ? (
+    <div class="msg warn" id="noPoems">
+      No matn is registered yet, so there is nothing to load into. Add one to <code>src/poems/registry.ts</code>
+      and deploy, then import its text at <a href="/admin/import">/admin/import</a>.
+    </div>
+  ) : (
+  <>
+  <div id="gate">
+    <label class="field" for="pw">Password</label>
+    <input type="password" id="pw" autocomplete="current-password" placeholder="Admin password">
+    <button class="btn-main" id="unlock">Unlock</button>
+    <div class="msg err" id="gateMsg"></div>
+  </div>
+
+  <div id="main" class="hidden">
+    <div class="pick">
+      <div class="pick-row">
+        <label class="lbl" for="poem">Matn</label>
+        <select id="poem">
+          {ALL_POEMS.map((p) => (
+            <option value={p.id}>{p.titleEn}{p.draft ? ' (draft)' : ''}</option>
+          ))}
+        </select>
+      </div>
+      <div class="pick-row">
+        <span class="lbl" id="kindLbl">Load</span>
+        <div class="kinds" role="radiogroup" aria-labelledby="kindLbl">
+          {BULK_KINDS.map((k, i) => (
+            <label class="kind"><input type="radio" name="kind" value={k.id} checked={i === 0}><span>{k.label}</span></label>
+          ))}
+        </div>
+      </div>
+      <div class="pick-row">
+        <span class="lbl">File</span>
+        <div class="filebar">
+          <label class="act go filebtn">Choose JSON file…<input type="file" id="file" accept=".json,application/json"></label>
+          <button class="act" id="pasteBtn" type="button" aria-expanded="false">Paste JSON</button>
+          <span class="fname" id="fileName">No file chosen</span>
+          <button class="act small hidden" id="clearFile" type="button">Clear</button>
+        </div>
+      </div>
+      <div id="pasteBox" class="paste hidden">
+        <textarea id="paste" rows="7" spellcheck="false" aria-label="JSON to load"></textarea>
+        <button class="act go" id="usePaste" type="button">Use this JSON</button>
+      </div>
+      <p class="hint" id="hint"></p>
+    </div>
+
+    <p class="note" id="kindNote"></p>
+    <div class="bar">
+      <span class="count" id="count"></span>
+      <button class="act go" id="loadAll" type="button">Load all</button>
+      <button class="act" id="refresh" type="button">Refresh</button>
+    </div>
+    <div class="msg" id="msg"></div>
+    <div class="msg warn hidden" id="notice"></div>
+    <div class="tablewrap">
+      <table><thead id="head"></thead><tbody id="rows"></tbody></table>
+    </div>
+    <p class="empty hidden" id="empty"></p>
+    <div class="log" id="log" aria-live="polite"></div>
+  </div>
+  </>
+  )}
+</div>
+
+<style is:global>
+  @font-face{font-family:'Scheherazade New';font-weight:400;font-display:swap;src:url("/fonts/ScheherazadeNew.woff2") format("woff2")}
+  @font-face{font-family:'Scheherazade New';font-weight:700;font-display:swap;src:url("/fonts/ScheherazadeNewB.woff2") format("woff2")}
+  /* Arabic and Urdu met in the interface itself (a snippet, a chapter heading,
+     a reason under a row) are drawn in Scheherazade too: the system UI face
+     has the letters but not the Qurʾānic marks, which came out as boxes. The
+     unicode-range keeps every Latin letter in the UI face. */
+  @font-face{font-family:'Loader Arabic';font-weight:400;font-display:swap;src:url("/fonts/ScheherazadeNew.woff2") format("woff2");
+    unicode-range:U+0600-06FF, U+0750-077F, U+0870-08FF, U+200C-200D, U+FB50-FDFF, U+FE70-FEFF}
+  @font-face{font-family:'Loader Arabic';font-weight:700;font-display:swap;src:url("/fonts/ScheherazadeNewB.woff2") format("woff2");
+    unicode-range:U+0600-06FF, U+0750-077F, U+0870-08FF, U+200C-200D, U+FB50-FDFF, U+FE70-FEFF}
+  :root{--madder:#8a4447; --madder-deep:#5e2c30; --cream:#faf6ec; --edge:#e8dcc7; --ink:#3a2a2b;
+        --ok:#2e6b46; --warn:#9a6a14; --paper:#f7f2e5; --paper-2:#fffdf8; --soft:#7a6a6b}
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--cream); color:var(--ink);
+       font:16px/1.55 'Loader Arabic',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       min-height:100vh; display:flex; align-items:flex-start; justify-content:center; padding:32px 16px}
+  .card{width:100%; max-width:980px; min-width:0; background:#fff; border:1px solid var(--edge); border-radius:18px;
+        box-shadow:0 8px 30px rgba(94,44,48,.08); padding:28px 26px}
+  .backlink{display:inline-block; margin:0 0 10px; font-size:.82rem; font-weight:600; color:var(--madder); text-decoration:none}
+  .backlink:hover{text-decoration:underline}
+  h1{margin:0 0 4px; font-size:1.35rem; color:var(--madder-deep)}
+  .sub{margin:0 0 20px; color:var(--soft); font-size:.92rem}
+  .sub a, .msg a, .note a{color:var(--madder)}
+  code{font-size:.86em; background:var(--paper); border:1px solid var(--edge); border-radius:5px; padding:0 4px}
+  label.field{display:block; font-weight:600; font-size:.9rem; margin:16px 0 6px}
+  input[type=password], select, textarea{width:100%; padding:10px 12px; border:1px solid var(--edge); border-radius:10px;
+    font:inherit; background:var(--paper-2); color:var(--ink)}
+  textarea{font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; resize:vertical}
+  input:focus,button:focus-visible,select:focus,textarea:focus{outline:2px solid var(--madder); outline-offset:1px}
+  button{font:inherit; font-weight:600; border:0; border-radius:999px; padding:11px 22px; cursor:pointer}
+  .btn-main{background:var(--madder); color:#fff; width:100%; margin-top:20px}
+  .btn-main:disabled{opacity:.5; cursor:default}
+  .msg{margin-top:14px; padding:10px 12px; border-radius:10px; font-size:.9rem; display:none}
+  .msg.err{display:block; background:#fbeaea; color:#8a2a2a}
+  .msg.ok{display:block; background:#e8f3ec; color:var(--ok)}
+  .msg.warn{display:block; background:#fdf3e0; color:var(--warn)}
+  .msg:empty{display:none}
+  .msg ul{margin:6px 0 0; padding-left:20px}
+  .hidden{display:none !important}
+
+  /* what to load: matn, kind, file */
+  .pick{display:grid; gap:12px; margin:0 0 14px; padding:15px; background:var(--paper);
+        border:1px solid var(--edge); border-radius:12px}
+  .pick-row{display:grid; grid-template-columns:78px 1fr; gap:10px; align-items:center}
+  .pick .lbl{font-weight:600; font-size:.86rem; color:var(--madder-deep)}
+  .pick select{padding:8px 10px; font-size:.9rem; font-weight:600; color:var(--madder-deep)}
+  .kinds{display:flex; flex-wrap:wrap; gap:6px}
+  .kind{position:relative; cursor:pointer}
+  .kind input{position:absolute; opacity:0; inset:0; margin:0; cursor:pointer}
+  .kind span{display:inline-block; padding:7px 14px; border-radius:999px; font-size:.85rem; font-weight:600;
+             background:var(--paper-2); color:var(--madder-deep); border:1px solid var(--edge)}
+  .kind input:checked + span{background:var(--madder); color:#fff; border-color:var(--madder)}
+  .kind input:focus-visible + span{outline:2px solid var(--madder); outline-offset:2px}
+  .kind input:disabled + span{opacity:.5}
+  .filebar{display:flex; flex-wrap:wrap; gap:8px; align-items:center; min-width:0}
+  .filebtn{position:relative; overflow:hidden; cursor:pointer}
+  .filebtn input{position:absolute; inset:0; opacity:0; cursor:pointer; font-size:0}
+  .fname{font-size:.85rem; color:var(--soft); overflow-wrap:anywhere; min-width:0}
+  .fname b{color:var(--ink)}
+  .paste{display:grid; gap:8px; justify-items:start}
+  .hint{margin:0; font-size:.8rem; color:var(--soft); overflow-wrap:anywhere}
+  .hint code{direction:ltr; unicode-bidi:embed}
+  .note{margin:0 0 14px; font-size:.86rem; color:var(--soft)}
+
+  .bar{display:flex; flex-wrap:wrap; gap:9px; align-items:center; margin:4px 0 16px;
+       padding:13px 15px; background:var(--paper); border:1px solid var(--edge); border-radius:12px}
+  .bar .count{font-size:.88rem; color:var(--soft); flex:1 1 200px}
+  .bar .count b{color:var(--ink)}
+  .act{background:var(--paper-2); color:var(--madder-deep); border:1px solid var(--edge); padding:8px 15px; font-size:.86rem}
+  .act:hover{border-color:var(--madder); color:var(--madder)}
+  .act.go{background:var(--madder); color:#fff; border-color:var(--madder)}
+  .act.go:hover{color:#fff}
+  .act.small{padding:5px 11px; font-size:.78rem}
+  .act:disabled{opacity:.45; cursor:default}
+
+  .tablewrap{margin-top:14px}
+  table{width:100%; border-collapse:collapse; font-size:.9rem}
+  th{text-align:left; font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--soft);
+     font-weight:700; padding:0 8px 8px; border-bottom:1px solid var(--edge)}
+  td{padding:9px 8px; border-bottom:1px solid #f0e8da; vertical-align:top}
+  tr:last-child td{border-bottom:0}
+  tr.chap td{background:var(--paper); font-weight:600; color:var(--madder-deep); font-size:.82rem}
+  td.n{font-variant-numeric:tabular-nums; color:var(--soft); width:38px}
+  td.snip{color:var(--soft); font-size:.84rem}
+  td.ar{font-family:'Scheherazade New',serif; font-size:1.2rem; direction:rtl; text-align:right;
+        color:var(--ink); line-height:1.9}
+  td.cells{color:var(--soft); font-size:.84rem; font-variant-numeric:tabular-nums; white-space:nowrap; width:1%}
+  td.en{font-size:.88rem; line-height:1.6; max-width:30ch}
+  td.ur{font-family:'Scheherazade New',serif; font-size:1.12rem; direction:rtl; text-align:right; line-height:2}
+  td.act-cell{white-space:nowrap; width:1%; text-align:right}
+  td.act-cell button{padding:5px 11px; font-size:.78rem; margin-left:5px}
+  .why{display:block; margin-top:3px; font:500 .78rem/1.45 'Loader Arabic',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+       color:#8a2a2a; direction:ltr; text-align:left; overflow-wrap:anywhere}
+  .why-words{display:block; margin-top:2px; font-size:.95rem; color:var(--soft); line-height:1.7}
+  .chip{display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
+        padding:3px 9px; border-radius:999px; white-space:nowrap; margin:0 4px 3px 0}
+  .chip.placeholder, .chip.none{background:#fdf3e0; color:var(--warn)}
+  .chip.loaded{background:#eef1f5; color:#4a5a6a}
+  .chip.shown, .chip.live{background:#e8f3ec; color:var(--ok)}
+  .chip.differs{background:#eef1f5; color:#4a5a6a}
+  .chip.stale, .chip.mismatch, .chip.flag{background:#fbeaea; color:#8a2a2a}
+  .chip.off{background:#f3eee4; color:var(--soft)}
+
+  /* the explanation preview uses the reading page's own rules, so what you
+     see here is what a reader sees */
+  tr.prev td{background:var(--paper-2); padding:0 8px 12px}
+  .prevbox{margin:10px 0 2px; padding:16px 18px; background:var(--paper-2); border:1px solid var(--edge); border-radius:12px}
+  .prevbox p{margin:0 0 10px} .prevbox p:last-child{margin-bottom:0}
+  .prevbox b{color:var(--madder); font-weight:700}
+  .prevbox i{font-style:italic}
+  .prevbox .ar{font-family:'Scheherazade New',serif; font-size:1.25em; color:var(--madder)}
+  .prevbox .qline{text-align:center; font-size:1.15em; margin:10px 0}
+  .prevbox .plang{font-size:.68rem; text-transform:uppercase; letter-spacing:.06em; color:var(--soft); margin:0 0 6px}
+  .prevbox .plang ~ .plang{margin-top:14px; padding-top:12px; border-top:1px solid #f0e8da}
+  .prevbox [dir=rtl]{text-align:right; font-family:'Scheherazade New',serif; font-size:1.12rem; line-height:1.95}
+  .prevbox pre{white-space:pre-wrap; overflow-wrap:anywhere; font-size:.8rem; margin:0}
+
+  /* the word-meanings preview shows each cell beside its meaning, which is
+     what a reader gets on tapping that word */
+  .pairs{border:1px solid var(--edge); border-radius:12px; overflow:hidden; margin-top:2px}
+  .pairs div{display:flex; gap:12px; align-items:baseline; padding:6px 12px; border-bottom:1px solid #f0e8da}
+  .pairs div:last-child{border-bottom:0}
+  .pairs div.half{background:var(--paper)}
+  .pairs .w{font-family:'Scheherazade New',serif; font-size:1.25rem; direction:rtl; text-align:right;
+            flex:0 0 44%; line-height:1.8}
+  .pairs .g{font-size:.86rem; color:var(--ink); flex:1}
+  .pairs .gu{font-family:'Scheherazade New',serif; font-size:1.05rem; direction:rtl; text-align:right;
+             color:var(--ink); flex:0 0 42%}
+  .pairs .fn{font-size:.76rem; color:var(--soft); flex:0 0 100%}
+
+  /* the translations preview: the bayt, both translations, the sharḥ, and
+     what is stored now */
+  .panel{border:1px solid var(--edge); border-radius:12px; overflow:hidden; margin-top:2px}
+  .panel > div{padding:9px 13px; border-bottom:1px solid #f0e8da}
+  .panel > div:last-child{border-bottom:0}
+  .panel .lbl{font-size:.68rem; text-transform:uppercase; letter-spacing:.06em; color:var(--soft); margin-bottom:4px}
+  .panel .ar{font-family:'Scheherazade New',serif; font-size:1.3rem; direction:rtl; text-align:right; line-height:1.95}
+  .panel .ur{font-family:'Scheherazade New',serif; font-size:1.18rem; direction:rtl; text-align:right; line-height:2.05}
+  .panel .en{font-size:.92rem; line-height:1.6}
+  .panel .sharh{direction:rtl; text-align:right; font-size:.95rem; line-height:1.95}
+  .panel .sharh p{margin:0 0 7px} .panel .sharh ul{margin:5px 18px 7px 0; padding:0}
+  .panel .was{background:var(--paper)}
+
+  .empty{margin:18px 0 4px; padding:18px 14px; text-align:center; color:var(--soft); font-size:.9rem;
+         border:1px dashed var(--edge); border-radius:12px}
+  .log{margin-top:16px; font-size:.82rem; color:var(--soft); max-height:190px; overflow:auto;
+       background:var(--paper); border:1px solid var(--edge); border-radius:10px; padding:11px 13px; display:none}
+  .log.on{display:block}
+  .log div{padding:1px 0; overflow-wrap:anywhere}
+
+  @media (max-width:640px){
+    body{padding:16px 10px}
+    .card{padding:20px 14px; border-radius:14px}
+    .pick{padding:12px}
+    .pick-row{grid-template-columns:1fr; gap:6px}
+    th.opt, td.opt{display:none}
+    td.act-cell{white-space:normal}
+    td.act-cell button{margin:0 0 4px 4px}
+    .pairs div{flex-wrap:wrap; gap:2px 10px}
+    .pairs .w{flex:1 1 100%}
+    .pairs .gu{flex:1 1 100%}
+  }
+</style>
+<script>import { init } from '../../client/admin/loader.ts'; init();</script>
+</AdminLayout>
