@@ -9,7 +9,7 @@ import type { AslOfflineStatus } from './globals.d.ts';
 import { currentPoemId, esc, isAppMode, listedPoems, poemHref } from './page.ts';
 
 /** Where "Send feedback" and "Email the developer" write to. */
-const CONTACT_EMAIL = 'info@al-asl.com';
+const CONTACT_EMAIL = SITE.org.email;
 
 interface MatnTab { id: string; ar: string; en: string; n: string }
 

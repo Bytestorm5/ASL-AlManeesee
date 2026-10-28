@@ -32,6 +32,8 @@ export const SITE = {
     tagline: 'Exploring the roots of knowledge',
     motto: 'Rooted in wisdom, flourishing in knowledge.',
     ogImage: 'https://www.al-asl.com/wp-content/uploads/2025/04/6.png',
+    /** Where the app's "Send feedback" and "Email the developer" go. */
+    email: 'info@al-asl.com',
     links: [
       { label: 'Home', href: 'https://www.al-asl.com/' },
       { label: 'Courses', href: 'https://www.al-asl.com/courses/' },

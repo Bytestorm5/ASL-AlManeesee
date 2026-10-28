@@ -221,7 +221,7 @@ poems.put('/poems/:id/document', requireAdmin, async (c) => {
   catch { return c.json({ error: 'Storage error reading the matn' }, 502); }
   if (existing && !c.req.query('overwrite')) {
     const v = existing.value.version || 1;
-    return c.json({ error: `${id} is already stored (version ${v}) — add &overwrite=1 to replace it`, version: v }, 409);
+    return c.json({ error: `${id} is already stored (version ${v}) — replace it explicitly to overwrite it`, version: v }, 409);
   }
   if (existing) doc.version = (existing.value.version || 1) + 1;
 

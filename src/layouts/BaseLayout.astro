@@ -21,7 +21,10 @@ interface Props {
 }
 const { title, fullTitle, description = SITE.collection.description, noindex = false, bodyClass, poem, ogType = 'website', boot = [] } = Astro.props;
 const docTitle = fullTitle ?? pageTitle(title);
-const canonical = new URL(Astro.url.pathname === '/index' ? '/' : Astro.url.pathname, Astro.site ?? SITE.url).toString();
+/* build.format 'file' makes every pathname end in .html, but pages are served
+   without the extension (/guide, not /guide.html) and the home page at /. */
+const path = Astro.url.pathname.replace(/\.html$/, '').replace(/^\/index$/, '/');
+const canonical = new URL(path, Astro.site ?? SITE.url).toString();
 ---
 <!doctype html>
 <html lang="en" dir="ltr" translate="no">

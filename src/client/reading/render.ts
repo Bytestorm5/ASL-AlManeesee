@@ -157,6 +157,11 @@ export function renderPoem(p: PoemConfig): boolean {
       pills.appendChild(pl);
     }
   }
+  /* The home page's bookmarks card names the chapter a bookmark is in, but
+     the home page has no verse data — so leave it [first bayt, Arabic title]
+     per chapter (asl-chidx-<id>, read by src/client/home.ts). */
+  lsSet('asl-chidx-' + p.id, JSON.stringify(CH.filter((c) => c.verses[0]).map((c) => [c.verses[0]!.n, c.ar])));
+
   /* A matn in a single chapter has nothing to navigate between. */
   if (CH.length < 2) document.body.classList.add('single-chapter');
 
