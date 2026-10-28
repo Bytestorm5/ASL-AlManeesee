@@ -30,5 +30,7 @@ const qx = JSON.parse(await readFile(new URL('../fixtures/example-qiraat.json', 
 const current = (await fetch(origin + '/api/qiraat/example/index').then((r) => r.json())) as { version: number };
 console.log('qiraat', await call('PUT', '/api/qiraat/example', { baseVersion: current.version, cards: qx }));
 
-console.log('switches', await call('PUT', '/api/switches/example', { trHidden: {}, urHidden: {} }));
+// Every explanation shown (the example registers them as checked), nothing hidden.
+const enabled = Object.fromEntries(Array.from({ length: 8 }, (_, i) => [i + 1, true]));
+console.log('switches', await call('PUT', '/api/switches/example', { enabled, trHidden: {}, urHidden: {} }));
 console.log('reciters', await call('PUT', '/api/reciters', { reciters: [{ id: 'example-reciter', name: 'Example Reciter' }] }));

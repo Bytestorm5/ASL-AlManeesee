@@ -76,9 +76,31 @@ function precacheable(url: string): boolean {
   return !drafts.has(url);
 }
 
+/* Bundles are shared between pages, so which ones the shell needs is worked
+   out from the shell pages themselves: every /_astro/ file they reference,
+   and every chunk those import in turn. The admin tools' bundles are never
+   reached that way, so readers' devices never store them. */
+async function reachableBundles(distDir: string, pages: { abs: string }[]): Promise<Set<string>> {
+  const seen = new Set<string>();
+  const queue: string[] = [];
+  const add = (url: string) => { if (!seen.has(url)) { seen.add(url); queue.push(url); } };
+  for (const p of pages) for (const m of (await readFile(p.abs, 'utf8')).matchAll(/\/_astro\/[\w.\-]+/g)) add(m[0]);
+  while (queue.length) {
+    const url = queue.pop()!;
+    if (!url.endsWith('.js')) continue;
+    const src = await readFile(join(distDir, url), 'utf8').catch(() => '');
+    for (const m of src.matchAll(/["'`](?:\.\/|\/_astro\/)([\w.\-]+\.(?:js|css))["'`]/g)) add('/_astro/' + m[1]);
+  }
+  return seen;
+}
+
 async function buildServiceWorker(distDir: string, root: string): Promise<{ version: string; count: number }> {
   const files = (await walk(distDir)).map((f) => ({ abs: f, url: urlOf(relative(distDir, f)) }));
-  const shell = files.filter((f) => precacheable(f.url)).sort((a, b) => (a.url < b.url ? -1 : 1));
+  const candidates = files.filter((f) => precacheable(f.url));
+  const bundles = await reachableBundles(distDir, candidates.filter((f) => f.abs.endsWith('.html')));
+  const shell = candidates
+    .filter((f) => !f.url.startsWith('/_astro/') || bundles.has(f.url))
+    .sort((a, b) => (a.url < b.url ? -1 : 1));
   const hash = createHash('sha256');
   for (const f of shell) hash.update(f.url).update(await readFile(f.abs));
   const version = hash.digest('hex').slice(0, 12);

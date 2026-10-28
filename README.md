@@ -49,7 +49,7 @@ empty collection.
 | `npm run build` | Production build into `dist/` |
 | `npm run deploy` | Build and `wrangler deploy` ([docs/deploying.md](docs/deploying.md)) |
 | `npm run pdf` | Regenerate the downloadable PDFs from the live pages |
-| `node scripts/load.ts` | Bulk-load word meanings, translations or explanations |
+| `node scripts/load.ts` | Bulk-load word meanings, translations or explanations ([formats](docs/data-formats.md)) |
 
 ## Layout
 

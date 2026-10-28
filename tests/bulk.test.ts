@@ -32,9 +32,11 @@ describe('reading a file', () => {
   });
   it('flags out-of-range and repeated bayts without dropping the rest', () => {
     const p = parseExplanations({ 3: '<p>a</p>', ' 3': '<p>b</p>', 9: '<p>c</p>' }, 8);
-    expect([...p.entries.keys()]).toEqual([3]);
-    expect(p.invalid.get(9)!.join()).toMatch(/out of range \(1–8\)/);
-    expect([...p.invalid.keys()]).toContain(3);
+    const q = parseExplanations({ 2: '<p>ok</p>', 9: '<p>c</p>' }, 8);
+    expect([...q.entries.keys()]).toEqual([2]);
+    expect(q.invalid.get(9)!.join()).toMatch(/out of range \(1–8\)/);
+    expect(p.entries.has(3)).toBe(false);
+    expect(p.invalid.get(3)!.join()).toMatch(/given twice/);
   });
   it('tells the three formats apart', () => {
     expect(detectKind({ 1: '<p>x</p>' })).toBe('explanations');

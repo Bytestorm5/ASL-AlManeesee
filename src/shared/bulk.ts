@@ -98,7 +98,10 @@ function walk<T>(
     const n = Number(key);
     const problems: string[] = [];
     if (n < 1 || (maxBayt && n > maxBayt)) problems.push(`bayt ${n}: out of range${maxBayt ? ` (1–${maxBayt})` : ''}`);
-    if (out.entries.has(n) || out.invalid.has(n)) problems.push(`bayt ${n}: given twice`);
+    if (out.entries.has(n) || out.invalid.has(n)) {
+      problems.push(`bayt ${n}: given twice`);   // ("3" and " 3") — neither copy is used
+      out.entries.delete(n);
+    }
     const entry = problems.length ? null : one(value, `bayt ${n}`, problems);
     if (problems.length || entry == null) out.invalid.set(n, problems.length ? problems : [`bayt ${n}: nothing to load`]);
     else out.entries.set(n, entry);

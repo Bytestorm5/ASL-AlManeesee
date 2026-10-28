@@ -22,8 +22,8 @@ import { checkProseMarkup, stripTags } from '../../shared/poem-data.ts';
 import {
   BATCH, BULK_KINDS, BatchFailure, buildWords, describeBayts, detectKind, expLoadable, explanationPatch,
   explanationState, expOf, indexDoc, isBulkKind, isFlagged, parseExplanations, parseTranslations, parseWords,
-  proseText, readJsonText, saveInBatches, sortedBayts, storedIsPlaceholder, translationPatch, translationState, withSwitches, wordsPatch,
-  wordsState,
+  proseText, readJsonText, saveInBatches, sortedBayts, storedIsPlaceholder, translationPatch, translationState,
+  withSwitches, wordsPatch, wordsState,
   type BuiltWords, type BulkKind, type ExplanationEntry, type ExplanationState, type Parsed, type StoredVerse,
   type TranslationEntry, type TranslationPatch, type TranslationState, type WordsEntry, type WordsPatch,
   type WordsState,
@@ -355,18 +355,22 @@ function renderExplanations(): void {
   head([['Bayt'], ['State'], ['Opens'], ['']]);
   const body = $('#rows');
   const counts: Record<ExplanationState, number> = { placeholder: 0, stale: 0, differs: 0, loaded: 0, shown: 0, mismatch: 0 };
-  let staleEmpty = 0;
+  let staleEmpty = 0, staleOld = 0, still = 0;
   const listed = expListed();
   for (const n of listed) {
     const st = expState(n);
     counts[st]++;
-    if (st === 'stale' && expEmpty(n)) staleEmpty++;
+    /* with a file, "still to load" is what this file can load; without one,
+       every bayt that holds no real text yet */
+    if (expLoadable(st) && (!file || exps?.entries.has(n))) {
+      still++;
+      if (st === 'stale') { if (expEmpty(n)) staleEmpty++; else staleOld++; }
+    }
     body.appendChild(expRow(n, st));
   }
   const todo = expTodo();
-  const staleOld = counts.stale - staleEmpty;
   $('#count').innerHTML = `<b>${counts.shown}</b> shown to readers · <b>${counts.loaded}</b> loaded but hidden · <b>`
-    + `${counts.differs + counts.placeholder + counts.stale}</b> still to load`
+    + `${still}</b> still to load`
     + (staleOld ? ` · <b style="color:#8a2a2a">${staleOld}</b> of those already visible with older text` : '')
     + (staleEmpty ? ` · <b style="color:#8a2a2a">${staleEmpty}</b> already switched on, so they show as soon as they load` : '');
   const all = $<HTMLButtonElement>('#loadAll');
@@ -390,7 +394,7 @@ function expRow(n: number, st: ExplanationState): HTMLTableRowElement {
   const v = stored.get(n)?.v;
   const on = enabled[n] === true;
 
-  const tdChip = cell('');
+  const tdChip = cell('st');
   /* "old text" would be untrue where nothing is stored yet: the switch is on,
      so the text shows the moment it is loaded */
   tdChip.appendChild(chip(st, st === 'stale' && expEmpty(n) ? 'On — not loaded' : EXP_LABEL[st]));
@@ -549,7 +553,7 @@ function renderWords(): void {
     const tr = document.createElement('tr');
     const verse = cell('ar', e ? stripTags(e.v.sadr) + '  ◆  ' + stripTags(e.v.ajuz) : '');
     if (i.why) why(verse, i.why, i.detail);
-    const tdChip = cell('');
+    const tdChip = cell('st');
     tdChip.appendChild(chip(i.st, WORDS_LABEL[i.st], i.why));
     const acts = cell('act-cell');
     if (i.b) {
@@ -670,7 +674,7 @@ function renderTranslations(): void {
     const tr = document.createElement('tr');
     const verse = cell('ar', e ? stripTags(e.v.sadr) : '');
     if (i.why) why(verse, i.why);
-    const tdChip = cell('');
+    const tdChip = cell('st');
     tdChip.appendChild(chip(i.st, TR_LABEL[i.st], i.why));
     if (w && isFlagged(w)) tdChip.appendChild(chip('flag', '⟨?⟩', 'Marked ⟨?⟩ for review in the file'));
     if (i.sharhOff) tdChip.appendChild(chip('off', 'sharḥ hidden', 'The sharḥ is stored, but its explanation button is switched off'));

@@ -244,8 +244,20 @@ import { BULK_KINDS } from '../../shared/bulk.ts';
     .card{padding:20px 14px; border-radius:14px}
     .pick{padding:12px}
     .pick-row{grid-template-columns:1fr; gap:6px}
-    th.opt, td.opt{display:none}
-    td.act-cell{white-space:normal}
+    /* each bayt becomes a small card: number, state and buttons on one line,
+       the verse (or the opening of its explanation) full width beneath */
+    thead{display:none}
+    table, tbody{display:block}
+    tbody tr{display:block}
+    tbody tr:not(.chap):not(.prev){display:grid; grid-template-columns:auto 1fr auto; gap:6px 10px;
+      align-items:start; padding:10px 2px; border-bottom:1px solid #f0e8da}
+    tbody tr:not(.chap):not(.prev) > td{display:block; padding:0; border:0}
+    tbody td.n{grid-column:1; grid-row:1; width:auto; padding-top:1px}
+    tbody td.st{grid-column:2; grid-row:1}
+    tbody td.act-cell{grid-column:3; grid-row:1; width:auto}
+    tbody td.ar, tbody td.snip{grid-column:1 / -1; grid-row:2}
+    tbody tr.chap td, tbody tr.prev td{display:block}
+    td.opt{display:none !important}
     td.act-cell button{margin:0 0 4px 4px}
     .pairs div{flex-wrap:wrap; gap:2px 10px}
     .pairs .w{flex:1 1 100%}
