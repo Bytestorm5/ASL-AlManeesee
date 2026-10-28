@@ -18,7 +18,7 @@ type ChapterEntry = AslChapterJumpApi['chapters'][number];
    out from under us in the same frame. Re-aim until the document stops
    changing height. A reader who starts scrolling is left alone: only drift
    that happens while they are still is corrected. */
-export function settleOn(el: Element | null, offset: number): void {
+function settleOn(el: Element | null, offset: number): void {
   if (!el) return;
   const giveUp = Date.now() + 3000;
   let settledAt = Date.now(), lastH = -1, last = window.pageYOffset;

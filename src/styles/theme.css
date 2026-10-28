@@ -256,6 +256,14 @@ body.matn-teal .ch-medallion, body.matn-indigo .ch-medallion {
 :root[data-theme="dark"] .appsheet .as-acts button,
 :root[data-theme="dark"] .appsheet .as-theme button { background:var(--surface); }
 :root[data-theme="dark"] .appsheet .as-theme button.on { background:var(--madder); color:#1c1410; }
+/* The same for the other controls that fill with the accent when on: in dark
+   mode --madder is a light tint, and white text on it does not read. */
+:root[data-theme="dark"] .chnav-item.on .ar,
+:root[data-theme="dark"] .matn-switch .menu-pop a.active,
+:root[data-theme="dark"] .matn-switch .menu-pop a.active .ms-en,
+:root[data-theme="dark"] .noteact .note-save,
+:root[data-theme="dark"] .bm-verse-btn.on,
+:root[data-theme="dark"] .note-verse-btn.on { color:#1c1410; }
 :root[data-theme="dark"] .mc-tag { background:var(--surface-2); }
 :root[data-theme="dark"] .note {
   background:linear-gradient(180deg,#2a1d18,#241813);
