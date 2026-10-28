@@ -60,9 +60,11 @@ async function open(page: Page, url: string): Promise<string[]> {
 let worker: ChildProcess | undefined;
 try {
   await run('npx', ['astro', 'build', '--outDir', outDir], { MUTUN_EXAMPLE: '1' });
-  worker = spawn('npx', ['wrangler', 'dev', '--port', String(PORT), '--assets', outDir,
+  /* Run wrangler itself (not through npx) as the head of its own process
+     group, so stopping it below also stops the workerd it starts. */
+  worker = spawn(path.join(root, 'node_modules/.bin/wrangler'), ['dev', '--port', String(PORT), '--assets', outDir,
     '--persist-to', path.join(work, 'state'), '--define', '__INCLUDE_EXAMPLE__:true', '--var', `ADMIN_PASSWORD:${PASSWORD}`],
-  { cwd: root, stdio: ['ignore', 'ignore', 'inherit'] });
+  { cwd: root, stdio: 'ignore', detached: true });
   await waitFor(`${ORIGIN}/api/manifest`);
   await run('node', ['scripts/seed-example.ts', '--origin', ORIGIN], { ADMIN_PASSWORD: PASSWORD });
 
@@ -107,7 +109,7 @@ try {
 
   await browser.close();
 } finally {
-  worker?.kill('SIGINT');
+  if (worker?.pid) { try { process.kill(-worker.pid, 'SIGTERM'); } catch { /* already gone */ } }
   await rm(work, { recursive: true, force: true });
 }
 

@@ -200,11 +200,11 @@ main{max-width:var(--maxw); margin:0 auto; padding:10px 22px 40px}
   transition:background .15s ease, color .15s ease; outline:none}
 .hemi .seg:focus-visible,.hemi .seg.seg-show{background:var(--paper-2); color:var(--madder)}
 @media (hover:hover){ .hemi .seg:hover{background:var(--paper-2); color:var(--madder)} }
-/* red words matching the Suwayd print edition (kept red through hover/focus) */
+/* red ink — words a print edition sets in red (kept red through hover/focus) */
 .hemi .seg.rd,.hemi .rd{color:#b23122}
 /* small connecting-nūn mark (tanwīn/nūn sākinah sound carrying into the next
    word) — rendered as a raised mark above the following word, matching the
-   printed matn convention (same as khaqaniyyah.html / shatibiyyah.html) */
+   printed matn convention */
 .small-noon{font-size:.65em; position:relative; top:-.48em; line-height:1; margin-inline-end:.1em}
 /* words without a word-by-word gloss: no tooltip, not styled as tappable */
 .hemi .seg.nog{cursor:default}
@@ -218,10 +218,9 @@ main{max-width:var(--maxw); margin:0 auto; padding:10px 22px 40px}
 .hemi .seg.rd:focus-visible,.hemi .seg.rd.seg-show{color:#b23122}
 @media (hover:hover){ .hemi .seg.rd:hover{color:#b23122} }
 /* Rubrication — the rumūz letters picked out in red inside a word, written as
-   <span class="rmz…"> in the bayt itself. Same palette as the Shāṭibiyyah and
-   the Ṭayyibah, and pinned to maroon rather than var(--madder) so the Durrah's
-   indigo accent does not re-tint the ramz. Dark-mode lifts live in theme.css,
-   which already covers every matn. Keep these in step with shatibiyyah.html. */
+   <span class="rmz…"> in the bayt itself. Pinned to maroon rather than
+   var(--madder), so a matn's own accent (indigo, lapis…) never re-tints a
+   ramz. Dark-mode lifts live in theme.css, which already covers every matn. */
 .rmz{color:#8a4447}
 .rmz2{color:#5e2c30}
 .rmz3{color:#9a7526}

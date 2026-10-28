@@ -41,8 +41,8 @@ site is deployed:
   `icon-512-maskable.png` — the app icons (the al-Asl medallion).
 - `.well-known/assetlinks.json` — the Digital Asset Links file that links the
   app to the website (one value still to fill in — see Step 4).
-- `privacy.html` — a privacy policy page (Google Play requires a privacy
-  policy URL): `https://<your-domain>/privacy.html`.
+- `/privacy` (`src/pages/privacy.astro`) — a privacy policy page (Google Play requires a privacy
+  policy URL): `https://<your-domain>/privacy`.
 - PWA `<link>`/`<meta>` tags + service-worker registration added to all four
   pages.
 
@@ -52,7 +52,7 @@ browser that these URLs load:
 - `https://<your-domain>/sw.js`
 - `https://<your-domain>/icon-512.png`
 - `https://<your-domain>/.well-known/assetlinks.json`
-- `https://<your-domain>/privacy.html`
+- `https://<your-domain>/privacy`
 
 Tip: in Chrome on your phone, open the site → menu → "Add to Home screen". If
 it installs as an app and opens fullscreen, the PWA is working and the TWA will
@@ -300,25 +300,18 @@ disappears (may take a reinstall).
 
 Play Console → **Grow → Store presence → Main store listing**:
 
-- **App name**: al-Asl Mutūn
-- **Short description** (≤80 chars), e.g.:
-  *"The Khāqāniyyah, Jazariyyah & Shāṭibiyyah — with English & Urdu translation."*
-- **Full description**: describe the three texts, translations, word-by-word
-  meanings, offline reading, and PDF downloads.
-- **App icon**: upload `icon-512.png` (512×512).
-- **Feature graphic**: use `apps/android/play-assets/play-feature-graphic.png`
-  (already made at the required 1024×500).
-- **Phone screenshots**: use the five in `apps/android/play-assets/screenshots/`
-  (1080×1920 each):
-  1. `01-collection.png` — the collection / brand intro
-  2. `02-khaqaniyyah-english.png` — a poem with English translation
-  3. `03-khaqaniyyah-urdu.png` — Arabic + English + Urdu together
-  4. `04-shatibiyyah.png` — chapter navigation bar
-  5. `05-jazariyyah-wordbyword.png` — tap-a-word meaning + translation
-  (Upload at least 2; all five tell the fuller story.)
+- **App name**: the collection's name (`SITE.appName` in `src/config/site.ts`)
+- **Short description** (≤80 chars): what the collection holds, once its
+  mutūn are published.
+- **Full description**: the texts, translations, word-by-word meanings,
+  offline reading, recitations and PDF downloads.
+- **App icon**: upload `public/icon-512.png` (512×512).
+- **Feature graphic** (1024×500) and **phone screenshots** (1080×1920, at least
+  two): make them from the live site once it carries its first mutūn — the
+  Mutūn app's own assets show its texts and were not carried over.
 
 Then complete the required questionnaires under **Policy / App content**:
-- **Privacy policy**: `https://<your-domain>/privacy.html`
+- **Privacy policy**: `https://<your-domain>/privacy`
 - **Data safety**: declare **no data collected / no data shared** (the app
   collects nothing; preferences stay on-device).
 - **Content rating**: fill the questionnaire → it will rate **Everyone**.
@@ -355,11 +348,11 @@ hours up to a few days. Once approved, the app is live on Google Play. 🎉
 
 | File | Purpose |
 |------|---------|
-| `manifest.webmanifest` | Web app manifest (installable PWA) |
-| `sw.js` | Service worker (offline caching) |
-| `icon-192/512(.|-maskable).png` | App icons |
-| `.well-known/assetlinks.json` | App ↔ site verification (fill in fingerprint) |
-| `privacy.html` | Privacy policy (required by Play) |
+| `src/pages/manifest.webmanifest.ts` | Web app manifest (installable PWA), generated from `src/config/site.ts` |
+| `src/sw/sw.ts` | Service worker (offline caching), built into `/sw.js` |
+| `public/icon-192/512(.|-maskable).png` | App icons |
+| `public/.well-known/assetlinks.json` | App ↔ site verification — add it once the app is signed |
+| `src/pages/privacy.astro` | Privacy policy at `/privacy` (required by Play) |
 | `apps/android/twa-manifest.json` | Bubblewrap/TWA build configuration |
 | `apps/android/enable-r8.mjs` | One-command R8 enable for the generated project |
 | `apps/android/fix-launch-flash.mjs` | Gives the launcher window the app's cream, so the launch has no black gap |

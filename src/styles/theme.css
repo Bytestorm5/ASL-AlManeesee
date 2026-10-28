@@ -72,9 +72,8 @@ body.matn-sienna, .matn-card.m-sienna, .matn-row.m-sienna, .cont-card.m-sienna, 
   --emblem-filter:saturate(1.9) hue-rotate(25deg); /* madder star → burnt amber */
 }
 
-/* al-Salsabīl al-Shāfī — teal. Sits between the Jazariyyah's lapis and the
-   Shāṭibiyyah's verdigris in the reading order, so its hue sits between them
-   too, and stays distinct from both at a glance. */
+/* Teal — sits between lapis and verdigris in hue, and stays distinct from
+   both at a glance when the three are listed together. */
 body.matn-teal, .matn-card.m-teal, .matn-row.m-teal, .cont-card.m-teal, .bm-row.m-teal {
   --madder:#2b6f74; --madder-soft:#4c8b90;
   --lapis:#1c4d51; --lapis-2:#245e63; --lapis-3:#2b6f74;
@@ -303,7 +302,7 @@ body.matn-teal .ch-medallion, body.matn-indigo .ch-medallion {
 :root[data-theme="dark"] .mzbig small { color:inherit; }
 :root[data-theme="dark"] .mzbarline { background:var(--paper-edge); }
 
-/* Shāṭibiyyah rumūz stay maroon (classical rubrication) — lift for dark.
+/* Rumūz stay maroon (classical rubrication) — lift for dark.
    The whole family is pinned in the pages, so every tone needs its lift here,
    not just .rmz — otherwise the others fall back to a light-mode maroon that is
    unreadable on the dark paper. */
@@ -338,7 +337,7 @@ body.matn-teal .ch-medallion, body.matn-indigo .ch-medallion {
 :root[data-theme="dark"] .apptop::after { background:linear-gradient(90deg,transparent,rgba(212,171,79,.45),transparent); }
 :root[data-theme="dark"] .appnav { background:rgba(23,17,15,.98); border-top-color:var(--paper-edge); }
 
-/* Jazariyyah — red words from the Suwayd print edition; lighter in dark mode */
+/* Red ink (a print edition's red words) — lighter in dark mode */
 :root[data-theme="dark"] .hemi .seg.rd,
 :root[data-theme="dark"] .hemi .rd { color:#e5836f; }
 
