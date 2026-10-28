@@ -1,0 +1,37 @@
+---
+/* The footer every public page closes with: an optional closing line, the
+   institute's mark and links, and the copyright. */
+import { SITE, siteHost } from '../config/site.ts';
+
+interface Props {
+  closing?: { ar: string; en?: string };
+  /** The line above the copyright, e.g. "Al-Muqaddimah al-Jazariyyah · 109 abyāt". */
+  credit?: string;
+  showStores?: boolean;
+}
+const { closing, credit, showStores = false } = Astro.props;
+const year = new Date().getFullYear();
+const stores = showStores && (SITE.stores.appStore || SITE.stores.googlePlay);
+---
+<footer>
+  {closing && <div class="ar">{closing.ar}</div>}
+  {closing?.en && <div class="en">{closing.en}</div>}
+  <div class="foot-rule"><i></i><b>۞</b><i></i></div>
+  <div class="foot-brand">
+    <a class="foot-logo" href={SITE.org.url} target="_blank" rel="noopener" aria-label={`${SITE.org.name}, home`}>
+      <span class="foot-logo-img" role="img" aria-label={SITE.org.name}></span>
+    </a>
+    <p class="foot-tag">{SITE.org.motto}</p>
+    <nav class="foot-links" aria-label={SITE.org.name}>
+      {SITE.org.links.map((l) => <a href={l.href} target="_blank" rel="noopener">{l.label}</a>)}
+      <a href="/privacy">Privacy</a>
+    </nav>
+    {stores && (
+      <div class="store-badges">
+        {SITE.stores.appStore && <a href={SITE.stores.appStore} target="_blank" rel="noopener" aria-label="Download on the App Store"><img src="/brand/badge-appstore.svg" alt="Download on the App Store" loading="lazy"></a>}
+        {SITE.stores.googlePlay && <a href={SITE.stores.googlePlay} target="_blank" rel="noopener" aria-label="Get it on Google Play"><img src="/brand/badge-gplay.png" alt="Get it on Google Play" loading="lazy"></a>}
+      </div>
+    )}
+    <p class="foot-copy">{credit && <>{credit}<br></>}© {year} <a href={SITE.org.url} target="_blank" rel="noopener">{SITE.org.name}</a> · {siteHost()}</p>
+  </div>
+</footer>

@@ -1,0 +1,34 @@
+---
+/* Every page under /admin: never indexed (the _headers rule says so too),
+   never precached by the service worker, no app chrome. Each tool brings its
+   own stylesheet in a <style is:global> block and its script as a module. */
+import { pageTitle } from '../config/site.ts';
+import '../styles/fonts.css';
+
+interface Props {
+  title: string;
+  /** Show the "← Admin" link back to the index. */
+  back?: boolean;
+}
+const { title, back = false } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>{pageTitle(title)}</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<slot name="head" />
+</head>
+<body>
+{back && <a class="admin-back" href="/admin">← Admin</a>}
+<slot />
+<style is:global>
+  .admin-back{position:absolute; top:10px; left:16px; font:600 .82rem/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    color:#8a4447; text-decoration:none}
+  .admin-back:hover{text-decoration:underline}
+</style>
+</body>
+</html>

@@ -1,0 +1,85 @@
+---
+/* The reading page — one template for every registered matn (/<id>).
+   Everything specific to a matn comes from its registration; its text comes
+   from storage at runtime (/api/poems/<id>/data.js). */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Brandbar from '../components/Brandbar.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { SITE, pageTitle } from '../config/site.ts';
+import { ALL_POEMS } from '../poems/index.ts';
+import type { PoemConfig } from '../poems/types.ts';
+import { poemScriptUrl } from '../client/api.ts';
+import '../styles/reading.css';
+import '../styles/theme.css';
+
+export function getStaticPaths() {
+  return ALL_POEMS.map((poem) => ({ params: { poem: poem.id }, props: { poem } }));
+}
+interface Props { poem: PoemConfig }
+const { poem: p } = Astro.props;
+const eyebrow = ['al-Asl', SITE.collection.en.replace(/^The /, ''), p.subject].filter(Boolean).join(' · ');
+const pdf = p.pdf?.whole;
+---
+<BaseLayout fullTitle={pageTitle(p.titleEn)} description={p.description} poem={p.id} bodyClass={`view-ar matn-${p.accent}`} ogType="article" noindex={p.draft}>
+<a id="top"></a>
+<Brandbar />
+<div class="backbar"><a class="backlink" href="/">← {SITE.collection.en}</a></div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="hero-star" role="img" aria-label="al-Asl Institute emblem"></span>
+    <div class="eyebrow">{eyebrow}</div>
+    <h1 class="ar">{p.titleAr}</h1>
+    <div class="romantitle">{p.titleEn}</div>
+    <div class="subtitle">{p.description}</div>
+    <div class="rule"><i></i><b>۞</b><i></i></div>
+    <div class="meta-chips">
+      <span class="chip"><b>{p.verses}</b> abyāt</span>
+      <span class="chip"><b id="chapterCount">…</b> chapters</span>
+      {p.author && <span class="chip">{p.author.name}{p.author.died && <> · <b>d. {p.author.died}</b></>}</span>}
+      {p.metre && <span class="chip">Metre: <b>{p.metre}</b></span>}
+    </div>
+  </div>
+</header>
+
+<section class="toc-wrap">
+  <div class="toc-head">
+    <div class="lbl">Contents</div>
+    <h2>The Chapters</h2>
+  </div>
+  <div class="toc-grid" id="tocGrid"></div>
+</section>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <div class="nav-brand"><span class="ar">{p.shortAr}</span> · {p.shortEn}</div>
+    <div class="pills" id="pills"></div>
+    <div class="nav-menus">
+      <div class="menu" id="viewMenu">
+        <button type="button" class="navprint" id="viewBtn" aria-haspopup="true" aria-expanded="false" aria-label="Translation" title="Choose which translation to show"><svg width="17" height="17" viewBox="0 0 24 24" style="fill:var(--madder,#8a4447)" aria-hidden="true"><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg><span class="caret">▾</span></button>
+        <div class="menu-pop" id="viewDrop" role="menu" aria-label="Show translation"></div>
+      </div>
+      {pdf && (
+        <div class="menu" id="pdfMenu">
+          <button type="button" class="navprint" id="pdfBtn" aria-haspopup="true" aria-expanded="false" title="Download as PDF">⤓ PDF <span class="caret">▾</span></button>
+          <div class="menu-pop" id="pdfDrop" role="menu" aria-label="Download PDF">
+            <a role="menuitem" href={`/pdf/${p.id}/${p.id}-ar.pdf`} download>Arabic only</a>
+            <a role="menuitem" href={`/pdf/${p.id}/${p.id}-ar-en.pdf`} download>Arabic + English</a>
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+</nav>
+
+<main id="main"></main>
+
+<SiteFooter closing={p.closing} credit={`${p.titleEn} · ${p.verses} abyāt · prepared for the al-Asl ${SITE.collection.en.replace(/^The /, '')}.`} />
+<button class="totop" id="totop" title="Back to top" aria-label="Back to top">↑</button>
+<div class="print-only print-footer">{SITE.org.url.replace(/^https?:\/\//, '').replace(/\/$/, '')}&nbsp;&nbsp;·&nbsp;&nbsp;{SITE.org.name}&nbsp;·&nbsp;{p.titleEn}</div>
+
+<!-- The verses: a blocking classic script, so they are in place before any
+     feature runs; the service worker keeps the last good copy for offline. -->
+<script is:inline src={poemScriptUrl(p.id)}></script>
+<script>import '../client/entries/reading.ts';</script>
+</BaseLayout>

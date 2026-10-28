@@ -1,0 +1,135 @@
+/* Elegant PDF export overrides — injected only by scripts/generate-pdfs.mjs
+   (page.addStyleTag), never linked from the live reading pages. Builds the
+   cover page + decorative content pages on top of each matn page's own
+   markup/data (.hero, .chapter, .ch-head, .verse, .medallion, .translation),
+   so the exported PDFs can never drift from the live text again. */
+@media print {
+
+  html, body { background: #fff !important }
+
+  /* Chrome not part of the export — includes the site's own basic
+     Ctrl+P print header/footer (.print-only), superseded here by
+     Playwright's headerTemplate/footerTemplate. */
+  .brandbar-wrap, .navbar, .totop, .backbar, footer,
+  .print-only, .print-header, .print-footer,
+  .verse-actions, .translation .exp-toggle, .exp-toggle,
+  .translation .leaf, .translation-ur .leaf,
+  .note, .explanation { display: none !important }
+
+  .toc-wrap { display: none !important }
+
+  /* single fixed watermark for the whole document — must stay ONE element,
+     never per-chapter, or position:fixed repeats + stacks it on every page */
+  body::before {
+    content: ""; position: fixed; z-index: 0; pointer-events: none;
+    top: 50%; left: 50%; width: 320px; height: 320px;
+    transform: translate(-50%, -50%);
+    background: var(--emblem) center/contain no-repeat;
+    opacity: .05;
+  }
+
+  /* ---------------- Cover page ---------------- */
+  header.hero {
+    position: relative; z-index: 2; page-break-after: always; break-after: page;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    min-height: 96vh; padding: 0; margin: 0;
+    background: #fff !important; color: var(--ink) !important; text-align: center;
+  }
+  header.hero::before { display: none }
+  .hero-inner { max-width: 520px; margin: 0 auto }
+  .hero-star {
+    display: inline-block; width: 108px; height: 108px; margin: 0 auto 22px; filter: none;
+    background: var(--emblem) center/62% no-repeat, var(--paper-2);
+    border: 1px solid var(--paper-edge); border-radius: 10px;
+  }
+  .hero .eyebrow {
+    color: var(--madder) !important; font-size: .68rem; letter-spacing: .32em; margin-bottom: 18px;
+  }
+  .hero h1.ar {
+    color: var(--madder) !important; text-shadow: none !important;
+    font-size: 2.6rem; margin: .1em 0 .14em;
+  }
+  .hero .romantitle {
+    color: var(--ink) !important; font-size: 1.6rem; font-weight: 600; margin-bottom: 16px;
+  }
+  .hero .subtitle {
+    color: var(--ink-soft) !important; font-style: italic;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 1.05rem; line-height: 1.6; margin: 0 auto 20px;
+  }
+  .hero .rule { margin: 2px auto 22px }
+  .hero .rule i { background: linear-gradient(90deg, transparent, var(--gilt)) !important }
+  .hero .rule b { color: var(--gilt-deep) !important }
+  .hero .meta-chips { justify-content: center; margin-top: 2px }
+  .hero .chip {
+    color: var(--ink) !important; border: 1px solid var(--paper-edge) !important;
+    background: var(--cream) !important; border-radius: 999px; padding: 7px 15px; font-size: .72rem;
+  }
+  .hero .chip b { color: var(--madder) !important }
+  .hero-inner::after {
+    content: "Prepared for the al-Asl Mutūn collection · www.al-asl.com";
+    display: block; margin-top: 28px; font-family: "Montserrat", sans-serif;
+    font-size: .68rem; letter-spacing: .05em; color: var(--ink-soft); opacity: .75;
+  }
+
+  /* ---------------- Content pages ---------------- */
+  .chapter { position: relative; z-index: 1 }
+
+  .ch-head {
+    position: relative; z-index: 2;
+    background: #fff !important; box-shadow: none !important; border: none !important;
+    border-bottom: 2px solid var(--paper-edge) !important; border-radius: 0;
+    padding: 4px 8px 16px; margin: 0 0 6px;
+    break-after: avoid; page-break-after: avoid;
+  }
+  .ch-head::after { display: none }
+  .ch-medallion { display: none }
+  .ch-eyebrow { display: none }
+  .ch-ar { color: var(--madder) !important; font-size: 1.5rem; margin: 0 0 .1em }
+  .ch-en { color: var(--madder) !important; font-weight: 700; font-style: normal }
+  .ch-tr { display: none }
+  .ch-desc { display: none }
+
+  .verses { margin-top: 4px }
+  .verse {
+    position: relative; z-index: 1;
+    padding: 14px 4px 13px; border-bottom: 1px solid var(--paper-edge) !important;
+    break-inside: avoid; page-break-inside: avoid;
+  }
+  .verse:hover { background: none !important }
+  /* sadr, medallion, ajuz keep the page's own DOM order — under
+     direction:rtl that reads sadr (right) → badge (middle) → ajuz (left),
+     matching the old design's verse-number-in-the-middle layout. */
+  .couplet { gap: 8px 10px; cursor: default; flex-wrap: wrap; align-content: flex-start }
+  /* font-family intentionally left as the page's own default (Scheherazade New
+     first) — the rumūz small-letter annotations (.hemi .ann::after, see
+     CLAUDE.md) are positioned with a top offset calibrated to that font's
+     ascent; switching the primary face here would knock them out of place.
+
+     hemi-fit.js sets inline white-space:nowrap + a viewport-fitted font-size
+     on every .hemi for the live reading page's one-line auto-fit — both must
+     be beaten with !important here, or the print layout inherits a nowrap
+     line sized for the browser viewport and it overflows the page. */
+  .hemi {
+    font-size: 1.1rem !important; line-height: 1.9; white-space: normal !important;
+    color: var(--ink) !important; flex: 1 1 0; min-width: 0; overflow-wrap: break-word;
+  }
+  .hemi .seg { padding: 0; border-radius: 0 }
+  .hemi .seg:hover, .hemi .seg:focus-visible, .hemi .seg.seg-show {
+    background: none !important; color: inherit !important;
+  }
+  .hemi .seg[data-g]::after, .hemi .seg[data-g]::before { display: none !important }
+  /* .medallion / .medallion .vn intentionally left un-overridden here — the
+     page's own rosette-emblem badge (--emblem background + cream number
+     pill) is exactly what the app shows, so print should just inherit it. */
+
+  body.view-ar .verse .translation { display: none !important }
+  body .verse .translation-ur { display: none !important }
+  .translation {
+    margin: 8px 34px 0; gap: 0; justify-content: center; text-align: center;
+  }
+  .translation .tr-text {
+    font-family: "Cormorant Garamond", Georgia, serif; font-style: italic;
+    color: var(--ink-soft) !important; font-size: .92rem;
+  }
+}

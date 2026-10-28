@@ -1,0 +1,26 @@
+{
+  "2": [
+    {
+      "word": { "ar": "مَٰلِكِ", "en": "Māliki" },
+      "scope": { "en": "A fixture card: one treated word, the āyah it sits in, and who reads it how." },
+      "sura": { "ar": "الفاتحة", "en": "al-Fātiḥah" },
+      "ayah": 4,
+      "ayahText": "<b>مَٰلِكِ</b> يَوۡمِ ٱلدِّينِ",
+      "readings": [
+        { "who": { "en": "ʿĀṣim, al-Kisāʾī" }, "how": { "en": "with an alif: Māliki" }, "hafs": true },
+        { "who": { "en": "The rest" }, "how": { "en": "without an alif: Maliki" } }
+      ]
+    }
+  ],
+  "6": [
+    {
+      "rule": {
+        "kind": "rule",
+        "title": { "en": "A fixture rule card" },
+        "statement": { "en": "A categorical rule rather than a single word, with its conditions." },
+        "conditions": [{ "en": "First condition" }, { "en": "Second condition" }]
+      },
+      "readings": [{ "who": { "en": "All" }, "how": { "en": "as stated" } }]
+    }
+  ]
+}

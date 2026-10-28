@@ -1,0 +1,10 @@
+---
+import { SITE } from '../config/site.ts';
+---
+<div class="print-only print-header"><div class="pl" role="img" aria-label={SITE.org.name}></div></div>
+<div class="brandbar-wrap">
+  <a class="brandbar" href={SITE.org.url} target="_blank" rel="noopener" aria-label={`${SITE.org.name}, home`}>
+    <span class="brandbar-logo" role="img" aria-label={SITE.org.name}></span>
+    <span class="tagline">{SITE.org.tagline}</span>
+  </a>
+</div>
