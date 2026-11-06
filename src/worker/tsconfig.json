@@ -12,7 +12,8 @@
     "verbatimModuleSyntax": true,
     "isolatedModules": true,
     "skipLibCheck": true,
-    "noEmit": true
+    "noEmit": true,
+    "resolveJsonModule": true
   },
-  "include": ["../../worker-configuration.d.ts", "./**/*.ts", "../shared/**/*.ts", "../poems/**/*.ts"]
+  "include": ["../../worker-configuration.d.ts", "./**/*.ts", "../shared/**/*.ts", "../poems/**/*.ts", "../../content/*.ts"]
 }

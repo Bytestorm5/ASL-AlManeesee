@@ -18,6 +18,7 @@ import type { AppEnv } from '../env.ts';
 import { requireAdmin } from '../auth.ts';
 import { edgeCached, listAll, pruneBackups, purgeCached, readJson, writeJson, type Waiter } from '../store.ts';
 import { isPoemId } from '../../poems/index.ts';
+import { ensureSeeded } from '../seed.ts';
 import type { Manifest, ManifestEntry, PoemDoc } from '../../poems/types.ts';
 import {
   BACKUPS_KEPT, backupKey, mergeBayts, nowIso, poemKey, stripPoemTeX, validateBayt,
@@ -25,6 +26,14 @@ import {
 } from '../../shared/poem-data.ts';
 
 export const poems = new Hono<AppEnv>();
+
+/* A matn added with its text in content/ is stored on first use (seed.ts);
+   once it is, this is a no-op for the rest of the isolate's life. */
+poems.use('*', async (c, next) => {
+  const stored = await ensureSeeded(c.env.STORE);
+  for (const id of stored) purgeCached(c.executionCtx, c.req.url, ['/api/manifest', `/api/poems/${id}/data.js`]);
+  await next();
+});
 
 const versionMeta = (doc: { version: number; updatedAt: string | null }) => ({
   version: String(doc.version),

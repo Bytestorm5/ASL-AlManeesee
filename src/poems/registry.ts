@@ -7,8 +7,10 @@ import type { PoemConfig } from './types.ts';
      1. Add an entry here — the reading page /<id>, the home page card, the
         menus, the editors' poem pickers, the sitemap and the offline precache
         all follow from it.
-     2. Deploy, then import the text at /admin/import. Until then the page
-        shows "the text could not be loaded".
+     2. Give it its text: either a file in content/ (listed in
+        content/index.ts), which the worker stores the first time the matn is
+        asked for, or an import at /admin/import after deploying. Until one
+        of them happens the page shows "the text could not be loaded".
 
    Set `draft: true` to proof a new matn on the live site before listing it.
    ═══════════════════════════════════════════════════════════════════════════ */
@@ -27,7 +29,6 @@ export const REGISTRY: PoemConfig[] = [
     verses: 10,
     accent: 'navy',
     closing: { ar: 'وَاللَّهُ وَلِيُّ التَّوْفِيقِ', en: '“And Allah is the Granter of success.”' },
-    draft: true,
     explanations: { by: 'Abdullah Badat, Zād al-Ḥuffāẓ', defaultOn: true },
   },
 ];

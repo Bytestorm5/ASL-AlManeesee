@@ -1,9 +1,12 @@
 # content/
 
-The first import of each matn, kept as the record of where its text came
-from. The live text is the copy in R2 (`data/poem/<id>.json`): once a matn
-is imported, it is edited in `/admin`, and the file here is not updated, so
-it is a starting point, not the current version.
+The first import of each matn, bundled into the worker. A matn listed in
+`index.ts` whose text is not stored yet is stored from its file here the
+first time the API is asked for it (`src/worker/seed.ts`), so its text is
+live on the deploy that adds it. The write is create-only: once a copy is
+stored in R2 (`data/poem/<id>.json`) that copy is the live text, edited in
+`/admin`, and the file here is not updated. It is a starting point, not the
+current version.
 
 | File | Matn | Source |
 | --- | --- | --- |

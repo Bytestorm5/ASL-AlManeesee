@@ -38,9 +38,17 @@ Registering it generates the reading page, its card on the home page and in
 the guide, its entry in every menu and editor, its recording sets, the
 sitemap and the offline precache. Deploy.
 
-## 2. Import the text
+## 2. Give it its text
 
-Open `/admin/import`, pick the matn, paste or load the text, check the
+**With the deploy.** Put the finished document (`{id, chapters}`, in the
+format `/admin/import` saves) at `content/<id>.json` and list it in
+`content/index.ts`. The first time anything asks the API for the matn, the
+worker stores that file in R2 (`src/worker/seed.ts`), checked against the
+same rules as an import. The write is create-only, so it never replaces a
+stored copy: once the text is stored, R2 is the live version and the file in
+`content/` is only its record of origin.
+
+**Or by importing it.** Open `/admin/import`, pick the matn, paste or load the text, check the
 preview and create it. A finished document (a `.json` with its chapters,
 like the files under `content/`) can be loaded there too, or stored from a
 terminal with `ASL_PASSWORD=… node scripts/import.ts --file <file> --write`. The document is validated against the same rules

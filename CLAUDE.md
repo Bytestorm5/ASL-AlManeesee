@@ -22,9 +22,12 @@ walkthrough (`src/client/reading/onboarding.ts`) when it makes sense too.
 `src/poems/registry.ts` lists every matn; `PoemConfig` (`src/poems/types.ts`)
 says which features each uses. Pages, menus, editors, the API's validation,
 the sitemap and the service worker's precache all read it. No file outside
-the registry (and `fixtures/` for the dev fixture) may name a particular matn.
-How to add one: `docs/adding-a-matn.md`. Verse text is content, not code: it is
-imported and edited through `/admin`, stored at `data/poem/<id>.json` in R2.
+the registry (and the content folders, `fixtures/` for the dev fixture and
+`content/` for real mutūn) may name a particular matn. How to add one:
+`docs/adding-a-matn.md`. Verse text is content, not code: it lives at
+`data/poem/<id>.json` in R2 and is edited through `/admin`. A matn's first
+text can ship in `content/` (listed in `content/index.ts`): the worker stores
+it, create-only, the first time the matn is asked for (`src/worker/seed.ts`).
 
 ## One reading page
 `src/pages/[poem].astro` + `src/client/reading/render.ts` render every matn.

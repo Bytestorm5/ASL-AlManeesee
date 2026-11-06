@@ -1,13 +1,16 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 import { env, exports } from 'cloudflare:workers';
 import fixture from '../fixtures/example-poem.json';
+import { ensureSeeded, resetSeedChecks } from '../src/worker/seed.ts';
 
 const ORIGIN = 'https://site.test';
 const PW = { 'x-admin-password': 'test-password' };
 const JSON_PW = { ...PW, 'content-type': 'application/json' };
 
-/* Storage is shared by every test in a file, so each test starts from an empty bucket. */
+/* Storage is shared by every test in a file, so each test starts from an empty bucket
+   (and the worker forgets which bundled seeds it has already stored). */
 beforeEach(async () => {
+  resetSeedChecks();
   let cursor: string | undefined;
   do {
     const page = await env.STORE.list({ cursor });
@@ -186,5 +189,34 @@ describe('qirāʾāt', () => {
 
   it('is refused for an unknown matn', async () => {
     expect((await call('/api/qiraat/nope/index')).status).toBe(400);
+  });
+});
+
+describe('seeding from content/', () => {
+  type Doc = { chapters: { verses: { n: number; tr?: string }[] }[] };
+  it('stores a registered matn from its bundled first import on first use', async () => {
+    const r = await call('/api/poems/zad-al-huffaz/data.js');
+    expect(r.status).toBe(200);
+    expect(await r.text()).toContain('window.ASL_CH=');
+    const m = (await (await call('/api/manifest')).json()) as { poems: Record<string, { version: number }> };
+    expect(m.poems['zad-al-huffaz']?.version).toBe(1);
+  });
+  it('never replaces a stored copy', async () => {
+    await importFixture();
+    const changed = structuredClone(fixture) as unknown as Doc;
+    changed.chapters[0]!.verses[0]!.tr = 'CHANGED';
+    resetSeedChecks();
+    expect(await ensureSeeded(env.STORE, { example: changed as never })).toEqual([]);
+    const doc = (await (await call('/api/poems/example')).json()) as Doc;
+    expect(doc.chapters[0]!.verses[0]!.tr).not.toBe('CHANGED');
+  });
+  it('refuses a seed that breaks the rules', async () => {
+    expect(await ensureSeeded(env.STORE, { example: { chapters: [{ i: 1, ar: 'x', verses: [] }] } })).toEqual([]);
+    expect((await call('/api/poems/example')).status).toBe(404);
+  });
+  it('writes create-only', async () => {
+    await env.STORE.put('k', 'first');
+    expect(await env.STORE.put('k', 'second', { onlyIf: new Headers({ 'If-None-Match': '*' }) })).toBeNull();
+    expect(await (await env.STORE.get('k'))!.text()).toBe('first');
   });
 });
