@@ -120,6 +120,9 @@
 :root[data-theme="dark"] .btn-ghost:hover { background:rgba(125,189,234,.12); }
 
 /* explanation / word-gloss surfaces already ride --paper-2 & --lapis vars */
+/* …but the Lesson ribbon would be a dark plate on a dark card: give it the lit accent */
+:root[data-theme="dark"] .explanation .exp-body .lesson::before { background:var(--madder); color:var(--on-accent); }
+:root[data-theme="dark"] .explanation .exp-body .lesson { box-shadow:none; }
 
 /* ---- JS-injected panels (memorize, notes, help menu, bookmarks) ---- */
 /* These already use var(--x, fallback) for text/border; only their card

@@ -50,6 +50,7 @@ empty collection.
 | `npm run deploy` | Build and `wrangler deploy` ([docs/deploying.md](docs/deploying.md)) |
 | `npm run pdf` | Regenerate the downloadable PDFs from the live pages |
 | `node scripts/load.ts` | Bulk-load word meanings, translations or explanations ([formats](docs/data-formats.md)) |
+| `node scripts/import.ts` | Store a whole matn document, e.g. one under `content/` (checks it first; `--write` sends it) |
 
 ## Layout
 
@@ -68,6 +69,7 @@ scripts/             dev runner, seeding, e2e, PDFs, bulk loading
 fixtures/            the example matn's text (development only)
 apps/                Android TWA and iOS shell
 docs/                adding a matn, deploying, data formats
+content/             the first import of each matn (the live text is in R2)
 DESIGN.md            the colour system: palette, accents, contrast rules
 ```
 

@@ -527,6 +527,13 @@ function main(): void {
         `<button type="button" data-wrap="ar">Arabic run</button>` +
         `<button type="button" data-wrap="ur">Urdu run</button>` +
         `<button type="button" data-line="qline">Centred line</button>` +
+        `<button type="button" data-line="head" title="A section heading inside the explanation">Heading</button>` +
+        `<button type="button" data-line="term" title="A word study: the Arabic word (an Arabic run), then its gloss">Word heading</button>` +
+        `<button type="button" data-line="qtr" title="The translation under a centred line">Quote translation</button>` +
+        `<button type="button" data-wrap="cite" title="The reference a quotation comes from, e.g. al-Kahf 18:66">Reference</button>` +
+        `<button type="button" data-line="pull" title="One sentence set apart for the reader to keep">Pull-quote</button>` +
+        `<button type="button" data-line="flow" title="A progression set apart: aspire → listen → …">Progression</button>` +
+        `<button type="button" data-line="lesson" title="The Lesson box that closes a commentary">Lesson</button>` +
         `<button type="button" data-cmd="removeFormat">Clear ✕</button>` +
       `</div>` +
       `<div class="rt" contenteditable="true" id="rt"></div>` +
@@ -622,15 +629,21 @@ function main(): void {
     catch { span.appendChild(range.extractContents()); range.insertNode(span); }
     sel.removeAllRanges();
   }
-  /** Turn the paragraph the caret is in into a centred display line (or back). */
+  /* A paragraph is one kind of line at a time: switching it to another drops the last. */
+  const LINE_CLASSES = ['qline', 'head', 'term', 'qtr', 'pull', 'flow', 'lesson'];
+  /** Give the paragraph the caret is in a line style (or take it away again).
+      Only the centred line is Arabic by nature, so only it turns right-to-left. */
   function lineClass(root: HTMLElement, cls: string): void {
     const sel = window.getSelection();
     if (!sel || !sel.rangeCount) return;
     let node: Node | null = sel.getRangeAt(0).startContainer;
     while (node && node !== root && !(node instanceof Element && /^(P|LI)$/.test(node.tagName))) node = node.parentNode;
     if (!node || node === root || !(node instanceof Element)) { document.execCommand('formatBlock', false, 'p'); return; }
-    const on = node.classList.toggle(cls);
-    if (on) node.setAttribute('dir', 'rtl'); else node.removeAttribute('dir');
+    const on = !node.classList.contains(cls);
+    node.classList.remove(...LINE_CLASSES);
+    if (on) node.classList.add(cls);
+    if (!node.classList.length) node.removeAttribute('class');
+    if (on && cls === 'qline') node.setAttribute('dir', 'rtl'); else node.removeAttribute('dir');
   }
 
   // ---------- qirāʾāt card editor ----------

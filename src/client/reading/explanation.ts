@@ -87,7 +87,7 @@ function injectCSS(): void {
     '.exp-lang{display:inline-flex;gap:2px;background:var(--paper-2,var(--paper-2));border:1px solid var(--paper-edge,#CBDDEA);border-radius:9px;padding:2px}',
     '.exp-lang-b{font-family:"Montserrat",sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.02em;color:var(--ink-soft,#33586F);background:transparent;border:0;border-radius:7px;padding:3px 10px;cursor:pointer;line-height:1.25;-webkit-tap-highlight-color:transparent}',
     '.exp-lang-b.on{background:var(--madder,#0F63A8);color:var(--on-accent)}',
-    '.explanation .exp-by{margin-top:13px;padding-top:9px;border-top:1px solid var(--paper-edge,#CBDDEA);font-size:.78rem;opacity:.85}',
+    '.explanation .exp-by{margin-top:13px;padding-top:9px;border-top:1px solid var(--paper-edge,#CBDDEA);font-size:.78rem}',
   ].join('');
   document.head.appendChild(st);
 }

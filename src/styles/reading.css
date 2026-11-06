@@ -311,6 +311,47 @@ body.view-ur .translation-ur, body.view-both .translation-ur{display:flex}
 .explanation b{color:var(--madder); font-weight:700}
 .explanation i{font-style:italic; color:var(--ink)}
 .explanation .ar{color:var(--madder)}
+/* A long commentary's structure: the prose classes in PROSE_CLASSES
+   (src/shared/poem-data.ts). Scoped to .exp-body so they outrank the base
+   rules explanation.ts injects at runtime. */
+.explanation .exp-en .ar{font-size:1.18em; line-height:1.2}
+.explanation .exp-body > :first-child{margin-top:0}
+/* an Arabic paragraph quoted whole inside English commentary needs Arabic leading */
+.explanation .exp-en p[dir="rtl"]:not(.qline){line-height:2.15; margin:6px 0 8px}
+.explanation .exp-body .head{margin:22px 0 8px; font-family:"Cormorant Garamond","Spectral",serif;
+  font-size:1.2rem; font-weight:700; line-height:1.3; color:var(--ink)}
+.explanation .exp-body .term{display:flex; flex-wrap:wrap; align-items:baseline; gap:2px 12px;
+  margin:22px 0 8px; padding-bottom:5px; border-bottom:1px solid var(--paper-edge);
+  font-family:"Montserrat",sans-serif; font-size:.68rem; font-weight:700; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--sage)}
+.explanation .exp-body .term .ar{font-size:1.85rem; font-weight:700; line-height:1.3; letter-spacing:0;
+  text-transform:none; color:var(--madder)}
+.explanation .exp-body .qline{margin:16px 0 2px; line-height:1.95}
+.explanation .exp-body .qline .ar{font-size:1.22em}
+.explanation .exp-body .qtr{margin:0 auto 14px; max-width:40em; text-align:center; font-style:italic; color:var(--ink)}
+.explanation .exp-body .cite{font-style:normal; font-size:.84em; letter-spacing:.02em; color:var(--sage); white-space:nowrap}
+.explanation .exp-body .cite::before{content:"("}
+.explanation .exp-body .cite::after{content:")"}
+.explanation .exp-body .qtr .cite{display:block; margin-top:2px; white-space:normal}
+.explanation .exp-body .qtr .cite::before{content:"— "}
+.explanation .exp-body .qtr .cite::after{content:none}
+.explanation .exp-body .pull{margin:20px 5%; padding:12px 0; border-top:1px solid var(--gilt); border-bottom:1px solid var(--gilt);
+  text-align:center; font-family:"Cormorant Garamond","Spectral",serif; font-style:italic; font-size:1.2rem;
+  line-height:1.45; color:var(--ink)}
+.explanation .exp-body .flow{margin:2px 0 14px; text-align:center; font-family:"Montserrat",sans-serif;
+  font-size:.76rem; font-weight:600; letter-spacing:.02em; line-height:1.6; color:var(--ink)}
+.explanation .exp-body ul, .explanation .exp-body ol{margin:6px 0 12px; padding-left:1.35em}
+.explanation .exp-body li{margin:5px 0; padding-left:2px}
+.explanation .exp-body li::marker{color:var(--madder)}
+/* "The Lesson": the book's own closing box, a ribbon tab hanging from its top edge */
+.explanation .exp-body .lesson{position:relative; margin:24px 0 4px; padding:30px 16px 14px;
+  background:var(--surface); border:1px solid var(--paper-edge); border-radius:10px;
+  box-shadow:0 1px 3px rgba(11,61,110,.06); color:var(--ink); font-weight:600; line-height:1.55}
+.explanation .exp-body .lesson::before{content:"The Lesson"; position:absolute; top:-1px; left:14px;
+  padding:3px 10px 4px; border-radius:0 0 6px 6px; background:var(--lapis); color:var(--cream);
+  font:700 .58rem/1.4 "Montserrat",sans-serif; letter-spacing:.18em; text-transform:uppercase}
+.explanation .exp-ur .lesson::before{content:"سبق"; left:auto; right:14px; font:600 .8rem/1.6 "UrduNastaliq","Noto Nastaliq Urdu",serif; letter-spacing:0}
+.explanation .exp-ar .lesson::before{content:"الفائدة"; left:auto; right:14px; font:700 .85rem/1.5 "Scheherazade New","Amiri",serif; letter-spacing:0}
 .exp-by{margin-top:13px; padding-top:9px; border-top:1px solid var(--paper-edge);
   font-family:"Cormorant Garamond","Spectral",serif; font-style:italic; font-size:.85rem;
   color:var(--sage); text-align:right; letter-spacing:.02em}

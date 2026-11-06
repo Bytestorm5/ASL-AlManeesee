@@ -41,7 +41,9 @@ sitemap and the offline precache. Deploy.
 ## 2. Import the text
 
 Open `/admin/import`, pick the matn, paste or load the text, check the
-preview and create it. The document is validated against the same rules
+preview and create it. A finished document (a `.json` with its chapters,
+like the files under `content/`) can be loaded there too, or stored from a
+terminal with `ASL_PASSWORD=… node scripts/import.ts --file <file> --write`. The document is validated against the same rules
 every later edit is held to (`src/shared/poem-data.ts`): verse count, markup
 vocabulary, word cells that join back to their hemistich.
 

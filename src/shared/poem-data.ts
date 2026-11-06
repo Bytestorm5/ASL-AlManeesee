@@ -56,8 +56,17 @@ export const ALLOWED_CLASSES = [...COLOR_CLASSES, 'ann', 'small-noon', 'dot'];
    surface), no <img>, no <script>, no event handlers, no style attribute. */
 export const PROSE_TAGS = ['p', 'br', 'b', 'strong', 'i', 'em', 'u', 'ul', 'ol', 'li', 'span'];
 /* `ar`/`ur` mark an inline run in that script; `qline` is a centred, slightly
-   larger display line (a quoted bayt or āyah set apart from the prose). */
-export const PROSE_CLASSES = ['ar', 'ur', 'qline'];
+   larger display line (a quoted bayt or āyah set apart from the prose).
+
+   The rest give a long commentary its structure (styled in reading.css):
+     <p class="head">     a section heading inside the explanation
+     <p class="term">     a word study: the Arabic word, then its gloss
+     <p class="qtr">      the translation under a quoted line, with
+       <span class="cite"> the reference it comes from
+     <p class="pull">     a pull-quote: one sentence the reader should keep
+     <p class="lesson">   "The Lesson" box that closes a bayt's commentary
+     <p class="flow">     a progression set apart (aspire → listen → …) */
+export const PROSE_CLASSES = ['ar', 'ur', 'qline', 'head', 'term', 'qtr', 'cite', 'pull', 'lesson', 'flow'];
 export const PROSE_ATTRS = ['class', 'dir'];
 export const DIR_VALUES = ['rtl', 'ltr', 'auto'];
 export const EXP_LANGS = ['en', 'ur', 'ar'] as const;

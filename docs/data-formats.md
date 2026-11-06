@@ -41,9 +41,22 @@ The commentary shown in a bayt's explanation card.
   `khaqaniyyah-explanations/build.mjs`), so such a file loads as it is.
 - The text is HTML, in the markup the explanation card accepts and the API
   enforces (`PROSE_TAGS` / `PROSE_CLASSES` in `src/shared/poem-data.ts`):
-  `p br b strong i em u ul ol li span`; `class` only `ar`, `ur` or `qline`;
-  `dir` only `rtl`, `ltr` or `auto`; no other attribute, no links, no images.
-  A Qurʾānic line set apart is `<span class="ar"><p class="qline" dir="rtl">…</p></span>`.
+  `p br b strong i em u ul ol li span`; `dir` only `rtl`, `ltr` or `auto`; no
+  other attribute, no links, no images. `class` only from this list:
+
+  | Class | On | Draws |
+  | --- | --- | --- |
+  | `ar`, `ur` | `span` | a run in that script |
+  | `qline` | `p` | a quoted line set apart, centred: `<p class="qline"><span class="ar">﴿…﴾</span></p>` |
+  | `qtr` | `p` | the translation under it, centred and italic |
+  | `cite` | `span` | a reference — `<span class="cite">al-Kahf 18:66</span>`; inside `qtr` it drops to its own line |
+  | `head` | `p` | a section heading inside the explanation |
+  | `term` | `p` | a word study: `<p class="term"><span class="ar">شُرُوط</span> Conditions</p>` |
+  | `pull` | `p` | a pull-quote between two hairlines |
+  | `flow` | `p` | a progression set apart (Aspiration → listening → …) |
+  | `lesson` | `p` | the "Lesson" box that closes a commentary |
+
+  The content editor's toolbar applies all of them.
 - **Languages are merged.** Loading English leaves an Urdu or Arabic
   explanation already stored beside it exactly as it was (sending an
   explanation replaces the whole object, so the loader builds each patch on

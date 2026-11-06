@@ -13,4 +13,21 @@ import type { PoemConfig } from './types.ts';
    Set `draft: true` to proof a new matn on the live site before listing it.
    ═══════════════════════════════════════════════════════════════════════════ */
 export const REGISTRY: PoemConfig[] = [
+  {
+    id: 'zad-al-huffaz',
+    titleAr: 'زَادُ الْحُفَّاظِ',
+    shortAr: 'زَادُ الْحُفَّاظِ',
+    titleEn: 'Zād al-Ḥuffāẓ',
+    shortEn: 'Zād al-Ḥuffāẓ',
+    description:
+      'Two short poems by Shaykh Dr Waleed Idris al-Meneese: the conditions a student needs in order to learn, and how to memorise, keep and carry what he learns. With the commentary of Abdullah Badat.',
+    subject: 'Provision for the Memorisers',
+    author: { name: 'Shaykh Dr Waleed Idris al-Meneese' },
+    metre: 'Rajaz',
+    verses: 10,
+    accent: 'navy',
+    closing: { ar: 'وَاللَّهُ وَلِيُّ التَّوْفِيقِ', en: '“And Allah is the Granter of success.”' },
+    draft: true,
+    explanations: { by: 'Abdullah Badat, Zād al-Ḥuffāẓ', defaultOn: true },
+  },
 ];

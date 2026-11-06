@@ -31,6 +31,11 @@ describe('auth', () => {
     expect((await call('/api/auth', { headers: { 'x-admin-password': 'nope' } })).status).toBe(401);
     expect((await call('/api/auth', { headers: PW })).status).toBe(200);
   });
+  it('takes the password as a bearer token too', async () => {
+    expect((await call('/api/auth', { headers: { authorization: 'Bearer test-password' } })).status).toBe(200);
+    expect((await call('/api/auth', { headers: { authorization: 'Bearer nope' } })).status).toBe(401);
+    expect((await call('/api/auth', { headers: { authorization: 'Basic test-password' } })).status).toBe(401);
+  });
   it('gates every write', async () => {
     const r = await call('/api/poems/example', { method: 'PUT', body: '{}' });
     expect(r.status).toBe(401);

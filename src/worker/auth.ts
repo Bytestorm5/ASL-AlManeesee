@@ -18,8 +18,13 @@ export async function passwordOk(given: string | null | undefined, want: string 
   return crypto.subtle.timingSafeEqual(a, b);
 }
 
-export function isAuthed(c: Context<AppEnv>): Promise<boolean> {
-  return passwordOk(c.req.header(PASSWORD_HEADER), c.env.ADMIN_PASSWORD);
+/* The admin tools send the password in x-admin-password. Scripts may send it
+   as a standard bearer token instead (`Authorization: Bearer <password>`),
+   which is what credential stores and HTTP clients know how to attach. */
+export async function isAuthed(c: Context<AppEnv>): Promise<boolean> {
+  const bearer = /^Bearer\s+(.+)$/i.exec(c.req.header('authorization') ?? '')?.[1]?.trim();
+  return (await passwordOk(c.req.header(PASSWORD_HEADER), c.env.ADMIN_PASSWORD))
+    || passwordOk(bearer, c.env.ADMIN_PASSWORD);
 }
 
 /** Refuses the request with 401 unless it carries the admin password. */
