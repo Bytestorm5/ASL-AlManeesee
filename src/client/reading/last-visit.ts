@@ -89,7 +89,7 @@ export function init(): void {
   const m = location.search.match(/[?&]goto=(\d+)/);
   if (!m) return;
   const want = +m[1]!;
-  const target = medallions.find((el) => parseInt(el.textContent || '', 10) === want);
+  const target = medallions.find((el) => verseNum(el) === want);
   if (!target) return;
   const verse = target.closest<HTMLElement>('.verse');
   const section = target.closest('section.chapter');

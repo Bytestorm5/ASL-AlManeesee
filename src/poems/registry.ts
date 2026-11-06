@@ -47,4 +47,21 @@ export const REGISTRY: PoemConfig[] = [
     closing: { ar: 'وَالْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ', en: '“And all praise is for Allah, Lord of the worlds.”' },
     explanations: { by: 'Shaykh Dr Waleed al-Meneese’s commentary, tr. Abdullah Badat', defaultOn: true },
   },
+  {
+    id: 'durar-walidiyyah',
+    titleAr: 'الدُّرَرُ الْوَلِيدِيَّةُ',
+    shortAr: 'الدُّرَرُ الْوَلِيدِيَّةُ',
+    titleEn: 'Al-Durar al-Walīdiyyah',
+    shortEn: 'Al-Durar al-Walīdiyyah',
+    description:
+      'A selection of poems and didactic verses by Shaykh Dr Waleed ibn Idris al-Meneese on Qurʾānic recitation, the verbal similarities of the Qurʾān, language, scholarly etiquette and beneficial counsel, in three abwāb, with the explanation and commentary of Abdullah Badat.',
+    subject: 'Collected Poems',
+    author: { name: 'Shaykh Dr Waleed ibn Idris al-Meneese' },
+    verses: 154,
+    accent: 'royal',
+    closing: { ar: 'وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ', en: '“And my success is only through Allah.”' },
+    explanations: { by: 'Abdullah Badat, al-Durar al-Walīdiyyah', defaultOn: true },
+    chapterLabel: 'Poem',
+    numbering: 'per-chapter',
+  },
 ];

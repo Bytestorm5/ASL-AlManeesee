@@ -10,10 +10,12 @@
 import type { PoemDoc } from '../src/poems/types.ts';
 import zadAlHuffaz from './zad-al-huffaz.json';
 import siyasahShariyyah from './siyasah-shariyyah.json';
+import durarWalidiyyah from './durar-walidiyyah.json';
 
 export type PoemSeed = Pick<PoemDoc, 'chapters'> & Partial<Pick<PoemDoc, 'variants'>>;
 
 export const SEEDS: Readonly<Record<string, PoemSeed>> = {
   'zad-al-huffaz': zadAlHuffaz as unknown as PoemSeed,
   'siyasah-shariyyah': siyasahShariyyah as unknown as PoemSeed,
+  'durar-walidiyyah': durarWalidiyyah as unknown as PoemSeed,
 };

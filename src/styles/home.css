@@ -234,9 +234,9 @@ header.hero::before{content:""; position:absolute; inset:0; opacity:.5;
        name needs two lines in its plate, and without this that row stood
        taller than the ones around it. */
     grid-auto-rows:1fr}
-  /* a collection of one: the card keeps a column's width but sits in the middle
-     rather than leaving an empty column beside it */
-  html.bigscreen .matn-list > .matn-row:only-child{grid-column:1 / -1; justify-self:center; width:calc(50% - 6px)}
+  /* an odd card out at the end (or a collection of one) keeps a column's width
+     but sits in the middle rather than leaving an empty column beside it */
+  html.bigscreen .matn-list > .matn-row:last-child:nth-child(odd){grid-column:1 / -1; justify-self:center; width:calc(50% - 6px)}
   html.bigscreen .mr-body{display:flex; align-items:stretch; column-gap:3px}
   html.bigscreen .mr-body>.mr-acts{align-self:auto; flex-direction:row; align-items:center; margin-top:auto; padding-top:9px; gap:7px}
 }
