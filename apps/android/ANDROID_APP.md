@@ -1,15 +1,15 @@
-> **Carried over from the Mutūn app.** The steps are the same for this
-> collection; the package id (`com.alasl.almaneesee`) and host
-> (`almaneesee.al-asl.com`) in `twa-manifest.json` are placeholders to set
-> before the first build — the host must match `SITE.url` in
-> `src/config/site.ts`. Digital Asset Links: once the app is signed, publish
+> **Carried over from the Mutūn app**, but AlMenesi is a **separate app**:
+> its own package id (`com.alasl.almenesi`), its own host
+> (`almenesi.al-asl.com`, which must match `SITE.url` in
+> `src/config/site.ts`), its own Play listing and its own signing key — reuse
+> nothing of the Mutūn app's. Digital Asset Links: once the app is signed, publish
 > its fingerprints at `public/.well-known/assetlinks.json` (not shipped until
 > then, since a wrong file is worse than none).
 
 # Publishing al-Asl AlMenesi to the Google Play Store
 
 This turns the website into a real Android app using a **Trusted Web Activity
-(TWA)** — a fullscreen Android wrapper around `almaneesee.al-asl.com`. The app shows
+(TWA)** — a fullscreen Android wrapper around `almenesi.al-asl.com`. The app shows
 the live site (so content updates appear with no app re-release) and, thanks to
 the service worker that is now part of the site, the poems also read **offline**.
 
@@ -22,7 +22,7 @@ automated for you. The two build options below are ordered easiest-first.
 
 ## Live domain
 
-The app's domain is **`almaneesee.al-asl.com`** (HTTPS). Every reference in this repo
+The app's domain is **`almenesi.al-asl.com`** (HTTPS). Every reference in this repo
 already uses it: `manifest.webmanifest`, `apps/android/twa-manifest.json`,
 `.well-known/assetlinks.json`, and the in-app links. Nothing to change.
 
@@ -77,11 +77,11 @@ You need an Android App Bundle (`.aab`). Pick **one** option.
 ### Option A — PWABuilder (easiest, no tools to install) ✅ recommended
 
 1. Go to <https://www.pwabuilder.com>, enter your live domain
-   (e.g. `https://almaneesee.al-asl.com`), and click **Start**.
+   (e.g. `https://almenesi.al-asl.com`), and click **Start**.
 2. It scores the PWA (manifest + service worker are already in place) → click
    **Package for stores** → **Android**.
 3. In the Android options set:
-   - **Package ID**: `com.alasl.almaneesee`
+   - **Package ID**: `com.alasl.almenesi`
    - **App name**: `AlMenesi`  ·  **Short name**: `AlMenesi`
    - Keep "Signing key" = **Create new** (PWABuilder generates one and returns
      it in the zip — **keep that `signing.keystore` + passwords safe forever**;
@@ -100,8 +100,8 @@ Option A):
 npm install -g @bubblewrap/cli
 
 # point it at the deployed manifest; accept the JDK/Android SDK download prompts
-bubblewrap init --manifest https://almaneesee.al-asl.com/manifest.webmanifest
-#   Package name ......... com.alasl.almaneesee
+bubblewrap init --manifest https://almenesi.al-asl.com/manifest.webmanifest
+#   Package name ......... com.alasl.almenesi
 #   App name ............. al-Asl AlMenesi   (launcher: AlMenesi)
 #   (the rest can be taken from apps/android/twa-manifest.json in this repo)
 

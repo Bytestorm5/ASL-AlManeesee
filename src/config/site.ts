@@ -9,7 +9,7 @@
 export const SITE = {
   /** Public origin, no trailing slash. Canonical URLs, sitemap, share text.
       Can be overridden at build time with SITE_URL (e.g. for a staging host). */
-  url: 'https://almaneesee.al-asl.com',
+  url: 'https://almenesi.al-asl.com',
   /** Hosts that must never be indexed (staging copies of the site). */
   noindexHosts: [] as string[],
 

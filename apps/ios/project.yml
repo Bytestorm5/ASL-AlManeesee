@@ -1,21 +1,21 @@
 # XcodeGen spec — the CI workflow (.github/workflows/ios-testflight.yml) runs
-# `xcodegen generate` to produce AlManeesee.xcodeproj from this file, so the repo
+# `xcodegen generate` to produce AlMenesi.xcodeproj from this file, so the repo
 # never has to carry a checked-in .xcodeproj.
-name: AlManeesee
+name: AlMenesi
 options:
   createIntermediateGroups: true
   deploymentTarget:
     iOS: "15.0"
 targets:
-  AlManeesee:
+  AlMenesi:
     type: application
     platform: iOS
     sources:
       - App
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.alasl.almaneesee
-        PRODUCT_NAME: AlManeesee
+        PRODUCT_BUNDLE_IDENTIFIER: com.alasl.almenesi
+        PRODUCT_NAME: AlMenesi
         MARKETING_VERSION: 1.0.0
         CURRENT_PROJECT_VERSION: 1
         GENERATE_INFOPLIST_FILE: NO

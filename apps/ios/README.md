@@ -1,6 +1,6 @@
 # iOS shell (AlMenesi)
 
-A thin WKWebView wrapper around https://almaneesee.al-asl.com — the iOS counterpart
+A thin WKWebView wrapper around https://almenesi.al-asl.com — the iOS counterpart
 of the Android TWA. Site deploys update the app instantly; a new binary is only
 needed for icon/name/SDK changes.
 
@@ -10,11 +10,11 @@ needed for icon/name/SDK changes.
 - The Xcode project is **generated**, not checked in: `apps/ios/project.yml` is an
   [XcodeGen](https://github.com/yonaskolb/XcodeGen) spec; CI runs
   `xcodegen generate --spec apps/ios/project.yml --project apps/ios`.
-- Bundle ID `com.alasl.almaneesee`, universal (iPhone + iPad), iOS 15+.
+- Bundle ID `com.alasl.almenesi`, universal (iPhone + iPad), iOS 15+.
 
 How the shell works:
 
-- Loads `https://almaneesee.al-asl.com/?appmode=1` so `app-shell.js` switches on the
+- Loads `https://almenesi.al-asl.com/?appmode=1` so `app-shell.js` switches on the
   installed-app chrome (top plate, bottom tabs) — same trigger the TWA uses.
 - `WKAppBoundDomains` = `al-asl.com` + `limitsNavigationsToAppBoundDomains`
   enables the **service worker** inside WKWebView, so offline works after the
@@ -28,8 +28,9 @@ How the shell works:
 
 ## Before the first build
 
-The host, bundle id and name are placeholders carried over from the Mutūn app,
-renamed for this collection. Set them for real in `App/WebViewController.swift`
-(`appHost`, `startURL`), `App/Info.plist` (`WKAppBoundDomains`, display name)
-and `project.yml` (`PRODUCT_BUNDLE_IDENTIFIER`, `PRODUCT_NAME`) — the host must
-match `SITE.url` in `src/config/site.ts`.
+AlMenesi is a separate app from the Mutūn app: its own bundle id
+(`com.alasl.almenesi`), host (`almenesi.al-asl.com`) and App Store Connect
+record. They are set in `App/WebViewController.swift` (`appHost`, `startURL`),
+`App/Info.plist` (`WKAppBoundDomains`, display name) and `project.yml`
+(`PRODUCT_BUNDLE_IDENTIFIER`, `PRODUCT_NAME`) — the host must match `SITE.url`
+in `src/config/site.ts`.

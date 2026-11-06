@@ -2,14 +2,14 @@ import UIKit
 import WebKit
 import SafariServices
 
-/// Thin shell around almaneesee.al-asl.com — the iOS counterpart of the Android TWA.
+/// Thin shell around almenesi.al-asl.com — the iOS counterpart of the Android TWA.
 /// The site detects ?appmode=1 (app-shell.js) and shows the installed-app chrome;
 /// WKAppBoundDomains in Info.plist enables the service worker, so the app works
 /// fully offline after the first launch, exactly like the TWA.
 class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
 
-    private let appHost = "almaneesee.al-asl.com"
-    private var startURL: URL { URL(string: "https://almaneesee.al-asl.com/?appmode=1&source=ios")! }
+    private let appHost = "almenesi.al-asl.com"
+    private var startURL: URL { URL(string: "https://almenesi.al-asl.com/?appmode=1&source=ios")! }
 
     private var webView: WKWebView!
     private var statusBarBacking: UIView!
@@ -25,7 +25,7 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         let cfg = WKWebViewConfiguration()
         cfg.allowsInlineMediaPlayback = true
         cfg.mediaTypesRequiringUserActionForPlayback = []
-        cfg.applicationNameForUserAgent = "AlManeeseeApp/1.0"
+        cfg.applicationNameForUserAgent = "AlMenesiApp/1.0"
         if #available(iOS 14.0, *) {
             // Required for Service Worker support inside WKWebView (offline cache).
             cfg.limitsNavigationsToAppBoundDomains = true

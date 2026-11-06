@@ -11,8 +11,8 @@
 #        ASC_KEY_P8      — the full text contents of the downloaded .p8 file
 #        APPLE_TEAM_ID   — Membership details → Team ID (10 characters)
 #   3. App Store Connect → Apps → “+” → New App: platform iOS, bundle ID
-#      com.alasl.almaneesee (register the bundle ID at developer.apple.com/account
-#      → Identifiers if it isn’t offered in the dropdown), SKU almaneesee-ios.
+#      com.alasl.almenesi (register the bundle ID at developer.apple.com/account
+#      → Identifiers if it isn’t offered in the dropdown), SKU almenesi-ios.
 #
 # Then run this workflow from the Actions tab (Run workflow). The build lands
 # in TestFlight within ~15 minutes of the run finishing.
@@ -92,10 +92,10 @@ jobs:
           APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
         run: |
           xcodebuild archive \
-            -project apps/ios/AlManeesee.xcodeproj \
-            -scheme AlManeesee \
+            -project apps/ios/AlMenesi.xcodeproj \
+            -scheme AlMenesi \
             -destination 'generic/platform=iOS' \
-            -archivePath build/AlManeesee.xcarchive \
+            -archivePath build/AlMenesi.xcarchive \
             -allowProvisioningUpdates \
             -authenticationKeyPath "$HOME/private_keys/AuthKey_${ASC_KEY_ID}.p8" \
             -authenticationKeyID "$ASC_KEY_ID" \
@@ -129,7 +129,7 @@ jobs:
           </plist>
           EOF
           xcodebuild -exportArchive \
-            -archivePath build/AlManeesee.xcarchive \
+            -archivePath build/AlMenesi.xcarchive \
             -exportOptionsPlist build/ExportOptions.plist \
             -exportPath build/export \
             -allowProvisioningUpdates \
