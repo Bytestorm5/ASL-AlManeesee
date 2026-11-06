@@ -4,14 +4,17 @@
    unchanged. It hides web chrome (site header, back link, footer) and adds an
    app-style top bar + bottom tab navigation. */
 import { SITE } from '../config/site.ts';
-import { getPoem } from '../poems/index.ts';
+import { LECTURES_PATH, SECTIONS, type SectionId, type TextSectionId } from '../config/sections.ts';
+import { LECTURES, lectureDate } from '../lectures/index.ts';
+import { getPoem, sectionOf } from '../poems/index.ts';
 import type { AslOfflineStatus } from './globals.d.ts';
 import { baytRef, currentPoemId, esc, isAppMode, listedPoems, poemHref } from './page.ts';
 
 /** Where "Send feedback" and "Email the developer" write to. */
 const CONTACT_EMAIL = SITE.org.email;
 
-interface MatnTab { id: string; ar: string; en: string; n: string }
+/** A listed matn as the sheets show it; `n` counts within its section. */
+interface MatnTab { id: string; ar: string; en: string; n: string; sec: TextSectionId }
 
 /** The element an event came from, or its nearest ancestor matching `sel`. */
 function closest(e: Event, sel: string): HTMLElement | null {
@@ -203,6 +206,20 @@ function shell(): void {
     '.appsheet .as-fav.on{color:var(--gilt-deep,#56A6DD)}',
     '.appsheet .as-hint{margin:0 2px 6px;font-family:"Montserrat",sans-serif;font-size:.68rem;',
     'color:var(--sage);line-height:1.5}',
+    /* the sections switch at the top of the Collection and More sheets:
+       one section's list at a time, as on Home */
+    '.appsheet .as-secs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px;padding:3px;margin:0 0 10px;',
+    'background:var(--paper-2);border:1px solid var(--paper-edge);border-radius:11px}',
+    '.appsheet .as-sec{cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px;min-height:34px;padding:6px 4px;',
+    'border:0;border-radius:8px;background:transparent;color:var(--sage);font-family:"Montserrat",sans-serif;font-size:.66rem;',
+    'font-weight:700;letter-spacing:.02em;-webkit-tap-highlight-color:transparent}',
+    '.appsheet .as-sec[aria-selected="true"]{background:var(--surface);color:var(--area,var(--madder));box-shadow:0 1px 3px rgba(11,61,110,.14)}',
+    '.appsheet .as-sec i{font-style:normal;font-weight:600;font-size:.6rem;opacity:.85}',
+    '.appsheet .as-sec:focus-visible{outline:2px solid var(--focus);outline-offset:1px}',
+    '.appsheet .as-empty b{display:block;color:var(--ink,#0B3D6E);margin-bottom:2px}',
+    '.appsheet .as-lec{display:block;padding:10px 2px;text-decoration:none;border-top:1px solid rgba(203,221,234,.7)}',
+    '.appsheet .as-lec .as-en{display:block;margin-top:1px}',
+    '.appsheet .as-lec-t{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:1rem;color:var(--ink,#0B3D6E)}',
     /* Marginalia sheet — bookmarks & notes across every matn */
     '.appsheet .as-empty{padding:24px 4px 12px;text-align:center;font-family:"Montserrat",sans-serif;font-size:.8rem;',
     'color:var(--sage);line-height:1.6}',
@@ -319,7 +336,9 @@ function shell(): void {
   // Home · Read · Memorize (both open the matn you last used) · More
   // (a sheet listing every matn, the guide and the appearance setting).
   // The mutūn are the registry's listed ones, in its order.
-  const MUTUN: MatnTab[] = listedPoems().map((p, i) => ({ id: p.id, ar: p.shortAr, en: p.shortEn, n: String(i + 1) }));
+  const TEXT_SECTIONS = SECTIONS.map((s) => s.id).filter((id): id is TextSectionId => id !== 'lectures');
+  const MUTUN: MatnTab[] = TEXT_SECTIONS.flatMap((sec) => listedPoems(sec).map((p, i) => (
+    { id: p.id, ar: p.shortAr, en: p.shortEn, n: String(i + 1), sec })));
   const HOME_IC = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.7 12 3.5l9 7.2"/><path d="M5.5 9.5V20h13V9.5"/></svg>';
   const BOOK_IC = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.2C10.6 4.9 8.7 4.2 6.5 4.2c-1.3 0-2.5.2-3.5.7v13.6c1-.4 2.2-.7 3.5-.7 2.2 0 4.1.8 5.5 2 1.4-1.2 3.3-2 5.5-2 1.3 0 2.5.2 3.5.7V4.9c-1-.4-2.2-.7-3.5-.7-2.2 0-4.1.8-5.5 2z"/><path d="M12 6.2v13.6"/></svg>';
   const CAP_IC = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 2 9l10 5 10-5-10-5z"/><path d="M5 11.2V16c0 1.6 3.1 3 7 3s7-1.4 7-3v-4.8"/></svg>';
@@ -392,25 +411,26 @@ function shell(): void {
   // sheet, so closing the sheet always shows the up-to-date list. The rest
   // stay reachable from the bottom bar's own Collection tab, so Home
   // doesn't need its own link back to it.
+  // Each section has its own list on Home: a list holding a favorite shows
+  // only its favorites; a list without one stays whole.
   function applyHomeFavorites(): void {
-    const list = document.querySelector('.matn-list');
-    if (!list) return;
     const favs = readFavs();
-    list.querySelectorAll('.matn-row').forEach((r) => {
-      r.classList.toggle('fav-hide', favs.length > 0 && favs.indexOf(r.getAttribute('data-poem') || '') === -1);
-    });
-    let head = document.getElementById('favHead');
-    if (favs.length) {
-      if (!head) {
-        head = document.createElement('div');
-        head.id = 'favHead';
-        head.className = 'fav-head';
-        head.textContent = 'My Favorite Mutūn';
-        list.parentNode?.insertBefore(head, list);
+    document.querySelectorAll('.matn-list').forEach((list) => {
+      const rows = Array.from(list.querySelectorAll('.matn-row'));
+      const isFav = (r: Element): boolean => favs.indexOf(r.getAttribute('data-poem') || '') !== -1;
+      const has = rows.some(isFav);
+      rows.forEach((r) => r.classList.toggle('fav-hide', has && !isFav(r)));
+      const prev = list.previousElementSibling;
+      const head = prev && prev.classList.contains('fav-head') ? prev : null;
+      if (has && !head) {
+        const h = document.createElement('div');
+        h.className = 'fav-head';
+        h.textContent = 'My Favorites';
+        list.parentNode?.insertBefore(h, list);
+      } else if (!has && head) {
+        head.remove();
       }
-    } else if (head) {
-      head.remove();
-    }
+    });
   }
 
   // "Show me around" on Home — real coach-marks (a highlight ring + a
@@ -425,8 +445,9 @@ function shell(): void {
     const STEPS = [
       { sel: '.cont-card', title: 'Continue', text: 'Straight back to your last bayt.' },
       { sel: '#statsWrap .stats-card', title: 'Your progress', text: 'Overall progress, current streak and study time — kept on this device only.' },
-      { sel: '.matn-list .matn-row:not(.fav-hide)', title: 'Each matn', text: 'Progress and today’s goal on the card. Read or Memorize from here.' },
-      { sel: '[data-tab="collection"]', title: 'Collection', text: 'Every matn in the collection. Tap ★ on up to two to lead your Home screen.' },
+      { sel: '.sec-switch', title: 'Sections', text: 'The Shaykh’s own poems, his explanations of the classical mutūn, and his lectures. One at a time.' },
+      { sel: '.sec-panel:not([hidden]) .matn-row:not(.fav-hide)', title: 'Each matn', text: 'Progress and today’s goal on the card. Read or Memorize from here.' },
+      { sel: '[data-tab="collection"]', title: 'Collection', text: 'Every matn, section by section. Tap ★ on up to two to lead your Home screen.' },
       { sel: '[data-tab="marginalia"]', title: 'Marginalia', text: 'Your bookmarks and notes, from every matn, in one place.' },
       { sel: '[data-tab="more"]', title: 'More', text: 'Daily goal per matn, Appearance, offline recitations, the User Guide — and this tour again.' },
     ];
@@ -588,9 +609,9 @@ function shell(): void {
       });
     });
   }
-  function matnRowsHtml(withFav: boolean): string {
+  function matnRowsHtml(list: MatnTab[], withFav: boolean): string {
     const favs = withFav ? readFavs() : [];
-    return MUTUN.map((m) => {
+    return list.map((m) => {
       const on = m.id === curPoem;
       const isFav = favs.indexOf(m.id) !== -1;
       const fav = withFav
@@ -612,7 +633,58 @@ function shell(): void {
     if (!row) return;
     goPoem(row.getAttribute('data-poem'), btn ? btn.getAttribute('data-go') || undefined : undefined);
   }
-  const EMPTY_COLLECTION = '<div class="as-empty">The collection is being prepared.<br>Each matn will appear here as soon as it is published.</div>';
+
+  // The sheets' sections switch (Poems · Explanations · Lectures). A sheet
+  // shows one section's list at a time, so it never stacks one long list
+  // on another. A text section lists its mutūn; Lectures shows the newest
+  // few and a link to /lectures; an empty section says it is on its way.
+  const LEC_PREVIEW = 3;
+  const secCount = (id: SectionId): number => (id === 'lectures' ? LECTURES.length : MUTUN.filter((m) => m.sec === id).length);
+  function secSwitchHtml(active: SectionId): string {
+    return '<div class="as-secs" role="tablist" aria-label="Sections">' + SECTIONS.map((s) => {
+      const n = secCount(s.id);
+      return '<button type="button" role="tab" class="as-sec" data-sec="' + s.id + '" aria-selected="' + (s.id === active) + '">' +
+        esc(s.short) + (n ? '<i>' + n + '</i>' : '') + '</button>';
+    }).join('') + '</div>';
+  }
+  function secBodyHtml(id: SectionId, withFav: boolean): string {
+    const s = SECTIONS.find((x) => x.id === id) ?? SECTIONS[0]!;
+    const empty = '<div class="as-empty"><b>' + esc(s.empty.title) + '</b>' + esc(s.empty.text) + '</div>';
+    if (id === 'lectures') {
+      if (!LECTURES.length) return empty;
+      return LECTURES.slice(0, LEC_PREVIEW).map((l) =>
+        '<a class="as-lec" href="' + LECTURES_PATH + '#' + esc(l.id) + '"><span class="as-lec-t">' + esc(l.title) + '</span>' +
+        (l.series || l.date ? '<span class="as-en">' + esc([l.series, lectureDate(l.date)].filter(Boolean).join(' · ')) + '</span>' : '') + '</a>').join('') +
+        '<a class="as-link" href="' + LECTURES_PATH + '">🎧 All ' + LECTURES.length + ' lectures →</a>';
+    }
+    const list = MUTUN.filter((m) => m.sec === id);
+    if (!list.length) return empty;
+    return (withFav ? '<p class="as-hint">Tap ★ to pick up to 2 favorites for your Home screen.</p>' : '') + matnRowsHtml(list, withFav);
+  }
+  /** Wires a sheet's switch: a tab swaps the list below it. */
+  function wireSections(s: HTMLElement, withFav: boolean): void {
+    const body = s.querySelector<HTMLElement>('.as-sec-body');
+    s.querySelectorAll<HTMLButtonElement>('.as-sec').forEach((b) => {
+      b.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const id = (b.dataset.sec || 'mutun') as SectionId;
+        s.querySelectorAll('.as-sec').forEach((x) => x.setAttribute('aria-selected', String(x === b)));
+        if (body) { body.dataset.sec = id; body.innerHTML = secBodyHtml(id, withFav); }
+      });
+    });
+  }
+  /** The section a sheet opens on: this matn's, else Home's current one, else the first with something in it. */
+  function startSection(): SectionId {
+    const p = curPoem ? getPoem(curPoem) : null;
+    if (p) return sectionOf(p);
+    const onHome = document.querySelector<HTMLElement>('.sec-panel:not([hidden])')?.dataset.sec;
+    if (onHome && SECTIONS.some((s) => s.id === onHome)) return onHome as SectionId;
+    return SECTIONS.find((s) => secCount(s.id) > 0)?.id ?? SECTIONS[0]!.id;
+  }
+  function sectionsHtml(withFav: boolean): string {
+    const start = startSection();
+    return secSwitchHtml(start) + '<div class="as-sec-body" data-sec="' + start + '">' + secBodyHtml(start, withFav) + '</div>';
+  }
 
   // ---- "More" bottom sheet (reading pages) ----
   let sheet: HTMLElement | null = null;
@@ -623,14 +695,15 @@ function shell(): void {
   }
   function openSheet(): void {
     if (sheet) { closeSheet(); return; }
-    const s = makeSheet('All mutūn',
-      '<div class="as-grip"></div><div class="as-head">The Mutūn</div>' + (MUTUN.length ? matnRowsHtml(false) : EMPTY_COLLECTION) +
+    const s = makeSheet('The collection',
+      '<div class="as-grip"></div><div class="as-head">The Collection</div>' + sectionsHtml(false) +
       '<div class="as-div"></div>' +
       '<a class="as-link" href="/guide">📖 User guide</a>' +
       '<button type="button" class="as-link as-offline" hidden>⤓ Download recitations</button>' +
       THEME_HTML, 'more');
     sheet = s;
     wireTheme(s);
+    wireSections(s, false);
     // "Download recitations" — shown only when there are recordings still to
     // save; hidden once everything is downloaded. Lets users grab the audio
     // any time after the first-run card has gone.
@@ -667,12 +740,10 @@ function shell(): void {
   }
   function openCollectionSheet(): void {
     if (collectionSheet) { closeCollectionSheet(); return; }
-    const s = makeSheet('The Mutūn collection',
-      '<div class="as-grip"></div><div class="as-head">The Mutūn</div>' +
-      (MUTUN.length
-        ? '<p class="as-hint">Tap ★ to pick up to 2 favorites for your Home screen.</p>' + matnRowsHtml(true)
-        : EMPTY_COLLECTION), 'collection');
+    const s = makeSheet('The collection',
+      '<div class="as-grip"></div><div class="as-head">The Collection</div>' + sectionsHtml(true), 'collection');
     collectionSheet = s;
+    wireSections(s, true);
     s.querySelector('.as-scrim')?.addEventListener('click', () => closeCollectionSheet());
     enableSheetDrag(s, closeCollectionSheet);
     s.addEventListener('click', (e) => {
@@ -680,8 +751,8 @@ function shell(): void {
       if (favBtn) {
         e.stopPropagation();
         toggleFavorite(favBtn.getAttribute('data-fav') || '');
-        s.querySelectorAll('.as-row').forEach((r) => r.remove());
-        s.querySelector('.as-panel')?.insertAdjacentHTML('beforeend', matnRowsHtml(true));
+        const body = s.querySelector<HTMLElement>('.as-sec-body');
+        if (body) body.innerHTML = secBodyHtml((body.dataset.sec || 'mutun') as SectionId, true);
         return;
       }
       onMatnRowClick(e);

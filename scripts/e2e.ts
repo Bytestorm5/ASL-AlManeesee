@@ -94,7 +94,12 @@ try {
   check(problems.length === 0, `/ loads cleanly ${problems.join(' | ')}`);
   check(await page.locator('a[href^="/example"]').count() === 0, 'drafts are not listed on the home page');
 
-  for (const url of ['/guide', '/privacy', '/layout-check', '/does-not-exist']) {
+  check(await page.locator('.sec-tab').count() === 3, 'home shows the three section tabs');
+  check(await page.locator('.sec-panel:not([hidden])').count() === 1, 'home shows one section at a time');
+  await page.click('#tab-lectures');
+  check(await page.locator('#sec-lectures').isVisible() && !(await page.locator('#sec-mutun').isVisible()), 'the Lectures tab swaps the list');
+
+  for (const url of ['/lectures', '/guide', '/privacy', '/layout-check', '/does-not-exist']) {
     problems = await open(page, url);
     check(problems.filter((p) => !(url === '/does-not-exist' && p.includes('404'))).length === 0, `${url} loads cleanly ${problems.join(' | ')}`);
   }
@@ -116,7 +121,7 @@ try {
     check((h.headers.get('x-robots-tag') ?? '').includes('noindex, nofollow')
       && h.headers.get('referrer-policy') === 'no-referrer', `${ADMIN_PATH}${t} is served noindex, nofollow, no-referrer`);
   }
-  const publicPages = ['/', '/guide', '/privacy', '/robots.txt', '/sitemap.xml', '/manifest.webmanifest', '/sw.js'];
+  const publicPages = ['/', '/lectures', '/guide', '/privacy', '/robots.txt', '/sitemap.xml', '/manifest.webmanifest', '/sw.js'];
   const named = [];
   for (const u of publicPages) if ((await (await fetch(ORIGIN + u)).text()).includes(ADMIN_PATH)) named.push(u);
   check(named.length === 0, `no public page names the admin path ${named.join(' ')}`);

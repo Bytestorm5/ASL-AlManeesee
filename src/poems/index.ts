@@ -22,6 +22,15 @@ export const POEMS: readonly PoemConfig[] = ALL_POEMS.filter((p) => !p.draft);
 
 const BY_ID = new Map(ALL_POEMS.map((p) => [p.id, p]));
 
+/** The section a matn belongs to ('mutun' unless it says otherwise). */
+export function sectionOf(p: PoemConfig): 'mutun' | 'shuruh' {
+  return p.section ?? 'mutun';
+}
+/** The listed mutūn of one section, in registry order. */
+export function poemsIn(section: 'mutun' | 'shuruh'): readonly PoemConfig[] {
+  return POEMS.filter((p) => sectionOf(p) === section);
+}
+
 export function getPoem(id: string | null | undefined): PoemConfig | undefined {
   return id ? BY_ID.get(String(id)) : undefined;
 }
@@ -65,6 +74,7 @@ export function explanationBayts(p: PoemConfig): number[] {
 export const RESERVED_IDS = new Set([
   'admin', 'not-an-admin', 'api', 'media', 'guide', 'privacy', 'fonts', 'brand', 'pdf', 'index',
   'sw', 'manifest', 'robots', 'sitemap', '404', '_astro', 'offline', 'audio',
+  'lectures', 'shuruh', 'mutun',
 ]);
 export function registryProblems(list: readonly PoemConfig[] = ALL_POEMS): string[] {
   const out: string[] = [];

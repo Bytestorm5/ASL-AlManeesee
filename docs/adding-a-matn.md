@@ -25,6 +25,31 @@ Add an entry to `src/poems/registry.ts`. The fields are documented on
 }
 ```
 
+### Which section
+
+The site has three sections (`src/config/sections.ts`): **His Poems** (mutūn
+the Shaykh composed), **His Explanations** (his sharḥ of a classical matn)
+and **Lectures**. A matn is in His Poems unless its entry says otherwise. For
+one of the Shaykh's explanations of a classical matn, set
+
+```ts
+  section: 'shuruh',
+  author: { name: 'Imām Ibn al-Jazarī', died: '833 AH' },   // the matn's own author
+  explanations: { by: 'Shaykh Dr Waleed Idris al-Meneese', defaultOn: true },
+```
+
+`author` stays the classical matn's author; `explanations.by` names the
+Shaykh's explanation, which is what the reader opens under each bayt. The
+matn then lists under His Explanations on Home and in the app's Collection,
+its **Mutūn ▾** menu lists the other explanations, and the rest works as
+for any matn.
+
+Lectures are not mutūn: they are entries in `src/lectures/registry.ts`
+(title, date, series, and a YouTube link or an audio/video file), shown on
+`/lectures` and in the Lectures section. `npm test` checks them too.
+
+### Collections of poems
+
 A book that collects several poems is still one matn: each poem is a
 chapter, `chapterLabel: 'Poem'` names them so, `numbering: 'per-chapter'`
 starts every poem's abyāt at 1 (the stored `n` keeps running through the
@@ -40,8 +65,8 @@ document's `variants`), `kindLabels` (word-list abyāt), `arabicInUrdu`,
 `npm test` checks the registry (ids that collide with a route, verse counts,
 edition settings).
 
-Registering it generates the reading page, its card on the home page and in
-the guide, its entry in every menu and editor, its recording sets, the
+Registering it generates the reading page, its card in its section on the
+home page and in the guide, its entry in every menu and editor, its recording sets, the
 sitemap and the offline precache. Deploy.
 
 ## 2. Give it its text

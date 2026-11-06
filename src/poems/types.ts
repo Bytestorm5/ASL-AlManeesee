@@ -32,6 +32,11 @@ export interface PoemConfig {
   author?: { name: string; died?: string };
   /** Poetic metre, shown as a chip under the title. */
   metre?: string;
+  /** Which section of the site the matn belongs to (src/config/sections.ts):
+      'mutun' (the default) for a poem the Shaykh composed, 'shuruh' for his
+      explanation of a classical matn — then `author` is the matn's own author
+      and `explanations.by` names the Shaykh's explanation. */
+  section?: 'mutun' | 'shuruh';
   /** The number of abyāt. Every write of this matn is checked against it. */
   verses: number;
   accent: Accent;

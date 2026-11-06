@@ -1,0 +1,72 @@
+---
+/* /lectures — the Shaykh's recorded lessons and lectures, newest first, from
+   src/lectures/registry.ts. Until the first one is added the page shows the
+   section's "being gathered" card (src/config/sections.ts). Audio and video
+   files play here, loaded only when played; a YouTube lecture opens on
+   YouTube. Styled like the guide (it is reached the same way, from Home),
+   with its own cards in lectures.css. */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config/site.ts';
+import { sectionById } from '../config/sections.ts';
+import { LECTURES, lectureDate } from '../lectures/index.ts';
+import { poemHref } from '../client/page.ts';
+import { POEMS } from '../poems/index.ts';
+import '../styles/guide.css';
+import '../styles/lectures.css';
+import '../styles/theme.css';
+
+const s = sectionById('lectures');
+const eyebrow = `al-Asl · ${SITE.collection.en}`;
+const matnName = (id?: string) => (id ? POEMS.find((p) => p.id === id)?.shortEn : undefined);
+const items = LECTURES.map((l) => ({
+  l,
+  meta: [l.series, lectureDate(l.date, 'long'), l.minutes ? `${l.minutes} min` : ''].filter(Boolean).join(' · '),
+  matn: matnName(l.matn),
+}));
+---
+<BaseLayout title={s.en} description={`${s.lead} ${SITE.appName}.`}>
+<div class="gbar"><div class="gbar-inner">
+  <a class="gback" href="/#lectures"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Home</a>
+  <span class="t">{s.en}</span>
+</div></div>
+
+<header class="gh">
+  <div class="eyebrow">{eyebrow}</div>
+  <div class="lec-ar" lang="ar" dir="rtl">{s.ar}</div>
+  <h1>{s.en}</h1>
+  <p>{s.lead}</p>
+  {items.length > 0 && <div class="hint">{items.length} {items.length === 1 ? 'lecture' : 'lectures'} · newest first</div>}
+</header>
+
+<div class="wrap">
+  {items.length > 0 ? (
+    <ol class="lec-cards">
+      {items.map(({ l, meta, matn }) => (
+        <li class="lec-card" id={l.id}>
+          {l.titleAr && <div class="lc-ar" lang="ar" dir="rtl">{l.titleAr}</div>}
+          <h2 class="lc-t">{l.title}</h2>
+          {meta && <div class="lc-meta">{meta}</div>}
+          {l.description && <p class="lc-d">{l.description}</p>}
+          {l.media.kind === 'audio' && <audio class="lc-media" controls preload="none" src={l.media.url}></audio>}
+          {l.media.kind === 'video' && <video class="lc-media" controls preload="none" playsinline src={l.media.url}></video>}
+          <div class="lc-acts">
+            {l.media.kind === 'youtube' && <a class="lc-btn" href={l.media.url} target="_blank" rel="noopener">Watch on YouTube ↗</a>}
+            {matn && l.matn && <a class="lc-btn lc-btn-q" href={poemHref(l.matn)}>Read {matn}</a>}
+          </div>
+        </li>
+      ))}
+    </ol>
+  ) : (
+    <div class="lec-empty">
+      <div class="prep-emblem" role="img" aria-hidden="true"></div>
+      <div class="lbl">In preparation</div>
+      <h2>{s.empty.title}</h2>
+      <p>{s.empty.text}</p>
+      <a class="lc-btn lc-btn-q" href="/">Read his poems meanwhile</a>
+    </div>
+  )}
+</div>
+
+<footer class="gf">{SITE.org.name} · <a href="/">Home</a> · <a href="/guide">User Guide</a></footer>
+<script>import '../client/entries/common.ts';</script>
+</BaseLayout>

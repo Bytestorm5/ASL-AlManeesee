@@ -43,6 +43,8 @@
 :root[data-theme="dark"] .matn-row,
 :root[data-theme="dark"] .cont-card,
 :root[data-theme="dark"] .prep-card,
+:root[data-theme="dark"] .lec-row,
+:root[data-theme="dark"] .lec-empty,
 :root[data-theme="dark"] .outline li,
 :root[data-theme="dark"] .ayah-card {
   background:linear-gradient(180deg,var(--surface),var(--paper));

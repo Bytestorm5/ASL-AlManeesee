@@ -7,7 +7,7 @@
    in localStorage, so it is all per device. With no matn listed yet the page
    shows its "being prepared" card instead, and none of this has anything to
    draw. */
-import { baytLabel, baytRef, esc, listedPoems, lsJSON, poemHref } from './page.ts';
+import { baytLabel, baytRef, esc, listedPoems, lsGet, lsJSON, lsSet, poemHref } from './page.ts';
 
 interface MatnMeta { en: string; cls: string }
 /** asl-mz-prog-<id>, written by memorize mode. s: 1 = learning, 2 = memorized. */
@@ -45,7 +45,43 @@ function chapterOf(poem: string, n: number): string {
   return t;
 }
 
+/* The section switch (Poems · Explanations · Lectures): one panel at a time.
+   Opens on the section a #hash names, else the one last chosen on this
+   device, else the first; arrow keys move along it, as tabs do. */
+function sectionSwitch(): void {
+  const tabs = [...document.querySelectorAll<HTMLButtonElement>('.sec-tab')];
+  if (!tabs.length) return;
+  const KEY = 'asl-home-sec';
+  const ids = tabs.map((t) => t.dataset.sec || '');
+  function show(id: string, focus = false): void {
+    for (const t of tabs) {
+      const on = t.dataset.sec === id;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      if (on && focus) t.focus();
+    }
+    document.querySelectorAll<HTMLElement>('.sec-panel').forEach((p) => { p.hidden = p.dataset.sec !== id; });
+    lsSet(KEY, id);
+  }
+  const fromHash = location.hash.slice(1);
+  const saved = lsGet(KEY) || '';
+  const start = ids.includes(fromHash) ? fromHash : ids.includes(saved) ? saved : ids[0]!;
+  if (start !== ids[0]) show(start);
+  for (const t of tabs) t.addEventListener('click', () => show(t.dataset.sec || ids[0]!));
+  document.querySelector('.sec-switch')?.addEventListener('keydown', (e) => {
+    const k = (e as KeyboardEvent).key;
+    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(k)) return;
+    e.preventDefault();
+    const at = ids.indexOf(tabs.find((t) => t.getAttribute('aria-selected') === 'true')?.dataset.sec || '');
+    const next = k === 'Home' ? 0 : k === 'End' ? ids.length - 1
+      : (at + (k === 'ArrowRight' ? 1 : -1) + ids.length) % ids.length;
+    show(ids[next]!, true);
+  });
+  window.addEventListener('hashchange', () => { const h = location.hash.slice(1); if (ids.includes(h)) show(h); });
+}
+
 export function init(): void {
+  sectionSwitch();
   const META: Record<string, MatnMeta> = {};
   for (const p of listedPoems()) META[p.id] = { en: p.shortEn, cls: 'm-' + p.accent };
   const todayY = fmt(new Date());

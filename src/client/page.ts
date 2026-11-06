@@ -1,6 +1,6 @@
 /* Small helpers every page script uses: which matn this page is, links
    between pages, DOM readiness, and storage that never throws. */
-import { getPoem, POEMS } from '../poems/index.ts';
+import { getPoem, POEMS, poemsIn } from '../poems/index.ts';
 import type { PoemConfig } from '../poems/types.ts';
 
 /** The matn this page reads (from <body data-poem>), or null off the reading pages. */
@@ -19,9 +19,9 @@ export function poemHref(id: string, params?: Record<string, string | number | u
   return '/' + id + (s ? '?' + s : '');
 }
 
-/** The mutūn readers are offered, in registry order. */
-export function listedPoems(): readonly PoemConfig[] {
-  return POEMS;
+/** The mutūn readers are offered, in registry order — all of them, or one section's. */
+export function listedPoems(section?: 'mutun' | 'shuruh'): readonly PoemConfig[] {
+  return section ? poemsIn(section) : POEMS;
 }
 
 export function ready(fn: () => void): void {

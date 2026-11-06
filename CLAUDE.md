@@ -29,6 +29,15 @@ the registry (and the content folders, `fixtures/` for the dev fixture and
 text can ship in `content/` (listed in `content/index.ts`): the worker stores
 it, create-only, the first time the matn is asked for (`src/worker/seed.ts`).
 
+## Sections: poems, explanations, lectures
+`src/config/sections.ts` names the site's three sections: the Shaykh's own
+poems (`mutun`), his explanations of classical mutūn (`shuruh`, set with
+`section: 'shuruh'` on a registry entry) and his lectures (their own
+registry, `src/lectures/registry.ts`, shown on `/lectures`). Home and the
+app's sheets show **one section at a time** behind a switch, never one list
+after another; keep it that way when adding to them. An empty section shows
+its "being prepared" text from `sections.ts`.
+
 ## One reading page
 `src/pages/[poem].astro` + `src/client/reading/render.ts` render every matn.
 Feature modules under `src/client/` export `init()` and are called, in order,

@@ -4,11 +4,16 @@
    to the top. In the installed app the bottom bar + More sheet already handle
    this, so the switcher is hidden in app mode (html.appmode).
 
-   The list is the registry's listed mutūn (drafts are left out of menus). It
-   only appears when there is at least one matn OTHER than this one to switch
-   to: with none (a site with a single matn, or a draft being proofed before
-   anything is listed) the menu would hold just Home and the page itself, and
-   Home is already one tap away in the back link above the hero. */
+   The list is the listed mutūn of this matn's own section (src/config/
+   sections.ts: the Shaykh's poems, or his explanations), so it stays one
+   short list; the other sections follow as one link each, to their tab on
+   Home or to /lectures. Drafts are left out of menus. It only appears when
+   there is at least one matn OTHER than this one in the section: with none
+   (a single matn, or a draft being proofed before anything is listed) the
+   menu would hold just Home and the page itself, and Home is already one
+   tap away in the back link above the hero. */
+import { LECTURES_PATH, SECTIONS } from '../../config/sections.ts';
+import { getPoem, sectionOf } from '../../poems/index.ts';
 import { currentPoemId, esc, listedPoems, poemHref } from '../page.ts';
 
 const CSS = '.matn-switch .navprint{gap:6px}'
@@ -19,6 +24,8 @@ const CSS = '.matn-switch .navprint{gap:6px}'
   + '.matn-switch .menu-pop a.active{background:var(--madder);color:var(--on-accent)}'
   + '.matn-switch .menu-pop a.active .ms-en{color:var(--on-accent)}'
   + '.matn-switch .menu-pop .ms-home{border-bottom:1px solid var(--paper-edge);border-radius:0;margin-bottom:3px;padding-bottom:11px}'
+  + '.matn-switch .menu-pop .ms-sec{font-family:"Montserrat",sans-serif;font-size:.74rem;font-weight:600;color:var(--sage,#456E80)}'
+  + '.matn-switch .menu-pop .ms-sec.first{border-top:1px solid var(--paper-edge);border-radius:0;margin-top:3px;padding-top:11px}'
   + 'html.appmode .matn-switch{display:none!important}';
 
 export function init(): void {
@@ -26,7 +33,9 @@ export function init(): void {
   if (!navMenus || document.querySelector('.matn-switch')) return;
 
   const here = currentPoemId();
-  const mutun = listedPoems();
+  const cur = here ? getPoem(here) : null;
+  const sec = cur ? sectionOf(cur) : 'mutun';
+  const mutun = listedPoems(sec);
   if (!mutun.some((m) => m.id !== here)) return;
   const mode = (location.search.match(/[?&]mode=(read|memorize)/) || [])[1];
 
@@ -59,6 +68,13 @@ export function init(): void {
     a.innerHTML = '<span class="ms-ar">' + esc(m.shortAr) + '</span><span class="ms-en">' + esc(m.shortEn) + '</span>';
     pop.appendChild(a);
   }
+  SECTIONS.filter((x) => x.id !== sec).forEach((x, i) => {
+    const a = document.createElement('a');
+    a.href = x.id === 'lectures' ? LECTURES_PATH : '/#' + x.id; a.setAttribute('role', 'menuitem');
+    a.className = 'ms-sec' + (i === 0 ? ' first' : '');
+    a.textContent = x.en + ' →';
+    pop.appendChild(a);
+  });
 
   menu.appendChild(btn); menu.appendChild(pop);
   navMenus.insertBefore(menu, navMenus.firstChild);

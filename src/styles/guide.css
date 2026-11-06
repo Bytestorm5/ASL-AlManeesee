@@ -68,3 +68,4 @@ details.g[open] > summary{border-bottom:1px solid var(--paper-edge)}
 footer.gf{text-align:center; color:var(--sage); font-family:"Montserrat",sans-serif;
   font-size:.78rem; margin-top:30px}
 footer.gf a{color:var(--madder)}
+.g-body a{color:var(--madder)}

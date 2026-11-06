@@ -9,6 +9,7 @@
    matn with more than one, and Appearance (Auto / Light / Dark). */
 import { currentPoem, esc, listedPoems, lsGet, lsSet } from '../page.ts';
 import type { PoemConfig } from '../../poems/types.ts';
+import { sectionOf } from '../../poems/index.ts';
 
 const KEY = 'asl-tour';
 
@@ -182,10 +183,11 @@ const CSS = [
 
 interface Scene { title: string; text: string; html: string }
 
-/* The switcher scene shows the mutūn this site actually serves, up to six
-   (the stage's height), always including the one being read. */
+/* The switcher scene shows the mutūn of this matn's section (the Mutūn ▾
+   menu lists the same), up to six (the stage's height), always including
+   the one being read. */
 function switchList(here: PoemConfig | null): string | null {
-  const all: PoemConfig[] = [...listedPoems()];
+  const all: PoemConfig[] = [...listedPoems(here ? sectionOf(here) : undefined)];
   if (here && !all.some((p) => p.id === here.id)) all.push(here); // a draft being proofed
   if (all.length < 2) return null; // nothing to switch to
   const at = Math.max(0, all.findIndex((p) => p.id === here?.id));

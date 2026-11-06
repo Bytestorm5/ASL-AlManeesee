@@ -1,15 +1,19 @@
 ---
 /* Home — the collection's landing page and, in the installed app, its home
    screen (src/client/app-shell.ts swaps the hero for an app bar and adds the
-   bottom tabs). The matn list is built here from the registry; progress,
-   bookmarks and "Continue" are filled in on the device by src/client/home.ts.
-   Until a matn is listed the page shows a calm "being prepared" card instead
-   of the list. */
+   bottom tabs). Its sections (src/config/sections.ts: the Shaykh's poems,
+   his explanations, his lectures) sit behind one switch, so only one list
+   shows at a time; a section with nothing published yet shows a calm "being
+   prepared" card. The lists are built here from the registries; progress,
+   bookmarks and "Continue" are filled in on the device by src/client/home.ts,
+   which also runs the switch. */
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Brandbar from '../components/Brandbar.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import { SITE } from '../config/site.ts';
 import { listedPoems, poemHref } from '../client/page.ts';
+import { LECTURES_PATH, SECTIONS } from '../config/sections.ts';
+import { LECTURES, lectureDate } from '../lectures/index.ts';
 import { bootSplash, inlineBoot } from '../client/boot.ts';
 import { runSplash } from '../client/splash.ts';
 import '../styles/home.css';
@@ -21,15 +25,26 @@ const abyat = poems.reduce((s, p) => s + p.verses, 0);
 const collection = SITE.collection.en.replace(/^The /, '');
 const orgHost = SITE.org.url.replace(/^https?:\/\//, '').replace(/\/$/, '');
 
-/* "Six Texts, One Path", counted from the registry. */
+/* "Six Texts, One Path", counted from the section's own list. */
 const WORDS = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve'];
-const heading = count === 1 ? 'One Text to Begin' : `${WORDS[count] ?? count} Texts, One Path`;
+const headingFor = (n: number) => (n === 1 ? 'One Text to Begin' : `${WORDS[n] ?? n} Texts, One Path`);
 
-const rows = poems.map((p, i) => ({
-  p,
-  ord: i + 1,
-  meta: [p.author?.name, `${p.verses} abyāt`, p.subject].filter(Boolean).join(' · '),
-}));
+/* One panel per section. The lectures panel previews the newest few and
+   links to /lectures, so it never grows into a second long list. */
+const LECTURE_PREVIEW = 3;
+const panels = SECTIONS.map((s) => {
+  const list = s.id === 'lectures' ? [] : listedPoems(s.id);
+  return {
+    s,
+    count: s.id === 'lectures' ? LECTURES.length : list.length,
+    rows: list.map((p, i) => ({
+      p,
+      ord: i + 1,
+      meta: [p.author?.name, `${p.verses} abyāt`, p.subject].filter(Boolean).join(' · '),
+    })),
+  };
+});
+const lectures = LECTURES.slice(0, LECTURE_PREVIEW);
 ---
 <BaseLayout boot={[bootSplash]}>
 <link slot="head" rel="preload" as="image" href="/brand/emblem.png">
@@ -65,47 +80,83 @@ const rows = poems.map((p, i) => ({
     <div class="ab-en">{SITE.collection.en}</div>
     <div class="ab-rule"><i></i><b>۞</b><i></i></div>
   </div>
-  {count > 0 ? (
-    <>
-      <div id="contWrap" aria-live="polite"></div>
-      <div id="statsWrap" aria-label="Your study statistics"></div>
-      <div id="bmWrap"></div>
-      <div class="sec-head">
-        <div class="lbl">{SITE.collection.en}</div>
-        <h2>{heading}</h2>
-        <p>Begin where you are. Open a matn to read it — or go straight into Memorize mode.</p>
-      </div>
-      <div class="matn-list">
-        {rows.map(({ p, ord, meta }) => (
-          <div class={`matn-row m-${p.accent}`} data-poem={p.id} data-total={p.verses}>
-            <a class="mr-plate" href={poemHref(p.id)} aria-label={`Open ${p.titleEn}`}>
-              <span class="mr-emblem" role="img" aria-hidden="true"><span class="ord">{ord}</span></span>
-              <span class="mr-ar">{p.shortAr}</span>
-            </a>
-            <div class="mr-body">
-              <a class="mr-en" href={poemHref(p.id)}>{p.titleEn}</a>
-              <span class="mr-meta">{meta}</span>
-              <span class="mr-prog" hidden><span class="bar"><i></i></span><span class="pct"></span></span>
-              <span class="mr-goal" hidden></span>
-              <span class="mr-acts">
-                <a class="mr-btn mr-read" href={poemHref(p.id, { mode: 'read' })}>Read</a>
-                <a class="mr-btn mr-mz" href={poemHref(p.id, { mode: 'memorize' })}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4 2 9l10 5 10-5-10-5z"/><path d="M5 11.2V16c0 1.6 3.1 3 7 3s7-1.4 7-3v-4.8"/></svg>Memorize</a>
-              </span>
-            </div>
+  <div id="contWrap" aria-live="polite"></div>
+  <div id="statsWrap" aria-label="Your study statistics"></div>
+  <div id="bmWrap"></div>
+
+  <div class="sec-switch" role="tablist" aria-label="Sections">
+    {panels.map(({ s, count: n }, i) => (
+      <button type="button" role="tab" class="sec-tab" id={`tab-${s.id}`} data-sec={s.id}
+        aria-controls={`sec-${s.id}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1}>
+        <span class="st-ar" lang="ar" dir="rtl"><span class="st-long">{s.ar}</span><span class="st-short">{s.arShort}</span></span>
+        <span class="st-en"><span class="st-long">{s.en}</span><span class="st-short">{s.short}</span></span>
+        <span class={`st-n${n ? '' : ' soon'}`}>{n || 'Soon'}</span>
+      </button>
+    ))}
+  </div>
+
+  {panels.map(({ s, rows }, i) => (
+    <div class="sec-panel" id={`sec-${s.id}`} role="tabpanel" aria-labelledby={`tab-${s.id}`} data-sec={s.id} hidden={i !== 0}>
+      {s.id !== 'lectures' && rows.length > 0 && (
+        <>
+          <div class="sec-head">
+            <div class="lbl">{s.en}</div>
+            <h2>{headingFor(rows.length)}</h2>
+            <p>{s.lead} Open one to read it — or go straight into Memorize mode.</p>
           </div>
-        ))}
-      </div>
-    </>
-  ) : (
-    <div class="prep">
-      <div class="prep-card">
-        <div class="prep-emblem" role="img" aria-hidden="true"></div>
-        <div class="lbl">In preparation</div>
-        <h3>The collection is being prepared</h3>
-        <p>The first texts are being edited and checked. Each one will appear here, ready to read and to memorize, as soon as it is published.</p>
-      </div>
+          <div class="matn-list">
+            {rows.map(({ p, ord, meta }) => (
+              <div class={`matn-row m-${p.accent}`} data-poem={p.id} data-total={p.verses}>
+                <a class="mr-plate" href={poemHref(p.id)} aria-label={`Open ${p.titleEn}`}>
+                  <span class="mr-emblem" role="img" aria-hidden="true"><span class="ord">{ord}</span></span>
+                  <span class="mr-ar">{p.shortAr}</span>
+                </a>
+                <div class="mr-body">
+                  <a class="mr-en" href={poemHref(p.id)}>{p.titleEn}</a>
+                  <span class="mr-meta">{meta}</span>
+                  <span class="mr-prog" hidden><span class="bar"><i></i></span><span class="pct"></span></span>
+                  <span class="mr-goal" hidden></span>
+                  <span class="mr-acts">
+                    <a class="mr-btn mr-read" href={poemHref(p.id, { mode: 'read' })}>Read</a>
+                    <a class="mr-btn mr-mz" href={poemHref(p.id, { mode: 'memorize' })}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4 2 9l10 5 10-5-10-5z"/><path d="M5 11.2V16c0 1.6 3.1 3 7 3s7-1.4 7-3v-4.8"/></svg>Memorize</a>
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+      {s.id === 'lectures' && lectures.length > 0 && (
+        <>
+          <div class="sec-head">
+            <div class="lbl">{s.en}</div>
+            <h2>The Latest Lectures</h2>
+            <p>{s.lead}</p>
+          </div>
+          <div class="lec-list">
+            {lectures.map((l) => (
+              <a class="lec-row" href={`${LECTURES_PATH}#${l.id}`}>
+                {l.titleAr && <span class="lr-ar" lang="ar" dir="rtl">{l.titleAr}</span>}
+                <span class="lr-en">{l.title}</span>
+                <span class="lr-meta">{[l.series, lectureDate(l.date), l.minutes ? `${l.minutes} min` : ''].filter(Boolean).join(' · ')}</span>
+              </a>
+            ))}
+          </div>
+          <div class="sec-more"><a href={LECTURES_PATH}>All {LECTURES.length} lectures →</a></div>
+        </>
+      )}
+      {(s.id === 'lectures' ? lectures.length === 0 : rows.length === 0) && (
+        <div class="prep">
+          <div class="prep-card">
+            <div class="prep-emblem" role="img" aria-hidden="true"></div>
+            <div class="lbl">In preparation</div>
+            <h3>{s.empty.title}</h3>
+            <p>{s.empty.text}</p>
+          </div>
+        </div>
+      )}
     </div>
-  )}
+  ))}
   <div class="guide-link"><a href="/guide">📖 New here? Read the User Guide →</a></div>
 </section>
 

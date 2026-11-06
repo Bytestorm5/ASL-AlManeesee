@@ -57,10 +57,12 @@ empty collection.
 ```
 src/
   config/site.ts     site-wide names, links, platform colours — rebrand here
+  config/sections.ts the three sections: his poems, his explanations, lectures
   poems/             the matn registry, its types, the dev fixture registration
-  pages/             index, [poem] (every reading page), guide, privacy, admin/*
+  lectures/          the lecture registry and its types (/lectures)
+  pages/             index, [poem] (every reading page), lectures, guide, privacy, not-an-admin/*
   client/            browser code: reading/ features, admin/ tools, entries/
-  styles/            tokens (the palette), reading, home, guide, theme (dark mode), fonts
+  styles/            tokens (the palette), reading, home, guide, lectures, theme (dark mode), fonts
   worker/            the API (Hono) and /media/ (recordings with byte ranges)
   shared/            rules both sides enforce: validation, markup, media keys
   sw/                the service worker
