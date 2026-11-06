@@ -1,4 +1,4 @@
-# al-Asl AlManeesee — project notes
+# al-Asl AlMenesi (المنيسي) — project notes
 
 The al-Asl reader for classical mutūn (didactic poems), carried over from the
 Mutūn site (Bytestorm5/ASL-Jazariyyah) with its poems removed and its tooling

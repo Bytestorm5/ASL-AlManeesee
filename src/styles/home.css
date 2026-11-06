@@ -44,7 +44,8 @@ header.hero::before{content:""; position:absolute; inset:0; opacity:.5;
   font-size:.66rem; color:var(--gilt-hi); font-weight:500; margin-bottom:30px}
 .hero h1{margin:.05em 0 .1em; font-weight:700}
 .hero h1.ar{font-family:"Scheherazade New","Amiri"; font-size:clamp(2.4rem,8vw,4rem); line-height:1.15; color:var(--cream);
-  text-shadow:0 2px 18px rgba(0,0,0,.3)}
+  text-shadow:0 2px 18px rgba(0,0,0,.3);
+  padding-bottom:.22em}  /* room for a deep final descender (the ي of المنيسي) above the romanised title */
 .hero .romantitle{font-family:"Cinzel"; font-weight:600; text-transform:uppercase; letter-spacing:.05em;
   font-size:clamp(1.1rem,3vw,1.5rem); color:var(--gilt-hi)}
 .hero .subtitle{font-family:"Cormorant Garamond"; font-size:clamp(1.02rem,2.4vw,1.22rem);
@@ -95,7 +96,8 @@ header.hero::before{content:""; position:absolute; inset:0; opacity:.5;
 /* app-home banner (the web hero is hidden in app mode) */
 .app-banner{display:none}
 .apphome .app-banner{display:block; text-align:center; padding:8px 22px 0}
-.app-banner .ab-ar{font-family:"Scheherazade New","Amiri"; font-size:1.6rem; line-height:1.2; color:var(--madder)}
+.app-banner .ab-ar{font-family:"Scheherazade New","Amiri"; font-size:1.6rem; line-height:1.2; color:var(--madder);
+  padding-bottom:.32em}  /* same: keep the final ي clear of the line below */
 .app-banner .ab-en{font-family:"Cinzel","Cormorant Garamond",serif; font-weight:600; text-transform:uppercase;
   letter-spacing:.22em; font-size:.62rem; color:var(--gilt-deep); margin-top:2px}
 .app-banner .ab-rule{display:flex; align-items:center; justify-content:center; gap:10px; margin:6px auto 0; max-width:180px}

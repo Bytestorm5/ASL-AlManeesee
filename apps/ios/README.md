@@ -1,4 +1,4 @@
-# iOS shell (AlManeesee)
+# iOS shell (AlMenesi)
 
 A thin WKWebView wrapper around https://almaneesee.al-asl.com — the iOS counterpart
 of the Android TWA. Site deploys update the app instantly; a new binary is only

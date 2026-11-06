@@ -14,14 +14,14 @@ export const SITE = {
   noindexHosts: [] as string[],
 
   /** The installed app's name (home screen, task switcher). Keep it short. */
-  appName: 'AlManeesee',
-  /** Used in <title> after the page name, e.g. "Guide · al-Asl AlManeesee". */
-  titleSuffix: 'al-Asl AlManeesee',
+  appName: 'AlMenesi',
+  /** Used in <title> after the page name, e.g. "Guide · al-Asl AlMenesi". */
+  titleSuffix: 'al-Asl AlMenesi',
   /** The collection, as the home page hero presents it. */
   collection: {
-    ar: 'المُتُون',
-    en: 'The Mutūn Collection',
-    eyebrow: 'al-Asl Institute · The Mutūn Collection',
+    ar: 'المنيسي',
+    en: 'AlMenesi',
+    eyebrow: 'al-Asl Institute · AlMenesi',
     description:
       'Classical source texts, presented verse by verse with translation, commentary, recitation and memorization tools. An al-Asl Institute resource.',
   },

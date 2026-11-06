@@ -6,7 +6,7 @@
 > its fingerprints at `public/.well-known/assetlinks.json` (not shipped until
 > then, since a wrong file is worse than none).
 
-# Publishing al-Asl Mutūn to the Google Play Store
+# Publishing al-Asl AlMenesi to the Google Play Store
 
 This turns the website into a real Android app using a **Trusted Web Activity
 (TWA)** — a fullscreen Android wrapper around `almaneesee.al-asl.com`. The app shows
@@ -82,7 +82,7 @@ You need an Android App Bundle (`.aab`). Pick **one** option.
    **Package for stores** → **Android**.
 3. In the Android options set:
    - **Package ID**: `com.alasl.almaneesee`
-   - **App name**: `Mutun`  ·  **Short name**: `Mutun`
+   - **App name**: `AlMenesi`  ·  **Short name**: `AlMenesi`
    - Keep "Signing key" = **Create new** (PWABuilder generates one and returns
      it in the zip — **keep that `signing.keystore` + passwords safe forever**;
      you need them for every future update).
@@ -102,7 +102,7 @@ npm install -g @bubblewrap/cli
 # point it at the deployed manifest; accept the JDK/Android SDK download prompts
 bubblewrap init --manifest https://almaneesee.al-asl.com/manifest.webmanifest
 #   Package name ......... com.alasl.almaneesee
-#   App name ............. al-Asl Mutūn   (launcher: Mutūn)
+#   App name ............. al-Asl AlMenesi   (launcher: AlMenesi)
 #   (the rest can be taken from apps/android/twa-manifest.json in this repo)
 
 bubblewrap build
@@ -204,7 +204,7 @@ The splash hand-off itself is already wired up correctly — `SPLASH_IMAGE_DRAWA
 `FILE_PROVIDER_AUTHORITY` are all in the generated manifest. It is only the
 window underneath that has no colour.
 
-iOS has no such gap because `ios/Mutun/Info.plist` gives the app a
+iOS has no such gap because `apps/ios/App/Info.plist` gives the app a
 `UILaunchScreen` of `LaunchBackground` — `#0B3D6E`, the same Deep Navy as
 `background_color` in `manifest.webmanifest` — and it covers the whole wait,
 however long it runs. This gives Android the same backstop.
@@ -259,7 +259,7 @@ follows that file. Idempotent, like the R8 script.
 
 ## Step 3 — Create the app in Play Console and upload
 
-1. Play Console → **Create app**. Name `al-Asl Mutūn`, type **App**, category
+1. Play Console → **Create app**. Name `al-Asl AlMenesi`, type **App**, category
    **Education** (or **Books & Reference**), free.
 2. **Release → Production → Create new release.**
 3. Keep **Play App Signing** turned on (default, recommended — Google securely

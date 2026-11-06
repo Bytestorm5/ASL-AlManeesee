@@ -1,4 +1,4 @@
-# al-Asl AlManeesee
+# al-Asl AlMenesi (المنيسي)
 
 The al-Asl reader for classical mutūn: each text verse by verse, with word
 meanings, translations, commentary, recitations, search, bookmarks, notes and

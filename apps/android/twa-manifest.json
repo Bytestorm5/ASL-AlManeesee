@@ -1,8 +1,8 @@
 {
   "packageId": "com.alasl.almaneesee",
   "host": "almaneesee.al-asl.com",
-  "name": "AlManeesee",
-  "launcherName": "AlManeesee",
+  "name": "AlMenesi",
+  "launcherName": "AlMenesi",
   "display": "standalone",
   "orientation": "default",
   "themeColor": "#0B3D6E",
