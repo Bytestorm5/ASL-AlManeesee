@@ -15,7 +15,7 @@
    (asl-mz-prog-<id>, asl-mz-level, asl-mz-reveal, asl-mode-<id>; the home page
    and the app shell read the progress and goal keys, so they never change). */
 import { SITE } from '../../config/site.ts';
-import { currentPoem, lsGet, lsSet } from '../page.ts';
+import { currentPoem, lsGet, lsSet, verseNum } from '../page.ts';
 
 const LKEY = 'asl-mz-level';
 
@@ -374,7 +374,7 @@ export function init(): void {
   for (const sec of sections) {
     for (const v of sec.querySelectorAll<HTMLElement>('.verse')) {
       const vn = v.querySelector('.vn');
-      verses.push({ el: v, section: sec, id: vn ? (vn.textContent || '').trim() : 'x' + verses.length, sadr: null, ajuz: null, rate: null });
+      verses.push({ el: v, section: sec, id: vn ? String(verseNum(vn)) : 'x' + verses.length, sadr: null, ajuz: null, rate: null });
     }
   }
 

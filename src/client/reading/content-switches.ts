@@ -18,7 +18,7 @@ import type { AslSwitchMaps } from '../globals.d.ts';
 import { getSwitches } from '../api.ts';
 import { explanationBayts } from '../../poems/index.ts';
 import type { PoemConfig } from '../../poems/types.ts';
-import { lsGet, lsSet } from '../page.ts';
+import { lsGet, lsSet, verseNum } from '../page.ts';
 
 const MEM: Record<string, Promise<AslSwitchMaps>> = {};
 const key = (poem: string) => 'asl-switches-' + poem;
@@ -64,7 +64,7 @@ function injectCSS(): void {
 export function apply(maps: AslSwitchMaps): void {
   for (const v of document.querySelectorAll('#main .verse')) {
     const vn = v.querySelector('.medallion .vn') || v.querySelector('.vn');
-    const n = parseInt((vn?.textContent || '').trim(), 10);
+    const n = verseNum(vn);
     if (!n) continue;
     const on = maps.enabled[n] === true;
     v.classList.toggle('exp-on', on);

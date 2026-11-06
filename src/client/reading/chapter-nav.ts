@@ -5,7 +5,7 @@
    scrollable list so any chapter is one tap away. Self-contained; on a matn in
    a single chapter it only sets up the one-row top bar. */
 import type { AslChapterJumpApi } from '../globals.d.ts';
-import { esc } from '../page.ts';
+import { currentPoem, esc, verseNum } from '../page.ts';
 import { norm } from './search.ts';
 
 type ChapterEntry = AslChapterJumpApi['chapters'][number];
@@ -93,6 +93,8 @@ const CSS = [
   'padding:9px 11px;-webkit-appearance:none;outline:none}',
   '.chnav-search:focus{border-color:var(--madder,#0F63A8)}',
   '.chnav-list{overflow-y:auto;-webkit-overflow-scrolling:touch;padding:6px}',
+  '.chnav-part{padding:12px 10px 4px;font-family:"Montserrat",sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sage,#456E80)}',
+  '.chnav-part:first-child{padding-top:4px}',
   '.chnav-item{display:flex;align-items:center;gap:10px;width:100%;box-sizing:border-box;text-align:left;',
   'border:0;background:transparent;cursor:pointer;padding:8px 9px;border-radius:9px;text-decoration:none;',
   '-webkit-tap-highlight-color:transparent}',
@@ -189,9 +191,13 @@ export function init(): void {
   const chapters: ChapterEntry[] = secs.map((sec) => {
     const t = (sel: string) => (sec.querySelector(sel)?.textContent || '').trim();
     const ar = t('.ch-ar');
-    return { sec, id: sec.id, num: (sec.id || '').replace('ch', ''), ar, hay: norm(t('.ch-en') + ' ' + ar + ' ' + t('.ch-tr')) };
+    // a part heading (bāb) rendered just before this chapter
+    const ph = sec.previousElementSibling?.classList.contains('part-head') ? sec.previousElementSibling : null;
+    const part = ph ? esc((ph.querySelector('.ph-en')?.textContent || ph.querySelector('.ph-ar')?.textContent || '').trim()) : '';
+    return { sec, id: sec.id, num: (sec.id || '').replace('ch', ''), ar, part, hay: norm(t('.ch-en') + ' ' + ar + ' ' + t('.ch-tr')) };
   });
   const first = chapters[0]!;
+  const PER_CHAPTER = currentPoem()?.numbering === 'per-chapter';
 
   const btn = document.createElement('button');
   btn.type = 'button'; btn.className = 'chnav-btn';
@@ -216,7 +222,7 @@ export function init(): void {
   const verseByNum = new Map<number, HTMLElement>();
   for (const v of document.querySelectorAll<HTMLElement>('#main .verse')) {
     const vn = v.querySelector('.vn'); if (!vn) continue;
-    const n = parseInt((vn.textContent || '').trim(), 10);
+    const n = verseNum(vn);
     if (n && !verseByNum.has(n)) verseByNum.set(n, v);
   }
 
@@ -234,13 +240,22 @@ export function init(): void {
     listEl.innerHTML = '';
     // a numeric query offers a direct jump to that bayt (reading mode only)
     const bn = digits ? parseInt(digits, 10) : 0;
-    const hasBayt = !!bn && verseByNum.has(bn) && !document.body.classList.contains('mz-on');
+    /* With numbering that restarts in every chapter (a collection of poems),
+       "12" means bayt 12 of the chapter being read; otherwise bayt 12 of the matn. */
+    let target = bn, where = '';
+    if (bn && PER_CHAPTER) {
+      const cur = chapters.find((c) => c.id === curId);
+      const vn = cur?.sec.querySelectorAll('.verse .vn')[bn - 1];
+      target = vn ? verseNum(vn) : 0;
+      where = cur?.ar ? ' of ' + esc(cur.ar) : '';
+    }
+    const hasBayt = !!target && verseByNum.has(target) && !document.body.classList.contains('mz-on');
     if (hasBayt) {
       const bItem = document.createElement('button');
       bItem.type = 'button'; bItem.className = 'chnav-bayt';
       bItem.innerHTML = '<span class="bi">' + bn + '</span>'
-        + '<span class="bt">Go to bayt ' + bn + '<small>Jump straight to this bayt</small></span>';
-      bItem.addEventListener('click', () => { closePop(); jumpToBayt(bn); });
+        + '<span class="bt">Go to bayt ' + bn + where + '<small>Jump straight to this bayt</small></span>';
+      bItem.addEventListener('click', () => { closePop(); jumpToBayt(target); });
       listEl.appendChild(bItem);
     }
     const shown = chapters.filter((c) => {
@@ -248,6 +263,11 @@ export function init(): void {
       return c.hay.includes(f) || c.num === f || c.num.indexOf(f) === 0;
     });
     for (const c of shown) {
+      if (!f && c.part) {
+        const h = document.createElement('div');
+        h.className = 'chnav-part'; h.innerHTML = c.part;
+        listEl.appendChild(h);
+      }
       const a = document.createElement('button');
       a.type = 'button'; a.className = 'chnav-item' + (c.id === state.current ? ' on' : '');
       a.setAttribute('data-id', c.id);

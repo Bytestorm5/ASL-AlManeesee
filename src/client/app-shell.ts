@@ -6,7 +6,7 @@
 import { SITE } from '../config/site.ts';
 import { getPoem } from '../poems/index.ts';
 import type { AslOfflineStatus } from './globals.d.ts';
-import { currentPoemId, esc, isAppMode, listedPoems, poemHref } from './page.ts';
+import { baytRef, currentPoemId, esc, isAppMode, listedPoems, poemHref } from './page.ts';
 
 /** Where "Send feedback" and "Email the developer" write to. */
 const CONTACT_EMAIL = SITE.org.email;
@@ -861,7 +861,7 @@ function shell(): void {
         const marks = (e.bm ? MARG_IC : '') + (e.note ? NOTE_IC : '');
         return '<a class="as-marg-row" href="' + esc(poemHref(e.m.id, { mode: 'read', goto: e.n })) + '">' +
           '<span class="as-marg-ic">' + marks + '</span>' +
-          '<span class="as-marg-body"><span class="as-marg-t"><b>' + esc(e.m.en) + '</b> · Bayt ' + e.n + '</span>' + snippet + '</span>' +
+          '<span class="as-marg-body"><span class="as-marg-t"><b>' + esc(e.m.en) + '</b> · ' + esc(baytRef(e.m.id, e.n)) + '</span>' + snippet + '</span>' +
           '</a>';
       }).join('');
     }

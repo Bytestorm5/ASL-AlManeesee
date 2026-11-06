@@ -71,6 +71,14 @@ header.hero::before{ /* faint girih dot field */
   font-size:clamp(1.5rem,3.6vw,2rem); margin:.2em 0 0; color:var(--lapis-3)}
 .toc-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(248px,1fr)); gap:12px; direction:rtl}
 .toc-grid>.toc-card{direction:ltr}
+/* A part (bāb) heading inside the contents: spans the whole grid. */
+.toc-grid>.toc-part{grid-column:1/-1; direction:ltr; display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between;
+  gap:2px 14px; margin:14px 2px 0; padding:0 2px 6px; border-bottom:1px solid var(--paper-edge)}
+.toc-grid>.toc-part:first-child{margin-top:0}
+.toc-part .tp-n{order:1; font-family:"Montserrat",sans-serif; font-size:.62rem; font-weight:700; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--sage)}
+.toc-part .tp-en{order:2; flex:1 1 auto; font-family:"Cormorant Garamond","Spectral",serif; font-weight:600; font-size:1.08rem; color:var(--ink)}
+.toc-part .tp-ar{order:3; font-family:"Scheherazade New","Amiri",serif; font-size:1.35rem; line-height:1.4; color:var(--madder)}
 a.toc-card{
   display:flex; flex-direction:row-reverse; gap:13px; align-items:flex-start; text-decoration:none; color:inherit;
   background:linear-gradient(180deg,var(--surface),var(--paper-2));
@@ -140,6 +148,20 @@ a.toc-card:hover{transform:translateY(-3px); border-color:var(--gilt);
 /* ---------- CHAPTERS ---------- */
 main{max-width:var(--maxw); margin:0 auto; padding:10px 22px 40px}
 .chapter{padding-top:34px; scroll-margin-top:70px}
+/* A part (bāb): a quiet title page between its chapters and the last part's. */
+.part-head{margin:56px auto 0; padding:30px 18px 26px; text-align:center; scroll-margin-top:70px;
+  border-top:1px solid var(--paper-edge); border-bottom:1px solid var(--paper-edge)}
+.part-head .ph-n{font-family:"Montserrat",sans-serif; font-size:.64rem; font-weight:700; letter-spacing:.32em;
+  text-transform:uppercase; color:var(--sage)}
+.part-head .ph-ar{font-family:"Scheherazade New","Amiri",serif; font-size:clamp(2rem,6vw,2.9rem); font-weight:700;
+  line-height:1.45; color:var(--madder); margin:6px 0 2px}
+.part-head .ph-en{font-family:"Cinzel","Cormorant Garamond",serif; font-weight:600; font-size:clamp(.95rem,2.4vw,1.2rem);
+  letter-spacing:.06em; text-transform:uppercase; color:var(--ink)}
+.part-head .ph-tr{font-family:"Montserrat",sans-serif; font-size:.68rem; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--sage); margin-top:6px}
+.part-head + .chapter{padding-top:22px}
+/* memorize mode and a verse search show only the abyāt they are working on */
+body.mz-on .part-head, body.searching .part-head{display:none}
 .ch-head{position:relative; text-align:center; margin:26px 0 8px;
   padding:26px 18px 24px; border-radius:16px; color:var(--cream); overflow:hidden;
   background:radial-gradient(900px 300px at 50% -40%, rgba(255,255,255,.4),transparent 60%),

@@ -3,7 +3,7 @@
    that bayt. Saved notes show inline under the verse and can be edited or deleted.
    Notes are kept per matn on the device (localStorage 'asl-notes-<matn>') and are
    included in the Memorize-panel Back up / Restore, so they travel between devices. */
-import { currentPoem, esc, lsGet, lsSet } from '../page.ts';
+import { currentPoem, esc, lsGet, lsSet, verseNum, baytLabel, baytRef } from '../page.ts';
 
 const PENCIL = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>';
 const LIST_IC = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h11M4 12h11M4 18h7"/><path d="M18.5 15.5 20 17l3-3.2"/></svg>';
@@ -92,6 +92,7 @@ export function init(): void {
   if (!main || !navbar) return;
 
   const KEY = 'asl-notes-' + poem.id;
+  const POEM_ID = poem.id;
   const TS_KEY = 'asl-notes-ts-' + poem.id;
   const POEM_NAME = esc(poem.titleEn);
   let notes = readMap<string>(KEY);
@@ -109,7 +110,7 @@ export function init(): void {
   const noteBtn = new Map<number, HTMLButtonElement>();
   for (const v of main.querySelectorAll<HTMLElement>('.verse')) {
     const vn = v.querySelector('.vn'); if (!vn) continue;
-    const n = parseInt(vn.textContent || '', 10); if (isNaN(n)) continue;
+    const n = verseNum(vn); if (isNaN(n)) continue;
     if (!v.id) v.id = 'v' + n;
     byN.set(n, v);
     let row = v.querySelector(':scope > .verse-actions');
@@ -153,7 +154,7 @@ export function init(): void {
     const cur = notes[n] || '';
     const ov = document.createElement('div'); ov.className = 'noteov';
     ov.innerHTML = '<div class="notecard" role="dialog" aria-label="Note">'
-      + '<h3>Your note</h3><p class="notesub">Verse ' + n + ' · ' + POEM_NAME + '</p>'
+      + '<h3>Your note</h3><p class="notesub">' + esc(baytRef(POEM_ID, n)) + ' · ' + POEM_NAME + '</p>'
       + '<textarea class="notearea" dir="auto" placeholder="Write your note for this verse…"></textarea>'
       + '<div class="noteact">'
       + (cur ? '<button type="button" class="note-del">Delete</button>' : '')
@@ -245,7 +246,7 @@ export function init(): void {
     let html = '<div class="nthead"><span>Your notes</span><span>' + mine.length + '</span></div>';
     html += '<div class="ntsub">' + POEM_NAME + '</div>';
     for (const n of mine) {
-      html += '<button type="button" class="ntitem" data-n="' + n + '"><span class="ntn">' + n + '</span><span class="nttxt">' + esc(notes[n]) + '</span></button>';
+      html += '<button type="button" class="ntitem" data-n="' + n + '"><span class="ntn">' + baytLabel(POEM_ID, n) + '</span><span class="nttxt">' + esc(notes[n]) + '</span></button>';
     }
     ntPop.innerHTML = html;
   }

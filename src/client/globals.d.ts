@@ -59,7 +59,8 @@ export interface AslChapterJumpApi {
   /** Open the chapter list, anchored to an element (default: its own button). */
   open(anchor?: HTMLElement | null, opts?: Record<string, unknown>): void;
   close(): void;
-  chapters: { sec: HTMLElement; id: string; num: string; ar: string; hay: string }[];
+  /** `part`: the heading (escaped HTML) of the part (bāb) this chapter opens, '' when it opens none. */
+  chapters: { sec: HTMLElement; id: string; num: string; ar: string; part: string; hay: string }[];
   gotoBayt(n: number): void;
 }
 

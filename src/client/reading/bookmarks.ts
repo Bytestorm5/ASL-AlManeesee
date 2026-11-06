@@ -3,7 +3,7 @@
      device, so it survives closing the app).
    - A bookmark menu in the top bar lists saved verses; tapping one jumps to it.
    Lets readers easily return to where they left off. */
-import { currentPoem, esc, lsGet, lsSet } from '../page.ts';
+import { currentPoem, esc, lsGet, lsSet, verseNum, baytLabel, baytRef } from '../page.ts';
 
 const RIBBON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg>';
 
@@ -56,6 +56,7 @@ export function init(): void {
   if (!main || !navbar || !navInner) return;
 
   const KEY = 'asl-bm-' + poem.id;
+  const POEM_ID = poem.id;
   const POEM_NAME = esc(poem.titleEn);
   let saved = new Set<number>();
   const load = () => {
@@ -80,7 +81,7 @@ export function init(): void {
   for (const v of verses) {
     const vn = v.querySelector('.vn');
     if (!vn) continue;
-    const n = parseInt(vn.textContent || '', 10);
+    const n = verseNum(vn);
     if (isNaN(n)) continue;
     v.id = 'v' + n; v.dataset.n = String(n); byN.set(n, v);
     const on = saved.has(n);
@@ -136,7 +137,7 @@ export function init(): void {
     let html = '<div class="bmhead">Bookmarks</div><div class="bmsub">' + POEM_NAME + '</div>';
     for (const n of ns) {
       const v = byN.get(n);
-      html += '<button type="button" class="bmitem" data-n="' + n + '"><span class="bmn">' + n + '</span><span class="bmtxt">' + (v ? snippet(v) : ('Bayt ' + n)) + '</span></button>';
+      html += '<button type="button" class="bmitem" data-n="' + n + '"><span class="bmn">' + baytLabel(POEM_ID, n) + '</span><span class="bmtxt">' + (v ? snippet(v) : esc(baytRef(POEM_ID, n))) + '</span></button>';
     }
     html += '<button type="button" class="bmclear">Clear all bookmarks</button>';
     bmPop.innerHTML = html;

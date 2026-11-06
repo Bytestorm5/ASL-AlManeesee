@@ -7,7 +7,7 @@
      to that bayt — or, in Memorize mode, opens its chapter.
    Also keeps the home screen's study stats: the days a matn was opened
    ('asl-days') and the time spent reading ('asl-time'). */
-import { currentPoemId, lsGet, lsSet } from '../page.ts';
+import { currentPoemId, lsGet, lsSet, verseNum } from '../page.ts';
 
 const FLASH_CSS = '.lv-flash{animation:lvflash 2.2s ease-out}'
   + '@keyframes lvflash{0%,45%{background:rgba(86,166,221,.22);border-radius:12px}100%{background:transparent}}';
@@ -32,7 +32,7 @@ export function init(): void {
       if (r.bottom >= top && r.top < window.innerHeight) { best = m; break; }
       if (r.top >= window.innerHeight) break;
     }
-    return best ? parseInt(best.textContent || '', 10) : null;
+    return best ? verseNum(best) : null;
   }
   function save() {
     const n = firstVisibleN();

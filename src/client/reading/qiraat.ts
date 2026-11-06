@@ -9,7 +9,7 @@
    editor; it is read through the data loader (reading/data-loader.ts). */
 import type { PoemConfig, QxCard, QxExampleCard, QxReading, QxRuleCard, QxText } from '../../poems/types.ts';
 import { getSwitches } from '../api.ts';
-import { currentPoem, lsGet, lsSet } from '../page.ts';
+import { currentPoem, lsGet, lsSet, verseNum } from '../page.ts';
 import { fetchQiraat, fetchQiraatIndex } from './data-loader.ts';
 
 type Lang = 'ar' | 'en' | 'ur';
@@ -296,7 +296,7 @@ function attachButtons(
   document.querySelectorAll<HTMLElement>('#main .verse').forEach((v) => {
     const vn = v.querySelector('.vn');
     if (!vn) return;
-    const n = (vn.textContent || '').trim();
+    const n = String(verseNum(vn));
     if (!hasExample.has(parseInt(n, 10))) return;
     // Accuracy gate: only surface a panel the admin has switched on (the
     // explanation switch for this bayt, set in the content editor). Anything

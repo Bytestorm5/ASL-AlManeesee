@@ -421,6 +421,13 @@ export function validatePoemDoc(doc: unknown): string[] {
     for (const f of ['en', 'tr', 'desc', 'note']) {
       if (ch[f] != null && typeof ch[f] !== 'string') problems.push(`chapter ${i + 1}: ${f} must be a string`);
     }
+    if (ch.part != null) {
+      const pt = ch.part;
+      if (!isObj(pt) || typeof pt.ar !== 'string' || !pt.ar.trim()) problems.push(`chapter ${i + 1}: part must be {ar, en?, tr?}`);
+      else for (const f of ['en', 'tr']) {
+        if (pt[f] != null && typeof pt[f] !== 'string') problems.push(`chapter ${i + 1}: part.${f} must be a string`);
+      }
+    }
   });
   const verses = versesOf(doc.chapters);
   const expected = getPoem(id)?.verses;

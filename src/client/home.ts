@@ -7,7 +7,7 @@
    in localStorage, so it is all per device. With no matn listed yet the page
    shows its "being prepared" card instead, and none of this has anything to
    draw. */
-import { esc, listedPoems, lsJSON, poemHref } from './page.ts';
+import { baytLabel, baytRef, esc, listedPoems, lsJSON, poemHref } from './page.ts';
 
 interface MatnMeta { en: string; cls: string }
 /** asl-mz-prog-<id>, written by memorize mode. s: 1 = learning, 2 = memorized. */
@@ -159,9 +159,9 @@ function bookmarksCard(META: Record<string, MatnMeta>): void {
     a.className = 'bm-row ' + meta.cls;
     a.href = poemHref(m.poem, { mode: 'read', goto: m.n });
     a.innerHTML = '<span class="bm-dot"></span><span class="bm-body">' +
-      '<span class="bm-t"><b>' + esc(meta.en) + '</b> · Bayt ' + m.n + '</span>' +
+      '<span class="bm-t"><b>' + esc(meta.en) + '</b> · Bayt ' + baytLabel(m.poem, m.n) + '</span>' +
       (ch ? '<span class="bm-ch">' + esc(ch) + '</span>' : '') +
-      '</span><span class="bm-n">' + m.n + '</span>';
+      '</span><span class="bm-n">' + baytLabel(m.poem, m.n) + '</span>';
     return a;
   }
   const head = card.querySelector<HTMLButtonElement>('.bm-head')!;
@@ -200,7 +200,7 @@ function continueCard(META: Record<string, MatnMeta>): void {
   a.href = poemHref(rec.poem, { mode: mz ? 'memorize' : 'read', goto: n });
   a.innerHTML = '<span class="cc-emblem" role="img" aria-hidden="true"></span>' +
     '<span class="cc-body"><span class="cc-lbl">Continue ' + (mz ? 'memorizing' : 'reading') + '</span>' +
-    '<span class="cc-main">' + esc(m.en.replace(/^The /, '')) + ' · Bayt ' + n + '</span></span>' +
+    '<span class="cc-main">' + esc(m.en.replace(/^The /, '')) + ' · ' + esc(baytRef(rec.poem, n)) + '</span></span>' +
     '<span class="cc-go">Resume</span>';
   document.getElementById('contWrap')?.appendChild(a);
 }

@@ -9,7 +9,7 @@
    ḥifẓ. Self-contained. */
 import type { AudioManifest, AudioReciter } from '../../poems/types.ts';
 import { getAudioManifest } from '../api.ts';
-import { currentPoem, currentPoemId, esc, lsGet, lsSet } from '../page.ts';
+import { currentPoem, currentPoemId, esc, lsGet, lsSet, verseNum, baytRef } from '../page.ts';
 
 // Normalise a manifest into a list of reciters: { id, name, abyat[], urls }.
 // urls maps bayt → the same-origin URL of the newest recording; a bayt is
@@ -390,7 +390,7 @@ function start(main: HTMLElement, poem: string, reciters: AudioReciter[]): void 
     verseByN = {};
     main.querySelectorAll<HTMLElement>('.verse').forEach((v) => {
       const vn = v.querySelector('.vn');
-      const n = vn ? parseInt((vn.textContent || '').trim(), 10) : NaN;
+      const n = vn ? verseNum(vn) : NaN;
       if (n && SET[n]) verseByN[n] = v;
     });
     // Chapter map: for each chapter that has any recorded abyāt, record its
@@ -399,7 +399,7 @@ function start(main: HTMLElement, poem: string, reciters: AudioReciter[]): void 
     chapters = [];
     main.querySelectorAll('section.chapter').forEach((sec) => {
       const nums = [...sec.querySelectorAll('.verse .vn')]
-        .map((v) => parseInt((v.textContent || '').trim(), 10))
+        .map((v) => verseNum(v))
         .filter((n) => n && SET[n]);
       if (!nums.length) return;
       const arEl = sec.querySelector('.ch-ar');
@@ -508,7 +508,7 @@ function start(main: HTMLElement, poem: string, reciters: AudioReciter[]): void 
     const hasChapters = chapters.length > 0;
     if (!hasChapters) mode = 'bayt';
     const ov = document.createElement('div'); ov.className = 'audov';
-    const baytOpts = () => available.map((n) => '<option value="' + n + '">Bayt ' + n + '</option>').join('');
+    const baytOpts = () => available.map((n) => '<option value="' + n + '">' + esc(baytRef(currentPoemId(), n)) + '</option>').join('');
     const chapOpts = () => chapters.map((c) => '<option value="' + c.num + '">' + esc(c.ar || ('Chapter ' + c.num)) + '</option>').join('');
     const opts = baytOpts();
     const chOpts = chapOpts();
@@ -771,7 +771,7 @@ function start(main: HTMLElement, poem: string, reciters: AudioReciter[]): void 
   function updateBar(reciting: boolean): void {
     if (!session || !barTitle || !barSub) return;
     const n = session.q[session.i];
-    barTitle.textContent = 'Bayt ' + n + (reciting ? ' — your turn' : '');
+    barTitle.textContent = (n !== undefined ? baytRef(currentPoemId(), n) : '') + (reciting ? ' — your turn' : '');
     const parts: string[] = [];
     if (session.each !== 1) parts.push('×' + (session.eachDone + 1) + '/' + stepLabel(session.each));
     if (session.q.length > 1) parts.push('bayt ' + (session.i + 1) + '/' + session.q.length);

@@ -21,7 +21,7 @@
 import { siteHost } from '../../config/site.ts';
 import type { Chapter, PoemConfig, Verse, VerseVariant, WordCell } from '../../poems/types.ts';
 import { audioSetId } from '../../poems/index.ts';
-import { esc, lsGet, lsSet } from '../page.ts';
+import { baytRef, currentPoemId, esc, lsGet, lsSet, verseNum } from '../page.ts';
 import { BTN as EXP_BTN, card as expCardFor, langsOf as expLangs } from './explanation.ts';
 import { arInUrdu } from './urdu-face.ts';
 
@@ -138,7 +138,27 @@ export function renderPoem(p: PoemConfig): boolean {
   /* ── contents and pills ── */
   const tocGrid = document.getElementById('tocGrid');
   const pills = document.getElementById('pills');
+  /* Parts (abwāb): consecutive chapters sharing a part share one heading, in
+     the contents and above the chapters. */
+  const partStarts = new Map<number, { k: number; part: NonNullable<Chapter['part']> }>();
+  { let prev = '', k = 0;
+    for (const ch of CH) {
+      const key = ch.part ? ch.part.ar + '|' + (ch.part.en ?? '') : '';
+      if (ch.part && key !== prev) partStarts.set(ch.i, { k: ++k, part: ch.part });
+      prev = key;
+    } }
+  const partCount = partStarts.size;
+  const chLabel = p.chapterLabel || 'Chapter';
   for (const ch of CH) {
+    const ps = partStarts.get(ch.i);
+    if (tocGrid && ps) {
+      const h = document.createElement('div');
+      h.className = 'toc-part'; h.id = 'toc-part-' + ps.k;
+      h.innerHTML = `<span class="tp-n">Part ${ps.k} of ${partCount}</span>
+        <span class="tp-ar" dir="rtl" lang="ar">${ps.part.ar}</span>
+        ${ps.part.en ? `<span class="tp-en">${ps.part.en}</span>` : ''}`;
+      tocGrid.appendChild(h);
+    }
     if (tocGrid) {
       const a = document.createElement('a');
       a.className = 'toc-card'; a.href = '#ch' + ch.i;
@@ -173,7 +193,26 @@ export function renderPoem(p: PoemConfig): boolean {
   const pad2 = (n: number) => String(n).padStart(2, '0');
   const lazy: { sec: HTMLElement; verses: Verse[]; done?: boolean }[] = [];
 
+  let inPart: { k: number; first: number; count: number } | null = null;
   for (const ch of CH) {
+    const ps = partStarts.get(ch.i);
+    if (ps) {
+      const ph = document.createElement('div');
+      ph.className = 'part-head'; ph.id = 'part' + ps.k;
+      ph.innerHTML = `<div class="ph-n">Part ${ps.k} of ${partCount}</div>
+        <div class="ph-ar" dir="rtl" lang="ar">${ps.part.ar}</div>
+        ${ps.part.en ? `<div class="ph-en">${ps.part.en}</div>` : ''}
+        ${ps.part.tr ? `<div class="ph-tr">${ps.part.tr}</div>` : ''}`;
+      main.appendChild(ph);
+      // the chapters this part holds: from here to the next part, or to a chapter with none
+      let count = 0;
+      for (const c of CH) {
+        if (c.i < ch.i) continue;
+        if (c.i > ch.i && (partStarts.has(c.i) || !c.part)) break;
+        count++;
+      }
+      inPart = { k: ps.k, first: ch.i, count };
+    } else if (!ch.part) inPart = null;
     const sec = document.createElement('section');
     sec.className = 'chapter'; sec.id = 'ch' + ch.i;
     /* Let the browser skip layout and paint for chapters nowhere near the
@@ -185,7 +224,9 @@ export function renderPoem(p: PoemConfig): boolean {
       : '';
     let inner = `<div class="ch-head">
         <span class="ch-medallion" role="img" aria-label="al-Asl emblem"></span>
-        <div class="ch-eyebrow">Chapter ${ch.i} of ${CH.length} (Abyāt ${ch.verses.length})</div>
+        <div class="ch-eyebrow">${inPart && ch.part
+          ? `Part ${inPart.k} · ${esc(chLabel)} ${ch.i - inPart.first + 1} of ${inPart.count}`
+          : `${esc(chLabel)} ${ch.i} of ${CH.length}`} (Abyāt ${ch.verses.length})</div>
         <div class="ch-ar">${ch.ar}</div>
         ${ch.en ? `<div class="ch-en">${ch.en}</div>` : ''}
         ${ch.tr ? `<div class="ch-tr">${ch.tr}</div>` : ''}
@@ -195,8 +236,9 @@ export function renderPoem(p: PoemConfig): boolean {
     // chapter-level explanatory note (memory-aid chapters, orthography lists, …)
     if (ch.note) inner += `<div class="note"><span class="ic">❧</span><span>${ch.note}</span></div>`;
     inner += '<div class="verses">';
-    for (const v of ch.verses) {
-      const med = `<span class="medallion"><span class="vn">${v.n}</span></span>`;
+    const perChapter = p.numbering === 'per-chapter';
+    for (const [k, v] of ch.verses.entries()) {
+      const med = `<span class="medallion"><span class="vn" data-n="${v.n}">${perChapter ? k + 1 : v.n}</span></span>`;
       const expBtn = expLangs(v).length ? EXP_BTN : '';
       let trBlock: string;
       const kindLabel = v.kind ? p.kindLabels?.[v.kind] ?? '' : '';
@@ -296,8 +338,8 @@ function wireCopyButtons(p: PoemConfig): void {
     const parts = [[sadr, ajuz].filter(Boolean).join('\n')];
     const tr = [trans(v.querySelector('.translation')), trans(v.querySelector('.translation-ur'))].filter(Boolean).join('\n');
     if (tr) parts.push(tr);
-    const n = norm(v.querySelector('.vn')?.textContent);
-    parts.push('— ' + p.titleEn + (n ? ' · bayt ' + n : '') + ' · ' + siteHost());
+    const n = verseNum(v.querySelector('.vn'));
+    parts.push('— ' + p.titleEn + (n ? ' · ' + baytRef(p.id, n).replace(/^Bayt/, 'bayt') : '') + ' · ' + siteHost());
     return parts.join('\n\n');
   };
   const copy = async (t: string) => {
@@ -346,7 +388,7 @@ function wireEditions(ed: Editions): void {
   if (!ns.length) return;
   const byN: Record<string, Element> = {};
   for (const v of document.querySelectorAll('#main .verse')) {
-    const vn = v.querySelector('.vn'); if (vn) byN[(vn.textContent || '').trim()] = v;
+    const vn = v.querySelector('.vn'); if (vn) byN[String(verseNum(vn))] = v;
   }
   const strip = (s: string | undefined) => esc(String(s ?? '').replace(/<[^>]*>/g, ''));
   const textFor = (k: number, n: string) => {
@@ -372,7 +414,7 @@ function wireEditions(ed: Editions): void {
     const switches = names.map((nm, ix) => (ed.active === ix + 1 ? ''
       : `<button type="button" class="nk-switch" data-nk="${ix + 1}">Read in ${esc(nm)}</button>`)).join('');
     el.innerHTML = `<div class="nkcard" role="dialog" aria-modal="true" aria-label="Compare nuskhas">
-      <h3>Bayt ${esc(n)} — the nuskhas</h3>${panels}
+      <h3>${esc(baytRef(currentPoemId(), Number(n)))} — the nuskhas</h3>${panels}
       <p class="nk-note">The recitation follows ${esc(names[ed.audioNuskha - 1] ?? names[0])} in this bayt.</p>
       ${switches}
       <button type="button" class="nk-cancel">Close</button></div>`;

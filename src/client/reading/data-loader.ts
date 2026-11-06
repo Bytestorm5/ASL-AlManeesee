@@ -21,7 +21,7 @@ import type { AslPoemContext } from '../globals.d.ts';
 import { getManifest, getPoemDoc, getQiraat, getQiraatIndex } from '../api.ts';
 import type { Chapter, Manifest, Verse } from '../../poems/types.ts';
 import { versesOf } from '../../shared/poem-data.ts';
-import { lsGet, lsSet } from '../page.ts';
+import { lsGet, lsSet, verseNum } from '../page.ts';
 import { hemiHTML } from './render.ts';
 
 /* An edit should reach a reader with the page open, or an app opened from
@@ -73,7 +73,7 @@ export function applyUpdate(oldChapters: Chapter[], newChapters: Chapter[], opts
     const v = newBy[n]!;
     let el: HTMLElement | null = null;
     for (const vn of document.querySelectorAll('.verse .medallion .vn')) {
-      if ((vn.textContent || '').trim() === String(n)) { el = vn.closest('.verse'); break; }
+      if (verseNum(vn) === Number(n)) { el = vn.closest('.verse'); break; }
     }
     if (!el) continue;
     const sadr = el.querySelector<HTMLElement>('.hemi.sadr'), ajuz = el.querySelector<HTMLElement>('.hemi.ajuz');

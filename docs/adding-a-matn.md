@@ -25,6 +25,12 @@ Add an entry to `src/poems/registry.ts`. The fields are documented on
 }
 ```
 
+A book that collects several poems is still one matn: each poem is a
+chapter, `chapterLabel: 'Poem'` names them so, `numbering: 'per-chapter'`
+starts every poem's abyāt at 1 (the stored `n` keeps running through the
+book and stays each bayt's identity), and a chapter's `part: {ar, en}` puts
+consecutive poems under one part (bāb) heading.
+
 Optional features switch on per matn: `explanations` (with `by` for the
 attribution and `defaultOn` when the commentary is already checked),
 `nuskhas` (two or more editions — the wording of edition 2+ goes in the

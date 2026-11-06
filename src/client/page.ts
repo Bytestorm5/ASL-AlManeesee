@@ -63,3 +63,46 @@ export function isAppMode(): boolean {
   } catch { /* ignore */ }
   return app;
 }
+
+/* ── bayt numbers ────────────────────────────────────────────────────────
+   A bayt's stored number `n` is its identity: bookmarks, notes, memorization,
+   recordings and the content switches all key on it. The medallion carries it
+   in data-n; what it SHOWS is the label below, which for a matn numbered
+   per chapter (PoemConfig.numbering) restarts at 1 in every chapter. Read the
+   number with verseNum(), never from the medallion's text. */
+
+/** The bayt a medallion (.vn) stands for, NaN when there is none. */
+export function verseNum(vn: Element | null | undefined): number {
+  if (!vn) return NaN;
+  return parseInt((vn.getAttribute('data-n') ?? vn.textContent ?? '').trim(), 10);
+}
+
+/** First bayt and Arabic title of each chapter, in order: from the verse data
+    on the matn's own page, otherwise from the index render.ts leaves in
+    storage (asl-chidx-<id>) for pages that have no verse data. */
+function chapterStarts(id: string): [number, string][] {
+  const ch = currentPoemId() === id && Array.isArray(window.ASL_CH) ? window.ASL_CH : null;
+  if (ch) return ch.filter((c) => c.verses[0]).map((c) => [c.verses[0]!.n, c.ar]);
+  const idx = lsJSON<[number, string][]>('asl-chidx-' + id);
+  return Array.isArray(idx) ? idx : [];
+}
+
+function locate(id: string | null, n: number): { k: number; ar: string } | null {
+  const p = getPoem(id);
+  if (!id || !p || p.numbering !== 'per-chapter' || !Number.isFinite(n)) return null;
+  let hit: [number, string] | undefined;
+  for (const s of chapterStarts(id)) { if (s[0] <= n) hit = s; else break; }
+  return hit ? { k: n - hit[0] + 1, ar: hit[1] } : null;
+}
+
+/** The number a reader sees for bayt n: n itself, or its place in its chapter. */
+export function baytLabel(id: string | null, n: number): string {
+  const at = locate(id, n);
+  return String(at ? at.k : n);
+}
+
+/** "Bayt 12", or "Bayt 3 · <chapter>" when numbering restarts per chapter (plain text). */
+export function baytRef(id: string | null, n: number): string {
+  const at = locate(id, n);
+  return at ? 'Bayt ' + at.k + ' · ' + at.ar.replace(/<[^>]*>/g, '') : 'Bayt ' + n;
+}

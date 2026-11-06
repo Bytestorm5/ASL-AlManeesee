@@ -71,6 +71,9 @@ try {
 
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  /* The walkthrough auto-plays 800 ms into a first visit and covers the page;
+     whether a click lands before or after it is a race, not a result. */
+  await page.addInitScript(() => { try { localStorage.setItem('asl-tour', '1'); localStorage.setItem('asl-home-tour', '1'); } catch { /* ignore */ } });
 
   // ── the reading page ──
   let problems = await open(page, '/example');

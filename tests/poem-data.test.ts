@@ -110,3 +110,20 @@ describe('qirāʾāt cards', () => {
     expect(r.problems.join()).toMatch(/only <b> is allowed/);
   });
 });
+
+describe('chapter parts', () => {
+  const doc = (part: unknown) => ({
+    id: 'example', version: 1, updatedAt: null,
+    chapters: [{ i: 1, ar: 'أ', part, verses: [] }],
+  });
+  const partProblems = (part: unknown) => validatePoemDoc(doc(part)).filter((x) => x.includes('part'));
+  it('accepts a part with an Arabic title and optional English', () => {
+    expect(partProblems({ ar: 'بَابٌ فِي الْقِرَاءَاتِ', en: 'On the Qirāʾāt' })).toEqual([]);
+    expect(partProblems(undefined)).toEqual([]);
+  });
+  it('refuses a malformed part', () => {
+    expect(partProblems('بَاب')).not.toEqual([]);
+    expect(partProblems({ en: 'no Arabic' })).not.toEqual([]);
+    expect(partProblems({ ar: 'ب', en: 5 })).not.toEqual([]);
+  });
+});
