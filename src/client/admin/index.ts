@@ -1,4 +1,4 @@
-/* The admin index (/admin): which storage this copy of the site writes to,
+/* The admin index (/not-an-admin): which storage this copy of the site writes to,
    and what is stored right now. Runs as the page's module script. */
 import { ALL_POEMS } from '../../poems/index.ts';
 import { siteHost } from '../../config/site.ts';
@@ -50,7 +50,7 @@ const unreadable = '<div class="msg">The manifest could not be read.</div>';
 if (!ALL_POEMS.length) {
   stored.innerHTML = '<div class="msg">No matn is registered yet. To add one, give it an entry in '
     + '<code>src/poems/registry.ts</code> (its id, titles and number of abyāt) and deploy; then bring its '
-    + 'text in with <a href="/admin/import">Import a matn</a>.</div>';
+    + 'text in with <a href="/not-an-admin/import">Import a matn</a>.</div>';
 } else {
   getManifest()
     .then((m) => {

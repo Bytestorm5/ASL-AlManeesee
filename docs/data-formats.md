@@ -1,6 +1,6 @@
 # Bulk data formats
 
-The Bulk Loader (`/admin/loader`, or `node scripts/load.ts` in a terminal)
+The Bulk Loader (`/not-an-admin/loader`, or `node scripts/load.ts` in a terminal)
 puts three kinds of content into a matn that is already stored. It reads each
 from a JSON file you choose; nothing is bundled with the site. This page is
 the reference for those files.

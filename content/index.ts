@@ -3,7 +3,7 @@
    Until a registered matn has a copy stored in R2, the worker stores the one
    here the first time the matn is asked for, so a matn added with a file in
    content/ is readable as soon as it is deployed, with no import step. After
-   that the stored copy is the live one, edited in /admin, and this file is
+   that the stored copy is the live one, edited in /not-an-admin, and this file is
    not read again (the write is create-only: it can never replace a stored
    copy). Like fixtures/ for the dev fixture, this folder is content, so it
    may name the mutūn it holds. */

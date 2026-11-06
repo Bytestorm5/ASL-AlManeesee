@@ -63,7 +63,7 @@ export function explanationBayts(p: PoemConfig): number[] {
    Checked by the unit tests (tests/registry.test.ts), so a bad entry fails CI
    rather than producing a page that collides with a route. */
 export const RESERVED_IDS = new Set([
-  'admin', 'api', 'media', 'guide', 'privacy', 'fonts', 'brand', 'pdf', 'index',
+  'admin', 'not-an-admin', 'api', 'media', 'guide', 'privacy', 'fonts', 'brand', 'pdf', 'index',
   'sw', 'manifest', 'robots', 'sitemap', '404', '_astro', 'offline', 'audio',
 ]);
 export function registryProblems(list: readonly PoemConfig[] = ALL_POEMS): string[] {

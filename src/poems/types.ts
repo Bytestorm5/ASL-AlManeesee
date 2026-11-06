@@ -4,7 +4,7 @@
    The split is deliberate. Registering a matn is a code change — it declares
    the URL, the verse count every upload is checked against, and which reading
    features the page switches on. The text itself is content: imported once
-   through /admin/import, then edited in the Bayt and Content editors, with no
+   through /not-an-admin/import, then edited in the Bayt and Content editors, with no
    deploy in between. */
 
 /** The six accents of the arctic palette, defined in src/styles/tokens.css

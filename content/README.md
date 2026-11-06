@@ -5,7 +5,7 @@ The first import of each matn, bundled into the worker. A matn listed in
 first time the API is asked for it (`src/worker/seed.ts`), so its text is
 live on the deploy that adds it. The write is create-only: once a copy is
 stored in R2 (`data/poem/<id>.json`) that copy is the live text, edited in
-`/admin`, and the file here is not updated. It is a starting point, not the
+`/not-an-admin`, and the file here is not updated. It is a starting point, not the
 current version.
 
 | File | Matn | Source |
@@ -19,4 +19,4 @@ To store one on a site (it is checked first, and nothing is sent without
 ASL_PASSWORD=… node scripts/import.ts --file content/zad-al-huffaz.json --write
 ```
 
-Or load the file at `/admin/import`, which accepts a finished `.json`.
+Or load the file at `/not-an-admin/import`, which accepts a finished `.json`.

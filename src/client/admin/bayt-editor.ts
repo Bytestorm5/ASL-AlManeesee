@@ -1,4 +1,4 @@
-/* The Bayt Editor (/admin/editor): edit one bayt at a time — its hemistichs,
+/* The Bayt Editor (/not-an-admin/editor): edit one bayt at a time — its hemistichs,
    the word cells the reading page renders them from, the word meanings and
    the translations — with a Word-style toolbar for colours, ḥarakāt, small
    (ṣaghīra) letters and above-word rumūz. Save publishes straight to the live
@@ -90,7 +90,7 @@ function main(): void {
     el.textContent = SOURCE === 'store'
       ? `Editing the live ${name} copy (v${POEM_VERSION}) — Save publishes straight to the app.`
       : SOURCE === 'missing'
-        ? `${name} is registered but its text has not been imported yet. Import it at /admin/import first — until then there is nothing to edit.`
+        ? `${name} is registered but its text has not been imported yet. Import it at /not-an-admin/import first — until then there is nothing to edit.`
         : `${name} could not be loaded from storage. Saving is off — reload once you are online.`;
     el.style.color = SOURCE === 'store' ? 'var(--ok)' : 'var(--warn)';
     syncButtons();
@@ -838,7 +838,7 @@ function main(): void {
     if (SOURCE !== 'store') {
       m.className = 'msg err';
       m.textContent = SOURCE === 'missing'
-        ? `${nameOf(POEM)} has not been imported yet, so there is nothing to save to. Import it at /admin/import first.`
+        ? `${nameOf(POEM)} has not been imported yet, so there is nothing to save to. Import it at /not-an-admin/import first.`
         : `${nameOf(POEM)} could not be loaded from storage, so saving is off. Reload the page once you are online.`;
       return;
     }

@@ -1,4 +1,4 @@
-/* The Content Editor (/admin/content) — everything that sits under a bayt:
+/* The Content Editor (/not-an-admin/content) — everything that sits under a bayt:
    its English and Urdu translations, its explanation, and (for a matn that has
    them) its qirāʾāt cards, each with the per-bayt switch that shows or hides it
    on the reading page. The verse text itself is edited in the Bayt Editor.
@@ -122,7 +122,7 @@ function main(): void {
       doc = await getPoemDoc(POEM);
     } catch (e) {
       if (e instanceof ApiError && e.status === 404)
-        throw new Error(`${nameOf(POEM)} is not stored yet — import its text at /admin/import first.`);
+        throw new Error(`${nameOf(POEM)} is not stored yet — import its text at /not-an-admin/import first.`);
       if (e instanceof ApiError) throw new Error(`${nameOf(POEM)} could not be read from storage (HTTP ${e.status}).`);
       throw e;
     }

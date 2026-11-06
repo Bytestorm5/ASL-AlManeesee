@@ -15,10 +15,11 @@ import { readdir, readFile, writeFile } from 'node:fs/promises';
 import { join, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { build } from 'esbuild';
-import { SITE } from '../src/config/site.ts';
+import { ADMIN_PATH, SITE } from '../src/config/site.ts';
 import { ALL_POEMS, POEMS } from '../src/poems/index.ts';
 
 const NOINDEX = '  X-Robots-Tag: noindex, nofollow';
+const NOREFERRER = '  ! Referrer-Policy\n  Referrer-Policy: no-referrer';
 
 async function walk(dir: string): Promise<string[]> {
   const out: string[] = [];
@@ -46,9 +47,12 @@ function headersFile(): string {
     '/sw.js\n  Cache-Control: no-cache',
     // The editing and upload tools must stay out of search. Not Disallowed in
     // robots.txt: a disallowed URL is never fetched, so the crawler would never
-    // read this header and could still list the bare address.
-    `/admin\n${NOINDEX}`,
-    `/admin/*\n${NOINDEX}`,
+    // read this header and could still list the bare address — and a robots.txt
+    // line would advertise a path that is meant to be found only by those who
+    // know it. no-referrer keeps the address out of the Referer of any request
+    // the tools make.
+    `${ADMIN_PATH}\n${NOINDEX}\n${NOREFERRER}`,
+    `${ADMIN_PATH}/*\n${NOINDEX}\n${NOREFERRER}`,
     `/*.md\n${NOINDEX}`,
     `https://:subdomain.workers.dev/*\n${NOINDEX}`,
     `https://:version.:subdomain.workers.dev/*\n${NOINDEX}`,
@@ -69,7 +73,7 @@ function redirectsFile(): string {
    load, the fonts and icons. Not the admin tools (edited and reloaded — one
    launch stale there is a real confusion), not drafts, not the PDFs. */
 function precacheable(url: string): boolean {
-  if (url === '/sw.js' || url.startsWith('/admin') || url.startsWith('/pdf/') || url === '/404') return false;
+  if (url === '/sw.js' || url.startsWith(ADMIN_PATH) || url.startsWith('/pdf/') || url === '/404') return false;
   if (/^\/_(headers|redirects)$/.test(url) || /\.(md|map|txt|xml)$/.test(url)) return false;
   if (url.endsWith('.json') && !url.endsWith('.webmanifest')) return false;
   const drafts = new Set(ALL_POEMS.filter((p) => p.draft).map((p) => '/' + p.id));

@@ -14,6 +14,7 @@ import { mkdtemp, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { chromium, type Page } from 'playwright';
+import { ADMIN_PATH } from '../src/config/site.ts';
 
 const PORT = Number(process.env.E2E_PORT || 8790);
 const ORIGIN = `http://127.0.0.1:${PORT}`;
@@ -96,14 +97,26 @@ try {
   }
 
   // ── the admin tools load, and the password gate accepts the password ──
-  for (const url of ['/admin', '/admin/editor', '/admin/content', '/admin/import', '/admin/recordings', '/admin/upload', '/admin/loader', '/admin/orthography']) {
+  const TOOLS = ['', '/editor', '/content', '/import', '/recordings', '/upload', '/loader', '/orthography'];
+  for (const url of TOOLS.map((t) => ADMIN_PATH + t)) {
     problems = await open(page, url);
     check(problems.length === 0, `${url} loads cleanly ${problems.join(' | ')}`);
   }
 
-  // ── headers ──
-  const head = await fetch(`${ORIGIN}/admin/editor`);
-  check(head.headers.get('x-robots-tag')?.includes('noindex'), '/admin pages are served noindex');
+  // ── …and stay out of sight: not at the guessable address, not indexed or
+  //    followed, not sent as a referrer, never named on a public page ──
+  for (const t of ['', '/editor']) {
+    check((await fetch(`${ORIGIN}/admin${t}`)).status === 404, `/admin${t} is not served`);
+  }
+  for (const t of TOOLS) {
+    const h = await fetch(`${ORIGIN}${ADMIN_PATH}${t}`);
+    check((h.headers.get('x-robots-tag') ?? '').includes('noindex, nofollow')
+      && h.headers.get('referrer-policy') === 'no-referrer', `${ADMIN_PATH}${t} is served noindex, nofollow, no-referrer`);
+  }
+  const publicPages = ['/', '/guide', '/privacy', '/robots.txt', '/sitemap.xml', '/manifest.webmanifest', '/sw.js'];
+  const named = [];
+  for (const u of publicPages) if ((await (await fetch(ORIGIN + u)).text()).includes(ADMIN_PATH)) named.push(u);
+  check(named.length === 0, `no public page names the admin path ${named.join(' ')}`);
   const sw = await fetch(`${ORIGIN}/sw.js`);
   check(sw.ok && (await sw.text()).includes('asl-shell-'), 'the service worker is built');
 

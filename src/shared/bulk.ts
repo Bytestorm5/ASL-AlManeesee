@@ -1,4 +1,4 @@
-/* The Bulk Loader's rules, shared by the admin page (/admin/loader,
+/* The Bulk Loader's rules, shared by the admin page (/not-an-admin/loader,
    src/client/admin/loader.ts) and its terminal twin (scripts/load.ts):
 
      · reading the three JSON formats an admin can load — explanations, word

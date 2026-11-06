@@ -9,7 +9,7 @@ import type { PoemConfig } from './types.ts';
         all follow from it.
      2. Give it its text: either a file in content/ (listed in
         content/index.ts), which the worker stores the first time the matn is
-        asked for, or an import at /admin/import after deploying. Until one
+        asked for, or an import at /not-an-admin/import after deploying. Until one
         of them happens the page shows "the text could not be loaded".
 
    Set `draft: true` to proof a new matn on the live site before listing it.

@@ -1,8 +1,9 @@
 ---
-/* Recitation Manager (/admin/recordings): browse, listen to and delete the
+/* Recitation Manager (/not-an-admin/recordings): browse, listen to and delete the
    uploaded recordings, edit the reciter list, and bulk-upload a ZIP of a
    reciter's abyāt. The three are tabs, so only one list is ever on screen. */
 import AdminLayout from '../../layouts/AdminLayout.astro';
+import { ADMIN_PATH as ADMIN } from '../../config/site.ts';
 ---
 <AdminLayout title="Recitation Manager" back>
 <div class="card">

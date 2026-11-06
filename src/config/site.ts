@@ -6,6 +6,14 @@
    Per-matn details (titles, author, accent colour, which features it uses)
    live in src/poems/registry.ts instead. */
 
+/** Where the editing tools live (src/pages/not-an-admin/). Deliberately not
+    /not-an-admin, so the tools are not found by guessing, and never linked from a
+    public page; they are served noindex, nofollow and no-referrer
+    (integrations/site-output.ts) and kept out of robots.txt and the sitemap,
+    since listing them there would only advertise the address. Renaming the
+    tools means renaming that folder and this together. */
+export const ADMIN_PATH = '/not-an-admin';
+
 export const SITE = {
   /** Public origin, no trailing slash. Canonical URLs, sitemap, share text.
       Can be overridden at build time with SITE_URL (e.g. for a staging host). */

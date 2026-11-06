@@ -1,7 +1,8 @@
 ---
-/* The admin index (/admin): every tool that edits the collection, which
+/* The admin index (/not-an-admin): every tool that edits the collection, which
    storage this copy of the site writes to, and what is stored right now. */
 import AdminLayout from '../../layouts/AdminLayout.astro';
+import { ADMIN_PATH as ADMIN } from '../../config/site.ts';
 import { SITE } from '../../config/site.ts';
 
 const collection = SITE.collection.en.replace(/^The /, 'the ');
@@ -14,27 +15,27 @@ const collection = SITE.collection.en.replace(/^The /, 'the ');
 
   <h2>The text</h2>
   <div class="tools">
-    <a class="tool" href="/admin/editor">
+    <a class="tool" rel="nofollow" href={`${ADMIN}/editor`}>
       <div class="t"><span class="ic">✎</span>Bayt Editor</div>
       <div class="d">Edit any bayt, its word-by-word meanings and its translation, with a toolbar for colours, ḥarakāt, ṣaghīra letters and rumūz. Saving publishes to the live app.</div>
       <span class="k">Password</span>
     </a>
-    <a class="tool" href="/admin/import">
+    <a class="tool" rel="nofollow" href={`${ADMIN}/import`}>
       <div class="t"><span class="ic">⤓</span>Import a matn</div>
       <div class="d">Drop a Word file, check what was read out of it, then store it as a new matn.</div>
       <span class="k">Password</span>
     </a>
-    <a class="tool" href="/admin/content">
+    <a class="tool" rel="nofollow" href={`${ADMIN}/content`}>
       <div class="t"><span class="ic">❧</span>Content Editor</div>
       <div class="d">Translations, explanations and qirāʾāt cards for any matn — write or correct them, and switch each one on or off for readers.</div>
       <span class="k">Password</span>
     </a>
-    <a class="tool" href="/admin/loader">
+    <a class="tool" rel="nofollow" href={`${ADMIN}/loader`}>
       <div class="t"><span class="ic">✦</span>Bulk Loader</div>
       <div class="d">Explanations, word meanings and translations, written out for a whole matn — read bayt by bayt, then put into place in one go.</div>
       <span class="k">Password</span>
     </a>
-    <a class="tool" href="/admin/orthography">
+    <a class="tool" rel="nofollow" href={`${ADMIN}/orthography`}>
       <div class="t"><span class="ic">◌ۡ</span>Orthography</div>
       <div class="d">Brings a matn to the way the collection writes Arabic (today: the sukūn as <span class="mark">◌ۡ</span>). Shows every change before it saves one, and what the verses say does not change.</div>
       <span class="k">Password</span>
@@ -43,12 +44,12 @@ const collection = SITE.collection.en.replace(/^The /, 'the ');
 
   <h2>The recitations</h2>
   <div class="tools">
-    <a class="tool" href="/admin/upload">
+    <a class="tool" rel="nofollow" href={`${ADMIN}/upload`}>
       <div class="t"><span class="ic">🎙</span>Reciter Upload</div>
       <div class="d">Upload or record a recitation for a single bayt. It is live in the reader within about a minute, and can be removed in the Recitation Manager.</div>
       <span class="k">Password</span>
     </a>
-    <a class="tool" href="/admin/recordings">
+    <a class="tool" rel="nofollow" href={`${ADMIN}/recordings`}>
       <div class="t"><span class="ic">🗂</span>Recitation Manager</div>
       <div class="d">Browse, listen to and delete uploaded recordings, and manage the reciter list.</div>
       <span class="k">Password</span>

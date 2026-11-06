@@ -115,6 +115,6 @@ matn). What changed, for anyone who knew that codebase:
   compare-and-swap;
 - all browser code is TypeScript modules bundled by Astro, not loose scripts;
 - the service worker's version and precache list are generated;
-- clean URLs (`/guide`, `/admin/editor`) instead of `.html` files;
+- clean URLs (`/guide`, `/not-an-admin/editor`) instead of `.html` files;
 - recordings play same-origin from `/media/`, not from a storage CDN;
 - the three content-specific loaders became one bulk loader taking JSON files.

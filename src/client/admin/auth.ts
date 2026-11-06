@@ -1,5 +1,5 @@
 /* The admin password, held for the browser session (sessionStorage) and
-   shared by every tool under /admin, so signing in once covers them all. */
+   shared by every tool under /not-an-admin, so signing in once covers them all. */
 import { checkPassword } from '../api.ts';
 
 const KEY = 'asl-admin-pw';

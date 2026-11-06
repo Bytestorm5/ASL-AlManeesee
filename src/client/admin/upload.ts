@@ -1,4 +1,4 @@
-/* Reciter Upload (/admin/upload): upload or record a recitation for a single
+/* Reciter Upload (/not-an-admin/upload): upload or record a recitation for a single
    bayt of one recording set (a matn, or one edition of it). The reciter and
    the set are remembered on this device (asl-reciter-id, asl-reciter-poem),
    and the bayt is suggested: the first one this reciter has not recorded yet.

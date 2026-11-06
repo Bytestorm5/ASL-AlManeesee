@@ -1,5 +1,5 @@
 /* Loads explanations, word meanings, or translations & sharḥ into a matn's
-   stored document, from a JSON file — the terminal twin of /admin/loader.
+   stored document, from a JSON file — the terminal twin of /not-an-admin/loader.
 
      node scripts/load.ts --poem <id> --kind words --file meanings.json             # dry run, all of it
      node scripts/load.ts --poem <id> --kind words --file meanings.json --show      # …and print every cell
@@ -21,7 +21,7 @@
 
    It does nothing without --write.
 
-   /admin/loader does the same job from a browser, with each bayt readable
+   /not-an-admin/loader does the same job from a browser, with each bayt readable
    before anything is sent; it is the easier way in, and this script is here
    for a checkout and a terminal. Both apply the same rules, from
    src/shared/bulk.ts, and talk to the API through src/client/api.ts:
@@ -206,7 +206,7 @@ let doc!: PoemDoc;
 try { doc = await getPoemDoc(POEM); }
 catch (e) {
   if (e instanceof ApiError && e.status === 400) die(`${POEM} is not a registered matn on ${ORIGIN}.`);
-  if (e instanceof ApiError && e.status === 404) die(`${POEM} is not stored yet on ${ORIGIN} — import its text first (/admin/import).`);
+  if (e instanceof ApiError && e.status === 404) die(`${POEM} is not stored yet on ${ORIGIN} — import its text first (/not-an-admin/import).`);
   die(`Could not read the stored poem (${e instanceof ApiError ? 'HTTP ' + e.status : (e as Error).message}).`);
 }
 const stored = indexDoc(doc);

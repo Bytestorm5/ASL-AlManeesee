@@ -1,4 +1,4 @@
-/* The Bulk Loader (/admin/loader) — puts a matn's explanations, word meanings,
+/* The Bulk Loader (/not-an-admin/loader) — puts a matn's explanations, word meanings,
    or translations & sharḥ into its stored document, from a JSON file the
    admin chooses (or pastes). docs/data-formats.md describes the three formats.
 
@@ -286,7 +286,7 @@ async function load(): Promise<void> {
     stored = new Map();
     const e = d.reason;
     say(e instanceof ApiError && e.status === 404
-      ? `${p.titleEn} is not stored yet — import its text first, at /admin/import.`
+      ? `${p.titleEn} is not stored yet — import its text first, at /not-an-admin/import.`
       : e instanceof ApiError ? `Could not read the stored matn: ${e.message}.` : 'Could not read the stored matn.', 'err');
   }
   switchesOk = s.status === 'fulfilled';

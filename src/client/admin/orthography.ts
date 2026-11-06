@@ -1,4 +1,4 @@
-/* Orthography (/admin/orthography): normalises how a matn is written, without
+/* Orthography (/not-an-admin/orthography): normalises how a matn is written, without
    touching what it says. Previews every change against the stored text, and
    only writes when Apply is pressed. The rules themselves are pure functions
    in src/shared/orthography.ts, so a script can apply exactly the same ones.
@@ -76,7 +76,7 @@ function main(): void {
       $('#count').textContent = ''; $('#leftAlone').classList.add('hidden');
       $<HTMLButtonElement>('#apply').disabled = true;
       say(e instanceof ApiError && e.status === 404
-        ? `${nameOf(POEM)} has not been imported yet — there is no stored text to normalise. Import it at /admin/import first.`
+        ? `${nameOf(POEM)} has not been imported yet — there is no stored text to normalise. Import it at /not-an-admin/import first.`
         : `Could not read ${nameOf(POEM)}.`, 'err');
       return;
     }

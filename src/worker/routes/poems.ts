@@ -164,7 +164,7 @@ poems.put('/poems/:id', requireAdmin, async (c) => {
   try { stored = await readJson<PoemDoc>(c.env.STORE, poemKey(id)); }
   catch { return c.json({ error: 'Storage error reading the matn' }, 502); }
   if (!stored || !Array.isArray(stored.value.chapters))
-    return c.json({ error: `${id} is not stored yet — import it first (/admin/import)` }, 404);
+    return c.json({ error: `${id} is not stored yet — import it first (/not-an-admin/import)` }, 404);
   const doc = stored.value;
 
   const current = doc.version ?? 1;

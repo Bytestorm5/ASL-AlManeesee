@@ -2,7 +2,7 @@
 
    Each rule is a pure string → string function over one hemistich, word cell
    or chapter heading, as stored — markup included, so a rule must leave the
-   `<span …>` tags alone. /admin/orthography previews every change a document
+   `<span …>` tags alone. /not-an-admin/orthography previews every change a document
    would get and only then writes it back; a script can import the same rules,
    so the two can never disagree about what the orthography is.
 

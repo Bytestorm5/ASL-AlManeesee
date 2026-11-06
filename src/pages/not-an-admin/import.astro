@@ -1,8 +1,9 @@
 ---
-/* Import a matn (/admin/import): read a Word file (or a finished .json
+/* Import a matn (/not-an-admin/import): read a Word file (or a finished .json
    document) in the browser, show what came out of it, then store it as the
    whole document of a registered matn. */
 import AdminLayout from '../../layouts/AdminLayout.astro';
+import { ADMIN_PATH as ADMIN } from '../../config/site.ts';
 ---
 <AdminLayout title="Import a matn" back>
 <div class="card">
@@ -25,7 +26,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
       (that declares its id and how many abyāt it has) and deploy — then it can be imported here.</div>
     <div class="row">
       <div>
-        <label for="poem">Matn <a class="manage" href="/admin/editor" target="_blank">bayt editor ↗</a></label>
+        <label for="poem">Matn <a class="manage" href={`${ADMIN}/editor`} target="_blank">bayt editor ↗</a></label>
         <select id="poem"></select>
       </div>
       <div>

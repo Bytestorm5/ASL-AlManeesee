@@ -13,7 +13,7 @@ npx wrangler secret put ADMIN_PASSWORD
 ```
 
 The bucket name must match `r2_buckets[0].bucket_name` in `wrangler.jsonc`.
-`ADMIN_PASSWORD` gates every write and every page under `/admin`.
+`ADMIN_PASSWORD` gates every write and every page under `/not-an-admin`.
 
 ## Deploy
 

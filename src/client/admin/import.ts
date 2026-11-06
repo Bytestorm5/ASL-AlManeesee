@@ -1,4 +1,4 @@
-/* Import a matn (/admin/import). Reads a Word file — or a finished .json
+/* Import a matn (/not-an-admin/import). Reads a Word file — or a finished .json
    document — in this browser, shows what came out of it, and stores it as the
    whole document of a registered matn (PUT /api/poems/<id>/document).
 

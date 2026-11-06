@@ -1,8 +1,9 @@
 ---
-/* Orthography (/admin/orthography) — was orthography.html. Normalises how a
+/* Orthography (/not-an-admin/orthography) — was orthography.html. Normalises how a
    matn is written, without touching what it says: the rules are in
    src/shared/orthography.ts, the page logic in src/client/admin/orthography.ts. */
 import AdminLayout from '../../layouts/AdminLayout.astro';
+import { ADMIN_PATH as ADMIN } from '../../config/site.ts';
 import { ALL_POEMS } from '../../poems/index.ts';
 
 const none = ALL_POEMS.length === 0;
@@ -13,12 +14,12 @@ const none = ALL_POEMS.length === 0;
   <p class="sub">Normalises how a matn is written, without touching what it says. It works on the
   stored text, so any correction already made to a bayt is carried through. Nothing is sent until you
   press Apply, and running it twice does nothing the second time. Single bayts are edited
-  in the <a href="/admin/editor">Bayt Editor</a>.</p>
+  in the <a href={`${ADMIN}/editor`}>Bayt Editor</a>.</p>
 
   {none ? (
     <div class="msg warn" id="empty">No matn is registered yet, so there is nothing to normalise. To add one, give it an
       entry in <code>src/poems/registry.ts</code> (its id, titles and number of abyāt) and deploy; then bring its text in
-      with <a href="/admin/import">Import a matn</a>.</div>
+      with <a href={`${ADMIN}/import`}>Import a matn</a>.</div>
   ) : (
   <>
   <div id="gate">

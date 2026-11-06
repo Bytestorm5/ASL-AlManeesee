@@ -25,7 +25,7 @@ the sitemap and the service worker's precache all read it. No file outside
 the registry (and the content folders, `fixtures/` for the dev fixture and
 `content/` for real mutūn) may name a particular matn. How to add one:
 `docs/adding-a-matn.md`. Verse text is content, not code: it lives at
-`data/poem/<id>.json` in R2 and is edited through `/admin`. A matn's first
+`data/poem/<id>.json` in R2 and is edited through `/not-an-admin`. A matn's first
 text can ship in `content/` (listed in `content/index.ts`): the worker stores
 it, create-only, the first time the matn is asked for (`src/worker/seed.ts`).
 
@@ -63,6 +63,14 @@ with a backup of what they replace, and use an R2 etag compare-and-swap so two
 editors can never overwrite each other. Tests for the worker run inside workerd
 (`tests/*.test.ts`, `npm test`).
 
+## The editing tools live at an unguessable path
+They are served from `ADMIN_PATH` (`/not-an-admin`, `src/config/site.ts`),
+not `/admin`. Never link them from a public page, never list them in
+robots.txt or the sitemap (that would advertise them), and keep them
+`noindex, nofollow` and `no-referrer` (`integrations/site-output.ts`). The
+end-to-end test checks all of this. The password is still what protects
+them; the path only keeps them out of sight.
+
 ## Colours: tokens only, WCAG AA always
 The palette lives in `src/styles/tokens.css`; DESIGN.md says what each colour
 is for. Use `var(--token)` in stylesheets and modules, never a new hex. Every
@@ -74,7 +82,8 @@ content colours and stay as they are.
 - `src/config/site.ts` — every site-wide name and link, and the platform
   colours (theme-color, manifest) that must be literals
 - `src/poems/` — the registry, types, and the dev fixture registration
-- `src/pages/` — home, `[poem]` reading page, guide, privacy, `admin/*` tools
+- `src/pages/` — home, `[poem]` reading page, guide, privacy, and the editing
+  tools in `not-an-admin/` (see below)
 - `src/client/` — browser code (`reading/` features, `admin/` tool scripts)
 - `src/styles/` — `tokens.css` (the whole palette: light and dark tokens, the
   six accents, app-area accents), `reading.css`, `home.css`, `theme.css`

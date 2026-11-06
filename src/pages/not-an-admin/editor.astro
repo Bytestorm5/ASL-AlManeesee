@@ -1,16 +1,17 @@
 ---
-/* The Bayt Editor (/admin/editor) — was text-editor.html. Edit one bayt at a
+/* The Bayt Editor (/not-an-admin/editor) — was text-editor.html. Edit one bayt at a
    time: its hemistichs, the word cells the reading page renders them from,
    the word meanings and the translations, with a toolbar for every piece of
    markup verse text may carry. The script is src/client/admin/bayt-editor.ts. */
 import AdminLayout from '../../layouts/AdminLayout.astro';
+import { ADMIN_PATH as ADMIN } from '../../config/site.ts';
 import { ALL_POEMS } from '../../poems/index.ts';
 
 const none = ALL_POEMS.length === 0;
 ---
 <AdminLayout title="Bayt Editor">
 <div class="wrap">
-  <a href="/admin" style="display:inline-block;margin:0 0 10px;font-size:.82rem;font-weight:600;color:var(--madder);text-decoration:none">← Admin</a>
+  <a href={`${ADMIN}`} style="display:inline-block;margin:0 0 10px;font-size:.82rem;font-weight:600;color:var(--madder);text-decoration:none">← Admin</a>
   <h1 id="h1">Bayt Editor</h1>
   <p class="sub">Edit the bayt, the word-by-word meanings and the translation directly — with a Word-style toolbar for colours, ḥarakāt, small (ṣaghīra) letters and above-word rumūz. Save publishes straight to the live app.</p>
 
@@ -19,7 +20,7 @@ const none = ALL_POEMS.length === 0;
       <p style="margin:0 0 8px"><b>No matn is registered yet</b>, so there is nothing to edit.</p>
       <p class="sub" style="margin:0">To add one, give it an entry in <code>src/poems/registry.ts</code> (its id, titles and
       number of abyāt — <code>docs/adding-a-matn.md</code> has the details) and deploy;
-      then bring its text in with <a href="/admin/import">Import a matn</a>. Every registered matn is listed here, drafts included.</p>
+      then bring its text in with <a href={`${ADMIN}/import`}>Import a matn</a>. Every registered matn is listed here, drafts included.</p>
     </div>
   ) : (
   <>

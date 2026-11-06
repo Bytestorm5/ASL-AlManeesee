@@ -1,5 +1,5 @@
 /* Recitation audio + "Listen & Repeat" memorisation.
-   Recordings live in R2 (uploaded through /admin/upload) and are discovered
+   Recordings live in R2 (uploaded through /not-an-admin/upload) and are discovered
    through the audio manifest (/api/audio/<set>), which maps every bayt to the
    newest recording per reciter, played same-origin from /media/. The set is
    window.ASL_AUDIO_POEM — the matn id, or "<id>-n<k>" when edition k is being

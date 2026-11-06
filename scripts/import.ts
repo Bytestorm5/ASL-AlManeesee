@@ -1,12 +1,12 @@
 /* Stores a finished matn document through the API — the terminal twin of
-   loading a .json at /admin/import.
+   loading a .json at /not-an-admin/import.
 
      node scripts/import.ts --file content/zad-al-huffaz.json                       # dry run: check it only
      node scripts/import.ts --file content/zad-al-huffaz.json --write               # create it on the live site
      node scripts/import.ts --file content/zad-al-huffaz.json --write --overwrite   # replace what is stored
 
    Options
-     --file <path>    the document, {id, chapters, variants?} — what /admin/import
+     --file <path>    the document, {id, chapters, variants?} — what /not-an-admin/import
                       saves as <id>-seed.json, or a file kept under content/
      --poem <id>      the matn it is for (default: the file's "id")
      --write          actually send it — without this nothing is sent

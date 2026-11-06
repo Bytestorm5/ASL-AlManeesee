@@ -1,4 +1,4 @@
-/* Recitation Manager (/admin/recordings): browse, listen to and delete
+/* Recitation Manager (/not-an-admin/recordings): browse, listen to and delete
    uploaded recordings, manage the reciter list, and bulk-upload a ZIP of one
    reciter's abyāt. Runs as the page's module script.
 

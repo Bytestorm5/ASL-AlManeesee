@@ -10,22 +10,23 @@
    with the terminal version (scripts/load.ts), and the page logic is in
    src/client/admin/loader.ts. */
 import AdminLayout from '../../layouts/AdminLayout.astro';
+import { ADMIN_PATH as ADMIN } from '../../config/site.ts';
 import { ALL_POEMS } from '../../poems/index.ts';
 import { BULK_KINDS } from '../../shared/bulk.ts';
 ---
 <AdminLayout title="Bulk Loader">
 <div class="card">
-  <a class="backlink" href="/admin">← Admin</a>
+  <a class="backlink" href={`${ADMIN}`}>← Admin</a>
   <h1>Bulk Loader</h1>
   <p class="sub">Puts a matn’s explanations, word meanings or translations into the store from a JSON file,
   one bayt or all of them at a time. Every bayt is listed with its state before anything is sent, only what
   would change is sent, and the Arabic is never retyped. Single bayts are edited in
-  the <a href="/admin/editor">Bayt Editor</a> and the <a href="/admin/content">Content Editor</a>.</p>
+  the <a href={`${ADMIN}/editor`}>Bayt Editor</a> and the <a href={`${ADMIN}/content`}>Content Editor</a>.</p>
 
   {ALL_POEMS.length === 0 ? (
     <div class="msg warn" id="noPoems">
       No matn is registered yet, so there is nothing to load into. Add one to <code>src/poems/registry.ts</code>
-      and deploy, then import its text at <a href="/admin/import">/admin/import</a>.
+      and deploy, then import its text at <a href={`${ADMIN}/import`}>{ADMIN}/import</a>.
     </div>
   ) : (
   <>
