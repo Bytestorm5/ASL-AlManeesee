@@ -11,6 +11,7 @@ current version.
 | File | Matn | Source |
 | --- | --- | --- |
 | `zad-al-huffaz.json` | Zād al-Ḥuffāẓ (`/zad-al-huffaz`) | *Zād al-Ḥuffāẓ: Provision for the Memorisers*, Abdullah Badat's commentary on two poems of Shaykh Dr Waleed Idris al-Meneese (Athar Publishing). The verse text, the translations and the commentary are the book's. The word-by-word meanings follow the commentary's own word studies. |
+| `siyasah-shariyyah.json` | As-Subul al-Marʿiyyah fī as-Siyāsah ash-Sharʿiyyah (`/siyasah-shariyyah`) | *The Islamic Version of Politics*, Abdullah Badat's translation and presentation of Shaykh Dr Waleed Idris al-Meneese's commentary on his own 43-bayt poem. The verse text, the verse translations and the commentary are the book's; the word-by-word meanings are written for this site. |
 
 To store one on a site (it is checked first, and nothing is sent without
 `--write`):

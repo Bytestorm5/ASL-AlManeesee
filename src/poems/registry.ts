@@ -31,4 +31,20 @@ export const REGISTRY: PoemConfig[] = [
     closing: { ar: 'وَاللَّهُ وَلِيُّ التَّوْفِيقِ', en: '“And Allah is the Granter of success.”' },
     explanations: { by: 'Abdullah Badat, Zād al-Ḥuffāẓ', defaultOn: true },
   },
+  {
+    id: 'siyasah-shariyyah',
+    titleAr: 'السُّبُلُ الْمَرْعِيَّةُ فِي السِّيَاسَةِ الشَّرْعِيَّةِ',
+    shortAr: 'السِّيَاسَةُ الشَّرْعِيَّةُ',
+    titleEn: 'As-Subul al-Marʿiyyah fī as-Siyāsah ash-Sharʿiyyah',
+    shortEn: 'As-Siyāsah ash-Sharʿiyyah',
+    description:
+      'Shaykh Dr Waleed Idris al-Meneese’s poem on Islamic governance: the Imāmah, the conditions, duties and rights of the Imām, how he is appointed, the bayʿah, and when he may be removed. With the Shaykh’s commentary, translated and presented by Abdullah Badat.',
+    subject: 'Islamic Governance',
+    author: { name: 'Shaykh Dr Waleed Idris al-Meneese' },
+    metre: 'Rajaz',
+    verses: 43,
+    accent: 'teal',
+    closing: { ar: 'وَالْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ', en: '“And all praise is for Allah, Lord of the worlds.”' },
+    explanations: { by: 'Shaykh Dr Waleed al-Meneese’s commentary, tr. Abdullah Badat', defaultOn: true },
+  },
 ];
