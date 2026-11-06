@@ -4,6 +4,7 @@
    own stylesheet in a <style is:global> block and its script as a module. */
 import { pageTitle } from '../config/site.ts';
 import '../styles/fonts.css';
+import '../styles/tokens.css';
 
 interface Props {
   title: string;
@@ -27,7 +28,7 @@ const { title, back = false } = Astro.props;
 <slot />
 <style is:global>
   .admin-back{position:absolute; top:10px; left:16px; font:600 .82rem/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-    color:#8a4447; text-decoration:none}
+    color:var(--madder); text-decoration:none}
   .admin-back:hover{text-decoration:underline}
 </style>
 </body>

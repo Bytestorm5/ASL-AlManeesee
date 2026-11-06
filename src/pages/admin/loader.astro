@@ -99,14 +99,14 @@ import { BULK_KINDS } from '../../shared/bulk.ts';
     unicode-range:U+0600-06FF, U+0750-077F, U+0870-08FF, U+200C-200D, U+FB50-FDFF, U+FE70-FEFF}
   @font-face{font-family:'Loader Arabic';font-weight:700;font-display:swap;src:url("/fonts/ScheherazadeNewB.woff2") format("woff2");
     unicode-range:U+0600-06FF, U+0750-077F, U+0870-08FF, U+200C-200D, U+FB50-FDFF, U+FE70-FEFF}
-  :root{--madder:#8a4447; --madder-deep:#5e2c30; --cream:#faf6ec; --edge:#e8dcc7; --ink:#3a2a2b;
-        --ok:#2e6b46; --warn:#9a6a14; --paper:#f7f2e5; --paper-2:#fffdf8; --soft:#7a6a6b}
+  :root{--madder:#0F63A8; --madder-deep:#0B3D6E; --cream:#F4F9FD; --edge:#CBDDEA; --ink:#0B3D6E;
+        --ok:#1B6966; --warn:#9a6a14; --paper:#EDF5FB; --paper-2:#FFFFFF; --soft:#33586F}
   *{box-sizing:border-box}
   body{margin:0; background:var(--cream); color:var(--ink);
        font:16px/1.55 'Loader Arabic',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
        min-height:100vh; display:flex; align-items:flex-start; justify-content:center; padding:32px 16px}
   .card{width:100%; max-width:980px; min-width:0; background:#fff; border:1px solid var(--edge); border-radius:18px;
-        box-shadow:0 8px 30px rgba(94,44,48,.08); padding:28px 26px}
+        box-shadow:0 8px 30px rgba(11,61,110,.08); padding:28px 26px}
   .backlink{display:inline-block; margin:0 0 10px; font-size:.82rem; font-weight:600; color:var(--madder); text-decoration:none}
   .backlink:hover{text-decoration:underline}
   h1{margin:0 0 4px; font-size:1.35rem; color:var(--madder-deep)}
@@ -123,7 +123,7 @@ import { BULK_KINDS } from '../../shared/bulk.ts';
   .btn-main:disabled{opacity:.5; cursor:default}
   .msg{margin-top:14px; padding:10px 12px; border-radius:10px; font-size:.9rem; display:none}
   .msg.err{display:block; background:#fbeaea; color:#8a2a2a}
-  .msg.ok{display:block; background:#e8f3ec; color:var(--ok)}
+  .msg.ok{display:block; background:var(--ok-bg); color:var(--ok)}
   .msg.warn{display:block; background:#fdf3e0; color:var(--warn)}
   .msg:empty{display:none}
   .msg ul{margin:6px 0 0; padding-left:20px}
@@ -168,7 +168,7 @@ import { BULK_KINDS } from '../../shared/bulk.ts';
   table{width:100%; border-collapse:collapse; font-size:.9rem}
   th{text-align:left; font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--soft);
      font-weight:700; padding:0 8px 8px; border-bottom:1px solid var(--edge)}
-  td{padding:9px 8px; border-bottom:1px solid #f0e8da; vertical-align:top}
+  td{padding:9px 8px; border-bottom:1px solid #D9E8F1; vertical-align:top}
   tr:last-child td{border-bottom:0}
   tr.chap td{background:var(--paper); font-weight:600; color:var(--madder-deep); font-size:.82rem}
   td.n{font-variant-numeric:tabular-nums; color:var(--soft); width:38px}
@@ -186,11 +186,11 @@ import { BULK_KINDS } from '../../shared/bulk.ts';
   .chip{display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
         padding:3px 9px; border-radius:999px; white-space:nowrap; margin:0 4px 3px 0}
   .chip.placeholder, .chip.none{background:#fdf3e0; color:var(--warn)}
-  .chip.loaded{background:#eef1f5; color:#4a5a6a}
-  .chip.shown, .chip.live{background:#e8f3ec; color:var(--ok)}
-  .chip.differs{background:#eef1f5; color:#4a5a6a}
+  .chip.loaded{background:#eef1f5; color:var(--ink-soft)}
+  .chip.shown, .chip.live{background:var(--ok-bg); color:var(--ok)}
+  .chip.differs{background:#eef1f5; color:var(--ink-soft)}
   .chip.stale, .chip.mismatch, .chip.flag{background:#fbeaea; color:#8a2a2a}
-  .chip.off{background:#f3eee4; color:var(--soft)}
+  .chip.off{background:var(--paper-2); color:var(--soft)}
 
   /* the explanation preview uses the reading page's own rules, so what you
      see here is what a reader sees */
@@ -202,14 +202,14 @@ import { BULK_KINDS } from '../../shared/bulk.ts';
   .prevbox .ar{font-family:'Scheherazade New',serif; font-size:1.25em; color:var(--madder)}
   .prevbox .qline{text-align:center; font-size:1.15em; margin:10px 0}
   .prevbox .plang{font-size:.68rem; text-transform:uppercase; letter-spacing:.06em; color:var(--soft); margin:0 0 6px}
-  .prevbox .plang ~ .plang{margin-top:14px; padding-top:12px; border-top:1px solid #f0e8da}
+  .prevbox .plang ~ .plang{margin-top:14px; padding-top:12px; border-top:1px solid #D9E8F1}
   .prevbox [dir=rtl]{text-align:right; font-family:'Scheherazade New',serif; font-size:1.12rem; line-height:1.95}
   .prevbox pre{white-space:pre-wrap; overflow-wrap:anywhere; font-size:.8rem; margin:0}
 
   /* the word-meanings preview shows each cell beside its meaning, which is
      what a reader gets on tapping that word */
   .pairs{border:1px solid var(--edge); border-radius:12px; overflow:hidden; margin-top:2px}
-  .pairs div{display:flex; gap:12px; align-items:baseline; padding:6px 12px; border-bottom:1px solid #f0e8da}
+  .pairs div{display:flex; gap:12px; align-items:baseline; padding:6px 12px; border-bottom:1px solid #D9E8F1}
   .pairs div:last-child{border-bottom:0}
   .pairs div.half{background:var(--paper)}
   .pairs .w{font-family:'Scheherazade New',serif; font-size:1.25rem; direction:rtl; text-align:right;
@@ -222,7 +222,7 @@ import { BULK_KINDS } from '../../shared/bulk.ts';
   /* the translations preview: the bayt, both translations, the sharḥ, and
      what is stored now */
   .panel{border:1px solid var(--edge); border-radius:12px; overflow:hidden; margin-top:2px}
-  .panel > div{padding:9px 13px; border-bottom:1px solid #f0e8da}
+  .panel > div{padding:9px 13px; border-bottom:1px solid #D9E8F1}
   .panel > div:last-child{border-bottom:0}
   .panel .lbl{font-size:.68rem; text-transform:uppercase; letter-spacing:.06em; color:var(--soft); margin-bottom:4px}
   .panel .ar{font-family:'Scheherazade New',serif; font-size:1.3rem; direction:rtl; text-align:right; line-height:1.95}
@@ -250,7 +250,7 @@ import { BULK_KINDS } from '../../shared/bulk.ts';
     table, tbody{display:block}
     tbody tr{display:block}
     tbody tr:not(.chap):not(.prev){display:grid; grid-template-columns:auto 1fr auto; gap:6px 10px;
-      align-items:start; padding:10px 2px; border-bottom:1px solid #f0e8da}
+      align-items:start; padding:10px 2px; border-bottom:1px solid #D9E8F1}
     tbody tr:not(.chap):not(.prev) > td{display:block; padding:0; border:0}
     tbody td.n{grid-column:1; grid-row:1; width:auto; padding-top:1px}
     tbody td.st{grid-column:2; grid-row:1}

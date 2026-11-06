@@ -9,7 +9,9 @@ import { SITE, siteHost } from '../config/site.ts';
 ---
 <BaseLayout title="Why everything looks small" description="Checks how your browser is sizing the app, and shows how to put it right." noindex>
 <style is:global>
-  :root{--ink:#3a2a2b;--soft:#6c585a;--madder:#8a4447;--paper:#f9f4ea;--edge:#e8dcc7;--card:#fff;--gilt:#c0973c}
+  /* its own colours, in light and dark alike (tokens.css would otherwise recast them in dark mode) */
+  html:root,html:root[data-theme="dark"]{--ink:#0B3D6E;--soft:#33586F;--madder:#0F63A8;--paper:#F4F9FD;--edge:#CBDDEA;--card:#fff;
+    --gilt:#56A6DD;--gilt-deep:#1A6F83;--ok-text:#1B6966;--ok-bg:#E2F3F2;color-scheme:light}
   *{box-sizing:border-box}
   body{margin:0;background:var(--paper);color:var(--ink);
     font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55;font-size:16px}
@@ -17,20 +19,20 @@ import { SITE, siteHost } from '../config/site.ts';
   h1{font-size:1.3rem;color:var(--madder);margin:0 0 4px}
   .sub{color:var(--soft);font-size:.9rem;margin:0 0 20px}
   .verdict{border-radius:14px;padding:16px 18px;margin:0 0 20px;background:var(--card);
-    border-left:5px solid var(--gilt);box-shadow:0 3px 12px rgba(58,28,31,.07)}
+    border-left:5px solid var(--gilt);box-shadow:0 3px 12px rgba(7,43,79,.07)}
   .verdict b{display:block;font-size:1.05rem;margin-bottom:4px}
-  .verdict.ok{border-left-color:#4c7a5a}
+  .verdict.ok{border-left-color:var(--ok-text)}
   .verdict.bad{border-left-color:#c0392b}
   .verdict span{color:var(--soft);font-size:.9rem}
-  h2{font-size:.78rem;text-transform:uppercase;letter-spacing:.09em;color:var(--gilt);margin:26px 0 8px}
+  h2{font-size:.78rem;text-transform:uppercase;letter-spacing:.09em;color:var(--gilt-deep);margin:26px 0 8px}
   ol{margin:0;padding-left:1.25em}
   li{margin:9px 0}
   .steps{background:var(--card);border-radius:12px;padding:16px 18px 16px 34px;
-    box-shadow:0 3px 12px rgba(58,28,31,.07);font-size:.92rem}
+    box-shadow:0 3px 12px rgba(7,43,79,.07);font-size:.92rem}
   kbd{background:var(--paper);border:1px solid var(--edge);border-radius:5px;padding:1px 6px;
     font-family:inherit;font-size:.86em;font-weight:600}
   table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden;
-    box-shadow:0 3px 12px rgba(58,28,31,.07);font-size:.88rem}
+    box-shadow:0 3px 12px rgba(7,43,79,.07);font-size:.88rem}
   td{padding:9px 12px;border-top:1px solid var(--edge);vertical-align:top}
   tr:first-child td{border-top:0}
   td:first-child{color:var(--soft);width:52%}
@@ -39,8 +41,8 @@ import { SITE, siteHost } from '../config/site.ts';
   button{padding:14px;border:1px solid var(--edge);border-radius:12px;background:var(--card);
     color:var(--ink);font:inherit;font-weight:600;cursor:pointer}
   button.primary{background:var(--madder);color:#fff;border-color:var(--madder)}
-  .ok-msg{display:none;margin:12px 0 0;padding:11px 13px;border-radius:10px;background:#eaf3ec;
-    color:#2f5d40;font-size:.88rem;font-weight:600}
+  .ok-msg{display:none;margin:12px 0 0;padding:11px 13px;border-radius:10px;background:var(--ok-bg);
+    color:var(--ok-text);font-size:.88rem;font-weight:600}
   .ok-msg.show{display:block}
   textarea{width:100%;height:150px;margin-top:10px;padding:10px;border:1px solid var(--edge);
     border-radius:10px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.74rem;background:var(--card);color:var(--ink)}

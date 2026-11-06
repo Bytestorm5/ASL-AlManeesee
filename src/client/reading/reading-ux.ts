@@ -8,15 +8,15 @@ import { lsGet, lsSet } from '../page.ts';
 const KEY = 'asl-trhint';
 
 const CSS = [
-  '.trhint{position:fixed;z-index:150;max-width:240px;background:#8a4447;color:#fbeee8;',
+  '.trhint{position:fixed;z-index:150;max-width:240px;background:var(--madder);color:var(--on-accent);',
   'font-family:"Montserrat",sans-serif;font-size:.75rem;font-weight:600;line-height:1.35;',
-  'padding:10px 30px 10px 13px;border-radius:11px;box-shadow:0 12px 30px rgba(94,44,48,.42);',
+  'padding:10px 30px 10px 13px;border-radius:11px;box-shadow:0 12px 30px rgba(11,61,110,.42);',
   'cursor:pointer;animation:trbob 1.5s ease-in-out infinite}',
-  '.trhint::after{content:"";position:absolute;bottom:100%;right:22px;border:7px solid transparent;border-bottom-color:#8a4447}',
+  '.trhint::after{content:"";position:absolute;bottom:100%;right:22px;border:7px solid transparent;border-bottom-color:var(--madder)}',
   '.trhint .x{position:absolute;top:5px;right:9px;font-size:1rem;line-height:1;opacity:.85}',
   '@keyframes trbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}',
   '#viewBtn.trpulse{animation:trpulse 1.5s ease-out infinite}',
-  '@keyframes trpulse{0%{box-shadow:0 0 0 0 rgba(138,68,71,.55)}70%{box-shadow:0 0 0 12px rgba(138,68,71,0)}100%{box-shadow:0 0 0 0 rgba(138,68,71,0)}}',
+  '@keyframes trpulse{0%{box-shadow:0 0 0 0 rgba(15,99,168,.55)}70%{box-shadow:0 0 0 12px rgba(15,99,168,0)}100%{box-shadow:0 0 0 0 rgba(15,99,168,0)}}',
   '@media (prefers-reduced-motion:reduce){.trhint,#viewBtn.trpulse{animation:none}}',
 ].join('');
 

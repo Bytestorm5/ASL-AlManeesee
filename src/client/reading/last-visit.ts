@@ -10,7 +10,7 @@
 import { currentPoemId, lsGet, lsSet } from '../page.ts';
 
 const FLASH_CSS = '.lv-flash{animation:lvflash 2.2s ease-out}'
-  + '@keyframes lvflash{0%,45%{background:rgba(212,171,79,.22);border-radius:12px}100%{background:transparent}}';
+  + '@keyframes lvflash{0%,45%{background:rgba(86,166,221,.22);border-radius:12px}100%{background:transparent}}';
 
 export function init(): void {
   const poem = currentPoemId();

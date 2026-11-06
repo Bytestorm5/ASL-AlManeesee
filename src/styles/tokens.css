@@ -1,0 +1,221 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Colour tokens — the one place the palette is defined.
+
+   The brand is an arctic palette: deep blues, glacier teals and ice-white,
+   calm and readable for long study sessions. Light mode reads Deep Navy on a
+   very pale ice ground with Royal Blue actions; dark mode reads Pale Ice Blue
+   on near-black Midnight Green.
+
+   The variable names are the site's historical ones (madder, lapis, gilt,
+   paper…), kept so every stylesheet and feature module keeps working; their
+   VALUES are the arctic roles described beside each. Every text/background
+   pair these tokens produce, in both modes and for every accent, has been
+   checked against WCAG AA (4.5:1 for text). Change a value here only after
+   re-checking the pairs it draws (see DESIGN.md).
+
+   Imported first by both layouts; page stylesheets and theme.css (component
+   overrides for dark mode) come after it.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── the brand palette ───────────────────────────────────────────────── */
+  --navy:     #0B3D6E;  /* Deep Navy — top bar, primary headings, splash */
+  --royal:    #0F63A8;  /* Royal Blue — primary buttons, active tab, links */
+  --sky:      #56A6DD;  /* Sky Blue — secondary buttons, progress, highlights (never text on light) */
+  --ice:      #A6D8F7;  /* Pale Ice Blue — card tints, selected verse; dark-mode text */
+  --glacier:  #7FAEBB;  /* Glacier Grey-Teal — dividers, inactive icons */
+  --lagoon:   #3E9E9B;  /* Lagoon Teal — audio controls, success, bookmarks (fills/icons on light) */
+  --deepteal: #1F7F95;  /* Deep Teal — section accents, toggles when on */
+  --midnight: #0A4042;  /* Midnight Green — dark-mode surfaces, strong contrast */
+
+  /* ── light mode: ground and text ─────────────────────────────────────── */
+  --paper:      #F4F9FD;  /* page ground: very pale ice */
+  --paper-2:    #E6F0F8;  /* a recessed band */
+  --paper-edge: #CBDDEA;  /* hairlines and dividers (glacier, softened) */
+  --surface:    #FFFFFF;  /* raised cards, buttons, menus */
+  --surface-2:  #EDF5FB;
+  --ink:        var(--navy);  /* body text, 10.4:1 on paper */
+  --ink-soft:   #33586F;      /* secondary text — glacier deepened to pass AA */
+  --sage:       #456E80;      /* captions and meta — glacier deepened to pass AA */
+
+  /* ── light mode: action, depth, ornament ─────────────────────────────── */
+  --madder:      var(--royal);  /* the accent: links, primary buttons, active states */
+  --madder-soft: #0D5A99;       /* its hover/pressed shade (white text still 7:1) */
+  --on-accent:   #FFFFFF;       /* text on an accent fill */
+  --lapis:   var(--navy);       /* deep plates: top bar, active pill, back-to-top */
+  --lapis-2: #114A80;
+  --lapis-3: var(--royal);
+  --gilt:      var(--sky);      /* ornament: rules, ۞, hover borders (decorative) */
+  --on-gilt:   #072B4F;         /* text on a Sky (gilt) fill: 5.4:1 in both modes */
+  --gilt-hi:   var(--ice);      /* ornament on deep plates */
+  --gilt-deep: #1A6F83;         /* ornament that must read as text on light (deep teal) */
+  --cream:     #FFFFFF;         /* text on deep plates */
+  --cream-dim: #CFE6F6;         /* secondary text on deep plates */
+  --blush:      var(--ice);
+  --blush-soft: #D3ECFB;
+  --rose:    #D7E7F7;           /* tinted chips and wells */
+  --rose-2:  #CBE0F4;
+  --rose-hi: #E6F0FA;
+  --panel-soft: var(--ink-soft);/* secondary text on the pale panels */
+
+  /* the pale panels (hero, chapter heads, footer, matn cards): Pale Ice Blue */
+  --pnl-1: #E6F0FA; --pnl-2: #D7E7F7; --pnl-3: #CBE0F4; --pnl-txt: var(--navy);
+
+  /* states */
+  --ok-text: #1B6966; --ok-bg: #E2F3F2;   /* success: lagoon, deepened for text */
+  --err-text: #A12B2B; --err-bg: #FBEAEA; /* errors stay red: it is the signal */
+  --focus: var(--royal);
+
+  /* content colours that carry meaning, not brand: red ink and the rumūz
+     rubrication of the printed editions, the green of a quoted āyah word */
+  --red-ink: #B23122;
+
+  --emblem: url("/brand/emblem.png");
+  --logo:   url("/brand/logo.png");
+  --shadow: 0 1px 2px rgba(11,61,110,.06), 0 8px 28px rgba(11,61,110,.08);
+  --shadow-card: 0 1px 3px rgba(11,61,110,.08), 0 5px 14px rgba(11,61,110,.08), 0 14px 30px rgba(11,61,110,.10);
+
+  /* the six app areas (tab bar, sheets): each keeps one accent from the palette */
+  --area-home: var(--navy);
+  --area-collection: var(--royal);
+  --area-read: #1D6BA2;        /* sky, deepened for text */
+  --area-memorize: #196C80;    /* deep teal */
+  --area-marginalia: #1D6D6A;  /* lagoon, deepened for text */
+  --area-more: var(--midnight);
+}
+
+/* ── the six accents ─────────────────────────────────────────────────────────
+   A matn registers one (PoemConfig.accent); its reading page, home card and
+   bookmarks wear it. Each sets the accent for text and buttons, its deep
+   plate, the pale panel gradient and the emblem drawn in its colour. */
+body.matn-navy, .matn-card.m-navy, .matn-row.m-navy, .cont-card.m-navy, .bm-row.m-navy {
+  --madder: var(--navy); --madder-soft: #072B4F;
+  --lapis: #072B4F; --lapis-2: var(--navy); --lapis-3: var(--royal);
+  --rose: #C9DAEB; --rose-2: #B6CDE4; --rose-hi: #DCE7F2;
+  --pnl-1: #DCE7F2; --pnl-2: #C9DAEB; --pnl-3: #B6CDE4; --pnl-txt: var(--navy);
+  --emblem: url("/brand/emblem-navy.png");
+}
+body.matn-royal, .matn-card.m-royal, .matn-row.m-royal, .cont-card.m-royal, .bm-row.m-royal {
+  --madder: var(--royal); --madder-soft: #0D5A99;
+  --lapis: var(--navy); --lapis-2: #114A80; --lapis-3: var(--royal);
+  --rose: #D7E7F7; --rose-2: #CBE0F4; --rose-hi: #E6F0FA;
+  --pnl-1: #E6F0FA; --pnl-2: #D7E7F7; --pnl-3: #CBE0F4; --pnl-txt: var(--navy);
+  --emblem: url("/brand/emblem-royal.png");
+}
+body.matn-sky, .matn-card.m-sky, .matn-row.m-sky, .cont-card.m-sky, .bm-row.m-sky {
+  --madder: #1D6BA2; --madder-soft: #175C8C;
+  --lapis: #0E4F80; --lapis-2: #1D6BA2; --lapis-3: var(--sky);
+  --rose: #DDF0FC; --rose-2: #D1EBFB; --rose-hi: #EBF6FE;
+  --pnl-1: #EBF6FE; --pnl-2: #DDF0FC; --pnl-3: #D1EBFB; --pnl-txt: #0B4776;
+  --emblem: url("/brand/emblem-sky.png");
+}
+body.matn-lagoon, .matn-card.m-lagoon, .matn-row.m-lagoon, .cont-card.m-lagoon, .bm-row.m-lagoon {
+  --madder: #1D6D6A; --madder-soft: #175C5A;
+  --lapis: #0F4A48; --lapis-2: #1D6D6A; --lapis-3: var(--lagoon);
+  --rose: #D2ECEB; --rose-2: #C7E6E4; --rose-hi: #E2F3F2;
+  --pnl-1: #E2F3F2; --pnl-2: #D2ECEB; --pnl-3: #C7E6E4; --pnl-txt: #0D4543;
+  --emblem: url("/brand/emblem-lagoon.png");
+}
+body.matn-teal, .matn-card.m-teal, .matn-row.m-teal, .cont-card.m-teal, .bm-row.m-teal {
+  --madder: #196C80; --madder-soft: #145B6C;
+  --lapis: #0E4554; --lapis-2: #196C80; --lapis-3: var(--deepteal);
+  --rose: #D5EAF0; --rose-2: #CCE5EC; --rose-hi: #E1F0F4;
+  --pnl-1: #E1F0F4; --pnl-2: #D5EAF0; --pnl-3: #CCE5EC; --pnl-txt: #0C4352;
+  --emblem: url("/brand/emblem-teal.png");
+}
+body.matn-midnight, .matn-card.m-midnight, .matn-row.m-midnight, .cont-card.m-midnight, .bm-row.m-midnight {
+  --madder: var(--midnight); --madder-soft: #062A2C;
+  --lapis: #062A2C; --lapis-2: var(--midnight); --lapis-3: var(--deepteal);
+  --rose: #C5DAD9; --rose-2: #B4D0CF; --rose-hi: #D6E6E5;
+  --pnl-1: #D6E6E5; --pnl-2: #C5DAD9; --pnl-3: #B4D0CF; --pnl-txt: var(--midnight);
+  --emblem: url("/brand/emblem-midnight.png");
+}
+
+/* ── dark mode ───────────────────────────────────────────────────────────────
+   Near-black Midnight Green ground, Midnight surfaces, Pale Ice Blue text.
+   Accents lift to light tints of their hue so they read on the dark, and
+   accent fills take dark text. */
+:root[data-theme="dark"] {
+  --paper:      #05282A;
+  --paper-2:    #07302F;
+  --paper-edge: #1C5255;
+  --surface:    var(--midnight);
+  --surface-2:  #0D4A4C;
+  --ink:        var(--ice);   /* 10.3:1 on the ground, 7.6:1 on a surface */
+  --ink-soft:   #9CCBDF;
+  --sage:       #8DBBC8;
+
+  --madder:      #7DBDEA;     /* royal, lifted */
+  --madder-soft: #6AB2E4;
+  --on-accent:   #05282A;
+  --lapis:   #062F31;
+  --lapis-2: var(--midnight);
+  --lapis-3: #7DBDEA;
+  --gilt:      var(--sky);
+  --gilt-hi:   var(--ice);
+  --gilt-deep: #8DBBC8;
+  --cream:     #EAF6FD;
+  --cream-dim: var(--ice);
+  --blush:      #1D6BA2;
+  --blush-soft: #0E3E59;
+  --rose:    #0D4A4C;
+  --rose-2:  #0D4A4C;
+  --rose-hi: #10575A;
+  --panel-soft: var(--ice);
+
+  --ok-text: #7FD3CF; --ok-bg: #0E4A48;
+  --err-text: #F2A3A3; --err-bg: #3A1E22;
+  --focus: #7DBDEA;
+  --red-ink: #F0907E;
+
+  --emblem: url("/brand/emblem-dark.png");
+  --logo:   url("/brand/logo-dark.png");
+  --shadow: 0 1px 2px rgba(0,0,0,.45), 0 10px 30px rgba(0,0,0,.55);
+  --shadow-card: 0 1px 3px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.45);
+
+  /* the dark panel gradient (per accent below) */
+  --pnl-dk-1: #0E4068; --pnl-dk-2: #0B3456; --pnl-dk-3: #082A46;
+
+  --area-home: #8DBBEA;
+  --area-collection: #7DBDEA;
+  --area-read: #9AD0F5;
+  --area-memorize: #7FC7D8;
+  --area-marginalia: #7FD3CF;
+  --area-more: #8FD6D3;
+}
+:root[data-theme="dark"] body.matn-navy, :root[data-theme="dark"] .matn-card.m-navy, :root[data-theme="dark"] .matn-row.m-navy, :root[data-theme="dark"] .cont-card.m-navy, :root[data-theme="dark"] .bm-row.m-navy {
+  --madder: #8DBBEA; --madder-soft: #7AAEE2; --lapis: #0E3A5E; --lapis-2: #12466F; --lapis-3: #8DBBEA;
+  --pnl-dk-1: #0E3A5E; --pnl-dk-2: #0B2F4D; --pnl-dk-3: #08253D;
+  --emblem: url("/brand/emblem-navy-dark.png");
+}
+:root[data-theme="dark"] body.matn-royal, :root[data-theme="dark"] .matn-card.m-royal, :root[data-theme="dark"] .matn-row.m-royal, :root[data-theme="dark"] .cont-card.m-royal, :root[data-theme="dark"] .bm-row.m-royal {
+  --madder: #7DBDEA; --madder-soft: #6AB2E4; --lapis: #0E4068; --lapis-2: #124C79; --lapis-3: #7DBDEA;
+  --pnl-dk-1: #0E4068; --pnl-dk-2: #0B3456; --pnl-dk-3: #082A46;
+  --emblem: url("/brand/emblem-royal-dark.png");
+}
+:root[data-theme="dark"] body.matn-sky, :root[data-theme="dark"] .matn-card.m-sky, :root[data-theme="dark"] .matn-row.m-sky, :root[data-theme="dark"] .cont-card.m-sky, :root[data-theme="dark"] .bm-row.m-sky {
+  --madder: #9AD0F5; --madder-soft: #86C5F2; --lapis: #124B6B; --lapis-2: #165979; --lapis-3: #9AD0F5;
+  --pnl-dk-1: #124B6B; --pnl-dk-2: #0E3E59; --pnl-dk-3: #0A3249;
+  --emblem: url("/brand/emblem-sky-dark.png");
+}
+:root[data-theme="dark"] body.matn-lagoon, :root[data-theme="dark"] .matn-card.m-lagoon, :root[data-theme="dark"] .matn-row.m-lagoon, :root[data-theme="dark"] .cont-card.m-lagoon, :root[data-theme="dark"] .bm-row.m-lagoon {
+  --madder: #7FD3CF; --madder-soft: #6BC9C5; --lapis: #124C4B; --lapis-2: #165A58; --lapis-3: #7FD3CF;
+  --pnl-dk-1: #124C4B; --pnl-dk-2: #0E3F3E; --pnl-dk-3: #0A3332;
+  --emblem: url("/brand/emblem-lagoon-dark.png");
+}
+:root[data-theme="dark"] body.matn-teal, :root[data-theme="dark"] .matn-card.m-teal, :root[data-theme="dark"] .matn-row.m-teal, :root[data-theme="dark"] .cont-card.m-teal, :root[data-theme="dark"] .bm-row.m-teal {
+  --madder: #7FC7D8; --madder-soft: #6BBCD0; --lapis: #104554; --lapis-2: #145262; --lapis-3: #7FC7D8;
+  --pnl-dk-1: #104554; --pnl-dk-2: #0D3946; --pnl-dk-3: #0A2E39;
+  --emblem: url("/brand/emblem-teal-dark.png");
+}
+:root[data-theme="dark"] body.matn-midnight, :root[data-theme="dark"] .matn-card.m-midnight, :root[data-theme="dark"] .matn-row.m-midnight, :root[data-theme="dark"] .cont-card.m-midnight, :root[data-theme="dark"] .bm-row.m-midnight {
+  --madder: #8FD6D3; --madder-soft: #7BCDCA; --lapis: #0E4A4C; --lapis-2: #12575A; --lapis-3: #8FD6D3;
+  --pnl-dk-1: #0E4A4C; --pnl-dk-2: #0A3E40; --pnl-dk-3: #073234;
+  --emblem: url("/brand/emblem-midnight-dark.png");
+}
+
+/* ── browser surfaces: the parts no stylesheet draws, themed from the palette ── */
+::selection { background: var(--ice); color: var(--navy); }
+:root[data-theme="dark"] ::selection { background: #1D6BA2; color: #FFFFFF; }
+:root { accent-color: var(--madder); caret-color: var(--madder); }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }

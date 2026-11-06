@@ -15,7 +15,7 @@ export function runSplash(): void {
   const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
   let raf = 0, gone = false;
 
-  /* Gold sparks off the star. Same treatment as the launch flyer: every spark
+  /* Ice sparks off the star, on the navy splash. Same treatment as the launch flyer: every spark
      is a pure function of its index and the loop phase, so there is no state to
      carry between frames and the loop closes seamlessly. */
   const cv = document.getElementById('bootfx') as HTMLCanvasElement | null;
@@ -45,19 +45,19 @@ export function runSplash(): void {
     const beat = (p: number): number => Math.min(1, bump(p, 0.14, 0.085) + 0.62 * bump(p, 0.39, 0.10));
     const dot = (x: number, y: number, r: number, a: number): void => {
       const g = ctx.createRadialGradient(x, y, 0, x, y, r);
-      g.addColorStop(0, 'rgba(255,244,214,' + a + ')');
-      g.addColorStop(0.28, 'rgba(214,163,58,' + (a * 0.96) + ')');
-      g.addColorStop(0.62, 'rgba(184,134,40,' + (a * 0.42) + ')');
-      g.addColorStop(1, 'rgba(169,123,33,0)');
+      g.addColorStop(0, 'rgba(240,250,255,' + a + ')');
+      g.addColorStop(0.28, 'rgba(166,216,247,' + (a * 0.96) + ')');
+      g.addColorStop(0.62, 'rgba(86,166,221,' + (a * 0.42) + ')');
+      g.addColorStop(1, 'rgba(86,166,221,0)');
       ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.fill();
     };
     const glint = (x: number, y: number, len: number, a: number): void => {
       for (const d of ['h', 'v']) {
         const g = d === 'h' ? ctx.createLinearGradient(x - len, y, x + len, y)
           : ctx.createLinearGradient(x, y - len, x, y + len);
-        g.addColorStop(0, 'rgba(192,151,60,0)');
-        g.addColorStop(0.5, 'rgba(246,214,140,' + a + ')');
-        g.addColorStop(1, 'rgba(192,151,60,0)');
+        g.addColorStop(0, 'rgba(166,216,247,0)');
+        g.addColorStop(0.5, 'rgba(234,246,253,' + a + ')');
+        g.addColorStop(1, 'rgba(166,216,247,0)');
         ctx.strokeStyle = g; ctx.lineWidth = 1.6; ctx.lineCap = 'round';
         ctx.beginPath();
         if (d === 'h') { ctx.moveTo(x - len, y); ctx.lineTo(x + len, y); }
@@ -70,9 +70,9 @@ export function runSplash(): void {
       ctx.clearRect(0, 0, W, H);
       const hr = 96 + b * 26; // the halo, swelling on the thump
       const hg = ctx.createRadialGradient(CX, CY, 10, CX, CY, hr);
-      hg.addColorStop(0, 'rgba(226,188,104,' + (0.06 + b * 0.11) + ')');
-      hg.addColorStop(0.5, 'rgba(198,152,58,' + (0.03 + b * 0.06) + ')');
-      hg.addColorStop(1, 'rgba(192,151,60,0)');
+      hg.addColorStop(0, 'rgba(166,216,247,' + (0.06 + b * 0.11) + ')');
+      hg.addColorStop(0.5, 'rgba(86,166,221,' + (0.03 + b * 0.06) + ')');
+      hg.addColorStop(1, 'rgba(166,216,247,0)');
       ctx.fillStyle = hg; ctx.beginPath(); ctx.arc(CX, CY, hr, 0, TAU); ctx.fill();
       for (const s of S) {
         const p = (ph + s.off) % 1;

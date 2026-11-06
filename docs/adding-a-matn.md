@@ -19,7 +19,7 @@ Add an entry to `src/poems/registry.ts`. The fields are documented on
   author: { name: 'Shaykh Sulaymān al-Jamzūrī', died: '1198 AH' },
   metre: 'Rajaz',
   verses: 61,                          // every upload is checked against this
-  accent: 'sienna',                    // madder · lapis · verdigris · indigo · plum · sienna · teal
+  accent: 'lagoon',                    // navy · royal · sky · lagoon · teal · midnight
   closing: { ar: 'وَالۡحَمۡدُ لِلَّهِ لَهَا خِتَامُ', en: '“And all praise is due to Allah upon its completion.”' },
   draft: true,                         // proof it on the live site before listing it
 }

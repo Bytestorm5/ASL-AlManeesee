@@ -55,11 +55,11 @@ empty collection.
 
 ```
 src/
-  config/site.ts     site-wide names, links, colours — rebrand here
+  config/site.ts     site-wide names, links, platform colours — rebrand here
   poems/             the matn registry, its types, the dev fixture registration
   pages/             index, [poem] (every reading page), guide, privacy, admin/*
   client/            browser code: reading/ features, admin/ tools, entries/
-  styles/            reading, home, guide, theme (dark mode), fonts
+  styles/            tokens (the palette), reading, home, guide, theme (dark mode), fonts
   worker/            the API (Hono) and /media/ (recordings with byte ranges)
   shared/            rules both sides enforce: validation, markup, media keys
   sw/                the service worker
@@ -68,6 +68,7 @@ scripts/             dev runner, seeding, e2e, PDFs, bulk loading
 fixtures/            the example matn's text (development only)
 apps/                Android TWA and iOS shell
 docs/                adding a matn, deploying, data formats
+DESIGN.md            the colour system: palette, accents, contrast rules
 ```
 
 ## How a reading page works

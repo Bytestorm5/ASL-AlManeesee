@@ -197,7 +197,7 @@ translucent window paints nothing, so whatever is behind it shows — and while
 Chrome is still warming up, that is black. Nothing else in the generated project
 sets `windowBackground`, and on Android 12+ nothing sets
 `windowSplashScreenBackground` either, which is why the system splash is white
-rather than the app's cream.
+rather than the app's Deep Navy.
 
 The splash hand-off itself is already wired up correctly — `SPLASH_IMAGE_DRAWABLE`,
 `SPLASH_SCREEN_BACKGROUND_COLOR`, `SPLASH_SCREEN_FADE_OUT_DURATION` and
@@ -205,7 +205,7 @@ The splash hand-off itself is already wired up correctly — `SPLASH_IMAGE_DRAWA
 window underneath that has no colour.
 
 iOS has no such gap because `ios/Mutun/Info.plist` gives the app a
-`UILaunchScreen` of `LaunchBackground` — `#F9F4EA`, the same cream as
+`UILaunchScreen` of `LaunchBackground` — `#0B3D6E`, the same Deep Navy as
 `background_color` in `manifest.webmanifest` — and it covers the whole wait,
 however long it runs. This gives Android the same backstop.
 
@@ -355,6 +355,6 @@ hours up to a few days. Once approved, the app is live on Google Play. 🎉
 | `src/pages/privacy.astro` | Privacy policy at `/privacy` (required by Play) |
 | `apps/android/twa-manifest.json` | Bubblewrap/TWA build configuration |
 | `apps/android/enable-r8.mjs` | One-command R8 enable for the generated project |
-| `apps/android/fix-launch-flash.mjs` | Gives the launcher window the app's cream, so the launch has no black gap |
+| `apps/android/fix-launch-flash.mjs` | Gives the launcher window the app's Deep Navy, so the launch has no black gap |
 | `apps/android/proguard-rules.pro` | TWA-safe R8/ProGuard keep-rules (safety net) |
 | `apps/android/ANDROID_APP.md` | This guide |

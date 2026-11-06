@@ -1,8 +1,4 @@
 /* User Guide (src/pages/guide.astro). Dark mode lives in theme.css. */
-:root{
-  --paper:#f9f4ea; --paper-2:#efe3d3; --paper-edge:#e8dcc7;
-  --ink:#3a2a2b; --ink-soft:#6c585a; --madder:#8a4447; --sage:#9c7f80; --gilt:#c0973c; --gilt-deep:#a97b21;
-}
 *{box-sizing:border-box}
 html,body{margin:0}
 body{background:var(--paper); color:var(--ink);
@@ -10,7 +6,7 @@ body{background:var(--paper); color:var(--ink);
   padding:0 0 calc(40px + env(safe-area-inset-bottom,0px)); -webkit-text-size-adjust:100%}
 .wrap{max-width:760px; margin:0 auto; padding:0 20px}
 
-.gbar{position:sticky; top:0; z-index:10; background:rgba(247,242,229,.92);
+.gbar{position:sticky; top:0; z-index:10; background:rgba(237,245,251,.92);
   -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); border-bottom:1px solid var(--paper-edge)}
 .gbar-inner{max-width:760px; margin:0 auto; display:flex; align-items:center; gap:12px;
   padding:calc(env(safe-area-inset-top,0px) + 11px) 20px 11px}
@@ -41,7 +37,7 @@ header.gh .hint{font-family:"Montserrat",sans-serif; font-size:.74rem; font-weig
 
 /* collapsible sections */
 details.g{border:1px solid var(--paper-edge); border-radius:14px; background:#fff; margin:12px 0 0;
-  overflow:hidden; box-shadow:0 4px 14px rgba(94,44,48,.04)}
+  overflow:hidden; box-shadow:0 4px 14px rgba(11,61,110,.04)}
 details.g > summary{list-style:none; cursor:pointer; display:flex; align-items:center; gap:11px; padding:15px 16px;
   font-family:"Cinzel",serif; font-weight:600; text-transform:uppercase; letter-spacing:.03em; font-size:1.0rem;
   color:var(--madder); -webkit-tap-highlight-color:transparent}
@@ -63,7 +59,7 @@ details.g[open] > summary{border-bottom:1px solid var(--paper-edge)}
   color:var(--madder); background:var(--paper); border:1px solid var(--paper-edge); border-radius:20px;
   padding:2px 10px; white-space:nowrap}
 .tip{font-family:"Montserrat",sans-serif; font-size:.82rem; color:var(--ink-soft);
-  background:#fbf7ee; border-left:3px solid var(--gilt); border-radius:8px; padding:10px 13px; margin-top:12px}
+  background:var(--surface); border-left:3px solid var(--gilt); border-radius:8px; padding:10px 13px; margin-top:12px}
 .rings{display:flex; flex-wrap:wrap; gap:8px 16px; margin:8px 0;
   font-family:"Montserrat",sans-serif; font-size:.8rem; font-weight:600; color:var(--ink-soft)}
 .rings span{display:inline-flex; align-items:center; gap:7px}

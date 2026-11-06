@@ -20,7 +20,7 @@ export const EXAMPLE_POEM: PoemConfig = {
   author: { name: 'Fixture author', died: '—' },
   metre: 'Rajaz',
   verses: 8,
-  accent: 'lapis',
+  accent: 'teal',
   closing: { ar: 'وَالۡحَمۡدُ لِلَّهِ لَهَا خِتَامُ', en: '“And all praise is due to Allah upon its completion.”' },
   draft: true,
   explanations: { by: 'Example commentary', defaultOn: true },

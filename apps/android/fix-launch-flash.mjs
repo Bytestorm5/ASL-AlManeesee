@@ -9,10 +9,10 @@
 // translucent window paints nothing, so in the moment between Android's splash
 // being dismissed and Chrome drawing the page, what shows through is black.
 // iPhone never shows this: apps/ios/App/Info.plist gives the app a UILaunchScreen
-// of LaunchBackground — #F9F4EA, the same cream as the manifest's
+// of LaunchBackground — #0B3D6E, the same Deep Navy as the manifest's
 // background_color — which covers the whole wait however long it runs.
 //
-// This gives LauncherActivity a theme of its own with that same cream as an
+// This gives LauncherActivity a theme of its own with that same navy as an
 // opaque window background, and on Android 12+ as the system splash background
 // too, so the chain is one colour end to end: system splash → launcher → the
 // page's own splash. The rest of the app keeps the translucent theme, which the

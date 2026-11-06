@@ -39,19 +39,19 @@ const CREDIT = `Prepared for the al-Asl ${SITE.collection.en.replace(/^The /, ''
 const esc = (s: unknown) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 function headerTemplate(emblem: string, title: string): string {
-  return `<div style="width:100%; box-sizing:border-box; font-size:9px; padding:0 16mm 6px; margin:0; display:flex; align-items:center; justify-content:space-between; font-family:Georgia,'Times New Roman',serif; color:#3a2a2b; border-bottom:1px solid #e8dcc7">
+  return `<div style="width:100%; box-sizing:border-box; font-size:9px; padding:0 16mm 6px; margin:0; display:flex; align-items:center; justify-content:space-between; font-family:Georgia,'Times New Roman',serif; color:#0B3D6E; border-bottom:1px solid #CBDDEA">
     <span style="display:flex; align-items:center; gap:6px">
       <img src="${emblem}" style="width:12px; height:12px" />
-      <span style="font-family:Arial,Helvetica,sans-serif; font-weight:700; letter-spacing:2px; font-size:8px; color:#8a4447">${esc(SITE.org.name.toUpperCase())}</span>
+      <span style="font-family:Arial,Helvetica,sans-serif; font-weight:700; letter-spacing:2px; font-size:8px; color:#0F63A8">${esc(SITE.org.name.toUpperCase())}</span>
     </span>
-    <span style="font-style:italic; color:#6c585a">${esc(title)}</span>
+    <span style="font-style:italic; color:#33586F">${esc(title)}</span>
   </div>`;
 }
 
 function footerTemplate(subject: string): string {
-  return `<div style="width:100%; box-sizing:border-box; font-size:8px; padding:6px 16mm 0; margin:0; display:flex; align-items:center; justify-content:space-between; font-family:Arial,Helvetica,sans-serif; color:#6c585a; border-top:1px solid #e8dcc7">
+  return `<div style="width:100%; box-sizing:border-box; font-size:8px; padding:6px 16mm 0; margin:0; display:flex; align-items:center; justify-content:space-between; font-family:Arial,Helvetica,sans-serif; color:#33586F; border-top:1px solid #CBDDEA">
     <span>${esc(subject)}</span>
-    <span style="font-weight:700; color:#8a4447">${esc(ORG_HOST)}</span>
+    <span style="font-weight:700; color:#0F63A8">${esc(ORG_HOST)}</span>
     <span>Page <span class="pageNumber"></span> of <span class="totalPages"></span></span>
   </div>`;
 }

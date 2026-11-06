@@ -60,13 +60,23 @@ with a backup of what they replace, and use an R2 etag compare-and-swap so two
 editors can never overwrite each other. Tests for the worker run inside workerd
 (`tests/*.test.ts`, `npm test`).
 
+## Colours: tokens only, WCAG AA always
+The palette lives in `src/styles/tokens.css`; DESIGN.md says what each colour
+is for. Use `var(--token)` in stylesheets and modules, never a new hex. Every
+text/background pair, light and dark, must pass WCAG AA (4.5:1, or 3:1 for the
+large verse text). Rumūz, red ink, Qurʾān green and error/warning colours are
+content colours and stay as they are.
+
 ## Key files
-- `src/config/site.ts` — every site-wide name, link and colour (rebrand here)
+- `src/config/site.ts` — every site-wide name and link, and the platform
+  colours (theme-color, manifest) that must be literals
 - `src/poems/` — the registry, types, and the dev fixture registration
 - `src/pages/` — home, `[poem]` reading page, guide, privacy, `admin/*` tools
 - `src/client/` — browser code (`reading/` features, `admin/` tool scripts)
-- `src/styles/` — `reading.css`, `home.css`, `theme.css` (all dark mode lives
-  in `theme.css`, keyed off `<html data-theme="dark">`; light is the default)
+- `src/styles/` — `tokens.css` (the whole palette: light and dark tokens, the
+  six accents, app-area accents), `reading.css`, `home.css`, `theme.css`
+  (dark mode's component overrides, keyed off `<html data-theme="dark">`;
+  light is the default)
 - `src/worker/` — the API; `src/shared/` — rules shared by worker and pages
 - `src/sw/sw.ts` — service worker; `integrations/site-output.ts` — builds it,
   plus `_headers`/`_redirects`

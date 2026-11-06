@@ -44,18 +44,17 @@ const list = names.length > 1 ? names.slice(0, -1).join(', ') + ' and ' + names[
 </BaseLayout>
 
 <style is:global>
-  :root{--ink:#3a2a2b;--ink-soft:#6c585a;--madder:#8a4447;--paper:#f9f4ea;--edge:#e8dcc7}
   *{box-sizing:border-box}
   body{margin:0;background:var(--paper);color:var(--ink);
     font-family:Georgia,'Times New Roman',serif;line-height:1.65;font-size:1.02rem}
   .wrap{max-width:720px;margin:0 auto;padding:40px 22px 64px}
-  h1{font-size:1.7rem;color:#5e2c30;margin:0 0 4px}
+  h1{font-size:1.7rem;color:var(--lapis);margin:0 0 4px}
   .sub{color:var(--ink-soft);font-style:italic;margin:0 0 26px}
   h2{font-size:1.15rem;color:var(--madder);margin:30px 0 8px}
   a{color:var(--madder)}
-  .updated{font-size:.85rem;color:var(--ink-soft);margin-top:34px;border-top:1px solid var(--edge);padding-top:14px}
-  :root[data-theme="dark"] body{background:#17110f;color:#e9dfd6}
-  :root[data-theme="dark"] h1{color:#e6c3bf}
-  :root[data-theme="dark"] .sub,:root[data-theme="dark"] .updated{color:#b9a9a3}
-  :root[data-theme="dark"] h2,:root[data-theme="dark"] a{color:#d99a9c}
+  .updated{font-size:.85rem;color:var(--ink-soft);margin-top:34px;border-top:1px solid var(--paper-edge);padding-top:14px}
+  :root[data-theme="dark"] body{background:var(--paper);color:var(--ink)}
+  :root[data-theme="dark"] h1{color:var(--cream)}
+  :root[data-theme="dark"] .sub,:root[data-theme="dark"] .updated{color:var(--sage)}
+  :root[data-theme="dark"] h2,:root[data-theme="dark"] a{color:var(--madder)}
 </style>

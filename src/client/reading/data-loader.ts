@@ -121,7 +121,7 @@ function reloadNudge(): void {
   b.textContent = 'Updated text available — tap to refresh';
   b.setAttribute('style', 'position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom));'
     + 'z-index:9999;border:0;border-radius:999px;padding:10px 18px;cursor:pointer;font:600 .85rem/1.2 -apple-system,'
-    + 'BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#8a4447;color:#fff;box-shadow:0 6px 20px rgba(94,44,48,.28)');
+    + 'BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--madder);color:var(--on-accent,#fff);box-shadow:0 6px 20px rgba(11,61,110,.28)');
   b.onclick = () => location.reload();
   document.body.appendChild(b);
 }

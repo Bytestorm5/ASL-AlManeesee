@@ -60,45 +60,45 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
 </div>
 
 <style is:global>
-  :root{--madder:#8a4447; --madder-deep:#5e2c30; --cream:#faf6ec; --edge:#e8dcc7; --ink:#3a2a2b;
-        --ok:#2e6b46; --warn:#8a5a12; --err:#a12b2b}
+  :root{--madder:#0F63A8; --madder-deep:#0B3D6E; --cream:#F4F9FD; --edge:#CBDDEA; --ink:#0B3D6E;
+        --ok:#1B6966; --warn:#8a5a12; --err:#a12b2b}
   *{box-sizing:border-box}
   body{margin:0; background:var(--cream); color:var(--ink);
        font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
        min-height:100vh; display:flex; align-items:flex-start; justify-content:center; padding:32px 16px}
   .card{width:100%; max-width:900px; background:#fff; border:1px solid var(--edge); border-radius:18px;
-        box-shadow:0 8px 30px rgba(94,44,48,.08); padding:28px 26px}
+        box-shadow:0 8px 30px rgba(11,61,110,.08); padding:28px 26px}
   h1{margin:0 0 4px; font-size:1.35rem; color:var(--madder-deep)}
   h2{margin:26px 0 8px; font-size:1.02rem; color:var(--madder-deep)}
-  .sub{margin:0 0 22px; color:#7a6a6b; font-size:.92rem}
+  .sub{margin:0 0 22px; color:var(--ink-soft); font-size:.92rem}
   a.manage{float:right; font-size:.82rem; color:var(--madder)}
   label{display:block; font-weight:600; font-size:.9rem; margin:16px 0 6px}
   input[type=password], input[type=text], select{
     width:100%; padding:10px 12px; border:1px solid var(--edge); border-radius:10px;
-    font:inherit; background:#fffdf8; color:var(--ink)}
+    font:inherit; background:var(--surface); color:var(--ink)}
   input:focus, select:focus{outline:2px solid var(--madder); outline-offset:1px}
   .row{display:flex; gap:12px; flex-wrap:wrap}
   .row > div{flex:1; min-width:180px}
   button{font:inherit; font-weight:600; border:0; border-radius:999px; padding:11px 22px; cursor:pointer}
   .btn-main{background:var(--madder); color:#fff; width:100%; margin-top:20px}
   .btn-main:disabled{opacity:.5; cursor:default}
-  .btn-ghost{background:#f3ece0; color:var(--madder-deep); margin-top:12px}
+  .btn-ghost{background:var(--paper-2); color:var(--madder-deep); margin-top:12px}
   .btn-danger{background:var(--err); color:#fff; margin-top:12px}
   /* big drop target: the invisible file input covers the whole box, so both
      clicking anywhere and dropping a file anywhere inside it just work */
   .dropzone{display:block; position:relative; border:2px dashed var(--edge); border-radius:14px;
-    background:#fffdf8; padding:34px 16px; text-align:center; cursor:pointer;
+    background:var(--surface); padding:34px 16px; text-align:center; cursor:pointer;
     transition:border-color .15s, background .15s}
-  .dropzone.drag{border-color:var(--madder); background:#faf0e8}
+  .dropzone.drag{border-color:var(--madder); background:var(--paper-2)}
   .dropzone input[type=file]{position:absolute; inset:0; width:100%; height:100%; opacity:0; cursor:pointer}
   .dz-t{font-weight:600; color:var(--madder-deep)}
-  .dz-s{font-size:.86rem; color:#7a6a6b; margin-top:4px}
+  .dz-s{font-size:.86rem; color:var(--ink-soft); margin-top:4px}
   .hidden{display:none !important}
   .msg{margin-top:12px; font-size:.9rem; min-height:1.2em; white-space:pre-wrap}
   .msg.err{color:var(--err)} .msg.ok{color:var(--ok)} .msg.warn{color:var(--warn)}
   #noPoems{white-space:normal; background:#fdf4e4; border-radius:10px; padding:10px 12px; margin:0 0 4px}
   .stats{display:flex; gap:10px; flex-wrap:wrap; margin:14px 0 0}
-  .stat{background:#f7f1e6; border:1px solid var(--edge); border-radius:12px; padding:8px 14px; font-size:.86rem}
+  .stat{background:var(--paper-2); border:1px solid var(--edge); border-radius:12px; padding:8px 14px; font-size:.86rem}
   .stat b{display:block; font-size:1.15rem; color:var(--madder-deep)}
   .stat.bad{background:#fbeaea; border-color:#e8c4c4}
   .stat.bad b{color:var(--err)}
@@ -111,19 +111,19 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   .flags li.more summary{cursor:pointer; font-weight:600; color:var(--madder-deep); padding:3px 10px}
   .flags li.more .flags{margin-top:6px}
   /* the preview can be long and the Arabic can be wide — let it scroll on its own */
-  .prev{max-height:460px; overflow:auto; border:1px solid var(--edge); border-radius:12px; margin-top:12px; background:#fffdf8}
+  .prev{max-height:460px; overflow:auto; border:1px solid var(--edge); border-radius:12px; margin-top:12px; background:var(--surface)}
   table{border-collapse:collapse; width:100%; font-size:.9rem}
-  th,td{text-align:left; padding:7px 10px; border-bottom:1px solid #f0e7d6; vertical-align:top}
-  th{position:sticky; top:0; background:#f7f1e6; font-size:.78rem; text-transform:uppercase;
-     letter-spacing:.04em; color:#7a6a6b; z-index:1}
-  tr.chap td{background:#f3ece0; font-weight:600; color:var(--madder-deep)}
+  th,td{text-align:left; padding:7px 10px; border-bottom:1px solid #D6E6F0; vertical-align:top}
+  th{position:sticky; top:0; background:var(--paper-2); font-size:.78rem; text-transform:uppercase;
+     letter-spacing:.04em; color:var(--ink-soft); z-index:1}
+  tr.chap td{background:var(--paper-2); font-weight:600; color:var(--madder-deep)}
   td.ar{font-family:"Scheherazade New","Amiri","Traditional Arabic",serif; font-size:1.22rem;
         line-height:1.9; direction:rtl; text-align:right; white-space:nowrap}
-  td.n{color:#9c8a8b; font-variant-numeric:tabular-nums; width:1%}
-  td.tr{color:#5c4e4f; min-width:220px}
+  td.n{color:var(--sage); font-variant-numeric:tabular-nums; width:1%}
+  td.tr{color:var(--ink-soft); min-width:220px}
   td.tr em{color:var(--err); font-style:normal}
-  .note{font-size:.85rem; color:#7a6a6b; margin-top:10px}
-  code{background:#f3ece0; padding:1px 5px; border-radius:5px; font-size:.85em}
+  .note{font-size:.85rem; color:var(--ink-soft); margin-top:10px}
+  code{background:var(--paper-2); padding:1px 5px; border-radius:5px; font-size:.85em}
 </style>
 <script>import '../../client/admin/import.ts';</script>
 </AdminLayout>

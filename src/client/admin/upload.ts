@@ -294,7 +294,7 @@ window.addEventListener('beforeunload', (e) => {
 function logSession(ok: boolean, set: string, bayt: number, note?: string): void {
   $('sessionLog').classList.remove('hidden');
   const li = document.createElement('li');
-  li.style.cssText = 'padding:3px 0;color:' + (ok ? 'var(--ok,#2f6b46)' : '#8a2a2a');
+  li.style.cssText = 'padding:3px 0;color:' + (ok ? 'var(--ok,#1B6966)' : '#8a2a2a');
   li.textContent = (ok ? '✓ ' : '✗ ') + set + ' · bayt ' + bayt + (note ? ' — ' + note : '');
   const list = $('sessionList');
   list.insertBefore(li, list.firstChild);

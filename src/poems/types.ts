@@ -7,8 +7,10 @@
    through /admin/import, then edited in the Bayt and Content editors, with no
    deploy in between. */
 
-/** The accent palettes defined in src/styles/theme.css (body.matn-<accent>). */
-export const ACCENTS = ['madder', 'lapis', 'verdigris', 'indigo', 'plum', 'sienna', 'teal'] as const;
+/** The six accents of the arctic palette, defined in src/styles/tokens.css
+    (body.matn-<accent>): Deep Navy, Royal Blue, Sky Blue, Lagoon Teal, Deep
+    Teal and Midnight Green. A matn wears one on its page, card and bookmarks. */
+export const ACCENTS = ['navy', 'royal', 'sky', 'lagoon', 'teal', 'midnight'] as const;
 export type Accent = (typeof ACCENTS)[number];
 
 export interface PoemConfig {

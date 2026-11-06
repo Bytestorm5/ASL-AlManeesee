@@ -247,11 +247,11 @@ function render(d: PoemDoc, info: Inspection): void {
   for (const c of d.chapters) {
     const vs = chapterVerses(c);
     rows.push('<tr class="chap"><td colspan="3">' + esc(c.i) + '. ' + esc(c.ar) +
-      (c.en ? ' — ' + esc(c.en) : '') + (c.tr ? ' <span style="font-weight:400;color:#7a6a6b">(' + esc(c.tr) + ')</span>' : '') +
+      (c.en ? ' — ' + esc(c.en) : '') + (c.tr ? ' <span style="font-weight:400;color:var(--ink-soft)">(' + esc(c.tr) + ')</span>' : '') +
       ' · ' + vs.length + '</td></tr>');
     for (const v of vs) {
       rows.push('<tr><td class="n">' + esc(v.n) + '</td><td class="ar">' + esc(v.sadr) +
-        ' <span style="color:#c0973c">۞</span> ' + esc(v.ajuz) + '</td><td class="tr">' +
+        ' <span style="color:var(--gilt)">۞</span> ' + esc(v.ajuz) + '</td><td class="tr">' +
         (v.tr ? esc(v.tr) : '<em>— none —</em>') + '</td></tr>');
     }
   }

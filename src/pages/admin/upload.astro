@@ -63,7 +63,7 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
     <div class="progress hidden" id="progress"><div class="progress-bar" id="progressBar"></div></div>
     <div class="msg" id="msg"></div>
     <div id="sessionLog" class="hidden" style="margin-top:14px">
-      <div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sage,#9c7f80);margin-bottom:5px">This session</div>
+      <div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sage,#456E80);margin-bottom:5px">This session</div>
       <ul id="sessionList" style="list-style:none;margin:0;padding:0;font-size:.86rem"></ul>
     </div>
   </div>
@@ -80,20 +80,20 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
 </div>
 
 <style is:global>
-  :root{--madder:#8a4447; --madder-deep:#5e2c30; --cream:#faf6ec; --edge:#e8dcc7; --ink:#3a2a2b; --ok:#2e6b46}
+  :root{--madder:#0F63A8; --madder-deep:#0B3D6E; --cream:#F4F9FD; --edge:#CBDDEA; --ink:#0B3D6E; --ok:#1B6966}
   *{box-sizing:border-box}
   body{margin:0; background:var(--cream); color:var(--ink);
        font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
        min-height:100vh; display:flex; align-items:flex-start; justify-content:center; padding:32px 16px}
   .card{width:100%; max-width:520px; background:#fff; border:1px solid var(--edge); border-radius:18px;
-        box-shadow:0 8px 30px rgba(94,44,48,.08); padding:28px 26px}
+        box-shadow:0 8px 30px rgba(11,61,110,.08); padding:28px 26px}
   h1{margin:0 0 4px; font-size:1.35rem; color:var(--madder-deep)}
-  .sub{margin:0 0 22px; color:#7a6a6b; font-size:.92rem}
+  .sub{margin:0 0 22px; color:var(--ink-soft); font-size:.92rem}
   a.manage{float:right; font-size:.82rem; color:var(--madder)}
   label{display:block; font-weight:600; font-size:.9rem; margin:16px 0 6px}
   input[type=password], input[type=text], input[type=number], select{
     width:100%; padding:10px 12px; border:1px solid var(--edge); border-radius:10px;
-    font:inherit; background:#fffdf8; color:var(--ink)}
+    font:inherit; background:var(--surface); color:var(--ink)}
   input:focus, select:focus{outline:2px solid var(--madder); outline-offset:1px}
   .row{display:flex; gap:12px}
   .row > div{flex:1; min-width:0}
@@ -103,44 +103,44 @@ import AdminLayout from '../../layouts/AdminLayout.astro';
   .btn-rec{background:#b03030; color:#fff}
   .btn-rec.recording{background:#7a1f1f}
   .src-tabs{display:flex; gap:8px; margin-top:6px}
-  .src-tabs button{flex:1; padding:9px 0; border-radius:10px; background:#f3ece0; color:var(--madder-deep)}
+  .src-tabs button{flex:1; padding:9px 0; border-radius:10px; background:var(--paper-2); color:var(--madder-deep)}
   .src-tabs button.active{background:var(--madder); color:#fff}
   .pane{margin-top:12px}
   /* big drop target: the invisible file input covers the whole box, so both
      clicking anywhere and dropping a file anywhere inside it just work */
   .dropzone{display:block; position:relative; border:2px dashed var(--edge); border-radius:14px;
-    background:#fffdf8; padding:30px 16px; text-align:center; cursor:pointer;
+    background:var(--surface); padding:30px 16px; text-align:center; cursor:pointer;
     transition:border-color .15s, background .15s}
-  .dropzone.drag{border-color:var(--madder); background:#faf0e8}
+  .dropzone.drag{border-color:var(--madder); background:var(--paper-2)}
   .dropzone input[type=file]{position:absolute; inset:0; width:100%; height:100%;
     opacity:0; cursor:pointer}
   .dz-icon{font-size:1.6rem; line-height:1; margin-bottom:8px}
-  .dz-text{color:#7a6a6b; font-size:.95rem}
+  .dz-text{color:var(--ink-soft); font-size:.95rem}
   .dz-text strong{color:var(--madder-deep)}
   .dz-file{margin-top:8px; font-size:.88rem; font-weight:600; color:var(--ok); word-break:break-all}
-  .file-note, .rec-timer{font-size:.85rem; color:#7a6a6b; margin-top:6px}
+  .file-note, .rec-timer{font-size:.85rem; color:var(--ink-soft); margin-top:6px}
   .rec-timer{display:inline-block; margin-left:10px; font-variant-numeric:tabular-nums}
   audio{width:100%; margin-top:12px}
-  .meter{height:12px; border-radius:8px; background:#efe7d8; overflow:hidden; margin-top:12px}
-  .meter-bar{height:100%; width:0%; background:linear-gradient(90deg,#2e6b46,#8fbf5a 70%,#e0a83e); transition:width .06s linear}
-  .meter-lbl{font-size:.78rem; color:#7a6a6b; margin-top:5px}
+  .meter{height:12px; border-radius:8px; background:#D7E6F0; overflow:hidden; margin-top:12px}
+  .meter-bar{height:100%; width:0%; background:linear-gradient(90deg,var(--royal),var(--sky)); transition:width .06s linear}
+  .meter-lbl{font-size:.78rem; color:var(--ink-soft); margin-top:5px}
   /* upload progress: how much of the take has left this device */
-  .progress{height:6px; border-radius:6px; background:#efe7d8; overflow:hidden; margin-top:12px}
+  .progress{height:6px; border-radius:6px; background:#D7E6F0; overflow:hidden; margin-top:12px}
   .progress-bar{height:100%; width:0%; background:var(--madder); transition:width .15s linear}
   .msg{margin-top:14px; padding:10px 12px; border-radius:10px; font-size:.9rem; display:none}
   .msg.err{display:block; background:#fbeaea; color:#8a2a2a}
   .msg.err:empty{display:none}   /* no error yet: no empty pink bar under Unlock */
-  .msg.ok{display:block; background:#e8f3ec; color:var(--ok)}
+  .msg.ok{display:block; background:var(--ok-bg); color:var(--ok)}
   .fmodal{position:fixed; inset:0; z-index:60; display:none; align-items:center; justify-content:center;
-    background:rgba(58,42,43,.5); padding:20px}
+    background:rgba(6,32,58,.5); padding:20px}
   .fmodal.show{display:flex}
   .fmodal .card{max-width:380px; width:100%; background:var(--surface,#fff); border-radius:14px;
     box-shadow:0 18px 50px rgba(0,0,0,.3); padding:20px 20px 16px; text-align:left}
-  .fmodal h3{margin:0 0 8px; font-size:1.05rem; color:var(--madder,#8a4447)}
+  .fmodal h3{margin:0 0 8px; font-size:1.05rem; color:var(--madder,#0F63A8)}
   .fmodal p{margin:6px 0; font-size:.9rem; line-height:1.5}
-  .fmodal .fx{font-family:monospace; background:var(--paper,#f7f2e5); border-radius:6px; padding:1px 6px}
+  .fmodal .fx{font-family:monospace; background:var(--paper,#EDF5FB); border-radius:6px; padding:1px 6px}
   .fmodal button{margin-top:12px; width:100%; cursor:pointer; border:0; border-radius:10px; padding:11px;
-    background:var(--madder,#8a4447); color:#fbeee8; font-weight:700; font-size:.9rem}
+    background:var(--madder,#0F63A8); color:var(--on-accent); font-weight:700; font-size:.9rem}
   .hidden{display:none}
   .done-path{font-family:ui-monospace,Menlo,Consolas,monospace; font-size:.82rem; word-break:break-all}
 </style>

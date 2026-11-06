@@ -64,7 +64,7 @@ function shell(): void {
     /* Home shows only the picked favorite(s), when any are picked */
     '.appmode.apphome .matn-row.fav-hide{display:none!important}',
     '.fav-head{margin:0 2px 10px;font-family:"Montserrat",sans-serif;font-size:.7rem;font-weight:700;',
-    'letter-spacing:.12em;text-transform:uppercase;color:var(--madder,#8a4447)}',
+    'letter-spacing:.12em;text-transform:uppercase;color:var(--madder,#0F63A8)}',
     '.appmode.apphome .toc-wrap,.appmode.apphome .section{padding-top:10px}',
     'body.appmode{padding-bottom:calc(58px + env(safe-area-inset-bottom,0px))}',
     '.appmode .navbar{padding-top:calc(env(safe-area-inset-top,0px))}',
@@ -72,21 +72,22 @@ function shell(): void {
     /* the bottom bar owns Memorize in the app — drop the top-bar pill */
     '.appmode .navbar .mzbtn{display:none!important}',
     '.appnav .mzcount{position:absolute;top:-6px;right:-12px;min-width:16px;height:16px;padding:0 4px;border-radius:8px;',
-    'background:var(--gilt-deep,#c49a3f);color:#fff;font-family:"Montserrat",sans-serif;font-weight:700;font-size:.58rem;',
-    'display:none;align-items:center;justify-content:center;line-height:1;box-shadow:0 0 0 2px var(--paper,#f7f2e5)}',
+    'background:var(--gilt-deep,#56A6DD);color:var(--on-accent,#fff);font-family:"Montserrat",sans-serif;font-weight:700;font-size:.58rem;',
+    'display:none;align-items:center;justify-content:center;line-height:1;box-shadow:0 0 0 2px var(--paper,#EDF5FB)}',
     '.appnav .mzcount.show{display:flex}',
     '.appnav .mzcount.due{background:#a23b3b}',
-    /* top app bar (home only) — deep maroon brand plate, continuous with
-       the status bar, so it stands apart from the paper content below */
+    /* top app bar (home only) — the Deep Navy brand plate, continuous with
+       the status bar (SITE.theme.color), so it stands apart from the paper
+       content below. --navy, not --lapis: a matn's accent never recolours it. */
     '.apptop{position:sticky;top:0;z-index:190;display:flex;align-items:center;gap:11px;',
     'padding:calc(env(safe-area-inset-top,0px) + 11px) 16px 11px;',
-    'background:radial-gradient(560px 130px at 50% -40%,rgba(255,240,232,.14),transparent 62%),',
-    'linear-gradient(160deg,#6e3438,#5e2c30 55%,#4c2427);',
-    'box-shadow:0 4px 16px rgba(58,28,31,.24)}',
+    'background:radial-gradient(560px 130px at 50% -40%,rgba(255,255,255,.14),transparent 62%),',
+    'linear-gradient(160deg,#114A80,var(--navy) 55%,#09345E);',
+    'box-shadow:0 4px 16px rgba(7,43,79,.24)}',
     '.apptop::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;',
-    'background:linear-gradient(90deg,transparent,rgba(230,198,111,.65),transparent)}',
+    'background:linear-gradient(90deg,transparent,rgba(166,216,247,.65),transparent)}',
     '.apptop .em{width:30px;height:30px;border-radius:8px;flex:0 0 auto;box-shadow:0 1px 5px rgba(0,0,0,.3)}',
-    '.apptop .t{font-family:"Cinzel","Cormorant Garamond",serif;font-weight:700;color:#f3e6da;font-size:1.12rem;letter-spacing:.06em;',
+    '.apptop .t{font-family:"Cinzel","Cormorant Garamond",serif;font-weight:700;color:var(--cream);font-size:1.12rem;letter-spacing:.06em;',
     'text-shadow:0 1px 6px rgba(0,0,0,.25)}',
     /* matn-name bar (reading pages only) — same brand plate as Home's, but
        NOT sticky: .navbar right below it is already sticky, and two sticky
@@ -95,24 +96,32 @@ function shell(): void {
        compact icon row pinned once you start reading — you see which matn
        you're in whenever you're at the top of the page or jump back to it. */
     '.apptop.apptop-matn{position:static;justify-content:center}',
-    '.apptop-matn .apptop-matn-t{font-family:"Cormorant Garamond","Cinzel",serif;font-weight:600;color:#f3e6da;',
+    '.apptop-matn .apptop-matn-t{font-family:"Cormorant Garamond","Cinzel",serif;font-weight:600;color:var(--cream);',
     'font-size:1.04rem;text-align:center;text-shadow:0 1px 6px rgba(0,0,0,.25)}',
-    '.apptop-matn .apptop-matn-t .ar{font-family:"Scheherazade New","Amiri",serif;font-size:1.3rem;color:#f6d9b8;margin-inline-end:6px}',
+    '.apptop-matn .apptop-matn-t .ar{font-family:"Scheherazade New","Amiri",serif;font-size:1.3rem;color:#C5DBE9;margin-inline-end:6px}',
     /* bottom navigation */
     '.appnav{position:fixed;left:0;right:0;bottom:0;z-index:200;display:flex;',
-    'background:rgba(248,243,233,.98);-webkit-backdrop-filter:saturate(1.2) blur(12px);backdrop-filter:saturate(1.2) blur(12px);',
-    'border-top:1px solid #e8dcc7;box-shadow:0 -4px 18px rgba(94,44,48,.08);',
+    'background:rgba(244,249,253,.98);-webkit-backdrop-filter:saturate(1.2) blur(12px);backdrop-filter:saturate(1.2) blur(12px);',
+    'border-top:1px solid var(--paper-edge);box-shadow:0 -4px 18px rgba(11,61,110,.08);',
     'padding-bottom:env(safe-area-inset-bottom,0px)}',
     '.appnav a{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;',
-    'gap:3px;padding:7px 3px 6px;text-decoration:none;color:#9c7f80;',
+    'gap:3px;padding:7px 3px 6px;text-decoration:none;color:var(--sage);',
     'font-family:"Montserrat",sans-serif;font-size:.64rem;font-weight:600;letter-spacing:.02em;',
     '-webkit-tap-highlight-color:transparent}',
     '.appnav a .ic{height:23px;display:grid;place-items:center;position:relative}',
     '.appnav a .ic svg{width:21px;height:21px}',
     '.appnav a .num{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:1.15rem;line-height:1}',
     '.appnav a .lbl{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}',
-    '.appnav a.active{color:var(--madder,#8a4447)}',
-    '.appnav a.active .ic::after{content:"";position:absolute;top:-7px;width:22px;height:3px;border-radius:3px;background:var(--madder,#8a4447)}',
+    /* Each app area has its own accent from the palette (--area-* in
+       tokens.css): the active tab, and the head of the sheet it opens, wear it. */
+    '.appnav a[data-tab="home"],.appsheet[data-area="home"]{--area:var(--area-home)}',
+    '.appnav a[data-tab="collection"],.appsheet[data-area="collection"]{--area:var(--area-collection)}',
+    '.appnav a[data-tab="read"],.appsheet[data-area="read"]{--area:var(--area-read)}',
+    '.appnav a[data-tab="memorize"],.appsheet[data-area="memorize"]{--area:var(--area-memorize)}',
+    '.appnav a[data-tab="marginalia"],.appsheet[data-area="marginalia"]{--area:var(--area-marginalia)}',
+    '.appnav a[data-tab="more"],.appsheet[data-area="more"]{--area:var(--area-more)}',
+    '.appnav a.active{color:var(--area,var(--madder,#0F63A8))}',
+    '.appnav a.active .ic::after{content:"";position:absolute;top:-7px;width:22px;height:3px;border-radius:3px;background:var(--area,var(--madder,#0F63A8))}',
     /* On a tablet flex:1 stretches four tabs to ~340px each, leaving tiny icons
        marooned in huge cells. Keep the bar full width but group the tabs in the
        middle at phone size. Same for the More sheet, which is otherwise a
@@ -135,96 +144,96 @@ function shell(): void {
     'html.bigscreen .appsheet .as-panel{width:min(560px,100%);margin:0 auto}',
     '}',
     /* "More" bottom sheet */
-    '.appsheet .as-scrim{position:fixed;inset:0;z-index:220;background:rgba(23,17,15,.45);opacity:0;transition:opacity .22s}',
+    '.appsheet .as-scrim{position:fixed;inset:0;z-index:220;background:rgba(5,40,42,.45);opacity:0;transition:opacity .22s}',
     '.appsheet.open .as-scrim{opacity:1}',
-    '.appsheet .as-panel{position:fixed;left:0;right:0;bottom:0;z-index:221;background:var(--paper,#f7f2e5);',
+    '.appsheet .as-panel{position:fixed;left:0;right:0;bottom:0;z-index:221;background:var(--paper,#EDF5FB);',
     'border-radius:18px 18px 0 0;box-shadow:0 -12px 40px rgba(0,0,0,.28);padding:8px 16px calc(14px + env(safe-area-inset-bottom,0px));',
     'transform:translateY(102%);transition:transform .24s ease;max-height:82vh;overflow-y:auto}',
     '.appsheet.open .as-panel{transform:none}',
     /* grip + head double as the drag handle for swipe-down-to-close (see
        enableSheetDrag) — touch-action:none stops the browser's own scroll/
        refresh gestures from fighting the drag. */
-    '.appsheet .as-grip{width:38px;height:4px;border-radius:2px;background:#cbb9a4;margin:6px auto 10px;touch-action:none}',
+    '.appsheet .as-grip{width:38px;height:4px;border-radius:2px;background:var(--area,var(--paper-edge));opacity:.55;margin:6px auto 10px;touch-action:none}',
     '.appsheet .as-head{font-family:"Montserrat",sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.14em;',
-    'text-transform:uppercase;color:#9c7f80;margin:2px 2px 8px;touch-action:none}',
+    'text-transform:uppercase;color:var(--area,var(--sage));margin:2px 2px 8px;touch-action:none}',
     '.appsheet .as-row{display:flex;align-items:center;gap:12px;padding:9px 2px;cursor:pointer;',
-    'border-top:1px solid rgba(232,220,199,.7);-webkit-tap-highlight-color:transparent}',
-    '.appsheet .as-row.on .as-ar{color:var(--madder,#8a4447)}',
+    'border-top:1px solid rgba(203,221,234,.7);-webkit-tap-highlight-color:transparent}',
+    '.appsheet .as-row.on .as-ar{color:var(--madder,#0F63A8)}',
     '.appsheet .as-num{flex:0 0 auto;width:26px;height:26px;display:grid;place-items:center;border-radius:50%;',
-    'border:1px solid var(--paper-edge,#e8dcc7);background:var(--surface,#fff);color:var(--madder,#8a4447);',
+    'border:1px solid var(--paper-edge,#CBDDEA);background:var(--surface,#fff);color:var(--madder,#0F63A8);',
     'font-family:"Cormorant Garamond",serif;font-weight:700;font-size:.95rem}',
     '.appsheet .as-names{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:1px}',
-    '.appsheet .as-ar{font-family:"Scheherazade New","Amiri",serif;font-size:1.06rem;line-height:1.35;color:var(--ink,#2f2320);',
+    '.appsheet .as-ar{font-family:"Scheherazade New","Amiri",serif;font-size:1.06rem;line-height:1.35;color:var(--ink,#0B3D6E);',
     'white-space:nowrap;overflow:hidden;text-overflow:ellipsis}',
-    '.appsheet .as-en{font-family:"Montserrat",sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.05em;color:#9c7f80}',
+    '.appsheet .as-en{font-family:"Montserrat",sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.05em;color:var(--sage)}',
     '.appsheet .as-acts{flex:0 0 auto;display:flex;gap:6px}',
     '.appsheet .as-acts button{cursor:pointer;font-family:"Montserrat",sans-serif;font-size:.62rem;font-weight:700;',
-    'letter-spacing:.03em;color:var(--madder,#8a4447);background:var(--surface,#fff);border:1px solid var(--paper-edge,#e8dcc7);',
+    'letter-spacing:.03em;color:var(--madder,#0F63A8);background:var(--surface,#fff);border:1px solid var(--paper-edge,#CBDDEA);',
     'border-radius:14px;padding:6px 10px;-webkit-tap-highlight-color:transparent}',
-    '.appsheet .as-div{height:1px;background:rgba(232,220,199,.9);margin:6px 0}',
-    '.appsheet .as-link{display:block;padding:10px 2px;text-decoration:none;color:var(--ink,#2f2320);',
+    '.appsheet .as-div{height:1px;background:rgba(203,221,234,.9);margin:6px 0}',
+    '.appsheet .as-link{display:block;padding:10px 2px;text-decoration:none;color:var(--ink,#0B3D6E);',
     'font-family:"Montserrat",sans-serif;font-size:.8rem;font-weight:600}',
     '.appsheet button.as-link{width:100%;text-align:left;border:0;background:transparent;cursor:pointer;-webkit-tap-highlight-color:transparent}',
-    '.appsheet button.as-link:disabled{cursor:default;color:var(--sage,#9c7f80)}',
+    '.appsheet button.as-link:disabled{cursor:default;color:var(--sage,#456E80)}',
     '.appsheet .as-theme-wrap{display:flex;align-items:center;gap:10px;padding:6px 2px 2px}',
-    '.appsheet .as-theme-lbl{font-family:"Montserrat",sans-serif;font-size:.68rem;font-weight:700;color:#9c7f80}',
+    '.appsheet .as-theme-lbl{font-family:"Montserrat",sans-serif;font-size:.68rem;font-weight:700;color:var(--sage)}',
     '.appsheet .as-theme{display:flex;gap:5px;margin-left:auto}',
     '.appsheet .as-theme button{cursor:pointer;font-family:"Montserrat",sans-serif;font-size:.62rem;font-weight:700;',
-    'color:#9c7f80;background:var(--surface,#fff);border:1px solid var(--paper-edge,#e8dcc7);border-radius:14px;padding:6px 11px}',
-    '.appsheet .as-theme button.on{color:#fbeee8;background:var(--madder,#8a4447);border-color:var(--madder,#8a4447)}',
+    'color:var(--sage);background:var(--surface,#fff);border:1px solid var(--paper-edge,#CBDDEA);border-radius:14px;padding:6px 11px}',
+    '.appsheet .as-theme button.on{color:var(--on-accent);background:var(--madder,#0F63A8);border-color:var(--madder,#0F63A8)}',
     '.appsheet .as-goal{display:flex;align-items:center;gap:7px;margin-left:auto}',
     '.appsheet .as-goal button{cursor:pointer;width:26px;height:26px;border-radius:50%;',
-    'border:1px solid var(--paper-edge,#e8dcc7);background:var(--surface,#fff);color:var(--madder,#8a4447);',
+    'border:1px solid var(--paper-edge,#CBDDEA);background:var(--surface,#fff);color:var(--madder,#0F63A8);',
     'font-family:"Montserrat",sans-serif;font-size:1rem;font-weight:700;display:grid;place-items:center;',
     'line-height:1;-webkit-tap-highlight-color:transparent}',
     '.appsheet .as-goal button:disabled{opacity:.35;cursor:default}',
     '.appsheet .as-goal-n{min-width:44px;text-align:center;font-family:"Cormorant Garamond",serif;font-weight:700;',
-    'font-size:1rem;color:var(--ink,#2f2320)}',
-    '.appsheet .as-goal-n small{font-family:"Montserrat",sans-serif;font-weight:600;font-size:.62rem;color:#9c7f80}',
+    'font-size:1rem;color:var(--ink,#0B3D6E)}',
+    '.appsheet .as-goal-n small{font-family:"Montserrat",sans-serif;font-weight:600;font-size:.62rem;color:var(--sage)}',
     '.appsheet .as-goal-sec{padding:8px 2px 2px}',
     '.appsheet .as-goal-sec>.as-theme-lbl{display:block;margin-bottom:4px}',
     '.appsheet .as-goal-row{display:flex;align-items:center;gap:10px;padding:7px 0;',
-    'border-top:1px solid rgba(232,220,199,.5)}',
+    'border-top:1px solid rgba(203,221,234,.5)}',
     '.appsheet .as-goal-row:first-of-type{border-top:0}',
     '.appsheet .as-goal-name{flex:1 1 auto;min-width:0;font-family:"Cormorant Garamond",serif;font-weight:600;',
-    'font-size:.92rem;color:var(--ink,#2f2320);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}',
+    'font-size:.92rem;color:var(--ink,#0B3D6E);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}',
     /* ★ favorite toggle in the Collection sheet */
     '.appsheet .as-fav{flex:0 0 auto;cursor:pointer;background:transparent;border:0;padding:2px 4px;',
-    'font-size:1.15rem;line-height:1;color:#c9b8a0;-webkit-tap-highlight-color:transparent}',
-    '.appsheet .as-fav.on{color:var(--gilt-deep,#c49a3f)}',
+    'font-size:1.15rem;line-height:1;color:var(--paper-edge);-webkit-tap-highlight-color:transparent}',
+    '.appsheet .as-fav.on{color:var(--gilt-deep,#56A6DD)}',
     '.appsheet .as-hint{margin:0 2px 6px;font-family:"Montserrat",sans-serif;font-size:.68rem;',
-    'color:#9c7f80;line-height:1.5}',
+    'color:var(--sage);line-height:1.5}',
     /* Marginalia sheet — bookmarks & notes across every matn */
     '.appsheet .as-empty{padding:24px 4px 12px;text-align:center;font-family:"Montserrat",sans-serif;font-size:.8rem;',
-    'color:#9c7f80;line-height:1.6}',
+    'color:var(--sage);line-height:1.6}',
     '.appsheet .as-marg-row{display:flex;align-items:flex-start;gap:10px;padding:10px 2px;text-decoration:none;',
-    'color:var(--ink,#2f2320);border-top:1px solid rgba(232,220,199,.7);-webkit-tap-highlight-color:transparent}',
-    '.appsheet .as-marg-ic{flex:0 0 auto;display:flex;gap:4px;color:var(--madder,#8a4447);margin-top:2px}',
+    'color:var(--ink,#0B3D6E);border-top:1px solid rgba(203,221,234,.7);-webkit-tap-highlight-color:transparent}',
+    '.appsheet .as-marg-ic{flex:0 0 auto;display:flex;gap:4px;color:var(--madder,#0F63A8);margin-top:2px}',
     '.appsheet .as-marg-ic svg{width:15px;height:15px}',
     '.appsheet .as-marg-body{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:2px}',
     '.appsheet .as-marg-t{font-family:"Montserrat",sans-serif;font-size:.78rem;font-weight:600}',
-    '.appsheet .as-marg-t b{color:var(--madder,#8a4447)}',
-    '.appsheet .as-marg-note{font-family:"Montserrat",sans-serif;font-size:.7rem;color:#6c585a;overflow:hidden;',
+    '.appsheet .as-marg-t b{color:var(--madder,#0F63A8)}',
+    '.appsheet .as-marg-note{font-family:"Montserrat",sans-serif;font-size:.7rem;color:var(--ink-soft);overflow:hidden;',
     'text-overflow:ellipsis;white-space:nowrap}',
     /* Home's "Show me around" — real coach-marks over the actual screen
        (a highlight ring + callout), so the tour can never drift out of
        sync with whatever Home looks like today. */
     '.htour-scrim{position:fixed;inset:0;z-index:520;background:transparent;opacity:0;transition:opacity .25s}',
     '.htour-scrim.show{opacity:1}',
-    '.htour-spot{position:fixed;z-index:521;border-radius:14px;box-shadow:0 0 0 9999px rgba(23,17,15,.62);',
+    '.htour-spot{position:fixed;z-index:521;border-radius:14px;box-shadow:0 0 0 9999px rgba(5,40,42,.62);',
     'transition:top .35s ease,left .35s ease,width .35s ease,height .35s ease;pointer-events:none}',
-    '.htour-card{position:fixed;z-index:522;width:min(320px,calc(100vw - 32px));background:var(--paper,#f9f4ea);',
+    '.htour-card{position:fixed;z-index:522;width:min(320px,calc(100vw - 32px));background:var(--paper,#F4F9FD);',
     'border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,.4);padding:16px 18px;font-family:"Montserrat",sans-serif;',
     'transition:top .3s ease,left .3s ease}',
-    '.htour-card h3{font-family:"Cormorant Garamond",Georgia,serif;color:var(--madder,#8a4447);font-size:1.15rem;margin:0 0 6px}',
-    '.htour-card p{color:var(--ink-soft,#6c585a);font-size:.82rem;line-height:1.5;margin:0 0 12px}',
+    '.htour-card h3{font-family:"Cormorant Garamond",Georgia,serif;color:var(--madder,#0F63A8);font-size:1.15rem;margin:0 0 6px}',
+    '.htour-card p{color:var(--ink-soft,#33586F);font-size:.82rem;line-height:1.5;margin:0 0 12px}',
     '.htour-foot{display:flex;align-items:center;justify-content:space-between}',
     '.htour-dots{display:flex;gap:6px}',
-    '.htour-dots i{width:6px;height:6px;border-radius:50%;background:var(--paper-edge,#e8dcc7)}',
-    '.htour-dots i.on{background:var(--madder,#8a4447)}',
-    '.htour-skip{background:none;border:0;color:var(--sage,#9c7f80);font-size:.76rem;font-weight:600;cursor:pointer;padding:6px;',
+    '.htour-dots i{width:6px;height:6px;border-radius:50%;background:var(--paper-edge,#CBDDEA)}',
+    '.htour-dots i.on{background:var(--madder,#0F63A8)}',
+    '.htour-skip{background:none;border:0;color:var(--sage,#456E80);font-size:.76rem;font-weight:600;cursor:pointer;padding:6px;',
     '-webkit-tap-highlight-color:transparent}',
-    '.htour-next{background:var(--madder,#8a4447);color:#fbeee8;border:0;border-radius:20px;padding:8px 16px;',
+    '.htour-next{background:var(--madder,#0F63A8);color:var(--on-accent);border:0;border-radius:20px;padding:8px 16px;',
     'font-size:.78rem;font-weight:700;cursor:pointer;-webkit-tap-highlight-color:transparent}',
     '@media (prefers-reduced-motion:reduce){.htour-spot,.htour-card{transition:none}}',
   ].join('');
@@ -547,9 +556,10 @@ function shell(): void {
   }
 
   /** Builds a bottom sheet's overlay and returns it, already in the page. */
-  function makeSheet(label: string, inner: string): HTMLElement {
+  function makeSheet(label: string, inner: string, area: string): HTMLElement {
     const s = document.createElement('div');
     s.className = 'appsheet';
+    s.dataset.area = area; // its tab's accent (--area-* in tokens.css)
     s.innerHTML = '<div class="as-scrim"></div><div class="as-panel" role="dialog" aria-label="' + esc(label) + '">' + inner + '</div>';
     document.body.appendChild(s);
     return s;
@@ -618,7 +628,7 @@ function shell(): void {
       '<div class="as-div"></div>' +
       '<a class="as-link" href="/guide">📖 User guide</a>' +
       '<button type="button" class="as-link as-offline" hidden>⤓ Download recitations</button>' +
-      THEME_HTML);
+      THEME_HTML, 'more');
     sheet = s;
     wireTheme(s);
     // "Download recitations" — shown only when there are recordings still to
@@ -661,7 +671,7 @@ function shell(): void {
       '<div class="as-grip"></div><div class="as-head">The Mutūn</div>' +
       (MUTUN.length
         ? '<p class="as-hint">Tap ★ to pick up to 2 favorites for your Home screen.</p>' + matnRowsHtml(true)
-        : EMPTY_COLLECTION));
+        : EMPTY_COLLECTION), 'collection');
     collectionSheet = s;
     s.querySelector('.as-scrim')?.addEventListener('click', () => closeCollectionSheet());
     enableSheetDrag(s, closeCollectionSheet);
@@ -715,7 +725,7 @@ function shell(): void {
         ? '<a class="as-link" href="' + esc(RATE_URL) + '" target="_blank" rel="noopener">★ ' +
           (IS_IOS ? 'Rate on the App Store' : 'Rate on Google Play') + '</a>'
         : '') +
-      '<a class="as-link" href="mailto:' + CONTACT_EMAIL + '?subject=' + devSubject + '">✉ Email the developer</a>');
+      '<a class="as-link" href="mailto:' + CONTACT_EMAIL + '?subject=' + devSubject + '">✉ Email the developer</a>', 'more');
     moreSheet = s;
     wireTheme(s);
     MUTUN.forEach((m) => {
@@ -856,7 +866,7 @@ function shell(): void {
       }).join('');
     }
     const s = makeSheet('Marginalia — your bookmarks and notes',
-      '<div class="as-grip"></div><div class="as-head">Marginalia</div>' + body);
+      '<div class="as-grip"></div><div class="as-head">Marginalia</div>' + body, 'marginalia');
     margSheet = s;
     s.querySelector('.as-scrim')?.addEventListener('click', () => closeMargSheet());
     enableSheetDrag(s, closeMargSheet);
@@ -884,7 +894,7 @@ function shell(): void {
       tabs.read.classList.toggle('active', !isHome && !!curPoem && !mz);
       tabs.memorize.classList.toggle('active', !isHome && !!curPoem && mz);
     }
-    // Cap-tab badge: gold = memorized-abyat count; turns red with the due
+    // Cap-tab badge: sky blue = memorized-abyat count; turns red with the due
     // count when spaced-repetition reviews are waiting (as the old top-bar
     // badge did). Hidden while a review session is running.
     const mzCount = document.createElement('span');

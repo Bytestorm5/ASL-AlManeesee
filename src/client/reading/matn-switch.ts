@@ -15,9 +15,9 @@ const CSS = '.matn-switch .navprint{gap:6px}'
   + '.matn-switch .navprint svg{width:15px;height:15px;flex:0 0 auto}'
   + '.matn-switch .menu-pop a{justify-content:flex-start;gap:11px;align-items:baseline}'
   + '.matn-switch .menu-pop .ms-ar{font-family:"Scheherazade New","Amiri",serif;font-size:1.08rem;line-height:1.2;flex:1 1 auto;min-width:0}'
-  + '.matn-switch .menu-pop .ms-en{font-family:"Montserrat",sans-serif;font-size:.66rem;font-weight:600;letter-spacing:.03em;color:var(--sage,#9c7f80);flex:0 0 auto}'
-  + '.matn-switch .menu-pop a.active{background:var(--madder);color:#fbeee8}'
-  + '.matn-switch .menu-pop a.active .ms-en{color:#fbeee8}'
+  + '.matn-switch .menu-pop .ms-en{font-family:"Montserrat",sans-serif;font-size:.66rem;font-weight:600;letter-spacing:.03em;color:var(--sage,#456E80);flex:0 0 auto}'
+  + '.matn-switch .menu-pop a.active{background:var(--madder);color:var(--on-accent)}'
+  + '.matn-switch .menu-pop a.active .ms-en{color:var(--on-accent)}'
   + '.matn-switch .menu-pop .ms-home{border-bottom:1px solid var(--paper-edge);border-radius:0;margin-bottom:3px;padding-bottom:11px}'
   + 'html.appmode .matn-switch{display:none!important}';
 

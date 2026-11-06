@@ -59,10 +59,10 @@ export const SITE = {
 
   theme: {
     /** Browser chrome / status bar (light, dark). */
-    color: '#5e2c30',
-    colorDark: '#17110f',
-    /** Splash and launch background — must match the manifest. */
-    background: '#f9f4ea',
+    color: '#0B3D6E',
+    colorDark: '#0A4042',
+    /** Splash and launch background (Deep Navy, per the brand brief) — must match the manifest. */
+    background: '#0B3D6E',
   },
 
   /** Cloudflare Web Analytics beacon token. Empty = no analytics script. */
