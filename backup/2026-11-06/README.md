@@ -7,7 +7,7 @@ poems, his explanations of classical mutūn, and his lectures).
 
 | | |
 |---|---|
-| Code | the tag `pre-sections-2026-11-06` and this branch's parent commit `6f0157b`, exactly what main and the live site ran |
+| Code | the branch `backup/pre-sections-2026-11-06-code`, which points at `6f0157b` — exactly what main and the live site ran (this branch's parent commit) |
 | Live data | the files in this folder, read from https://almenesi.al-asl.com the same minute: every stored matn (`poem-<id>.json`, all at version 1), each matn's visibility switches (`switches-<id>.json`) and the manifest |
 
 The stored texts were still the first imports from `content/`, so the copies
@@ -15,11 +15,11 @@ in `content/` at that commit are the same text.
 
 ## How to revert
 
-**Code** — put main back to the tag (a revert commit keeps history; nothing
-is force-pushed), and the deploy follows main:
+**Code** — put main back to that commit (a revert commit keeps history;
+nothing is force-pushed), and the deploy follows main:
 
 ```bash
-git fetch origin --tags
+git fetch origin
 git checkout main
 git revert --no-edit 6f0157b..origin/main
 git push origin main
