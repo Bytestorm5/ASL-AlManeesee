@@ -33,7 +33,9 @@ it, create-only, the first time the matn is asked for (`src/worker/seed.ts`).
 `src/config/sections.ts` names the site's three sections: the Shaykh's own
 poems (`mutun`), his explanations of classical mutūn (`shuruh`, set with
 `section: 'shuruh'` on a registry entry) and his lectures (their own
-registry, `src/lectures/registry.ts`, shown on `/lectures`). Home and the
+registry, `src/lectures/registry.ts`, shown on `/lectures`; a written one,
+`written: true`, has its Arabic and English in `content/lectures/` and its own
+page, `/lectures/<id>`). Home and the
 app's sheets show **one section at a time** behind a switch, never one list
 after another; keep it that way when adding to them. An empty section shows
 its "being prepared" text from `sections.ts`.

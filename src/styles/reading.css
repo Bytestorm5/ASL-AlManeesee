@@ -527,9 +527,9 @@ header.hero, .ch-head, .mc-top{ color:var(--ink) }
 @media print{.nk-mark{display:none!important}}
 /* Never let the page pan sideways — long RTL lines and mid-scroll fitting can
    otherwise leave the whole text shifted off-screen on touch devices. */
-html,body{overflow-x:hidden;overflow-x:clip}/* a Qurʾānic word quoted inside a bayt — pinned, not var()-driven, so a
-   matn's own accent cannot re-tint it. Dark lift is in theme.css. */
-.qur{color:#2e6b46}
+html,body{overflow-x:hidden;overflow-x:clip}/* a Qurʾānic word quoted inside a bayt — its own content token (--quran,
+   tokens.css), which no matn accent redefines, so an accent cannot re-tint it */
+.qur{color:var(--quran)}
 
 /* ═══════════════════════════════════════════════════════════════════════
    Gathered from the other reading pages when the seven per-matn pages were

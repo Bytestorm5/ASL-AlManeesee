@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { ALL_POEMS, POEMS, audioSetsOf, getAudioSet, poemsIn, registryProblems } from '../src/poems/index.ts';
-import { LECTURES, lectureProblems } from '../src/lectures/index.ts';
+import { LECTURES, lectureHref, lectureProblems, lectureTextProblems } from '../src/lectures/index.ts';
+import { LECTURE_TEXTS } from '../content/lectures/index.ts';
 import { REGISTRY } from '../src/poems/registry.ts';
 
 describe('poem registry', () => {
@@ -42,5 +43,26 @@ describe('lectures', () => {
     const l = { id: 'Bad Id', title: '', date: '15/01/2026', media: { kind: 'youtube' as const, url: 'http://example.com' } };
     const probs = lectureProblems([l, { ...l, id: 'ok-id' }, { ...l, id: 'ok-id' }]).join('\n');
     for (const want of ['lowercase', 'title', 'yyyy-mm-dd', 'https://', 'YouTube', 'listed twice']) expect(probs).toContain(want);
+    expect(lectureProblems([{ id: 'no-media', title: 'Nothing to open' }]).join()).toMatch(/needs media, or written/);
+  });
+  it('every written lecture has its text, and every text its entry', () => {
+    const written = LECTURES.filter((l) => l.written).map((l) => l.id).sort();
+    expect(Object.keys(LECTURE_TEXTS).sort()).toEqual(written);
+    for (const l of LECTURES.filter((x) => x.written)) expect(lectureHref(l)).toBe('/lectures/' + l.id);
+  });
+  it('each written text is whole: Arabic with English under every block', () => {
+    for (const [id, doc] of Object.entries(LECTURE_TEXTS)) expect(lectureTextProblems(id, doc)).toEqual([]);
+  });
+  it('refuses a text with a missing or mixed-up translation', () => {
+    const doc = {
+      title: { ar: 'القبول', en: 'Acceptance' }, byline: [],
+      blocks: [
+        { t: 'p' as const, ar: 'إن الحمد لله', en: '' },
+        { t: 'ayah' as const, ar: 'يا أيها الذين آمنوا', en: 'O you who believe' },
+        { t: 'quote' as const, ar: 'لا حول ولا قوة إلا بالله', en: 'لا حول' },
+      ],
+    };
+    const probs = lectureTextProblems('x', doc).join('\n');
+    for (const want of ['needs its English', '﴿ ﴾', 'Arabic letters in the English', 'open with a part or a heading']) expect(probs).toContain(want);
   });
 });

@@ -5,7 +5,7 @@
    app-style top bar + bottom tab navigation. */
 import { SITE } from '../config/site.ts';
 import { LECTURES_PATH, SECTIONS, type SectionId, type TextSectionId } from '../config/sections.ts';
-import { LECTURES, lectureDate } from '../lectures/index.ts';
+import { LECTURES, lectureDate, lectureHref, lectureKind } from '../lectures/index.ts';
 import { getPoem, sectionOf } from '../poems/index.ts';
 import type { AslOfflineStatus } from './globals.d.ts';
 import { baytRef, currentPoemId, esc, isAppMode, listedPoems, poemHref } from './page.ts';
@@ -653,9 +653,9 @@ function shell(): void {
     if (id === 'lectures') {
       if (!LECTURES.length) return empty;
       return LECTURES.slice(0, LEC_PREVIEW).map((l) =>
-        '<a class="as-lec" href="' + LECTURES_PATH + '#' + esc(l.id) + '"><span class="as-lec-t">' + esc(l.title) + '</span>' +
-        (l.series || l.date ? '<span class="as-en">' + esc([l.series, lectureDate(l.date)].filter(Boolean).join(' · ')) + '</span>' : '') + '</a>').join('') +
-        '<a class="as-link" href="' + LECTURES_PATH + '">🎧 All ' + LECTURES.length + ' lectures →</a>';
+        '<a class="as-lec" href="' + esc(lectureHref(l)) + '"><span class="as-lec-t">' + esc(l.title) + '</span>' +
+        '<span class="as-en">' + esc([lectureKind(l), l.series, lectureDate(l.date)].filter(Boolean).join(' · ')) + '</span></a>').join('') +
+        '<a class="as-link" href="' + LECTURES_PATH + '">' + (LECTURES.length > LEC_PREVIEW ? 'All ' + LECTURES.length + ' lectures →' : 'The Lectures page →') + '</a>';
     }
     const list = MUTUN.filter((m) => m.sec === id);
     if (!list.length) return empty;

@@ -10,6 +10,8 @@ header.gh .lec-ar + h1{margin-top:0}
 .lec-card:target{border-color:var(--madder); box-shadow:0 0 0 2px var(--madder)}
 .lc-ar{font-family:"Scheherazade New","Amiri",serif; font-size:1.3rem; line-height:1.5; color:var(--madder); text-align:right}
 .lc-t{font-family:"Cormorant Garamond",Georgia,serif; font-weight:700; font-size:1.25rem; line-height:1.3; color:var(--ink); margin:0}
+.lc-t a{color:inherit; text-decoration:none}
+@media (hover:hover){.lc-t a:hover{color:var(--madder); text-decoration:underline; text-underline-offset:3px}}
 .lc-meta{font-family:"Montserrat",sans-serif; font-size:.72rem; font-weight:600; color:var(--sage); margin-top:3px}
 .lc-d{color:var(--ink-soft); font-size:1rem; line-height:1.5; margin:8px 0 0}
 .lc-media{display:block; width:100%; margin-top:12px; border-radius:10px}
@@ -34,3 +36,70 @@ video.lc-media{background:var(--midnight); aspect-ratio:16/9}
 .lec-empty h2{font-family:"Cormorant Garamond",Georgia,serif; font-weight:600; font-size:1.5rem; color:var(--lapis-3); margin:.2em 0 .3em}
 .lec-empty p{color:var(--ink-soft); max-width:520px; margin:0 auto; font-size:1.02rem; line-height:1.55}
 .lec-empty .lc-btn{position:relative; margin-top:18px}
+
+/* ── a written lecture (src/pages/lectures/[id].astro): the Shaykh's Arabic,
+   paragraph by paragraph, each with its English under it ── */
+.ls-page .gbar-inner{gap:10px}
+.ls-bar-t{white-space:nowrap}
+.ls-show{margin-left:auto; display:flex; gap:3px; padding:3px; border-radius:20px; background:var(--paper-2); border:1px solid var(--paper-edge)}
+.ls-show button{cursor:pointer; min-width:38px; min-height:30px; padding:4px 10px; border:0; border-radius:16px; background:transparent;
+  color:var(--sage); font-family:"Montserrat",sans-serif; font-size:.68rem; font-weight:700; letter-spacing:.02em; white-space:nowrap;
+  -webkit-tap-highlight-color:transparent}
+.ls-show button[data-show="ar"], .ls-show button[data-show="both"]{font-family:"Montserrat","Scheherazade New",sans-serif}
+.ls-show button[aria-pressed="true"]{background:var(--surface); color:var(--madder); box-shadow:0 1px 3px rgba(11,61,110,.14)}
+.ls-show button:focus-visible{outline:2px solid var(--focus); outline-offset:1px}
+@media (max-width:400px){ .ls-bar-t{display:none} }
+
+.ls-head{text-align:center; padding:32px 20px 4px; max-width:760px; margin:0 auto}
+.ls-head .eyebrow{font-family:"Montserrat",sans-serif; letter-spacing:.28em; text-transform:uppercase; font-size:.7rem; font-weight:700; color:var(--sage)}
+.ls-head h1{margin:6px 0 0; display:flex; flex-direction:column; align-items:center; gap:2px}
+.ls-head h1 .ar{font-family:"Scheherazade New","Amiri",serif; font-weight:700; font-size:clamp(2.6rem,9vw,3.6rem); line-height:1.4; color:var(--madder)}
+.ls-head h1 .en{font-family:"Cinzel","Cormorant Garamond",serif; font-weight:700; font-size:clamp(1.3rem,4.6vw,1.8rem); letter-spacing:.05em; text-transform:uppercase; color:var(--ink)}
+.ls-rule{display:flex; align-items:center; justify-content:center; gap:14px; margin:14px auto 14px; max-width:320px; color:var(--gilt-deep)}
+.ls-rule i{flex:1 1 auto; height:1px; background:linear-gradient(90deg,transparent,var(--gilt),transparent)}
+.ls-rule b{font-weight:400; font-size:1.1rem}
+.ls-by{display:flex; flex-direction:column; gap:8px}
+.ls-by-line{display:flex; flex-direction:column; gap:0}
+.ls-by-line .ar{font-family:"Scheherazade New","Amiri",serif; font-size:1.12rem; line-height:1.6; color:var(--ink)}
+.ls-by-line .en{font-family:"Cormorant Garamond",Georgia,serif; font-style:italic; font-size:1rem; line-height:1.35; color:var(--ink-soft)}
+
+.ls{max-width:760px; margin:0 auto; padding:6px 20px 0}
+.ls p{margin:0}
+.ls .ar{font-family:"Scheherazade New","Amiri",serif; text-align:right}
+.ls .q{color:var(--quran)}
+/* each paragraph: the Arabic, then its English, set a little apart from the next pair */
+.ls-p{padding:11px 0}
+.ls-p .ar{font-size:clamp(1.3rem,3.6vw,1.5rem); line-height:1.95; color:var(--ink)}
+.ls-p .en{margin-top:3px; padding-left:12px; border-left:2px solid var(--paper-edge);
+  font-family:"Cormorant Garamond",Georgia,serif; font-size:1.12rem; line-height:1.55; color:var(--ink-soft)}
+.ls-p + .ls-p{border-top:1px dashed var(--paper-edge)}
+/* a part: the first or the second khuṭbah */
+.ls-part{margin:34px 0 6px; padding:20px 12px 18px; text-align:center; border-top:1px solid var(--paper-edge); border-bottom:1px solid var(--paper-edge); scroll-margin-top:64px}
+.ls-part:first-child{margin-top:10px}
+.ls-part .ar{text-align:center; font-size:clamp(1.9rem,6vw,2.5rem); font-weight:700; line-height:1.45; color:var(--madder)}
+.ls-part .en{font-family:"Cinzel","Cormorant Garamond",serif; font-weight:600; font-size:clamp(.95rem,2.6vw,1.15rem); letter-spacing:.07em; text-transform:uppercase; color:var(--ink)}
+/* a section heading */
+.ls-h{margin:30px 0 6px; padding-bottom:8px; text-align:center; border-bottom:1px solid var(--paper-edge); scroll-margin-top:64px;
+  display:flex; flex-direction:column; gap:1px; font-weight:inherit}
+.ls-h .ar{text-align:center; font-size:clamp(1.45rem,4.4vw,1.75rem); font-weight:700; line-height:1.6; color:var(--madder)}
+.ls-h .en{font-family:"Cormorant Garamond",Georgia,serif; font-weight:700; font-size:1.2rem; line-height:1.3; color:var(--ink)}
+/* an āyah: set apart in a card, in the Qurʾān colour, its reference under each language */
+.ls-ayah{margin:12px 0; padding:16px 18px 14px; text-align:center; background:var(--surface); border:1px solid var(--paper-edge);
+  border-radius:14px; box-shadow:var(--shadow)}
+.ls-ayah .ar-side > .ar{text-align:center; font-size:clamp(1.38rem,3.9vw,1.62rem); line-height:2; color:var(--quran)}
+.ls-ayah .ar-side > .ref{font-size:1rem; line-height:1.5; color:var(--sage); margin-top:2px}
+.ls-ayah .en-side{margin-top:8px; padding-top:9px; border-top:1px solid var(--paper-edge)}
+.ls-ayah .en-side p{font-family:"Cormorant Garamond",Georgia,serif; font-style:italic; font-size:1.12rem; line-height:1.5; color:var(--ink)}
+.ls-ayah .en-side .ref{margin-top:5px; font-family:"Montserrat",sans-serif; font-style:normal; font-size:.66rem; font-weight:700;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--madder)}
+/* a hadith or a saying */
+.ls-q{margin:10px 0; padding:12px 16px; background:var(--paper-2); border-radius:12px}
+.ls-q .ar{font-size:clamp(1.32rem,3.7vw,1.52rem); line-height:1.9; color:var(--ink)}
+.ls-q .en{margin-top:3px; font-family:"Cormorant Garamond",Georgia,serif; font-style:italic; font-size:1.12rem; line-height:1.5; color:var(--ink)}
+/* the switch: Arabic only, English only */
+.ls-page[data-show="ar"] .ls .en{display:none}
+.ls-page[data-show="en"] .ls .ar{display:none}
+.ls-page[data-show="en"] .ls-p .en{padding-left:0; border-left:0; margin-top:0; font-size:1.16rem}
+.ls-page[data-show="en"] .ls-ayah .en-side{margin-top:0; padding-top:0; border-top:0}
+.ls-note{max-width:720px; margin:30px auto 0; padding:0 20px; text-align:center; font-family:"Montserrat",sans-serif; font-size:.72rem;
+  line-height:1.6; color:var(--sage)}

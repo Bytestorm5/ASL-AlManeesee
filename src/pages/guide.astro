@@ -64,8 +64,9 @@ const orgHost = SITE.org.url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, 
       <p class="lede">The Shaykh’s work in three parts. A section with nothing published yet says so, and fills in as it is published.</p>
       <div class="rows">
         {sections.map(({ s, status }) => (
-          <div><b>{s.en}</b><span>{s.lead} <i>{status}.</i>{s.id === 'lectures' && <> Every lecture is on the <a href={LECTURES_PATH}>Lectures</a> page, newest first: audio and video play there, YouTube opens on YouTube, and a lecture on a matn here links to it.</>}</span></div>
+          <div><b>{s.en}</b><span>{s.lead} <i>{status}.</i>{s.id === 'lectures' && <> Every one is on the <a href={LECTURES_PATH}>Lectures</a> page, newest first: audio and video play there, YouTube opens on YouTube, and a lecture on a matn here links to it.</>}</span></div>
         ))}
+        <div><b>A written khuṭbah</b><span>Opens on its own page: the Shaykh’s Arabic paragraph by paragraph, with the English translation under each. Āyāt are set apart in green with their reference; aḥādīth and sayings in a shaded box. The <b><bdi>ع + EN</bdi> · <bdi>ع</bdi> · <bdi>EN</bdi></b> switch at the top shows both, Arabic only, or English only, and is remembered on this device.</span></div>
       </div>
     </div>
   </details>

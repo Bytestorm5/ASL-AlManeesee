@@ -69,6 +69,7 @@
   /* content colours that carry meaning, not brand: red ink and the rumūz
      rubrication of the printed editions, the green of a quoted āyah word */
   --red-ink: #B23122;
+  --quran:   #2E6B46;           /* a quoted āyah: 6.2:1 on paper */
 
   --emblem: url("/brand/emblem.png");
   --logo:   url("/brand/logo.png");
@@ -167,6 +168,7 @@ body.matn-midnight, .matn-card.m-midnight, .matn-row.m-midnight, .cont-card.m-mi
   --err-text: #F2A3A3; --err-bg: #3A1E22;
   --focus: #7DBDEA;
   --red-ink: #F0907E;
+  --quran:   #7AB894;
 
   --emblem: url("/brand/emblem-dark.png");
   --logo:   url("/brand/logo-dark.png");

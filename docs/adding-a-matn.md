@@ -46,7 +46,13 @@ for any matn.
 
 Lectures are not mutūn: they are entries in `src/lectures/registry.ts`
 (title, date, series, and a YouTube link or an audio/video file), shown on
-`/lectures` and in the Lectures section. `npm test` checks them too.
+`/lectures` and in the Lectures section. A **written** one (a khuṭbah or a
+lesson the Shaykh wrote out) is an entry with `written: true` and its text in
+`content/lectures/<id>.json`, listed in `content/lectures/index.ts`: blocks of
+`part`, `head`, `p`, `ayah` (in ﴿ ﴾, with a `ref`) and `quote`, each with its
+`ar` and the `en` under it (`LectureText`, `src/lectures/types.ts`). It is
+read at `/lectures/<id>`. `npm test` checks the entries and that every block
+of a written text has both languages.
 
 ### Collections of poems
 

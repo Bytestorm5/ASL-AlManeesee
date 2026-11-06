@@ -15,6 +15,7 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { chromium, type Page } from 'playwright';
 import { ADMIN_PATH } from '../src/config/site.ts';
+import { LECTURES, lectureHref } from '../src/lectures/index.ts';
 
 const PORT = Number(process.env.E2E_PORT || 8790);
 const ORIGIN = `http://127.0.0.1:${PORT}`;
@@ -99,7 +100,17 @@ try {
   await page.click('#tab-lectures');
   check(await page.locator('#sec-lectures').isVisible() && !(await page.locator('#sec-mutun').isVisible()), 'the Lectures tab swaps the list');
 
-  for (const url of ['/lectures', '/guide', '/privacy', '/layout-check', '/does-not-exist']) {
+  const written = LECTURES.find((l) => l.written);
+  if (written) {
+    await open(page, lectureHref(written));
+    const pairs = await page.locator('.ls-p').count();
+    const bothShown = await page.locator('.ls-p').first().locator('.ar').isVisible() && await page.locator('.ls-p').first().locator('.en').isVisible();
+    check(pairs > 0 && bothShown, `a written lecture shows each paragraph's Arabic with its English under it (${pairs} paragraphs)`);
+    await page.click('.ls-show [data-show="ar"]');
+    check(!(await page.locator('.ls-p .en').first().isVisible()), 'its switch shows the Arabic alone');
+  }
+
+  for (const url of ['/lectures', ...LECTURES.filter((l) => l.written).map(lectureHref), '/guide', '/privacy', '/layout-check', '/does-not-exist']) {
     problems = await open(page, url);
     check(problems.filter((p) => !(url === '/does-not-exist' && p.includes('404'))).length === 0, `${url} loads cleanly ${problems.join(' | ')}`);
   }
@@ -121,7 +132,7 @@ try {
     check((h.headers.get('x-robots-tag') ?? '').includes('noindex, nofollow')
       && h.headers.get('referrer-policy') === 'no-referrer', `${ADMIN_PATH}${t} is served noindex, nofollow, no-referrer`);
   }
-  const publicPages = ['/', '/lectures', '/guide', '/privacy', '/robots.txt', '/sitemap.xml', '/manifest.webmanifest', '/sw.js'];
+  const publicPages = ['/', '/lectures', ...LECTURES.filter((l) => l.written).map(lectureHref), '/guide', '/privacy', '/robots.txt', '/sitemap.xml', '/manifest.webmanifest', '/sw.js'];
   const named = [];
   for (const u of publicPages) if ((await (await fetch(ORIGIN + u)).text()).includes(ADMIN_PATH)) named.push(u);
   check(named.length === 0, `no public page names the admin path ${named.join(' ')}`);

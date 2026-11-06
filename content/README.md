@@ -14,6 +14,14 @@ current version.
 | `siyasah-shariyyah.json` | As-Subul al-Marʿiyyah fī as-Siyāsah ash-Sharʿiyyah (`/siyasah-shariyyah`) | *The Islamic Version of Politics*, Abdullah Badat's translation and presentation of Shaykh Dr Waleed Idris al-Meneese's commentary on his own 43-bayt poem. The verse text, the verse translations and the commentary are the book's; the word-by-word meanings are written for this site. |
 | `durar-walidiyyah.json` | Al-Durar al-Walīdiyyah (`/durar-walidiyyah`) | *al-Durar al-Walīdiyyah*, Abdullah Badat's collection of 44 poems by Shaykh Dr Waleed ibn Idris al-Meneese in three abwāb, with his explanation and commentary. Verse text, titles, translations and commentary are the book's (tables as lists); the word-by-word meanings are written for this site. |
 
+`lectures/` holds the written lectures and khuṭbahs (`lectures/index.ts`
+lists them): unlike a matn they are built into their page, `/lectures/<id>`,
+so a change to one is a deploy.
+
+| File | Lecture | Source |
+| --- | --- | --- |
+| `lectures/al-qabul.json` | al-Qabūl, a Friday khuṭbah (`/lectures/al-qabul`) | The Shaykh's text, prepared and delivered at the AMJA Imams' Conference in Dallas, 15 Rabīʿ al-Awwal 1448 AH. The Arabic is his, with typographic tidy-ups only (three missing or stray stops and spaces, and the muṣḥaf vowels on Āl ʿImrān 36); the US-English translation under each paragraph is written for this site. |
+
 To store one on a site (it is checked first, and nothing is sent without
 `--write`):
 

@@ -1,0 +1,801 @@
+{
+ "title": {
+  "ar": "القبول",
+  "en": "Acceptance"
+ },
+ "kicker": {
+  "ar": "خطبة جمعة",
+  "en": "A Friday Khuṭbah"
+ },
+ "byline": [
+  {
+   "ar": "أعدها وألقاها الشيخ وليد بن إدريس المنيسي",
+   "en": "Prepared and delivered by Shaykh Waleed ibn Idris al-Meneese"
+  },
+  {
+   "ar": "في مؤتمر الأئمة بمجمع فقهاء الشريعة بمدينة دالاس",
+   "en": "at the Imams’ Conference of the Assembly of Muslim Jurists of America (AMJA), in Dallas"
+  },
+  {
+   "ar": "يوم الجمعة ١٥ ربيع الأول ١٤٤٨ هـ",
+   "en": "Friday, 15 Rabīʿ al-Awwal 1448 AH (August 28, 2026)"
+  }
+ ],
+ "blocks": [
+  {
+   "t": "part",
+   "ar": "الخطبة الأولى",
+   "en": "The First Khuṭbah"
+  },
+  {
+   "t": "p",
+   "ar": "إن الحمد لله، نحمده ونستعينه ونستغفره، ونعوذ بالله من شرور أنفسنا ومن سيئات أعمالنا. من يهده الله فلا مضل له، ومن يضلل فلا هادي له.",
+   "en": "Indeed, all praise is for Allah. We praise Him, seek His help, and ask His forgiveness, and we seek refuge in Allah from the evils of our souls and from our bad deeds. Whomever Allah guides, no one can lead astray; and whomever He leaves astray, no one can guide."
+  },
+  {
+   "t": "p",
+   "ar": "وأشهد أن لا إله إلا الله وحده لا شريك له، وأشهد أن محمدًا عبده ورسوله، صلى الله وسلم وبارك عليه وعلى آله وصحبه.",
+   "en": "I bear witness that there is no god but Allah alone, without partner, and I bear witness that Muhammad is His servant and Messenger. May Allah send His prayers, peace, and blessings upon him, his family, and his Companions."
+  },
+  {
+   "t": "p",
+   "ar": "قال الله تعالى:",
+   "en": "Allah the Most High says:"
+  },
+  {
+   "t": "ayah",
+   "ar": "﴿يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ حَقَّ تُقَاتِهِ وَلَا تَمُوتُنَّ إِلَّا وَأَنْتُمْ مُسْلِمُونَ﴾",
+   "en": "“O you who believe, fear Allah as He should be feared, and do not die except as Muslims.”",
+   "ref": {
+    "ar": "آل عمران: 102",
+    "en": "Āl ʿImrān 3:102"
+   }
+  },
+  {
+   "t": "p",
+   "ar": "وقال الله تعالى:",
+   "en": "And Allah the Most High says:"
+  },
+  {
+   "t": "ayah",
+   "ar": "﴿يَا أَيُّهَا النَّاسُ اتَّقُوا رَبَّكُمُ الَّذِي خَلَقَكُمْ مِنْ نَفْسٍ وَاحِدَةٍ وَخَلَقَ مِنْهَا زَوْجَهَا وَبَثَّ مِنْهُمَا رِجَالًا كَثِيرًا وَنِسَاءً ۚ وَاتَّقُوا اللَّهَ الَّذِي تَسَاءَلُونَ بِهِ وَالْأَرْحَامَ ۚ إِنَّ اللَّهَ كَانَ عَلَيْكُمْ رَقِيبًا﴾",
+   "en": "“O mankind, fear your Lord, who created you from a single soul, created from it its mate, and spread from the two of them many men and women. And fear Allah, in whose name you ask of one another, and honor the ties of kinship. Indeed, Allah is ever watchful over you.”",
+   "ref": {
+    "ar": "النساء: 1",
+    "en": "al-Nisāʾ 4:1"
+   }
+  },
+  {
+   "t": "p",
+   "ar": "وقال الله تعالى:",
+   "en": "And Allah the Most High says:"
+  },
+  {
+   "t": "ayah",
+   "ar": "﴿يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَقُولُوا قَوْلًا سَدِيدًا ۝ يُصْلِحْ لَكُمْ أَعْمَالَكُمْ وَيَغْفِرْ لَكُمْ ذُنُوبَكُمْ ۗ وَمَنْ يُطِعِ اللَّهَ وَرَسُولَهُ فَقَدْ فَازَ فَوْزًا عَظِيمًا﴾",
+   "en": "“O you who believe, fear Allah and speak words that are upright. He will set your deeds right for you and forgive you your sins. And whoever obeys Allah and His Messenger has certainly attained a great triumph.”",
+   "ref": {
+    "ar": "الأحزاب: 70-71",
+    "en": "al-Aḥzāb 33:70–71"
+   }
+  },
+  {
+   "t": "p",
+   "ar": "أما بعد:",
+   "en": "To proceed:"
+  },
+  {
+   "t": "p",
+   "ar": "فإن أصدق الحديث كتاب الله، وخير الهدي هدي محمد ﷺ، وشر الأمور محدثاتها، وكل محدثة بدعة، وكل بدعة ضلالة، وكل ضلالة في النار.",
+   "en": "The truest speech is the Book of Allah, and the best guidance is the guidance of Muhammad ﷺ. The worst of matters are those newly invented; every newly invented matter is an innovation, every innovation is misguidance, and every misguidance is in the Fire."
+  },
+  {
+   "t": "p",
+   "ar": "وما قلَّ وكفى خيرٌ مما كثر وألهى، وما توعدون لآتٍ، وما أنتم بمعجزين.",
+   "en": "What is little and suffices is better than what is plentiful and distracts. What you are promised is surely coming, and you cannot escape it."
+  },
+  {
+   "t": "head",
+   "ar": "الخوف من عدم قبول الأعمال الصالحة",
+   "en": "Fearing That Our Good Deeds Will Not Be Accepted"
+  },
+  {
+   "t": "p",
+   "ar": "أيها الإخوة الكرام،",
+   "en": "Dear brothers,"
+  },
+  {
+   "t": "p",
+   "ar": "عن أم المؤمنين عائشة رضي الله عنها أنها قالت:",
+   "en": "The Mother of the Believers, ʿĀʾishah (may Allah be pleased with her), said:"
+  },
+  {
+   "t": "p",
+   "ar": "قلت: يا رسول الله ﷺ، قول الله تعالى:",
+   "en": "I said: O Messenger of Allah ﷺ, concerning the words of Allah the Most High:"
+  },
+  {
+   "t": "ayah",
+   "ar": "﴿وَالَّذِينَ يُؤْتُونَ مَا آتَوْا وَقُلُوبُهُمْ وَجِلَةٌ أَنَّهُمْ إِلَى رَبِّهِمْ رَاجِعُونَ﴾",
+   "en": "“And those who give what they give while their hearts tremble, because they will return to their Lord”",
+   "ref": {
+    "ar": "المؤمنون: 60",
+    "en": "al-Muʾminūn 23:60"
+   }
+  },
+  {
+   "t": "p",
+   "ar": "أهو الرجل يزني ويسرق ويشرب الخمر؟",
+   "en": "Is this the man who commits fornication, steals, and drinks wine?"
+  },
+  {
+   "t": "p",
+   "ar": "فقال النبي ﷺ:",
+   "en": "The Prophet ﷺ said:"
+  },
+  {
+   "t": "quote",
+   "ar": "«لا يا ابنة الصديق، ولكنه الرجل يصوم ويصلي ويتصدق وهو يخاف أن لا يُقبل منه».",
+   "en": "“No, O daughter of al-Ṣiddīq. Rather, it is the man who fasts, prays, and gives charity, while he fears that it will not be accepted from him.”"
+  },
+  {
+   "t": "p",
+   "ar": "وهذه صفة عباد الله الصالحين، الذين يسابقون إلى الخيرات؛ يعملون الأعمال الصالحة، ومع ذلك يخافون ألا يقبلها الله سبحانه وتعالى منهم.",
+   "en": "This is the description of Allah’s righteous servants, those who race one another to good deeds: they do righteous deeds, and still they fear that Allah (glorified and exalted is He) will not accept them from them."
+  },
+  {
+   "t": "p",
+   "ar": "قال الله تعالى:",
+   "en": "Allah the Most High says:"
+  },
+  {
+   "t": "ayah",
+   "ar": "﴿وَالَّذِينَ يُؤْتُونَ مَا آتَوْا وَقُلُوبُهُمْ وَجِلَةٌ أَنَّهُمْ إِلَى رَبِّهِمْ رَاجِعُونَ ۝ أُولَئِكَ يُسَارِعُونَ فِي الْخَيْرَاتِ وَهُمْ لَهَا سَابِقُونَ﴾",
+   "en": "“And those who give what they give while their hearts tremble, because they will return to their Lord—it is they who hasten to good deeds, and they are foremost in them.”",
+   "ref": {
+    "ar": "المؤمنون: 60-61",
+    "en": "al-Muʾminūn 23:60–61"
+   }
+  },
+  {
+   "t": "p",
+   "ar": "والوجل هو الخوف والفزع واضطراب القلب.",
+   "en": "Wajal, the trembling of the heart, is fear, alarm, and agitation."
+  },
+  {
+   "t": "p",
+   "ar": "وهكذا كان حال الصالحين: كانوا يخافون ألا يتقبل الله سبحانه وتعالى منهم أعمالهم.",
+   "en": "Such was the state of the righteous: they feared that Allah (glorified and exalted is He) would not accept their deeds from them."
+  },
+  {
+   "t": "head",
+   "ar": "ماذا لو رُدَّت أعمالك؟",
+   "en": "What If Your Deeds Were Turned Back?"
+  },
+  {
+   "t": "p",
+   "ar": "تأملوا رجلًا في هذه الحياة الدنيا جمع جميع أوراقه ومؤهلاته وشهاداته، ثم قدمها للحصول على وظيفة، أو تأشيرة، أو لقضاء حاجة من حوائج الدنيا.",
+   "en": "Picture a man in this worldly life who gathers all his papers, qualifications, and certificates, then submits them to get a job or a visa, or to have some worldly need met."
+  },
+  {
+   "t": "p",
+   "ar": "ثم رُفض طلبه.",
+   "en": "Then his application is rejected."
+  },
+  {
+   "t": "p",
+   "ar": "وأُعيدت إليه أوراقه وقيل له:",
+   "en": "His papers are handed back to him, and he is told:"
+  },
+  {
+   "t": "quote",
+   "ar": "«لم تقبل».",
+   "en": "“Not accepted.”"
+  },
+  {
+   "t": "p",
+   "ar": "فيرجع خائبًا، منكسرًا، نادمًا، مع أن ما فاته ليس إلا شيئًا يسيرًا من أمر الدنيا، وربما استطاع أن يعوضه بعد ذلك.",
+   "en": "He goes home disappointed, crushed, and full of regret, even though what he missed is only a small matter of this world, and he may well be able to make up for it later."
+  },
+  {
+   "t": "p",
+   "ar": "فكيف سيكون حال من يأتي يوم القيامة، ثم يكتشف أن أعماله لم تصعد إلى الله سبحانه وتعالى، ولم تُرفع إليه، ولم تُقبل منه؟ ولا سبيل إلى تدارك ما فاته.",
+   "en": "So what will be the state of one who comes on the Day of Resurrection and then discovers that his deeds did not ascend to Allah (glorified and exalted is He), were not raised up to Him, and were not accepted from him, with no way left to make up for what he has lost?"
+  },
+  {
+   "t": "p",
+   "ar": "هذا هو الأمر الذي كان يخشاه الصالحون.",
+   "en": "This is what the righteous used to fear."
+  },
+  {
+   "t": "head",
+   "ar": "أبو هريرة وأول من تُسعَّر بهم النار",
+   "en": "Abū Hurayrah and the First by Whom the Fire Is Kindled"
+  },
+  {
+   "t": "p",
+   "ar": "لما أراد أبو هريرة رضي الله عنه أن يروي الحديث المتعلق بأول من تُسعَّر بهم النار، غلبه الخوف.",
+   "en": "When Abū Hurayrah (may Allah be pleased with him) set out to narrate the hadith about the first people by whom the Fire will be kindled, fear overcame him."
+  },
+  {
+   "t": "p",
+   "ar": "روى التابعي شُفَيّ بن ماتع رحمه الله أن أبا هريرة رضي الله عنه قال:",
+   "en": "The Successor Shufayy ibn Mātiʿ (may Allah have mercy on him) reported that Abū Hurayrah (may Allah be pleased with him) said:"
+  },
+  {
+   "t": "quote",
+   "ar": "«ألا أحدثك حديثًا حدثنيه رسول الله ﷺ؟»",
+   "en": "“Shall I not tell you a hadith that the Messenger of Allah ﷺ told me?”"
+  },
+  {
+   "t": "p",
+   "ar": "قال: بلى.",
+   "en": "He said, “Of course.”"
+  },
+  {
+   "t": "p",
+   "ar": "فنشغ أبو هريرة نشغة أي فشهق أبو هريرة شهقة شديدة، ثم غُشي عليه حتى كاد أن يقع على وجهه فأسنده شُفيٌّ.",
+   "en": "Then Abū Hurayrah let out a nashghah, that is, he gasped violently, and he fainted, until he nearly fell on his face, and Shufayy held him up."
+  },
+  {
+   "t": "p",
+   "ar": "فلما أفاق حاول أن يروي الحديث مرة أخرى، فغُشي عليه ثانية.",
+   "en": "When he came to, he tried to narrate the hadith again, and he fainted a second time."
+  },
+  {
+   "t": "p",
+   "ar": "وتكرر ذلك ثلاث مرات حتى استطاع أخيرًا أن يروي الحديث.",
+   "en": "This happened three times before he was finally able to narrate it."
+  },
+  {
+   "t": "p",
+   "ar": "فذكر أن النبي ﷺ أخبر أن أول من تسعر بهم النار يوم القيامة: رجلٌ تعلم العلم وقرأ القرآن، ورجلٌ مجاهد ورجل متصدق.",
+   "en": "He related that the Prophet ﷺ said that the first by whom the Fire will be kindled on the Day of Resurrection are: a man who learned knowledge and recited the Qurʾān, a man who fought in jihad, and a man who gave in charity."
+  },
+  {
+   "t": "p",
+   "ar": "أما صاحب العلم، فيعرّفه الله نعمه عليه، ثم يسأله:",
+   "en": "As for the man of knowledge, Allah will make him acknowledge His blessings upon him, and then ask him:"
+  },
+  {
+   "t": "quote",
+   "ar": "«فما عملت فيها؟»",
+   "en": "“What did you do with them?”"
+  },
+  {
+   "t": "p",
+   "ar": "فيقول:",
+   "en": "He will say:"
+  },
+  {
+   "t": "quote",
+   "ar": "«تعلمت فيك العلم وعلّمته، وقرأت فيك القرآن».",
+   "en": "“I learned knowledge and taught it for Your sake, and I recited the Qurʾān for Your sake.”"
+  },
+  {
+   "t": "p",
+   "ar": "فيقول الله له:",
+   "en": "Allah will say to him:"
+  },
+  {
+   "t": "quote",
+   "ar": "«كذبت، ولكنك تعلمت العلم ليقال: عالم، وقرأت القرآن ليقال: هو قارئ، فقد قيل».",
+   "en": "“You have lied. Rather, you learned knowledge so that it would be said, ‘He is a scholar,’ and you recited the Qurʾān so that it would be said, ‘He is a reciter,’ and so it was said.”"
+  },
+  {
+   "t": "p",
+   "ar": "ثم يُسحب على وجهه حتى يُلقى في النار.",
+   "en": "Then he will be dragged on his face until he is thrown into the Fire."
+  },
+  {
+   "t": "head",
+   "ar": "الرياء والعُجب",
+   "en": "Showing Off and Self-Admiration"
+  },
+  {
+   "t": "p",
+   "ar": "من أعظم الأسباب التي تفسد الأعمال: الرياء والعُجب.",
+   "en": "Among the greatest causes that ruin deeds are riyāʾ, showing off, and ʿujb, self-admiration."
+  },
+  {
+   "t": "p",
+   "ar": "قال الله سبحانه وتعالى في الحديث القدسي:",
+   "en": "Allah (glorified and exalted is He) says in the hadith qudsī:"
+  },
+  {
+   "t": "quote",
+   "ar": "«أنا أغنى الشركاء عن الشرك، من عمل عملًا أشرك فيه معي غيري تركته وشركه».",
+   "en": "“I am the One most free of need of any partner. Whoever does a deed in which he associates another with Me, I abandon him and his association.”"
+  },
+  {
+   "t": "p",
+   "ar": "قال شيخ الإسلام ابن تيمية رحمه الله:",
+   "en": "Shaykh al-Islām Ibn Taymiyyah (may Allah have mercy on him) said:"
+  },
+  {
+   "t": "quote",
+   "ar": "«الرياء شرك بالخلق، والعُجب شرك بالنفس».",
+   "en": "“Showing off is associating creation with Allah, and self-admiration is associating the self with Him.”"
+  },
+  {
+   "t": "p",
+   "ar": "فمن حقق قول الله تعالى:",
+   "en": "So whoever truly lives by the words of Allah the Most High:"
+  },
+  {
+   "t": "ayah",
+   "ar": "﴿إِيَّاكَ نَعْبُدُ﴾",
+   "en": "“You alone we worship”",
+   "ref": {
+    "ar": "الفاتحة: 5",
+    "en": "al-Fātiḥah 1:5"
+   }
+  },
+  {
+   "t": "p",
+   "ar": "نجا من الرياء.",
+   "en": "is saved from showing off."
+  },
+  {
+   "t": "p",
+   "ar": "ومن حقق قوله تعالى:",
+   "en": "And whoever truly lives by His words:"
+  },
+  {
+   "t": "ayah",
+   "ar": "﴿وَإِيَّاكَ نَسْتَعِينُ﴾",
+   "en": "“and You alone we ask for help”",
+   "ref": {
+    "ar": "الفاتحة: 5",
+    "en": "al-Fātiḥah 1:5"
+   }
+  },
+  {
+   "t": "p",
+   "ar": "نجا من العُجب.",
+   "en": "is saved from self-admiration."
+  },
+  {
+   "t": "p",
+   "ar": "فالرياء هو أن يلتفت الإنسان إلى الناس، ويطلب بأعماله مدحهم وثناءهم.",
+   "en": "Showing off is when a person turns his attention to people and seeks their praise and approval through his deeds."
+  },
+  {
+   "t": "p",
+   "ar": "يريد أن يرى الناس ما فعل، وأن يثنوا عليه بسببه.",
+   "en": "He wants people to see what he has done, and to praise him for it."
+  },
+  {
+   "t": "p",
+   "ar": "وهذا قد يفسد عمله ويكون سببًا في عدم قبوله.",
+   "en": "This can ruin his deed and become the reason it is not accepted."
+  },
+  {
+   "t": "p",
+   "ar": "أما العُجب فهو أن ينظر الإنسان إلى نفسه بإعجاب.",
+   "en": "Self-admiration is when a person looks at himself with admiration."
+  },
+  {
+   "t": "p",
+   "ar": "فيعظّم نفسه، ويرى أنه أفضل من غيره، ويعتقد أن ما حققه إنما حققه بعلمه أو بقوته، أو ذكائه، أو فطنته، أو مهارته.",
+   "en": "He thinks highly of himself, sees himself as better than others, and believes that whatever he has achieved, he achieved through his own knowledge, strength, intelligence, insight, or skill."
+  },
+  {
+   "t": "p",
+   "ar": "ولهذا أوصى النبي ﷺ أبا ذر رضي الله عنه أن يكثر من قول:",
+   "en": "That is why the Prophet ﷺ advised Abū Dharr (may Allah be pleased with him) to say often:"
+  },
+  {
+   "t": "quote",
+   "ar": "«لا حول ولا قوة إلا بالله».",
+   "en": "“Lā ḥawla wa-lā quwwata illā billāh: there is no power and no strength except through Allah.”"
+  },
+  {
+   "t": "p",
+   "ar": "وهذه كلمة يتبرأ بها الإنسان من الاعتماد على قوته وقدرته.",
+   "en": "With these words a person disowns any reliance on his own strength and ability."
+  },
+  {
+   "t": "p",
+   "ar": "ويعلم أن التوفيق إنما هو من الله سبحانه وتعالى.",
+   "en": "And he knows that success comes only from Allah (glorified and exalted is He)."
+  },
+  {
+   "t": "p",
+   "ar": "ولكي يُقبل العمل، لا بد أن يجاهد الإنسان نفسه في إصلاح نيته.",
+   "en": "For a deed to be accepted, a person must struggle against himself to make his intention sound."
+  },
+  {
+   "t": "p",
+   "ar": "وعليه أن يعلم أنه لم يُوفَّق إلى ذلك العمل بقوته، ولا بعلمه، ولا بذكائه، ولا بحذقه.",
+   "en": "He must know that he was not enabled to do that deed by his own strength, knowledge, intelligence, or cleverness."
+  },
+  {
+   "t": "p",
+   "ar": "بل الله سبحانه وتعالى هو الذي أنعم عليه، وهداه، ووفقه، وأعانه.",
+   "en": "Rather, it is Allah (glorified and exalted is He) who blessed him, guided him, enabled him, and helped him."
+  },
+  {
+   "t": "p",
+   "ar": "فيرد الفضل كله إلى الله سبحانه وتعالى.",
+   "en": "So he gives all the credit to Allah (glorified and exalted is He)."
+  },
+  {
+   "t": "p",
+   "ar": "ولا يلتفت إلى الخلق، سواء مدحوه أو أثنوا عليه، وإنما يطلب بعمله وجه الله سبحانه وتعالى وحده.",
+   "en": "He pays no attention to people, whether they praise him or commend him; with his deed he seeks only the Face of Allah (glorified and exalted is He), alone."
+  },
+  {
+   "t": "head",
+   "ar": "إبراهيم وإسماعيل يسألان الله قبول عملهما",
+   "en": "Ibrāhīm and Ismāʿīl Ask Allah to Accept Their Work"
+  },
+  {
+   "t": "p",
+   "ar": "كان الاهتمام بقبول الأعمال هو ما يشغل الأنبياء والصالحين من قبلنا.",
+   "en": "Concern for the acceptance of deeds is what occupied the prophets and the righteous who came before us."
+  },
+  {
+   "t": "p",
+   "ar": "يخبرنا الله سبحانه وتعالى عن خليله إبراهيم عليه السلام وهو يبني الكعبة مع ابنه إسماعيل عليه السلام:",
+   "en": "Allah (glorified and exalted is He) tells us of His close friend Ibrāhīm (peace be upon him) as he built the Kaʿbah with his son Ismāʿīl (peace be upon him):"
+  },
+  {
+   "t": "ayah",
+   "ar": "﴿وَإِذْ يَرْفَعُ إِبْرَاهِيمُ الْقَوَاعِدَ مِنَ الْبَيْتِ وَإِسْمَاعِيلُ رَبَّنَا تَقَبَّلْ مِنَّا ۖ إِنَّكَ أَنْتَ السَّمِيعُ الْعَلِيمُ﴾",
+   "en": "“And when Ibrāhīm was raising the foundations of the House, and Ismāʿīl: ‘Our Lord, accept this from us. Indeed, You are the All-Hearing, the All-Knowing.’”",
+   "ref": {
+    "ar": "البقرة: 127",
+    "en": "al-Baqarah 2:127"
+   }
+  },
+  {
+   "t": "p",
+   "ar": "فهذا كان دعاء إبراهيم وإسماعيل عليهما السلام.",
+   "en": "This was the supplication of Ibrāhīm and Ismāʿīl (peace be upon them)."
+  },
+  {
+   "t": "p",
+   "ar": "وهكذا ينبغي أن يكون كل مسلم مع كل عمل صالح يعمله.",
+   "en": "And so it should be for every Muslim, with every good deed he does."
+  },
+  {
+   "t": "p",
+   "ar": "فلا ينبغي أن يكون ما يشغل باله:",
+   "en": "What occupies his mind should not be:"
+  },
+  {
+   "t": "quote",
+   "ar": "«هل أعجب الناس بما فعلت؟»",
+   "en": "“Were people impressed by what I did?”"
+  },
+  {
+   "t": "quote",
+   "ar": "«هل أثنوا عليَّ؟»",
+   "en": "“Did they praise me?”"
+  },
+  {
+   "t": "p",
+   "ar": "بل ينبغي أن يسأل الله تعالى أن يتقبل منه عمله، وأن يجعله من الأعمال الصالحة التي تُرفع إليه ويقبلها سبحانه وتعالى.",
+   "en": "Rather, he should ask Allah the Most High to accept his deed from him, and to make it one of the righteous deeds that are raised up to Him and that He (glorified and exalted is He) accepts."
+  },
+  {
+   "t": "head",
+   "ar": "امرأة عمران",
+   "en": "The Wife of ʿImrān"
+  },
+  {
+   "t": "p",
+   "ar": "ويخبرنا الله عز وجل كذلك عن امرأة عمران الصالحة، التي ورد في الآثار أن اسمها حنّة بنت فاقوذا.",
+   "en": "Allah (Mighty and Majestic is He) also tells us of the righteous wife of ʿImrān, whose name, according to the reports, was Ḥannah bint Fāqūdhā."
+  },
+  {
+   "t": "p",
+   "ar": "قال الله تعالى:",
+   "en": "Allah the Most High says:"
+  },
+  {
+   "t": "ayah",
+   "ar": "﴿إِذْ قَالَتِ امْرَأَتُ عِمْرَانَ رَبِّ إِنِّي نَذَرْتُ لَكَ مَا فِي بَطْنِي مُحَرَّرًا فَتَقَبَّلْ مِنِّي ۖ إِنَّكَ أَنْتَ السَّمِيعُ الْعَلِيمُ﴾",
+   "en": "“When the wife of ʿImrān said, ‘My Lord, I have vowed to You what is in my womb, dedicated to Your service, so accept it from me. Indeed, You are the All-Hearing, the All-Knowing.’”",
+   "ref": {
+    "ar": "آل عمران: 35",
+    "en": "Āl ʿImrān 3:35"
+   }
+  },
+  {
+   "t": "ayah",
+   "ar": "﴿ فلما وضعتها قالت ربِّ إِنِّي وَضَعْتُهَا أُنْثَىٰ وَاللَّهُ أَعْلَمُ بِمَا وَضَعَتْ وَلَيْسَ الذَّكَرُ كَالْأُنْثَىٰ ۖ وَإِنِّي سَمَّيْتُهَا مَرْيَمَ وَإِنِّي أُعِيذُهَا بِكَ وَذُرِّيَّتَهَا مِنَ الشَّيْطَانِ الرَّجِيمِ﴾",
+   "en": "“Then, when she delivered her, she said, ‘My Lord, I have delivered a female’—and Allah knew best what she had delivered—‘and the male is not like the female. I have named her Maryam, and I seek refuge for her and her offspring in You from Satan, the accursed.’”",
+   "ref": {
+    "ar": "آل عمران: 36",
+    "en": "Āl ʿImrān 3:36"
+   }
+  },
+  {
+   "t": "p",
+   "ar": "ثم قال الله تعالى:",
+   "en": "Then Allah the Most High says:"
+  },
+  {
+   "t": "ayah",
+   "ar": "﴿فَتَقَبَّلَهَا رَبُّهَا بِقَبُولٍ حَسَنٍ وَأَنْبَتَهَا نَبَاتًا حَسَنًا﴾",
+   "en": "“So her Lord accepted her with a goodly acceptance, and made her grow in a goodly way.”",
+   "ref": {
+    "ar": "آل عمران: 37",
+    "en": "Āl ʿImrān 3:37"
+   }
+  },
+  {
+   "t": "p",
+   "ar": "كانت قد نذرت ما في بطنها محررًا، أي مفرغًا ومخلصًا تمامًا لعبادة الله سبحانه وتعالى وخالصًا لوجهه.",
+   "en": "She had vowed what was in her womb to be muḥarrar: set free and devoted entirely to the worship of Allah (glorified and exalted is He), purely for His Face."
+  },
+  {
+   "t": "p",
+   "ar": "ثم سألت الله أن يتقبل منها.",
+   "en": "Then she asked Allah to accept it from her."
+  },
+  {
+   "t": "p",
+   "ar": "فتقبل الله سبحانه وتعالى نذرها.",
+   "en": "And Allah (glorified and exalted is He) accepted her vow."
+  },
+  {
+   "t": "p",
+   "ar": "نسأل الله عز وجل أن يجعلنا جميعًا من المقبولين وممن تُقبل أعمالهم الصالحة.",
+   "en": "We ask Allah (Mighty and Majestic is He) to make us all among the accepted, and among those whose righteous deeds are accepted."
+  },
+  {
+   "t": "part",
+   "ar": "الخطبة الثانية",
+   "en": "The Second Khuṭbah"
+  },
+  {
+   "t": "head",
+   "ar": "من الذين يتقبل الله أعمالهم؟",
+   "en": "Whose Deeds Does Allah Accept?"
+  },
+  {
+   "t": "p",
+   "ar": "الحمد لله رب العالمين، والصلاة والسلام على سيدنا محمد وعلى آله وصحبه أجمعين.",
+   "en": "All praise is for Allah, Lord of the worlds, and may prayers and peace be upon our master Muhammad and upon all his family and Companions."
+  },
+  {
+   "t": "p",
+   "ar": "لقد أخبرنا الله عز وجل عن صفات الذين يتقبل منهم أعمالهم.",
+   "en": "Allah (Mighty and Majestic is He) has told us the qualities of those whose deeds He accepts."
+  },
+  {
+   "t": "p",
+   "ar": "نسأل الله أن يجعلنا جميعًا منهم.",
+   "en": "We ask Allah to make us all among them."
+  },
+  {
+   "t": "p",
+   "ar": "قال الله سبحانه وتعالى:",
+   "en": "Allah (glorified and exalted is He) says:"
+  },
+  {
+   "t": "ayah",
+   "ar": "﴿وَوَصَّيْنَا الْإِنْسَانَ بِوَالِدَيْهِ إِحْسَانًا ۖ حَمَلَتْهُ أُمُّهُ كُرْهًا وَوَضَعَتْهُ كُرْهًا ۖ وَحَمْلُهُ وَفِصَالُهُ ثَلَاثُونَ شَهْرًا ۚ حَتَّىٰ إِذَا بَلَغَ أَشُدَّهُ وَبَلَغَ أَرْبَعِينَ سَنَةً قَالَ رَبِّ أَوْزِعْنِي أَنْ أَشْكُرَ نِعْمَتَكَ الَّتِي أَنْعَمْتَ عَلَيَّ وَعَلَىٰ وَالِدَيَّ وَأَنْ أَعْمَلَ صَالِحًا تَرْضَاهُ وَأَصْلِحْ لِي فِي ذُرِّيَّتِي ۖ إِنِّي تُبْتُ إِلَيْكَ وَإِنِّي مِنَ الْمُسْلِمِينَ ۝ أُولَئِكَ الَّذِينَ نَتَقَبَّلُ عَنْهُمْ أَحْسَنَ مَا عَمِلُوا وَنَتَجَاوَزُ عَنْ سَيِّئَاتِهِمْ فِي أَصْحَابِ الْجَنَّةِ ۖ وَعْدَ الصِّدْقِ الَّذِي كَانُوا يُوعَدُونَ﴾",
+   "en": "“And We have enjoined upon man kindness to his parents. His mother carried him with hardship and gave birth to him with hardship, and his bearing and weaning take thirty months. When at last he reaches his full strength and reaches forty years, he says, ‘My Lord, inspire me to be grateful for the favor You have bestowed upon me and upon my parents, and to do righteous deeds that please You, and make my offspring righteous for me. I have turned to You in repentance, and I am of those who submit.’ Those are the ones from whom We accept the best of what they did, and whose misdeeds We overlook, among the companions of Paradise: the true promise they had been promised.”",
+   "ref": {
+    "ar": "الأحقاف: 15-16",
+    "en": "al-Aḥqāf 46:15–16"
+   }
+  },
+  {
+   "t": "p",
+   "ar": "هؤلاء اتصفوا ببر الوالدين، الدعاء لهم وشكر نعم الله عليهم وعلى والديهم والحرص على صلاح ذريتهم، والتوبة إلى الله سبحانه وتعالى.",
+   "en": "These people were marked by dutifulness to their parents, supplication for them, gratitude for Allah’s blessings upon them and upon their parents, care for the righteousness of their children, and repentance to Allah (glorified and exalted is He)."
+  },
+  {
+   "t": "p",
+   "ar": "وقالوا:",
+   "en": "And they said:"
+  },
+  {
+   "t": "ayah",
+   "ar": "﴿إِنِّي تُبْتُ إِلَيْكَ وَإِنِّي مِنَ الْمُسْلِمِينَ﴾",
+   "en": "“I have turned to You in repentance, and I am of those who submit.”",
+   "ref": {
+    "ar": "الأحقاف: 15",
+    "en": "al-Aḥqāf 46:15"
+   }
+  },
+  {
+   "t": "p",
+   "ar": "فهؤلاء هم الذين أخبر الله سبحانه وتعالى أنه يتقبل أعمالهم.",
+   "en": "These are the ones whose deeds Allah (glorified and exalted is He) has told us He accepts."
+  },
+  {
+   "t": "head",
+   "ar": "﴿إِنَّمَا يَتَقَبَّلُ اللَّهُ مِنَ الْمُتَّقِينَ﴾",
+   "en": "“Allah Accepts Only from the God-Fearing”"
+  },
+  {
+   "t": "p",
+   "ar": "في قصة ابني آدم، هابيل وقابيل، كان هابيل هو الرجل الصالح المؤمن منهما.",
+   "en": "In the story of the two sons of Ādam, Hābīl and Qābīl, Hābīl was the righteous believer of the two."
+  },
+  {
+   "t": "p",
+   "ar": "قال الله سبحانه وتعالى:",
+   "en": "Allah (glorified and exalted is He) says:"
+  },
+  {
+   "t": "ayah",
+   "ar": "﴿وَاتْلُ عَلَيْهِمْ نَبَأَ ابْنَيْ آدَمَ بِالْحَقِّ إِذْ قَرَّبَا قُرْبَانًا فَتُقُبِّلَ مِنْ أَحَدِهِمَا وَلَمْ يُتَقَبَّلْ مِنَ الْآخَرِ قَالَ لَأَقْتُلَنَّكَ ۖ قَالَ إِنَّمَا يَتَقَبَّلُ اللَّهُ مِنَ الْمُتَّقِينَ﴾",
+   "en": "“And recite to them, in truth, the story of the two sons of Ādam, when they each offered a sacrifice, and it was accepted from one of them and not accepted from the other. He said, ‘I will surely kill you.’ The other said, ‘Allah accepts only from the God-fearing.’”",
+   "ref": {
+    "ar": "المائدة: 27",
+    "en": "al-Māʾidah 5:27"
+   }
+  },
+  {
+   "t": "ayah",
+   "ar": "﴿إِنَّمَا يَتَقَبَّلُ اللَّهُ مِنَ الْمُتَّقِينَ﴾",
+   "en": "“Allah accepts only from the God-fearing.”"
+  },
+  {
+   "t": "p",
+   "ar": "وقد ذُكر أن هابيل كان صاحب غنم، فاختار أجود كبش عنده وأفضله وأسمنه، وقدمه مخلصًا لله سبحانه وتعالى.",
+   "en": "It is reported that Hābīl kept sheep, so he chose the best, finest, and fattest ram he had and offered it sincerely for Allah (glorified and exalted is He)."
+  },
+  {
+   "t": "p",
+   "ar": "فتقبل الله قربانه.",
+   "en": "So Allah accepted his offering."
+  },
+  {
+   "t": "head",
+   "ar": "عبد الله بن عمر وقبول عمل واحد",
+   "en": "ʿAbdullāh ibn ʿUmar and the Acceptance of a Single Deed"
+  },
+  {
+   "t": "p",
+   "ar": "تصدق عبد الله بن عمر رضي الله عنهما ذات مرة على محتاج.",
+   "en": "ʿAbdullāh ibn ʿUmar (may Allah be pleased with them both) once gave charity to a person in need."
+  },
+  {
+   "t": "p",
+   "ar": "فقال له ابنه:",
+   "en": "His son said to him:"
+  },
+  {
+   "t": "quote",
+   "ar": "«تقبل الله منك يا أبي».",
+   "en": "“May Allah accept it from you, Father.”"
+  },
+  {
+   "t": "p",
+   "ar": "فأجابه عبد الله بن عمر رضي الله عنهما:",
+   "en": "ʿAbdullāh ibn ʿUmar (may Allah be pleased with them both) replied:"
+  },
+  {
+   "t": "quote",
+   "ar": "«لو علمت أن الله تقبل مني سجدة واحدة، أو درهمًا واحدًا تصدقت به، لما كان غائب أحب إليَّ من الموت. أتدري ممن يتقبل الله؟»",
+   "en": "“If I knew that Allah had accepted from me a single prostration, or a single dirham I gave in charity, nothing yet to come would be dearer to me than death. Do you know from whom Allah accepts?”"
+  },
+  {
+   "t": "p",
+   "ar": "ثم تلا:",
+   "en": "Then he recited:"
+  },
+  {
+   "t": "ayah",
+   "ar": "﴿إِنَّمَا يَتَقَبَّلُ اللَّهُ مِنَ الْمُتَّقِينَ﴾",
+   "en": "“Allah accepts only from the God-fearing.”",
+   "ref": {
+    "ar": "المائدة: 27",
+    "en": "al-Māʾidah 5:27"
+   }
+  },
+  {
+   "t": "p",
+   "ar": "ومعنى كلامه: أن الإنسان إذا وفقه الله سبحانه وتعالى إلى عمل واحد أخلصه له، ثم تقبله منه، فإن ذلك من أعظم صور التوفيق ويكون علامة له على أنه من المتقين، ولو رُزق الإنسان ذلك، ثم مات عليه، لكان ذلك سببًا عظيمًا لسعادته حين يلقى الله سبحانه وتعالى.",
+   "en": "What he meant is this: if Allah (glorified and exalted is He) enables a person to do a single deed sincerely for Him, and then accepts it from him, that is among the greatest forms of success, and a sign for him that he is one of the God-fearing. If a person were granted that and then died upon it, it would be a great cause of his happiness when he meets Allah (glorified and exalted is He)."
+  },
+  {
+   "t": "head",
+   "ar": "اجعل بينك وبين الله عملًا خفيًا",
+   "en": "Keep a Hidden Deed Between You and Allah"
+  },
+  {
+   "t": "p",
+   "ar": "ينبغي لكل واحد منا أن يسعى لأن يكون له على الأقل عمل واحد، يغلب على ظنه أنه قد تقبله الله سبحانه وتعالى منه بإذنه.",
+   "en": "Each one of us should strive to have at least one deed that he believes, most likely and by Allah’s leave, Allah (glorified and exalted is He) has accepted from him."
+  },
+  {
+   "t": "p",
+   "ar": "عمل يخلص فيه لله.",
+   "en": "A deed in which he is sincere to Allah."
+  },
+  {
+   "t": "p",
+   "ar": "عمل يخفيه عن الخلق.",
+   "en": "A deed he hides from people."
+  },
+  {
+   "t": "p",
+   "ar": "عمل يصلح فيه نيته.",
+   "en": "A deed in which he makes his intention sound."
+  },
+  {
+   "t": "p",
+   "ar": "عمل يعلم أنه لم يستطع القيام به إلا بحول الله وقوته، متبرئًا من الاعتماد على قوته وقدرته.",
+   "en": "A deed he knows he could only do by Allah’s might and power, disowning any reliance on his own strength and ability."
+  },
+  {
+   "t": "p",
+   "ar": "فلعل الإنسان إذا وقع يومًا في كرب شديد، كان عنده عمل صالح يستطيع أن يتوسل به إلى الله سبحانه وتعالى.",
+   "en": "Then perhaps, if one day he falls into severe distress, he will have a righteous deed through which he can call upon Allah (glorified and exalted is He)."
+  },
+  {
+   "t": "p",
+   "ar": "وتأملوا قصة الرجال الثلاثة الذين آووا إلى الغار، فانحدرت صخرة عظيمة فأغلقت عليهم باب الغار.",
+   "en": "Think of the story of the three men who took shelter in a cave, when a huge boulder rolled down and sealed its entrance."
+  },
+  {
+   "t": "p",
+   "ar": "فعلموا أنه لن ينجيهم إلا الصدق مع الله.",
+   "en": "They knew that nothing would save them except their sincerity with Allah."
+  },
+  {
+   "t": "p",
+   "ar": "فتذكر كل واحد منهم عملًا عمله مخلصًا لله سبحانه وتعالى.",
+   "en": "Each of them recalled a deed he had done sincerely for Allah (glorified and exalted is He)."
+  },
+  {
+   "t": "p",
+   "ar": "وكان كل واحد منهم يقول:",
+   "en": "And each of them said:"
+  },
+  {
+   "t": "quote",
+   "ar": "«اللهم إن كنت فعلت ذلك ابتغاء وجهك فافرج عنا ما نحن فيه».",
+   "en": "“O Allah, if I did that seeking Your Face, then relieve us of what we are in.”"
+  },
+  {
+   "t": "p",
+   "ar": "ففرج الله عنهم ببركة تلك الأعمال التي صدقوا فيها مع الله سبحانه وتعالى.",
+   "en": "So Allah relieved them, by the blessing of those deeds in which they had been true to Allah (glorified and exalted is He)."
+  },
+  {
+   "t": "p",
+   "ar": "نسأل الله عز وجل أن يتقبل منا ومنكم، وأن ينفعنا وإياكم بما قلنا وسمعنا.",
+   "en": "We ask Allah (Mighty and Majestic is He) to accept from us and from you, and to benefit us and you by what we have said and heard."
+  },
+  {
+   "t": "head",
+   "ar": "الدعاء الختامي",
+   "en": "Closing Supplication"
+  },
+  {
+   "t": "p",
+   "ar": "اللهم أصلح لنا ديننا الذي هو عصمة أمرنا، وأصلح لنا دنيانا التي فيها معاشنا، وأصلح لنا آخرتنا التي فيها معادنا، واجعل الحياة زيادة لنا في كل خير، واجعل الموت راحة لنا من كل شر.",
+   "en": "O Allah, set right for us our religion, which is the safeguard of our affairs; set right for us our worldly life, in which is our livelihood; and set right for us our Hereafter, to which is our return. Make life an increase for us in every good, and make death a relief for us from every evil."
+  },
+  {
+   "t": "p",
+   "ar": "اللهم إنا نعوذ بك من زوال نعمتك، وتحول عافيتك، وفجاءة نقمتك، وجميع سخطك.",
+   "en": "O Allah, we seek refuge in You from the loss of Your blessings, the change of the well-being You have given, the suddenness of Your punishment, and all of Your displeasure."
+  },
+  {
+   "t": "p",
+   "ar": "اللهم اكفنا بحلالك عن حرامك، وبطاعتك عن معصيتك، وأغننا بفضلك عمن سواك.",
+   "en": "O Allah, suffice us with what You have made lawful against what You have made unlawful, and with obedience to You against disobedience to You, and by Your bounty make us free of need of anyone but You."
+  },
+  {
+   "t": "p",
+   "ar": "آمين.",
+   "en": "Āmīn."
+  },
+  {
+   "t": "p",
+   "ar": "والحمد لله رب العالمين",
+   "en": "And all praise is for Allah, Lord of the worlds."
+  }
+ ]
+}

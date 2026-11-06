@@ -1,0 +1,109 @@
+---
+/* /lectures/<id> — a written lecture or khuṭbah: the Shaykh's Arabic,
+   paragraph by paragraph, with its English under each one. One page per
+   registry entry marked `written`; the words are in content/lectures/.
+   The bar's switch shows both languages, Arabic only or English only
+   (src/client/lesson.ts); the choice is kept on the device. */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../config/site.ts';
+import { LECTURES_PATH } from '../../config/sections.ts';
+import { LECTURES, lectureKind, type LectureBlock } from '../../lectures/index.ts';
+import { LECTURE_TEXTS } from '../../../content/lectures/index.ts';
+import '../../styles/guide.css';
+import '../../styles/lectures.css';
+import '../../styles/theme.css';
+
+export function getStaticPaths() {
+  return LECTURES.filter((l) => l.written && LECTURE_TEXTS[l.id]).map((l) => ({ params: { id: l.id } }));
+}
+
+const { id } = Astro.params;
+const lecture = LECTURES.find((l) => l.id === id)!;
+const doc = LECTURE_TEXTS[id!]!;
+const kind = lectureKind(lecture) || 'Lecture';
+
+const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+/** Arabic with each ﴿ … ﴾ quotation set in the Qurʾān colour. */
+const arHtml = (s: string) => esc(s).replace(/﴿[^﴾]*﴾/g, (m) => `<span class="q">${m}</span>`);
+
+/* Section headings get an id, so a heading can be linked to. */
+let h = 0;
+const blocks = doc.blocks.map((b: LectureBlock) => ({ b, anchor: b.t === 'head' || b.t === 'part' ? `s${++h}` : undefined }));
+---
+<BaseLayout title={`${doc.title.en} (${kind})`} description={lecture.description ?? `${doc.title.en}, a ${kind.toLowerCase()} by the Shaykh, in Arabic with an English translation.`} ogType="article">
+<div class="ls-page" data-show="both">
+<script is:inline>try{var v=localStorage.getItem('asl-lesson-show');if(v==='ar'||v==='en')document.currentScript.parentElement.dataset.show=v}catch(e){}</script>
+
+<div class="gbar"><div class="gbar-inner">
+  <a class="gback" href={LECTURES_PATH}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Lectures</a>
+  <span class="t ls-bar-t">{kind}</span>
+  <div class="ls-show" role="group" aria-label="Languages shown">
+    <button type="button" data-show="both" aria-label="Arabic and English">ع + EN</button>
+    <button type="button" data-show="ar" aria-label="Arabic only">ع</button>
+    <button type="button" data-show="en" aria-label="English only">EN</button>
+  </div>
+</div></div>
+
+<header class="ls-head">
+  {doc.kicker && <div class="eyebrow">{doc.kicker.en}</div>}
+  <h1>
+    <span class="ar" lang="ar" dir="rtl">{doc.title.ar}</span>
+    <span class="en">{doc.title.en}</span>
+  </h1>
+  <div class="ls-rule" aria-hidden="true"><i></i><b>۞</b><i></i></div>
+  <div class="ls-by">
+    {doc.byline.map((b) => (
+      <div class="ls-by-line">
+        <span class="ar" lang="ar" dir="rtl">{b.ar}</span>
+        <span class="en">{b.en}</span>
+      </div>
+    ))}
+  </div>
+</header>
+
+<article class="ls" aria-label={doc.title.en}>
+  {blocks.map(({ b, anchor }) => {
+    if (b.t === 'part') return (
+      <div class="ls-part" id={anchor}>
+        <div class="ar" lang="ar" dir="rtl">{b.ar}</div>
+        <div class="en">{b.en}</div>
+      </div>
+    );
+    if (b.t === 'head') return (
+      <h2 class="ls-h" id={anchor}>
+        <span class="ar" lang="ar" dir="rtl" set:html={arHtml(b.ar)} />
+        <span class="en">{b.en}</span>
+      </h2>
+    );
+    if (b.t === 'ayah') return (
+      <figure class="ls-ayah">
+        <div class="ar-side">
+          <p class="ar" lang="ar" dir="rtl" set:html={arHtml(b.ar)} />
+          {b.ref && <p class="ref ar" lang="ar" dir="rtl">[{b.ref.ar}]</p>}
+        </div>
+        <div class="en-side en">
+          <p>{b.en}</p>
+          {b.ref && <p class="ref">{b.ref.en}</p>}
+        </div>
+      </figure>
+    );
+    if (b.t === 'quote') return (
+      <blockquote class="ls-q">
+        <p class="ar" lang="ar" dir="rtl" set:html={arHtml(b.ar)} />
+        <p class="en">{b.en}</p>
+      </blockquote>
+    );
+    return (
+      <div class="ls-p">
+        <p class="ar" lang="ar" dir="rtl" set:html={arHtml(b.ar)} />
+        <p class="en">{b.en}</p>
+      </div>
+    );
+  })}
+</article>
+
+<p class="ls-note">The Arabic is the Shaykh’s. The English under it is a translation of the meaning, made for this site.</p>
+<footer class="gf">{SITE.org.name} · <a href={LECTURES_PATH}>Lectures</a> · <a href="/">Home</a></footer>
+</div>
+<script>import '../../client/entries/lesson.ts';</script>
+</BaseLayout>

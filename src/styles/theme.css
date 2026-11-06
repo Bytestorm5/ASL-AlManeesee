@@ -156,9 +156,7 @@
 :root[data-theme="dark"] .rmz5 { color:#c47a7d; }
 :root[data-theme="dark"] .rmz6 { color:#bcab9d; }
 :root[data-theme="dark"] .rmz7 { color:#c47a7d; }
-/* a Qurʾānic word quoted inside a bayt — green rather than rubrication red, so
-   it needs its own lift off the dark paper for the same reason as the rest. */
-:root[data-theme="dark"] .qur { color:#7ab894; }
+/* a Qurʾānic word quoted inside a bayt: its dark lift is the --quran token */
 
 /* per-verse note box */
 :root[data-theme="dark"] .verse-note { background:var(--surface-2); }

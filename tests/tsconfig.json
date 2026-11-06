@@ -4,5 +4,5 @@
     "types": ["@cloudflare/vitest-plugin/types"],
     "resolveJsonModule": true
   },
-  "include": ["../worker-configuration.d.ts", "./**/*.ts", "../src/worker/**/*.ts", "../src/shared/**/*.ts", "../src/poems/**/*.ts", "../src/lectures/**/*.ts"]
+  "include": ["../worker-configuration.d.ts", "./**/*.ts", "../src/worker/**/*.ts", "../src/shared/**/*.ts", "../src/poems/**/*.ts", "../src/lectures/**/*.ts", "../content/lectures/*.ts"]
 }
