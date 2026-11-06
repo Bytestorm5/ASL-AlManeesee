@@ -103,3 +103,28 @@ video.lc-media{background:var(--midnight); aspect-ratio:16/9}
 .ls-page[data-show="en"] .ls-ayah .en-side{margin-top:0; padding-top:0; border-top:0}
 .ls-note{max-width:720px; margin:30px auto 0; padding:0 20px; text-align:center; font-family:"Montserrat",sans-serif; font-size:.72rem;
   line-height:1.6; color:var(--sage)}
+/* a heading within a section (one of the kinds of heart, say) */
+.ls-sub{margin:22px 0 2px; display:flex; flex-direction:column; gap:0; font-weight:inherit}
+.ls-sub .ar{font-size:clamp(1.3rem,3.8vw,1.5rem); font-weight:700; line-height:1.7; color:var(--madder)}
+.ls-sub .en{font-family:"Cormorant Garamond",Georgia,serif; font-weight:700; font-size:1.18rem; line-height:1.3; color:var(--madder)}
+/* the khuṭbah's own summary of its points */
+.ls-list{margin:18px 0 6px; padding:14px 18px 12px; background:var(--surface); border:1px solid var(--paper-edge); border-radius:14px; box-shadow:var(--shadow)}
+.ls-list-t{display:flex; flex-direction:column; margin-bottom:6px}
+.ls-list-t .en{font-family:"Montserrat",sans-serif; font-size:.68rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--sage)}
+.ls-list-t .ar{font-size:1.15rem; color:var(--sage)}
+.ls-list ol{margin:0; padding-left:1.4em}
+.ls-list li{margin:5px 0; padding-left:2px; font-family:"Cormorant Garamond",Georgia,serif; font-size:1.12rem; line-height:1.4; color:var(--ink)}
+.ls-list li::marker{color:var(--madder); font-weight:700}
+.ls-list li .ar{display:block; font-size:1.25rem}
+/* a hadith's source, and a quotation set as verse */
+.ls-q .ref{margin-top:4px; font-family:"Montserrat",sans-serif; font-style:normal; font-size:.66rem; font-weight:600; letter-spacing:.04em; color:var(--sage)}
+.ls-q .ref.ar{font-family:"Scheherazade New","Amiri",serif; font-size:.98rem; letter-spacing:0}
+.ls-verse{text-align:center}
+.ls-verse .en{white-space:pre-line; line-height:1.6}
+.ls-verse .ar{text-align:center; white-space:pre-line; line-height:1.9}
+/* an āyah with no Arabic above its English */
+.ls-ayah .en-side:first-child{margin-top:0; padding-top:0; border-top:0}
+/* English alone: the paragraph rule and indent mark a translation under Arabic, so they go */
+.ls-en-only .ls-p .en{padding-left:0; border-left:0; margin-top:0; font-size:1.16rem; color:var(--ink)}
+.ls-en-only .ls-p{padding:8px 0}
+.ls-en-only .ls-p + .ls-p{border-top:0}

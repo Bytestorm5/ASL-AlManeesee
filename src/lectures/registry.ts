@@ -2,7 +2,8 @@ import type { Lecture } from './types.ts';
 
 /* ═══════════════════════════════════════════════════════════════════════════
    The Shaykh's lessons, lectures and khuṭbahs, shown on /lectures and in the
-   home page's Lectures section, newest first.
+   home page's Lectures section in the order listed here: newest first, so a
+   new one goes at the top.
 
    A recorded one is an entry with `media` (a YouTube link, or an audio or
    video file) and a deploy, e.g.
@@ -17,9 +18,19 @@ import type { Lecture } from './types.ts';
    A written one is an entry with `written: true` and its text in
    content/lectures/<id>.json (listed in content/lectures/index.ts): Arabic
    paragraph by paragraph, the English under each. It is read at
-   /lectures/<id>. It can carry `media` too.
+   /lectures/<id>. It can carry `media` too. A translation that comes without
+   its Arabic is `"languages": "en"` in that file, with its `translator`.
    ═══════════════════════════════════════════════════════════════════════════ */
 export const LECTURE_REGISTRY: Lecture[] = [
+  {
+    id: 'ahwal-al-qulub',
+    title: 'Conditions of the Hearts',
+    titleAr: 'أحوال القلوب',
+    kind: 'khutbah',
+    series: 'No. 1630',
+    description: 'How temptations mark the heart, the kinds of hearts, and the signs of a sick heart: on the danger of temptations, and how mistakes taken lightly damage the heart over time.',
+    written: true,
+  },
   {
     id: 'al-qabul',
     title: 'Acceptance',

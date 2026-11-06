@@ -33,26 +33,37 @@ export interface Lecture {
 
 /** Arabic, with its English under it. */
 export interface Bilingual { ar: string; en: string }
+/** A piece of text: English always; the Arabic too in an 'ar+en' text. */
+export interface Para { ar?: string; en: string }
 
 /** One block of a written lecture, in reading order. */
 export type LectureBlock =
   /** a major division: the first or second khuṭbah */
-  | ({ t: 'part' } & Bilingual)
+  | ({ t: 'part' } & Para)
   /** a section heading */
-  | ({ t: 'head' } & Bilingual)
+  | ({ t: 'head' } & Para)
+  /** a heading within a section, e.g. one of the kinds of heart */
+  | ({ t: 'sub' } & Para)
   /** a paragraph */
-  | ({ t: 'p' } & Bilingual)
-  /** an āyah, in ﴿ ﴾, with its reference (sūrah and verse) */
-  | ({ t: 'ayah'; ref?: Bilingual } & Bilingual)
-  /** a hadith or a saying, in « » */
-  | ({ t: 'quote' } & Bilingual);
+  | ({ t: 'p' } & Para)
+  /** an āyah (its Arabic in ﴿ ﴾), with its reference (sūrah and verse) */
+  | ({ t: 'ayah'; ref?: Para } & Para)
+  /** a hadith or a saying, with its source; `verse` sets it as poetry, one line per hemistich */
+  | ({ t: 'quote'; ref?: Para; verse?: boolean } & Para)
+  /** a short list, e.g. the khuṭbah's own summary of its points */
+  | { t: 'list'; title?: Para; items: Para[] };
 
 /** The written text of a lecture: content/lectures/<id>.json. */
 export interface LectureText {
   title: Bilingual;
+  /** 'ar+en' (the default): the Shaykh's Arabic with the English under every
+      block. 'en': an English translation alone, until its Arabic is added. */
+  languages?: 'ar+en' | 'en';
+  /** Who translated it, when the translation is not this site's own. */
+  translator?: string;
   /** The small line above the title, e.g. "A Friday Khuṭbah". */
-  kicker?: Bilingual;
+  kicker?: Para;
   /** Who gave it, where and when, as the source has it, line by line. */
-  byline: Bilingual[];
+  byline: Para[];
   blocks: LectureBlock[];
 }

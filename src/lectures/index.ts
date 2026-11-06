@@ -5,10 +5,10 @@ import { LECTURES_PATH } from '../config/sections.ts';
 import { LECTURE_REGISTRY } from './registry.ts';
 import type { Lecture, LectureText } from './types.ts';
 
-export type { Bilingual, Lecture, LectureBlock, LectureText } from './types.ts';
+export type { Bilingual, Lecture, LectureBlock, LectureText, Para } from './types.ts';
 
-export const LECTURES: readonly Lecture[] = [...LECTURE_REGISTRY]
-  .sort((a, b) => (b.date ?? '').localeCompare(a.date ?? ''));
+/** In the registry's own order, which is newest first: a new lecture goes at the top. */
+export const LECTURES: readonly Lecture[] = [...LECTURE_REGISTRY];
 
 /** A lecture's date as the pages show it (US style): "Nov 6, 2026" (month 'short') or "November 6, 2026". */
 export function lectureDate(d: string | undefined, month: 'short' | 'long' = 'short'): string {
@@ -47,30 +47,44 @@ export function lectureProblems(list: readonly Lecture[] = LECTURE_REGISTRY): st
 }
 
 const ARABIC = /[\u0600-\u06EF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDF9\uFE70-\uFEFF]/;
-const BLOCKS = ['part', 'head', 'p', 'ayah', 'quote'];
-/** What is wrong with a written lecture's text: every block has Arabic and,
-    under it, English (no Arabic letters in it, ﷺ aside); an āyah sits in
-    ﴿ ﴾; the text opens with a heading or a part. */
+const BLOCKS = ['part', 'head', 'sub', 'p', 'ayah', 'quote', 'list'];
+/** Whether a written text carries the Shaykh's Arabic (else it is English alone). */
+export function hasArabic(doc: LectureText): boolean {
+  return doc.languages !== 'en';
+}
+/** What is wrong with a written lecture's text: every block has its English
+    (no Arabic letters in it, ﷺ aside) and, in an 'ar+en' text, its Arabic
+    above it; an āyah's Arabic sits in ﴿ ﴾; the text opens with a part, a
+    heading or its summary list. An English-only text names its translator.
+    The kicker and byline may be English alone in either kind. */
 export function lectureTextProblems(id: string, doc: LectureText): string[] {
   const out: string[] = [];
-  const pair = (where: string, b: { ar?: unknown; en?: unknown } | undefined) => {
-    if (typeof b?.ar !== 'string' || !ARABIC.test(b.ar)) out.push(`${id} ${where}: needs its Arabic`);
+  const both = hasArabic(doc);
+  const pair = (where: string, b: { ar?: unknown; en?: unknown } | undefined, needAr = both) => {
+    if (needAr && (typeof b?.ar !== 'string' || !ARABIC.test(b.ar))) out.push(`${id} ${where}: needs its Arabic`);
     if (typeof b?.en !== 'string' || !b.en.trim()) out.push(`${id} ${where}: needs its English`);
     else if (ARABIC.test(b.en)) out.push(`${id} ${where}: Arabic letters in the English`);
   };
-  pair('title', doc.title);
-  if (doc.kicker) pair('kicker', doc.kicker);
-  (doc.byline ?? []).forEach((b, i) => pair(`byline ${i + 1}`, b));
+  if (doc.languages && !['ar+en', 'en'].includes(doc.languages)) out.push(`${id}: languages must be 'ar+en' or 'en'`);
+  if (!both && !doc.translator?.trim()) out.push(`${id}: an English-only text names its translator`);
+  pair('title', doc.title, true);
+  // the kicker and byline lines are about the text, so their Arabic is optional
+  if (doc.kicker) pair('kicker', doc.kicker, false);
+  (doc.byline ?? []).forEach((b, i) => pair(`byline ${i + 1}`, b, false));
   if (!doc.blocks?.length) out.push(`${id}: has no blocks`);
   (doc.blocks ?? []).forEach((b, i) => {
     const where = `block ${i + 1} (${b.t})`;
     if (!BLOCKS.includes(b.t)) { out.push(`${id} ${where}: unknown block type`); return; }
-    pair(where, b);
-    if (b.t === 'ayah') {
-      if (!/^﴿[^]*﴾$/.test(b.ar.trim())) out.push(`${id} ${where}: an āyah is written in ﴿ ﴾`);
-      if (b.ref) pair(where + ' ref', b.ref);
+    if (b.t === 'list') {
+      if (b.title) pair(where + ' title', b.title);
+      if (!b.items?.length) out.push(`${id} ${where}: a list needs items`);
+      (b.items ?? []).forEach((it, k) => pair(`${where} item ${k + 1}`, it));
+      return;
     }
+    pair(where, b);
+    if (b.t === 'ayah' && b.ar && !/^﴿[^]*﴾$/.test(b.ar.trim())) out.push(`${id} ${where}: an āyah is written in ﴿ ﴾`);
+    if ((b.t === 'ayah' || b.t === 'quote') && b.ref) pair(where + ' ref', b.ref);
   });
-  if (doc.blocks?.[0] && !['part', 'head'].includes(doc.blocks[0].t)) out.push(`${id}: should open with a part or a heading`);
+  if (doc.blocks?.[0] && !['part', 'head', 'list'].includes(doc.blocks[0].t)) out.push(`${id}: should open with a part, a heading or its summary`);
   return out;
 }

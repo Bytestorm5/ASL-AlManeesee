@@ -1,13 +1,15 @@
 ---
-/* /lectures/<id> — a written lecture or khuṭbah: the Shaykh's Arabic,
-   paragraph by paragraph, with its English under each one. One page per
-   registry entry marked `written`; the words are in content/lectures/.
-   The bar's switch shows both languages, Arabic only or English only
-   (src/client/lesson.ts); the choice is kept on the device. */
+/* /lectures/<id> — a written lecture or khuṭbah. One page per registry entry
+   marked `written`; the words are in content/lectures/. An 'ar+en' text sets
+   the Shaykh's Arabic paragraph by paragraph with the English under each,
+   and the bar's switch shows both, Arabic only or English only
+   (src/client/lesson.ts; the choice is kept on the device). An 'en' text is
+   an English translation alone, so it has no switch and credits its
+   translator. */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE } from '../../config/site.ts';
 import { LECTURES_PATH } from '../../config/sections.ts';
-import { LECTURES, lectureKind, type LectureBlock } from '../../lectures/index.ts';
+import { LECTURES, hasArabic, lectureKind, type LectureBlock } from '../../lectures/index.ts';
 import { LECTURE_TEXTS } from '../../../content/lectures/index.ts';
 import '../../styles/guide.css';
 import '../../styles/lectures.css';
@@ -21,6 +23,7 @@ const { id } = Astro.params;
 const lecture = LECTURES.find((l) => l.id === id)!;
 const doc = LECTURE_TEXTS[id!]!;
 const kind = lectureKind(lecture) || 'Lecture';
+const both = hasArabic(doc);
 
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 /** Arabic with each ﴿ … ﴾ quotation set in the Qurʾān colour. */
@@ -29,19 +32,23 @@ const arHtml = (s: string) => esc(s).replace(/﴿[^﴾]*﴾/g, (m) => `<span cla
 /* Section headings get an id, so a heading can be linked to. */
 let h = 0;
 const blocks = doc.blocks.map((b: LectureBlock) => ({ b, anchor: b.t === 'head' || b.t === 'part' ? `s${++h}` : undefined }));
+const description = lecture.description
+  ?? `${doc.title.en}, a ${kind.toLowerCase()} by the Shaykh${both ? ', in Arabic with an English translation' : ', in English translation'}.`;
 ---
-<BaseLayout title={`${doc.title.en} (${kind})`} description={lecture.description ?? `${doc.title.en}, a ${kind.toLowerCase()} by the Shaykh, in Arabic with an English translation.`} ogType="article">
-<div class="ls-page" data-show="both">
-<script is:inline>try{var v=localStorage.getItem('asl-lesson-show');if(v==='ar'||v==='en')document.currentScript.parentElement.dataset.show=v}catch(e){}</script>
+<BaseLayout title={`${doc.title.en} (${kind})`} description={description} ogType="article">
+<div class={`ls-page${both ? '' : ' ls-en-only'}`} data-show={both ? 'both' : 'en'}>
+{both && <script is:inline>try{var v=localStorage.getItem('asl-lesson-show');if(v==='ar'||v==='en')document.currentScript.parentElement.dataset.show=v}catch(e){}</script>}
 
 <div class="gbar"><div class="gbar-inner">
   <a class="gback" href={LECTURES_PATH}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Lectures</a>
   <span class="t ls-bar-t">{kind}</span>
-  <div class="ls-show" role="group" aria-label="Languages shown">
-    <button type="button" data-show="both" aria-label="Arabic and English">ع + EN</button>
-    <button type="button" data-show="ar" aria-label="Arabic only">ع</button>
-    <button type="button" data-show="en" aria-label="English only">EN</button>
-  </div>
+  {both && (
+    <div class="ls-show" role="group" aria-label="Languages shown">
+      <button type="button" data-show="both" aria-label="Arabic and English">ع + EN</button>
+      <button type="button" data-show="ar" aria-label="Arabic only">ع</button>
+      <button type="button" data-show="en" aria-label="English only">EN</button>
+    </div>
+  )}
 </div></div>
 
 <header class="ls-head">
@@ -54,7 +61,7 @@ const blocks = doc.blocks.map((b: LectureBlock) => ({ b, anchor: b.t === 'head' 
   <div class="ls-by">
     {doc.byline.map((b) => (
       <div class="ls-by-line">
-        <span class="ar" lang="ar" dir="rtl">{b.ar}</span>
+        {b.ar && <span class="ar" lang="ar" dir="rtl">{b.ar}</span>}
         <span class="en">{b.en}</span>
       </div>
     ))}
@@ -63,24 +70,50 @@ const blocks = doc.blocks.map((b: LectureBlock) => ({ b, anchor: b.t === 'head' 
 
 <article class="ls" aria-label={doc.title.en}>
   {blocks.map(({ b, anchor }) => {
+    if (b.t === 'list') return (
+      <nav class="ls-list" aria-label={b.title?.en ?? 'Summary'}>
+        {b.title && (
+          <div class="ls-list-t">
+            {b.title.ar && <span class="ar" lang="ar" dir="rtl">{b.title.ar}</span>}
+            <span class="en">{b.title.en}</span>
+          </div>
+        )}
+        <ol>
+          {b.items.map((it) => (
+            <li>
+              {it.ar && <span class="ar" lang="ar" dir="rtl" set:html={arHtml(it.ar)} />}
+              <span class="en">{it.en}</span>
+            </li>
+          ))}
+        </ol>
+      </nav>
+    );
     if (b.t === 'part') return (
       <div class="ls-part" id={anchor}>
-        <div class="ar" lang="ar" dir="rtl">{b.ar}</div>
+        {b.ar && <div class="ar" lang="ar" dir="rtl">{b.ar}</div>}
         <div class="en">{b.en}</div>
       </div>
     );
     if (b.t === 'head') return (
       <h2 class="ls-h" id={anchor}>
-        <span class="ar" lang="ar" dir="rtl" set:html={arHtml(b.ar)} />
+        {b.ar && <span class="ar" lang="ar" dir="rtl" set:html={arHtml(b.ar)} />}
         <span class="en">{b.en}</span>
       </h2>
     );
+    if (b.t === 'sub') return (
+      <h3 class="ls-sub">
+        {b.ar && <span class="ar" lang="ar" dir="rtl" set:html={arHtml(b.ar)} />}
+        <span class="en">{b.en}</span>
+      </h3>
+    );
     if (b.t === 'ayah') return (
       <figure class="ls-ayah">
-        <div class="ar-side">
-          <p class="ar" lang="ar" dir="rtl" set:html={arHtml(b.ar)} />
-          {b.ref && <p class="ref ar" lang="ar" dir="rtl">[{b.ref.ar}]</p>}
-        </div>
+        {b.ar && (
+          <div class="ar-side">
+            <p class="ar" lang="ar" dir="rtl" set:html={arHtml(b.ar)} />
+            {b.ref?.ar && <p class="ref ar" lang="ar" dir="rtl">[{b.ref.ar}]</p>}
+          </div>
+        )}
         <div class="en-side en">
           <p>{b.en}</p>
           {b.ref && <p class="ref">{b.ref.en}</p>}
@@ -88,21 +121,27 @@ const blocks = doc.blocks.map((b: LectureBlock) => ({ b, anchor: b.t === 'head' 
       </figure>
     );
     if (b.t === 'quote') return (
-      <blockquote class="ls-q">
-        <p class="ar" lang="ar" dir="rtl" set:html={arHtml(b.ar)} />
+      <blockquote class={`ls-q${b.verse ? ' ls-verse' : ''}`}>
+        {b.ar && <p class="ar" lang="ar" dir="rtl" set:html={arHtml(b.ar)} />}
+        {b.ar && b.ref?.ar && <p class="ref ar" lang="ar" dir="rtl">{b.ref.ar}</p>}
         <p class="en">{b.en}</p>
+        {b.ref && <p class="ref en">{b.ref.en}</p>}
       </blockquote>
     );
     return (
       <div class="ls-p">
-        <p class="ar" lang="ar" dir="rtl" set:html={arHtml(b.ar)} />
+        {b.ar && <p class="ar" lang="ar" dir="rtl" set:html={arHtml(b.ar)} />}
         <p class="en">{b.en}</p>
       </div>
     );
   })}
 </article>
 
-<p class="ls-note">The Arabic is the Shaykh’s. The English under it is a translation of the meaning, made for this site.</p>
+<p class="ls-note">{both
+  ? (doc.translator
+    ? `The Arabic is the Shaykh’s. The English under it is ${doc.translator}’s translation; the few lines it leaves out were translated for this site.`
+    : 'The Arabic is the Shaykh’s. The English under it is a translation of the meaning, made for this site.')
+  : `Translated from the Shaykh’s Arabic by ${doc.translator}. The English renders the meanings of the āyāt and aḥādīth it quotes.`}</p>
 <footer class="gf">{SITE.org.name} · <a href={LECTURES_PATH}>Lectures</a> · <a href="/">Home</a></footer>
 </div>
 <script>import '../../client/entries/lesson.ts';</script>

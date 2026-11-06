@@ -70,6 +70,13 @@ describe('lectures', () => {
       ],
     };
     const probs = lectureTextProblems('x', doc).join('\n');
-    for (const want of ['needs its English', '﴿ ﴾', 'Arabic letters in the English', 'open with a part or a heading']) expect(probs).toContain(want);
+    for (const want of ['needs its English', '﴿ ﴾', 'Arabic letters in the English', 'open with a part, a heading or its summary']) expect(probs).toContain(want);
+  });
+  it('lets a translation stand without its Arabic, if it names its translator', () => {
+    const doc = { title: { ar: 'أحوال القلوب', en: 'Conditions of the Hearts' }, languages: 'en' as const, byline: [{ en: 'By the Shaykh' }],
+      blocks: [{ t: 'head' as const, en: 'A heading' }, { t: 'ayah' as const, en: '“An āyah”', ref: { en: 'al-Isrāʾ 17:36' } }, { t: 'list' as const, items: [{ en: 'A point' }] }] };
+    expect(lectureTextProblems('x', { ...doc, translator: 'A Translator' })).toEqual([]);
+    expect(lectureTextProblems('x', doc).join()).toMatch(/names its translator/);
+    expect(lectureTextProblems('x', { ...doc, translator: 'T', languages: undefined }).join()).toMatch(/needs its Arabic/);
   });
 });

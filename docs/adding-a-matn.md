@@ -55,8 +55,13 @@ lesson the Shaykh wrote out) is an entry with `written: true` and its text in
 `content/lectures/<id>.json`, listed in `content/lectures/index.ts`: blocks of
 `part`, `head`, `p`, `ayah` (in ﴿ ﴾, with a `ref`) and `quote`, each with its
 `ar` and the `en` under it (`LectureText`, `src/lectures/types.ts`). It is
-read at `/lectures/<id>`. `npm test` checks the entries and that every block
-of a written text has both languages.
+read at `/lectures/<id>`. A translation that arrives without its Arabic is
+`"languages": "en"` with a `"translator"`: every block then needs only its
+`en`, and the page drops the language switch (add the Arabic later and remove
+`languages` to pair them). Lectures are listed in the registry's own order,
+newest first. `sub` (a heading inside a section) and `list` (the khuṭbah's
+summary of its points) are blocks too. `npm test` checks the entries and that
+every block of a written text has the languages it should.
 
 ### Collections of poems
 

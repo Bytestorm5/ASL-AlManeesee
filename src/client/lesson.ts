@@ -9,8 +9,8 @@ type Show = 'both' | 'ar' | 'en';
 
 export function init(): void {
   const page = document.querySelector<HTMLElement>('.ls-page');
-  if (!page) return;
   const btns = [...document.querySelectorAll<HTMLButtonElement>('.ls-show button')];
+  if (!page || !btns.length) return; // an English-only text has no switch
   function apply(v: Show, save: boolean): void {
     page!.dataset.show = v;
     for (const b of btns) b.setAttribute('aria-pressed', String(b.dataset.show === v));

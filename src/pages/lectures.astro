@@ -9,7 +9,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE } from '../config/site.ts';
 import { sectionById } from '../config/sections.ts';
-import { LECTURES, lectureDate, lectureHref, lectureKind } from '../lectures/index.ts';
+import { LECTURES, hasArabic, lectureDate, lectureHref, lectureKind } from '../lectures/index.ts';
+import { LECTURE_TEXTS } from '../../content/lectures/index.ts';
 import { poemHref } from '../client/page.ts';
 import { POEMS } from '../poems/index.ts';
 import '../styles/guide.css';
@@ -51,7 +52,7 @@ const items = LECTURES.map((l) => ({
           {l.media?.kind === 'audio' && <audio class="lc-media" controls preload="none" src={l.media.url}></audio>}
           {l.media?.kind === 'video' && <video class="lc-media" controls preload="none" playsinline src={l.media.url}></video>}
           <div class="lc-acts">
-            {l.written && <a class="lc-btn" href={lectureHref(l)}>Read the {(lectureKind(l) || 'lecture').toLowerCase()} · Arabic &amp; English</a>}
+            {l.written && <a class="lc-btn" href={lectureHref(l)}>Read the {(lectureKind(l) || 'lecture').toLowerCase()} · {LECTURE_TEXTS[l.id] && !hasArabic(LECTURE_TEXTS[l.id]!) ? 'English translation' : 'Arabic & English'}</a>}
             {l.media?.kind === 'youtube' && <a class="lc-btn" href={l.media.url} target="_blank" rel="noopener">Watch on YouTube ↗</a>}
             {matn && l.matn && <a class="lc-btn lc-btn-q" href={poemHref(l.matn)}>Read {matn}</a>}
           </div>
