@@ -38,7 +38,10 @@ registry, `src/lectures/registry.ts`, shown on `/lectures`; a written one,
 page, `/lectures/<id>`). Home and the
 app's sheets show **one section at a time** behind a switch, never one list
 after another; keep it that way when adding to them. An empty section shows
-its "being prepared" text from `sections.ts`.
+its "being prepared" text from `sections.ts`. Explanations (`shuruh`) is
+`hidden: true` for now: pages read `SHOWN_SECTIONS`, so it has no tab, menu
+link or guide entry until that line is removed (the tests refuse a listed
+matn in a hidden section).
 
 ## One reading page
 `src/pages/[poem].astro` + `src/client/reading/render.ts` render every matn.

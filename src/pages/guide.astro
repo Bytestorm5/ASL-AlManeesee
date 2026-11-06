@@ -5,18 +5,20 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE, siteHost } from '../config/site.ts';
 import { listedPoems } from '../client/page.ts';
-import { LECTURES_PATH, SECTIONS } from '../config/sections.ts';
+import { LECTURES_PATH, SHOWN_SECTIONS } from '../config/sections.ts';
 import { LECTURES } from '../lectures/index.ts';
 import '../styles/guide.css';
 import '../styles/theme.css';
 
 const poems = listedPoems();
 /* What each section holds right now, for "The sections" below. */
-const sections = SECTIONS.map((s) => {
+const sections = SHOWN_SECTIONS.map((s) => {
   const n = s.id === 'lectures' ? LECTURES.length : listedPoems(s.id).length;
   const what = s.id === 'lectures' ? (n === 1 ? 'lecture' : 'lectures') : n === 1 ? 'matn' : 'mutūn';
   return { s, status: n ? `${n} ${what}` : 'Being prepared' };
 });
+const sectionNames = SHOWN_SECTIONS.map((s) => s.en).join(' · ');
+const partsWord = ['no', 'one', 'two', 'three', 'four'][SHOWN_SECTIONS.length] ?? String(SHOWN_SECTIONS.length);
 const eyebrow = `al-Asl · ${SITE.collection.en}`;
 const host = siteHost();
 const orgHost = SITE.org.url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
@@ -47,8 +49,8 @@ const orgHost = SITE.org.url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, 
         <div><b>⋯ More</b><span>PDF · <b>▶ Show me around</b> · User guide · Nuskha (where a matn has more than one) · Appearance</span></div>
         <div><b>Appearance</b><span>Auto · Light · Dark.</span></div>
         <div><b>App tabs</b><span><b>Home · Collection · Marginalia · More</b>. On a matn: <b>Home · Read · Memorize · More</b>.</span></div>
-        <div><b>Home</b><span>A <b>Continue</b> card back to your last bayt, a strip showing overall progress, current streak and total study time, then the <b>sections switch</b>: <b>His Poems · His Explanations · Lectures</b>. One section shows at a time; Home remembers the one you last chose.</span></div>
-        <div><b>Collection</b><span>App → Collection: the same three sections, one list at a time. Lectures shows the newest few and <b>All lectures →</b>.</span></div>
+        <div><b>Home</b><span>A <b>Continue</b> card back to your last bayt, a strip showing overall progress, current streak and total study time, then the <b>sections switch</b>: <b>{sectionNames}</b>. One section shows at a time; Home remembers the one you last chose.</span></div>
+        <div><b>Collection</b><span>App → Collection: the same sections, one list at a time. Lectures shows the newest few and <b>All lectures →</b>.</span></div>
         <div><b>Favorites</b><span>App → Collection → ★ on up to 2 mutūn; in their section on Home they show alone, under <i>My Favorites</i>.</span></div>
         <div><b>Daily goal</b><span>App → More → 1–50 abyāt a day, set <b>per matn</b>. Each card shows <i>Goal today</i>.</span></div>
         <div><b>Opening the app</b><span>The al-Asl star beats while the app settles. Tap it to go straight through.</span></div>
@@ -61,7 +63,7 @@ const orgHost = SITE.org.url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, 
   <details class="g">
     <summary><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 8l10 5 10-5-10-5z"/><path d="M2 12l10 5 10-5"/><path d="M2 16l10 5 10-5"/></svg></span><span class="sm-t">The sections</span><span class="chev">›</span></summary>
     <div class="g-body">
-      <p class="lede">The Shaykh’s work in three parts. A section with nothing published yet says so, and fills in as it is published.</p>
+      <p class="lede">The Shaykh’s work in {partsWord} parts. A section with nothing published yet says so, and fills in as it is published.</p>
       <div class="rows">
         {sections.map(({ s, status }) => (
           <div><b>{s.en}</b><span>{s.lead} <i>{status}.</i>{s.id === 'lectures' && <> Every one is on the <a href={LECTURES_PATH}>Lectures</a> page, newest first: audio and video play there, YouTube opens on YouTube, and a lecture on a matn here links to it.</>}</span></div>

@@ -12,7 +12,7 @@ import Brandbar from '../components/Brandbar.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import { SITE } from '../config/site.ts';
 import { listedPoems, poemHref } from '../client/page.ts';
-import { LECTURES_PATH, SECTIONS } from '../config/sections.ts';
+import { LECTURES_PATH, SHOWN_SECTIONS } from '../config/sections.ts';
 import { LECTURES, lectureDate, lectureHref, lectureKind } from '../lectures/index.ts';
 import { bootSplash, inlineBoot } from '../client/boot.ts';
 import { runSplash } from '../client/splash.ts';
@@ -32,7 +32,7 @@ const headingFor = (n: number) => (n === 1 ? 'One Text to Begin' : `${WORDS[n] ?
 /* One panel per section. The lectures panel previews the newest few and
    links to /lectures, so it never grows into a second long list. */
 const LECTURE_PREVIEW = 3;
-const panels = SECTIONS.map((s) => {
+const panels = SHOWN_SECTIONS.map((s) => {
   const list = s.id === 'lectures' ? [] : listedPoems(s.id);
   return {
     s,

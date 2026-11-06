@@ -4,7 +4,7 @@
    unchanged. It hides web chrome (site header, back link, footer) and adds an
    app-style top bar + bottom tab navigation. */
 import { SITE } from '../config/site.ts';
-import { LECTURES_PATH, SECTIONS, type SectionId, type TextSectionId } from '../config/sections.ts';
+import { LECTURES_PATH, SHOWN_SECTIONS, type SectionId, type TextSectionId } from '../config/sections.ts';
 import { LECTURES, lectureDate, lectureHref, lectureKind } from '../lectures/index.ts';
 import { getPoem, sectionOf } from '../poems/index.ts';
 import type { AslOfflineStatus } from './globals.d.ts';
@@ -208,7 +208,7 @@ function shell(): void {
     'color:var(--sage);line-height:1.5}',
     /* the sections switch at the top of the Collection and More sheets:
        one section's list at a time, as on Home */
-    '.appsheet .as-secs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px;padding:3px;margin:0 0 10px;',
+    '.appsheet .as-secs{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:3px;padding:3px;margin:0 0 10px;',
     'background:var(--paper-2);border:1px solid var(--paper-edge);border-radius:11px}',
     '.appsheet .as-sec{cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px;min-height:34px;padding:6px 4px;',
     'border:0;border-radius:8px;background:transparent;color:var(--sage);font-family:"Montserrat",sans-serif;font-size:.66rem;',
@@ -336,7 +336,7 @@ function shell(): void {
   // Home · Read · Memorize (both open the matn you last used) · More
   // (a sheet listing every matn, the guide and the appearance setting).
   // The mutūn are the registry's listed ones, in its order.
-  const TEXT_SECTIONS = SECTIONS.map((s) => s.id).filter((id): id is TextSectionId => id !== 'lectures');
+  const TEXT_SECTIONS = SHOWN_SECTIONS.map((s) => s.id).filter((id): id is TextSectionId => id !== 'lectures');
   const MUTUN: MatnTab[] = TEXT_SECTIONS.flatMap((sec) => listedPoems(sec).map((p, i) => (
     { id: p.id, ar: p.shortAr, en: p.shortEn, n: String(i + 1), sec })));
   const HOME_IC = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.7 12 3.5l9 7.2"/><path d="M5.5 9.5V20h13V9.5"/></svg>';
@@ -445,7 +445,7 @@ function shell(): void {
     const STEPS = [
       { sel: '.cont-card', title: 'Continue', text: 'Straight back to your last bayt.' },
       { sel: '#statsWrap .stats-card', title: 'Your progress', text: 'Overall progress, current streak and study time — kept on this device only.' },
-      { sel: '.sec-switch', title: 'Sections', text: 'The Shaykh’s own poems, his explanations of the classical mutūn, and his lectures. One at a time.' },
+      { sel: '.sec-switch', title: 'Sections', text: SHOWN_SECTIONS.map((s) => s.en).join(' · ') + ': one at a time.' },
       { sel: '.sec-panel:not([hidden]) .matn-row:not(.fav-hide)', title: 'Each matn', text: 'Progress and today’s goal on the card. Read or Memorize from here.' },
       { sel: '[data-tab="collection"]', title: 'Collection', text: 'Every matn, section by section. Tap ★ on up to two to lead your Home screen.' },
       { sel: '[data-tab="marginalia"]', title: 'Marginalia', text: 'Your bookmarks and notes, from every matn, in one place.' },
@@ -634,21 +634,21 @@ function shell(): void {
     goPoem(row.getAttribute('data-poem'), btn ? btn.getAttribute('data-go') || undefined : undefined);
   }
 
-  // The sheets' sections switch (Poems · Explanations · Lectures). A sheet
+  // The sheets' sections switch (Poems · Lectures; SHOWN_SECTIONS). A sheet
   // shows one section's list at a time, so it never stacks one long list
   // on another. A text section lists its mutūn; Lectures shows the newest
   // few and a link to /lectures; an empty section says it is on its way.
   const LEC_PREVIEW = 3;
   const secCount = (id: SectionId): number => (id === 'lectures' ? LECTURES.length : MUTUN.filter((m) => m.sec === id).length);
   function secSwitchHtml(active: SectionId): string {
-    return '<div class="as-secs" role="tablist" aria-label="Sections">' + SECTIONS.map((s) => {
+    return '<div class="as-secs" role="tablist" aria-label="Sections">' + SHOWN_SECTIONS.map((s) => {
       const n = secCount(s.id);
       return '<button type="button" role="tab" class="as-sec" data-sec="' + s.id + '" aria-selected="' + (s.id === active) + '">' +
         esc(s.short) + (n ? '<i>' + n + '</i>' : '') + '</button>';
     }).join('') + '</div>';
   }
   function secBodyHtml(id: SectionId, withFav: boolean): string {
-    const s = SECTIONS.find((x) => x.id === id) ?? SECTIONS[0]!;
+    const s = SHOWN_SECTIONS.find((x) => x.id === id) ?? SHOWN_SECTIONS[0]!;
     const empty = '<div class="as-empty"><b>' + esc(s.empty.title) + '</b>' + esc(s.empty.text) + '</div>';
     if (id === 'lectures') {
       if (!LECTURES.length) return empty;
@@ -678,8 +678,8 @@ function shell(): void {
     const p = curPoem ? getPoem(curPoem) : null;
     if (p) return sectionOf(p);
     const onHome = document.querySelector<HTMLElement>('.sec-panel:not([hidden])')?.dataset.sec;
-    if (onHome && SECTIONS.some((s) => s.id === onHome)) return onHome as SectionId;
-    return SECTIONS.find((s) => secCount(s.id) > 0)?.id ?? SECTIONS[0]!.id;
+    if (onHome && SHOWN_SECTIONS.some((s) => s.id === onHome)) return onHome as SectionId;
+    return SHOWN_SECTIONS.find((s) => secCount(s.id) > 0)?.id ?? SHOWN_SECTIONS[0]!.id;
   }
   function sectionsHtml(withFav: boolean): string {
     const start = startSection();

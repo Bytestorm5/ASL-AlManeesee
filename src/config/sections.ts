@@ -5,7 +5,9 @@
 
    A matn joins a section through `section` in its registry entry (default
    'mutun'); lectures live in their own registry (src/lectures/registry.ts).
-   Rename or reword a section here and every page follows. */
+   Rename or reword a section here and every page follows. A section marked
+   `hidden` is left out of every switch, menu and page (SHOWN_SECTIONS)
+   until the line is removed; the tests refuse a listed matn in one. */
 
 export type TextSectionId = 'mutun' | 'shuruh';
 export type SectionId = TextSectionId | 'lectures';
@@ -24,6 +26,8 @@ export interface Section {
   lead: string;
   /** What an empty section says while it is being prepared. */
   empty: { title: string; text: string };
+  /** Kept out of sight for now: no tab, no menu link, no guide entry. */
+  hidden?: boolean;
 }
 
 export const SECTIONS: readonly Section[] = [
@@ -45,6 +49,7 @@ export const SECTIONS: readonly Section[] = [
     arShort: 'الشُّرُوحُ',
     en: 'His Explanations',
     short: 'Explanations',
+    hidden: true, // not shown for now; remove this line to bring the section back
     lead: 'The Shaykh’s explanations of the classical mutūn, bayt by bayt.',
     empty: {
       title: 'His explanations are being prepared',
@@ -64,6 +69,9 @@ export const SECTIONS: readonly Section[] = [
     },
   },
 ];
+
+/** The sections readers see, in order: every one not marked `hidden`. */
+export const SHOWN_SECTIONS: readonly Section[] = SECTIONS.filter((s) => !s.hidden);
 
 export const LECTURES_PATH = '/lectures';
 

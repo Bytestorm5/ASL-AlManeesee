@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { ALL_POEMS, POEMS, audioSetsOf, getAudioSet, poemsIn, registryProblems } from '../src/poems/index.ts';
 import { LECTURES, lectureHref, lectureProblems, lectureTextProblems } from '../src/lectures/index.ts';
 import { LECTURE_TEXTS } from '../content/lectures/index.ts';
+import { SECTIONS, SHOWN_SECTIONS } from '../src/config/sections.ts';
 import { REGISTRY } from '../src/poems/registry.ts';
 
 describe('poem registry', () => {
@@ -31,6 +32,12 @@ describe('sections', () => {
   it('keeps a matn off the sections\' own addresses', () => {
     const base = POEMS[0]!;
     for (const id of ['lectures', 'shuruh', 'mutun']) expect(registryProblems([{ ...base, id }]).join()).toMatch(/collides/);
+  });
+  it('hides no published matn: a hidden section holds none', () => {
+    for (const s of SECTIONS.filter((x) => x.hidden)) {
+      expect(s.id === 'lectures' ? LECTURES.length : poemsIn(s.id).length, `${s.id} is hidden`).toBe(0);
+    }
+    expect(SHOWN_SECTIONS.length).toBeGreaterThan(0);
   });
 });
 

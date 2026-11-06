@@ -38,6 +38,10 @@ one of the Shaykh's explanations of a classical matn, set
   explanations: { by: 'Shaykh Dr Waleed Idris al-Meneese', defaultOn: true },
 ```
 
+The Explanations section is hidden for now (`hidden: true` on it in
+`src/config/sections.ts`): remove that line when the first explanation is
+ready, or `npm test` refuses the entry.
+
 `author` stays the classical matn's author; `explanations.by` names the
 Shaykh's explanation, which is what the reader opens under each bayt. The
 matn then lists under His Explanations on Home and in the app's Collection,

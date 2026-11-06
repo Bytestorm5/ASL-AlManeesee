@@ -12,7 +12,7 @@
    (a single matn, or a draft being proofed before anything is listed) the
    menu would hold just Home and the page itself, and Home is already one
    tap away in the back link above the hero. */
-import { LECTURES_PATH, SECTIONS } from '../../config/sections.ts';
+import { LECTURES_PATH, SHOWN_SECTIONS } from '../../config/sections.ts';
 import { getPoem, sectionOf } from '../../poems/index.ts';
 import { currentPoemId, esc, listedPoems, poemHref } from '../page.ts';
 
@@ -68,7 +68,7 @@ export function init(): void {
     a.innerHTML = '<span class="ms-ar">' + esc(m.shortAr) + '</span><span class="ms-en">' + esc(m.shortEn) + '</span>';
     pop.appendChild(a);
   }
-  SECTIONS.filter((x) => x.id !== sec).forEach((x, i) => {
+  SHOWN_SECTIONS.filter((x) => x.id !== sec).forEach((x, i) => {
     const a = document.createElement('a');
     a.href = x.id === 'lectures' ? LECTURES_PATH : '/#' + x.id; a.setAttribute('role', 'menuitem');
     a.className = 'ms-sec' + (i === 0 ? ' first' : '');

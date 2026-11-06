@@ -45,7 +45,7 @@ function chapterOf(poem: string, n: number): string {
   return t;
 }
 
-/* The section switch (Poems · Explanations · Lectures): one panel at a time.
+/* The section switch (one tab per shown section): one panel at a time.
    Opens on the section a #hash names, else the one last chosen on this
    device, else the first; arrow keys move along it, as tabs do. */
 function sectionSwitch(): void {

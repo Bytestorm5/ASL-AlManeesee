@@ -16,6 +16,7 @@ import path from 'node:path';
 import { chromium, type Page } from 'playwright';
 import { ADMIN_PATH } from '../src/config/site.ts';
 import { LECTURES, lectureHref } from '../src/lectures/index.ts';
+import { SHOWN_SECTIONS } from '../src/config/sections.ts';
 
 const PORT = Number(process.env.E2E_PORT || 8790);
 const ORIGIN = `http://127.0.0.1:${PORT}`;
@@ -95,7 +96,8 @@ try {
   check(problems.length === 0, `/ loads cleanly ${problems.join(' | ')}`);
   check(await page.locator('a[href^="/example"]').count() === 0, 'drafts are not listed on the home page');
 
-  check(await page.locator('.sec-tab').count() === 3, 'home shows the three section tabs');
+  check(await page.locator('.sec-tab').count() === SHOWN_SECTIONS.length, `home shows a tab for each shown section (${SHOWN_SECTIONS.map((s) => s.short).join(', ')})`);
+  check(await page.locator('#tab-shuruh').count() === (SHOWN_SECTIONS.some((s) => s.id === 'shuruh') ? 1 : 0), 'a hidden section has no tab');
   check(await page.locator('.sec-panel:not([hidden])').count() === 1, 'home shows one section at a time');
   await page.click('#tab-lectures');
   check(await page.locator('#sec-lectures').isVisible() && !(await page.locator('#sec-mutun').isVisible()), 'the Lectures tab swaps the list');
