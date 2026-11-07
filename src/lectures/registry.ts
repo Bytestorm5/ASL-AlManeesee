@@ -23,9 +23,17 @@ import type { Lecture } from './types.ts';
    ═══════════════════════════════════════════════════════════════════════════ */
 export const LECTURE_REGISTRY: Lecture[] = [
   {
+    id: 'husn-al-khuluq',
+    title: 'Good Character',
+    titleAr: 'حُسْنُ الْخُلُقِ',
+    kind: 'khutbah',
+    description: 'The greatness of the Prophet’s ﷺ character, the virtue and reward of good character, what it truly is, how it is both inborn and acquired, and why perfecting noble character was a purpose of his mission.',
+    written: true,
+  },
+  {
     id: 'ahwal-al-qulub',
     title: 'Conditions of the Hearts',
-    titleAr: 'أحوال القلوب',
+    titleAr: 'أَحْوَالُ الْقُلُوبِ',
     kind: 'khutbah',
     series: 'No. 1630',
     description: 'How temptations mark the heart, the kinds of hearts, and the signs of a sick heart: on the danger of temptations, and how mistakes taken lightly damage the heart over time.',
@@ -34,7 +42,7 @@ export const LECTURE_REGISTRY: Lecture[] = [
   {
     id: 'al-qabul',
     title: 'Acceptance',
-    titleAr: 'القبول',
+    titleAr: 'الْقَبُولُ',
     kind: 'khutbah',
     place: 'AMJA Imams’ Conference, Dallas',
     date: '2026-08-28',

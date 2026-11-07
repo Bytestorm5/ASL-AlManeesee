@@ -53,7 +53,8 @@ video.lc-media{background:var(--midnight); aspect-ratio:16/9}
 .ls-head{text-align:center; padding:32px 20px 4px; max-width:760px; margin:0 auto}
 .ls-head .eyebrow{font-family:"Montserrat",sans-serif; letter-spacing:.28em; text-transform:uppercase; font-size:.7rem; font-weight:700; color:var(--sage)}
 .ls-head h1{margin:6px 0 0; display:flex; flex-direction:column; align-items:center; gap:2px}
-.ls-head h1 .ar{font-family:"Scheherazade New","Amiri",serif; font-weight:700; font-size:clamp(2.6rem,9vw,3.6rem); line-height:1.4; color:var(--madder)}
+/* a vowelled title carries its marks well above the letters: room for them under the kicker */
+.ls-head h1 .ar{font-family:"Scheherazade New","Amiri",serif; font-weight:700; font-size:clamp(2.6rem,9vw,3.6rem); line-height:1.75; color:var(--madder)}
 .ls-head h1 .en{font-family:"Cinzel","Cormorant Garamond",serif; font-weight:700; font-size:clamp(1.3rem,4.6vw,1.8rem); letter-spacing:.05em; text-transform:uppercase; color:var(--ink)}
 .ls-rule{display:flex; align-items:center; justify-content:center; gap:14px; margin:14px auto 14px; max-width:320px; color:var(--gilt-deep)}
 .ls-rule i{flex:1 1 auto; height:1px; background:linear-gradient(90deg,transparent,var(--gilt),transparent)}

@@ -6,9 +6,11 @@
    Like content/index.ts, this folder is content, so it may name what it holds. */
 import type { LectureText } from '../../src/lectures/types.ts';
 import ahwalAlQulub from './ahwal-al-qulub.json';
+import husnAlKhuluq from './husn-al-khuluq.json';
 import alQabul from './al-qabul.json';
 
 export const LECTURE_TEXTS: Readonly<Record<string, LectureText>> = {
+  'husn-al-khuluq': husnAlKhuluq as LectureText,
   'ahwal-al-qulub': ahwalAlQulub as LectureText,
   'al-qabul': alQabul as LectureText,
 };

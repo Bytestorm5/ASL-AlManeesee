@@ -1,0 +1,325 @@
+{
+ "title": {
+  "ar": "حُسْنُ الْخُلُقِ",
+  "en": "Good Character"
+ },
+ "kicker": {
+  "en": "A Khuṭbah"
+ },
+ "byline": [
+  {
+   "ar": "فَضِيلَةُ الشَّيْخِ د. وَلِيدِ بْنِ إِدْرِيسَ المنيسي",
+   "en": "By Shaykh Dr Waleed ibn Idris al-Meneese"
+  }
+ ],
+ "blocks": [
+  {
+   "t": "list",
+   "title": {
+    "ar": "مُلَخَّصُ الْخُطْبَةِ",
+    "en": "Summary of the Khuṭbah"
+   },
+   "items": [
+    {
+     "ar": "عِظَمُ خُلُقِ النَّبِيِّ ﷺ",
+     "en": "The greatness of the Prophet’s ﷺ character"
+    },
+    {
+     "ar": "فَضْلُ حُسْنِ الْخُلُقِ وَالْحَضُّ عَلَيْهِ وَالتَّحْذِيرُ مِنْ مَسَاوِئِ الْأَخْلَاقِ",
+     "en": "The virtue of good character, the call to it, and the warning against bad character"
+    },
+    {
+     "ar": "حَقِيقَةُ حُسْنِ الْخُلُقِ",
+     "en": "What good character truly is"
+    },
+    {
+     "ar": "الْخُلُقُ كَسْبِيٌّ وَوَهْبِيٌّ",
+     "en": "Character is both acquired and inborn"
+    },
+    {
+     "ar": "مَكَارِمُ الْأَخْلَاقِ مِنْ مَقَاصِدِ بِعْثَتِهِ ﷺ",
+     "en": "Noble character: a purpose of his ﷺ mission"
+    },
+    {
+     "ar": "خُلُقُهُ ﷺ",
+     "en": "His ﷺ character"
+    }
+   ]
+  },
+  {
+   "t": "part",
+   "ar": "الْخُطْبَةُ الْأُولَى",
+   "en": "The First Khuṭbah"
+  },
+  {
+   "t": "p",
+   "ar": "الْحَمْدُ لِلَّهِ وَالصَّلَاةُ وَالسَّلَامُ عَلَى رَسُولِ اللَّهِ ﷺ وَبَعْدُ:",
+   "en": "All praise is for Allah, and peace and blessings be upon the Messenger of Allah ﷺ. To proceed:"
+  },
+  {
+   "t": "head",
+   "ar": "عِظَمُ خُلُقِ النَّبِيِّ ﷺ",
+   "en": "The Greatness of the Prophet’s ﷺ Character"
+  },
+  {
+   "t": "p",
+   "ar": "أَثْنَى اللَّهُ عَزَّ وَجَلَّ فِي كِتَابِهِ الْكَرِيمِ عَلَى نَبِيِّهِ ﷺ فَقَالَ:",
+   "en": "Allah (Mighty and Majestic is He) praised His Prophet ﷺ in His Noble Book, saying:"
+  },
+  {
+   "t": "ayah",
+   "ar": "﴿وَإِنَّكَ لَعَلَى خُلُقٍ عَظِيمٍ﴾",
+   "en": "“And indeed, you are of a great moral character.”",
+   "ref": {
+    "ar": "الْقَلَم: 4",
+    "en": "al-Qalam 68:4"
+   }
+  },
+  {
+   "t": "p",
+   "ar": "وَفِي هَذَا أَعْظَمُ الدَّلَالَةِ عَلَى مَنْزِلَةِ حُسْنِ الْخُلُقِ.",
+   "en": "And in this is the greatest proof of the high standing of good character."
+  },
+  {
+   "t": "p",
+   "ar": "وَفِي الصَّحِيحَيْنِ عَنْ عَائِشَةَ رَضِيَ اللَّهُ عَنْهَا أَنَّهَا سُئِلَتْ عَنْ خُلُقِ النَّبِيِّ ﷺ فَقَالَتْ: «كَانَ خُلُقُهُ الْقُرْآنَ» أَيْ كَانَ يَعْمَلُ بِكُلِّ مَا أَمَرَ اللَّهُ تَعَالَى بِهِ فِي كِتَابِهِ مِنْ مَكَارِمِ الْأَخْلَاقِ، وَيَجْتَنِبُ كُلَّ مَا نَهَى اللَّهُ تَعَالَى عَنْهُ فِي كِتَابِهِ مِنْ مَسَاوِئِ الْأَخْلَاقِ.",
+   "en": "In the two Ṣaḥīḥs, ʿĀʾishah (may Allah be pleased with her) was asked about the character of the Prophet ﷺ, and she said, “His character was the Qurʾān.” That is, he acted on every noble trait that Allah the Most High commanded in His Book, and he avoided every bad trait that Allah the Most High forbade in His Book."
+  },
+  {
+   "t": "head",
+   "ar": "فَضْلُ حُسْنِ الْخُلُقِ وَالْحَضُّ عَلَيْهِ وَالتَّحْذِيرُ مِنْ مَسَاوِئِ الْأَخْلَاقِ",
+   "en": "The Virtue of Good Character, the Call to It, and the Warning Against Bad Character"
+  },
+  {
+   "t": "p",
+   "ar": "وَمِمَّا جَاءَ فِي سُنَّةِ النَّبِيِّ ﷺ فِي الْحَضِّ عَلَى حُسْنِ الْخُلُقِ وَبَيَانِ فَضْلِهِ وَعَظِيمِ ثَوَابِهِ هَذِهِ الْأَحَادِيثُ الصَّحِيحَةُ:",
+   "en": "Among what has come in the Sunnah of the Prophet ﷺ urging good character, and making clear its virtue and its great reward, are these authentic hadiths:"
+  },
+  {
+   "t": "p",
+   "ar": "فِي صَحِيحِ مُسْلِمٍ عَنِ النَّوَّاسِ بْنِ سَمْعَانَ قَالَ: سَأَلْتُ رَسُولَ اللَّهِ ﷺ عَنِ الْبِرِّ وَالْإِثْمِ قَالَ:",
+   "en": "In Ṣaḥīḥ Muslim, al-Nawwās ibn Samʿān said: I asked the Messenger of Allah ﷺ about righteousness and sin, and he said:"
+  },
+  {
+   "t": "quote",
+   "ar": "«الْبِرُّ حُسْنُ الْخُلُقِ، وَالْإِثْمُ مَا حَاكَ فِي نَفْسِكَ وَكَرِهْتَ أَنْ يَطَّلِعَ عَلَيْهِ النَّاسُ».",
+   "en": "“Righteousness is good character, and sin is what stirs uneasily in your soul and you would hate for people to come to know of.”"
+  },
+  {
+   "t": "p",
+   "ar": "وَرَوَى التِّرْمِذِيُّ عَنْ أَبِي هُرَيْرَةَ أَنَّ النَّبِيَّ ﷺ سُئِلَ عَنْ أَكْثَرِ مَا يُدْخِلُ النَّاسَ الْجَنَّةَ فَقَالَ: «تَقْوَى اللَّهِ وَحُسْنُ الْخُلُقِ» وَعَنْ أَكْثَرِ مَا يُدْخِلُ النَّاسَ النَّارَ فَقَالَ: «الْفَمُ وَالْفَرْجُ» [وَقَالَ: حَدِيثٌ حَسَنٌ صَحِيحٌ].",
+   "en": "Al-Tirmidhī narrated from Abū Hurayrah that the Prophet ﷺ was asked what most often brings people into Paradise, and he said, “Mindfulness of Allah and good character”; and what most often brings people into the Fire, and he said, “The mouth and the private parts.” [He said: a ḥasan ṣaḥīḥ hadith.]"
+  },
+  {
+   "t": "p",
+   "ar": "وَعَنْهُ قَالَ: قَالَ رَسُولُ اللَّهِ ﷺ:",
+   "en": "Also from him: the Messenger of Allah ﷺ said:"
+  },
+  {
+   "t": "quote",
+   "ar": "«أَكْمَلُ الْمُؤْمِنِينَ إِيمَانًا أَحْسَنُهُمْ خُلُقًا وَخِيَارُكُمْ خَيْرُكُمْ لِنِسَائِهِمْ»",
+   "en": "“The most complete of the believers in faith is the best of them in character, and the best of you are those who are best to their wives.”",
+   "ref": {
+    "ar": "رَوَاهُ التِّرْمِذِيُّ وَقَالَ: حَسَنٌ صَحِيحٌ.",
+    "en": "Narrated by al-Tirmidhī, who said: ḥasan ṣaḥīḥ."
+   }
+  },
+  {
+   "t": "p",
+   "ar": "وَفِي لَفْظٍ:",
+   "en": "And in another wording:"
+  },
+  {
+   "t": "quote",
+   "ar": "«أَكْمَلُ الْمُؤْمِنِينَ إِيمَانًا أَحَاسِنُهُمْ أَخْلَاقًا الْمُوَطَّؤُونَ أَكْنَافًا الَّذِينَ يَأْلَفُونَ وَيُؤْلَفُونَ وَلَا خَيْرَ فِيمَنْ لَا يَأْلَفُ وَلَا يُؤْلَفُ».",
+   "en": "“The most complete of the believers in faith are the finest of them in character, those who are gentle and easy to approach, who get along with others and with whom others get along. There is no good in one who neither gets along with others nor is easy to get along with.”"
+  },
+  {
+   "t": "p",
+   "ar": "وَفِي التِّرْمِذِيِّ أَيْضًا عَنْ جَابِرٍ أَنَّ رَسُولَ اللَّهِ ﷺ قَالَ:",
+   "en": "Also in al-Tirmidhī, from Jābir, that the Messenger of Allah ﷺ said:"
+  },
+  {
+   "t": "quote",
+   "ar": "«إِنَّ مِنْ أَحَبِّكُمْ إِلَيَّ وَأَقْرَبِكُمْ مِنِّي مَجْلِسًا يَوْمَ الْقِيَامَةِ أَحَاسِنَكُمْ أَخْلَاقًا وَإِنَّ أَبْغَضَكُمْ إِلَيَّ وَأَبْعَدَكُمْ مِنِّي مَجْلِسًا الثَّرْثَارُونَ وَالْمُتَشَدِّقُونَ وَالْمُتَفَيْهِقُونَ» قَالَ: يَا رَسُولَ اللَّهِ قَدْ عَلِمْنَا الثَّرْثَارِينَ وَالْمُتَشَدِّقِينَ فَمَا الْمُتَفَيْهِقُونَ؟ قَالَ: «الْمُتَكَبِّرُونَ»",
+   "en": "“Among the most beloved of you to me, and the nearest of you to me in seating on the Day of Resurrection, are the finest of you in character. And the most hateful of you to me, and the farthest of you from me in seating, are the chatterers, those who speak with affected grandeur, and the mutafayhiqūn.” He said, “O Messenger of Allah, we know the chatterers and those who speak with affected grandeur, but who are the mutafayhiqūn?” He said, “The arrogant.”",
+   "ref": {
+    "ar": "قَالَ التِّرْمِذِيُّ: حَدِيثٌ حَسَنٌ.",
+    "en": "Al-Tirmidhī said: a ḥasan hadith."
+   }
+  },
+  {
+   "t": "p",
+   "ar": "وَالثَّرْثَارُ هُوَ الْكَثِيرُ الْكَلَامِ بِتَكَلُّفٍ، وَالْمُتَشَدِّقُ الْمُتَطَاوِلُ عَلَى النَّاسِ بِكَلَامِهِ الَّذِي يَتَكَلَّمُ بِمِلْءِ فِيهِ تَفَاخُمًا وَتَعْظِيمًا لِكَلَامِهِ، وَالْمُتَفَيْهِقُ أَصْلُهُ مِنَ الْفَهْقِ وَهُوَ الِامْتِلَاءُ، وَهُوَ الَّذِي يَمْلَأُ فَمَهُ بِالْكَلَامِ وَيَتَوَسَّعُ فِيهِ تَكْثِيرًا وَارْتِفَاعًا وَإِظْهَارًا لِفَضْلِهِ عَلَى غَيْرِهِ.",
+   "en": "The chatterer (al-tharthār) is one who talks a great deal, with affectation. Al-mutashaddiq is one who puts himself above people with his talk, speaking with a full mouth to make his words sound grand and important. Al-mutafayhiq comes from fahq, which is fullness: he is the one who fills his mouth with speech and spreads himself in it, piling it on, raising himself up, and showing his superiority over others."
+  },
+  {
+   "t": "p",
+   "ar": "رَوَى الْبُخَارِيُّ فِي الْأَدَبِ الْمُفْرَدِ عَنْ أَبِي الدَّرْدَاءِ رَضِيَ اللَّهُ عَنْهُ عَنِ النَّبِيِّ ﷺ:",
+   "en": "Al-Bukhārī narrated in al-Adab al-Mufrad from Abū al-Dardāʾ (may Allah be pleased with him), from the Prophet ﷺ:"
+  },
+  {
+   "t": "quote",
+   "ar": "«مَا شَيْءٌ أَثْقَلُ فِي الْمِيزَانِ مِنْ حُسْنِ الْخُلُقِ».",
+   "en": "“Nothing is heavier in the Scale than good character.”"
+  },
+  {
+   "t": "p",
+   "ar": "رَوَى الْبَزَّارُ بِسَنَدٍ حَسَنٍ عَنْ أَبِي هُرَيْرَةَ عَنِ النَّبِيِّ ﷺ:",
+   "en": "Al-Bazzār narrated with a good (ḥasan) chain from Abū Hurayrah, from the Prophet ﷺ:"
+  },
+  {
+   "t": "quote",
+   "ar": "«إِنَّكُمْ لَنْ تَسَعُوا النَّاسَ بِأَمْوَالِكُمْ وَلَكِنْ يَسَعُهُمْ مِنْكُمْ بَسْطُ الْوَجْهِ وَحُسْنُ الْخُلُقِ».",
+   "en": "“You will never be able to reach all people with your wealth, but what can reach them from you is a cheerful face and good character.”"
+  },
+  {
+   "t": "p",
+   "ar": "رَوَى التِّرْمِذِيُّ عَنْ أَبِي الدَّرْدَاءِ رَضِيَ اللَّهُ عَنْهُ أَنَّ النَّبِيَّ ﷺ قَالَ:",
+   "en": "Al-Tirmidhī narrated from Abū al-Dardāʾ (may Allah be pleased with him) that the Prophet ﷺ said:"
+  },
+  {
+   "t": "quote",
+   "ar": "«إِنَّ صَاحِبَ حُسْنِ الْخُلُقِ لَيَبْلُغُ دَرَجَةَ صَاحِبِ الصَّوْمِ وَالصَّلَاةِ»",
+   "en": "“The person of good character will reach the rank of the one who fasts and prays.”",
+   "ref": {
+    "ar": "وَرَوَاهُ أَيْضًا أَبُو دَاوُدَ وَابْنُ حِبَّانَ وَالْحَاكِمُ عَنْ عَائِشَةَ رَضِيَ اللَّهُ عَنْهَا.",
+    "en": "Also narrated by Abū Dāwūd, Ibn Ḥibbān and al-Ḥākim from ʿĀʾishah (may Allah be pleased with her)."
+   }
+  },
+  {
+   "t": "p",
+   "ar": "وَمِنْ هَذَا الْبَابِ:",
+   "en": "And of the same kind:"
+  },
+  {
+   "t": "quote",
+   "ar": "«دَخَلَ رَجُلٌ الْجَنَّةَ فِي كَلْبٍ سَقَاهُ وَدَخَلَتِ امْرَأَةٌ النَّارَ فِي هِرَّةٍ حَبَسَتْهَا».",
+   "en": "“A man entered Paradise because of a dog he gave water to, and a woman entered the Fire because of a cat she locked up.”"
+  },
+  {
+   "t": "p",
+   "ar": "وَذَكَرُوا لِلنَّبِيِّ ﷺ امْرَأَةً تُصَلِّي وَتَصُومُ وَتَتَصَدَّقُ وَتَفْعَلُ وَتُؤْذِي جِيرَانَهَا قَالَ: «هِيَ فِي النَّارِ».",
+   "en": "They mentioned to the Prophet ﷺ a woman who prays, fasts, gives in charity and does good, but harms her neighbors. He said, “She is in the Fire.”"
+  },
+  {
+   "t": "head",
+   "ar": "حَقِيقَةُ حُسْنِ الْخُلُقِ",
+   "en": "What Good Character Truly Is"
+  },
+  {
+   "t": "p",
+   "ar": "أَمَّا تَعْرِيفُ حُسْنِ الْخُلُقِ فَرَوَى التِّرْمِذِيُّ عَنْ عَبْدِ اللَّهِ بْنِ الْمُبَارَكِ أَنَّهُ قَالَ: حُسْنُ الْخُلُقِ طَلَاقَةُ الْوَجْهِ وَبَذْلُ الْمَعْرُوفِ وَكَفُّ الْأَذَى.",
+   "en": "As for the definition of good character, al-Tirmidhī narrated that ʿAbdullāh ibn al-Mubārak said: Good character is a cheerful face, doing good to others, and holding back from harm."
+  },
+  {
+   "t": "p",
+   "ar": "وَنَقَلَ ابْنُ الْقَيِّمِ عَنْ جَمَاعَةٍ مِنْ أَهْلِ الْعِلْمِ أَنَّ حُسْنَ الْخُلُقِ قِسْمَانِ:",
+   "en": "Ibn al-Qayyim reported from a number of scholars that good character is of two kinds:"
+  },
+  {
+   "t": "p",
+   "ar": "1- أَحَدُهُمَا مَعَ اللَّهِ عَزَّ وَجَلَّ وَهُوَ أَنْ تَعْلَمَ أَنَّ كُلَّ مَا يَكُونُ مِنْكَ يُوجِبُ عُذْرًا وَكُلَّ مَا يَأْتِي مِنَ اللَّهِ يُوجِبُ شُكْرًا فَلَا تَزَالُ شَاكِرًا لَهُ مُعْتَذِرًا إِلَيْهِ سَائِرًا إِلَيْهِ بَيْنَ مُطَالَعَةِ إِحْسَانِهِ وَشُهُودِ عَيْبِ نَفْسِكَ وَأَعْمَالِكَ.",
+   "en": "1- The first is with Allah (Mighty and Majestic is He): that you know that everything that comes from you calls for an apology, and everything that comes from Allah calls for gratitude. So you never cease to be grateful to Him, apologizing to Him and journeying to Him, between beholding His kindness and seeing the faults of your own self and deeds."
+  },
+  {
+   "t": "p",
+   "ar": "2- وَالْقِسْمُ الثَّانِي: حُسْنُ الْخُلُقِ مَعَ النَّاسِ وَيَجْمَعُهُ أَمْرَانِ بَذْلُ الْمَعْرُوفِ قَوْلًا وَفِعْلًا وَكَفُّ الْأَذَى قَوْلًا وَفِعْلًا.",
+   "en": "2- The second kind is good character with people, and it comes down to two things: doing good to others in word and deed, and holding back from harm in word and deed."
+  },
+  {
+   "t": "head",
+   "ar": "الْخُلُقُ كَسْبِيٌّ وَوَهْبِيٌّ",
+   "en": "Character Is Both Acquired and Inborn"
+  },
+  {
+   "t": "p",
+   "ar": "حُسْنُ الْخُلُقِ مِنْهُ مَا يَكُونُ بِالْجِبِلَّةِ وَيُطْبَعُ عَلَيْهِ الْإِنْسَانُ.",
+   "en": "Some good character is inborn: a disposition a person is created with."
+  },
+  {
+   "t": "p",
+   "ar": "لِمَا رَوَاهُ الْإِمَامُ أَحْمَدُ وَالنَّسَائِيُّ وَابْنُ حِبَّانَ أَنَّ النَّبِيَّ ﷺ قَالَ لِلْأَشَجِّ:",
+   "en": "This is shown by what Imam Aḥmad, al-Nasāʾī and Ibn Ḥibbān narrated, that the Prophet ﷺ said to al-Ashajj:"
+  },
+  {
+   "t": "quote",
+   "ar": "«إِنَّ فِيكَ لَخَصْلَتَيْنِ يُحِبُّهُمَا اللَّهُ: الْحِلْمُ وَالْأَنَاةُ، قَالَ: يَا رَسُولَ اللَّهِ قَدِيمًا كَانَا فِيَّ أَوْ حَدِيثًا؟ قَالَ: قَدِيمًا قَالَ: الْحَمْدُ لِلَّهِ الَّذِي جَبَلَنِي عَلَى خُلُقَيْنِ يُحِبُّهُمَا».",
+   "en": "“There are two traits in you that Allah loves: forbearance and deliberateness.” He said, “O Messenger of Allah, have I had them long, or are they new?” He said, “You have had them long.” He said, “Praise be to Allah, who created me with two traits that He loves.”"
+  },
+  {
+   "t": "p",
+   "ar": "وَلِمَا رَوَاهُ الْبُخَارِيُّ فِي الْأَدَبِ الْمُفْرَدِ عَنْ عَبْدِ اللَّهِ بْنِ مَسْعُودٍ رَضِيَ اللَّهُ عَنْهُ قَالَ:",
+   "en": "And by what al-Bukhārī narrated in al-Adab al-Mufrad from ʿAbdullāh ibn Masʿūd (may Allah be pleased with him), who said:"
+  },
+  {
+   "t": "quote",
+   "ar": "«إِنَّ اللَّهَ قَسَمَ أَخْلَاقَكُمْ كَمَا قَسَمَ أَرْزَاقَكُمْ».",
+   "en": "“Allah has apportioned your characters just as He has apportioned your provisions.”"
+  },
+  {
+   "t": "p",
+   "ar": "وَلَكِنْ مِنْ حُسْنِ الْخُلُقِ أَيْضًا مَا يَكُونُ بِالِاكْتِسَابِ لِقَوْلِ النَّبِيِّ ﷺ:",
+   "en": "But some good character is also acquired by effort, because the Prophet ﷺ said:"
+  },
+  {
+   "t": "quote",
+   "ar": "«إِنَّمَا الْعِلْمُ بِالتَّعَلُّمِ وَالْحِلْمُ بِالتَّحَلُّمِ»",
+   "en": "“Knowledge comes only by learning, and forbearance only by striving to be forbearing.”"
+  },
+  {
+   "t": "p",
+   "ar": "فَعَلَى الْإِنْسَانِ إِذَا كَانَ مَجْبُولًا عَلَى طِبَاعٍ ذَمِيمَةٍ كَالْجَشَعِ وَالْبُخْلِ وَالْكِبْرِ وَالْحِقْدِ أَنْ يُجَاهِدَ نَفْسَهُ حَتَّى يَتَخَلَّصَ مِنْهَا.",
+   "en": "So if a person has been created with blameworthy traits, such as greed, stinginess, arrogance and spite, he must struggle against himself until he is rid of them."
+  },
+  {
+   "t": "p",
+   "ar": "وَجِهَادُ نَفْسِهِ مِنْ أَجْلِ التَّخَلُّصِ مِنْهَا حِينَئِذٍ وَاجِبٌ، قَالَ تَعَالَى:",
+   "en": "Struggling against himself to be rid of them is then an obligation. Allah the Most High says:"
+  },
+  {
+   "t": "ayah",
+   "ar": "﴿وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا﴾",
+   "en": "“And those who strive for Us—We will surely guide them to Our ways.”",
+   "ref": {
+    "ar": "الْعَنْكَبُوت: 69",
+    "en": "al-ʿAnkabūt 29:69"
+   }
+  },
+  {
+   "t": "p",
+   "ar": "وَهَذَا وَعْدٌ مِنَ اللَّهِ تَعَالَى بِتَوْفِيقِ مَنْ جَاهَدَ نَفْسَهُ لِيُقَوِّمَ طِبَاعَهُ وَيُهَذِّبَ أَخْلَاقَهُ.",
+   "en": "This is a promise from Allah the Most High that He will grant success to whoever struggles against himself to straighten his nature and refine his character."
+  },
+  {
+   "t": "head",
+   "ar": "مَكَارِمُ الْأَخْلَاقِ مِنْ مَقَاصِدِ بِعْثَتِهِ ﷺ",
+   "en": "Noble Character: A Purpose of His ﷺ Mission"
+  },
+  {
+   "t": "p",
+   "ar": "وَقَدْ بُعِثَ النَّبِيُّ ﷺ لِيُتَمِّمَ مَكَارِمَ الْأَخْلَاقِ فَمَا كَانَ عِنْدَ أَهْلِ الْجَاهِلِيَّةِ مِنْ أَخْلَاقٍ حَمِيدَةٍ كَالْكَرَمِ وَالشَّجَاعَةِ فَقَدْ أَمَرَ بِهِ الْإِسْلَامُ وَحَضَّ عَلَيْهِ، وَمَا كَانَ عِنْدَهُمْ مِنْ أَخْلَاقٍ ذَمِيمَةٍ كَالظُّلْمِ وَالْكِبْرِ وَالتَّحَاسُدِ فَقَدْ نَهَانَا عَنْهُ الْإِسْلَامُ وَحَذَّرَنَا مِنْهُ.",
+   "en": "The Prophet ﷺ was sent to perfect noble character. Whatever praiseworthy traits the people of the Jāhiliyyah had, such as generosity and courage, Islam commanded and encouraged; and whatever blameworthy traits they had, such as injustice, arrogance and envying one another, Islam forbade us and warned us against."
+  },
+  {
+   "t": "head",
+   "ar": "خُلُقُهُ ﷺ",
+   "en": "His ﷺ Character"
+  },
+  {
+   "t": "p",
+   "ar": "وَقَدْ كَانَ النَّبِيُّ ﷺ الْأُسْوَةَ الْحَسَنَةَ فِي كُلِّ خُلُقٍ حَمِيدٍ؛ كَانَ أَكْرَمَ النَّاسِ وَأَشْجَعَ النَّاسِ وَأَحْلَمَ النَّاسِ، وَكَانَ أَشَدَّ حَيَاءً مِنَ الْعَذْرَاءِ فِي خِدْرِهَا، وَكَانَ يُلَقَّبُ قَبْلَ أَنْ يُبْعَثَ بِالصَّادِقِ الْأَمِينِ.",
+   "en": "The Prophet ﷺ was the finest example in every praiseworthy trait. He was the most generous of people, the bravest of people and the most forbearing of people. He was more modest than a maiden behind her curtain, and before he was sent as a prophet he was called al-Ṣādiq al-Amīn, the Truthful, the Trustworthy."
+  },
+  {
+   "t": "p",
+   "ar": "وَوَصَفَتْهُ أُمُّ الْمُؤْمِنِينَ خَدِيجَةُ رَضِيَ اللَّهُ عَنْهَا عِنْدَ أَوَّلِ وَحْيٍ أُوحِيَ إِلَيْهِ بِقَوْلِهَا:",
+   "en": "The Mother of the Believers, Khadījah (may Allah be pleased with her), described him at the first revelation that came to him, saying:"
+  },
+  {
+   "t": "quote",
+   "ar": "«وَاللَّهِ لَا يُخْزِيكَ اللَّهُ أَبَدًا، إِنَّكَ لَتَصِلُ الرَّحِمَ وَتَحْمِلُ الْكَلَّ وَتَكْسِبُ الْمَعْدُومَ وَتَقْرِي الضَّيْفَ وَتُعِينُ عَلَى نَوَائِبِ الْحَقِّ وَتَصْدُقُ الْحَدِيثَ وَتُؤَدِّي الْأَمَانَةَ».",
+   "en": "“By Allah, Allah will never disgrace you. You keep the ties of kinship, you carry the burdens of the weak, you earn for those who have nothing, you honor your guests, you help those struck by true misfortune, you speak the truth, and you fulfill your trusts.”"
+  }
+ ]
+}
