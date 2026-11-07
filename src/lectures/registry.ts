@@ -24,6 +24,15 @@ import type { Lecture } from './types.ts';
    ═══════════════════════════════════════════════════════════════════════════ */
 export const LECTURE_REGISTRY: Lecture[] = [
   {
+    id: 'fadail-ramadan',
+    title: 'The Virtues of Ramadan',
+    titleAr: 'فَضَائِلُ رَمَضَانَ',
+    kind: 'khutbah',
+    date: '2015-11-16', // as almenesi.com dates it
+    description: 'Welcoming Ramadan and not wasting it, the longing of the righteous to reach it, a call to repent, its virtues from the Sunnah, and how the month is established: by sighting the new moon, not by astronomical calculation.',
+    written: true,
+  },
+  {
     id: 'husn-al-khuluq',
     title: 'Good Character',
     titleAr: 'حُسْنُ الْخُلُقِ',

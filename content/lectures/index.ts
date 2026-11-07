@@ -7,9 +7,11 @@
 import type { LectureText } from '../../src/lectures/types.ts';
 import ahwalAlQulub from './ahwal-al-qulub.json';
 import husnAlKhuluq from './husn-al-khuluq.json';
+import fadailRamadan from './fadail-ramadan.json';
 import alQabul from './al-qabul.json';
 
 export const LECTURE_TEXTS: Readonly<Record<string, LectureText>> = {
+  'fadail-ramadan': fadailRamadan as LectureText,
   'husn-al-khuluq': husnAlKhuluq as LectureText,
   'ahwal-al-qulub': ahwalAlQulub as LectureText,
   'al-qabul': alQabul as LectureText,
