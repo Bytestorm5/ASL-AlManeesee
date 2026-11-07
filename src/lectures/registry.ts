@@ -24,6 +24,24 @@ import type { Lecture } from './types.ts';
    ═══════════════════════════════════════════════════════════════════════════ */
 export const LECTURE_REGISTRY: Lecture[] = [
   {
+    id: 'sunan-eid-al-fitr',
+    title: 'The Sunnahs of ʿĪd al-Fiṭr',
+    titleAr: 'سُنَنُ عِيدِ الْفِطْرِ',
+    kind: 'khutbah',
+    date: '2015-11-16', // as almenesi.com dates it
+    description: 'Zakat al-Fiṭr, when and how to say the takbīr, joy and fine clothes on ʿĪd, women at the ʿĪd prayer, walking to it, eating dates first, and not taking part in the festivals of the polytheists.',
+    written: true,
+  },
+  {
+    id: 'hikam-al-siyam',
+    title: 'The Wisdom and Etiquette of Fasting',
+    titleAr: 'حِكَمُ الصِّيَامِ وَآدَابُهُ',
+    kind: 'khutbah',
+    date: '2015-11-16', // as almenesi.com dates it
+    description: 'Fourteen of the wisdoms behind the fast of Ramadan, from purifying the soul to its health benefits, and five points of its etiquette, from the pre-dawn meal to breaking the fast.',
+    written: true,
+  },
+  {
     id: 'fadail-ramadan',
     title: 'The Virtues of Ramadan',
     titleAr: 'فَضَائِلُ رَمَضَانَ',

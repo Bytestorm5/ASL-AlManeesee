@@ -126,7 +126,7 @@ video.lc-media{background:var(--midnight); aspect-ratio:16/9}
 .ls-list ol{margin:0; padding-left:1.4em}
 .ls-list li{margin:5px 0; padding-left:2px; font-family:"Cormorant Garamond",Georgia,serif; font-size:1.12rem; line-height:1.4; color:var(--ink)}
 .ls-list li::marker{color:var(--madder); font-weight:700}
-.ls-list li .ar{display:block; font-size:1.25rem}
+.ls-list li .ar{display:block; font-size:1.25rem; line-height:1.95} /* vowelled lines need room for their marks */
 /* a hadith's source, and a quotation set as verse */
 .ls-q .ref{margin-top:4px; font-family:"Montserrat",sans-serif; font-style:normal; font-size:.66rem; font-weight:600; letter-spacing:.04em; color:var(--sage)}
 .ls-q .ref.ar{font-family:"Scheherazade New","Amiri",serif; font-size:.98rem; letter-spacing:0}

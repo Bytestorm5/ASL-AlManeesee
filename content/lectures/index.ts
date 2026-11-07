@@ -8,9 +8,13 @@ import type { LectureText } from '../../src/lectures/types.ts';
 import ahwalAlQulub from './ahwal-al-qulub.json';
 import husnAlKhuluq from './husn-al-khuluq.json';
 import fadailRamadan from './fadail-ramadan.json';
+import hikamAlSiyam from './hikam-al-siyam.json';
+import sunanEidAlFitr from './sunan-eid-al-fitr.json';
 import alQabul from './al-qabul.json';
 
 export const LECTURE_TEXTS: Readonly<Record<string, LectureText>> = {
+  'sunan-eid-al-fitr': sunanEidAlFitr as LectureText,
+  'hikam-al-siyam': hikamAlSiyam as LectureText,
   'fadail-ramadan': fadailRamadan as LectureText,
   'husn-al-khuluq': husnAlKhuluq as LectureText,
   'ahwal-al-qulub': ahwalAlQulub as LectureText,

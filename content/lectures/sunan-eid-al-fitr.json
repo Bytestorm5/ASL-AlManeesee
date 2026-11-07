@@ -1,0 +1,250 @@
+{
+ "title": {
+  "ar": "سُنَنُ عِيدِ الْفِطْرِ",
+  "en": "The Sunnahs of ʿĪd al-Fiṭr"
+ },
+ "kicker": {
+  "en": "A Khuṭbah"
+ },
+ "byline": [
+  {
+   "ar": "فَضِيلَةُ الشَّيْخِ د. وَلِيدِ بْنِ إِدْرِيسَ المنيسي",
+   "en": "By Shaykh Dr Waleed ibn Idris al-Meneese"
+  }
+ ],
+ "blocks": [
+  {
+   "t": "list",
+   "title": {
+    "ar": "مُلَخَّصُ الْخُطْبَةِ",
+    "en": "Summary of the Khuṭbah"
+   },
+   "items": [
+    {
+     "ar": "زَكَاةُ الْفِطْرِ",
+     "en": "Zakat al-Fiṭr"
+    },
+    {
+     "ar": "وَقْتُ التَّكْبِيرِ وَصِفَتُهُ",
+     "en": "When the takbīr is said, and its wording"
+    },
+    {
+     "ar": "إِدْخَالُ السُّرُورِ عَلَى الْأَهْلِ وَالْأَوْلَادِ",
+     "en": "Bringing joy to one’s family and children"
+    },
+    {
+     "ar": "شُهُودُ النِّسَاءِ صَلَاةَ الْعِيدِ",
+     "en": "Women attending the ʿĪd prayer"
+    },
+    {
+     "ar": "الذَّهَابُ مَشْيًا",
+     "en": "Walking to the prayer"
+    },
+    {
+     "ar": "أَكْلُ تَمَرَاتٍ قَبْلَ الْخُرُوجِ لِلْعِيدِ",
+     "en": "Eating dates before going out for ʿĪd"
+    },
+    {
+     "ar": "التَّحْذِيرُ مِنْ أَعْيَادِ الْمُشْرِكِينَ",
+     "en": "The warning against the festivals of the polytheists"
+    }
+   ]
+  },
+  {
+   "t": "part",
+   "ar": "الْخُطْبَةُ الْأُولَى",
+   "en": "The First Khuṭbah"
+  },
+  {
+   "t": "p",
+   "ar": "أَمَّا بَعْدُ: فَقَدْ أَوْشَكَ الشَّهْرُ الْكَرِيمُ عَلَى الرَّحِيلِ، فَنَسْأَلُ اللَّهَ تَعَالَى أَنْ يَتَقَبَّلَ مِنَّا أَحْسَنَ مَا عَمِلْنَاهُ، وَأَنْ يَتَجَاوَزَ عَنْ سَيِّئَاتِنَا وَتَقْصِيرِنَا، وَأَنْ يَخْتِمَ لَنَا هَذَا الشَّهْرَ الْكَرِيمَ بِالرَّحْمَةِ وَالْمَغْفِرَةِ وَالْعِتْقِ مِنَ النَّارِ.",
+   "en": "To proceed: the noble month is about to depart. We ask Allah the Most High to accept from us the best of what we have done, to overlook our misdeeds and shortcomings, and to close this noble month for us with mercy, forgiveness and freedom from the Fire."
+  },
+  {
+   "t": "head",
+   "ar": "زَكَاةُ الْفِطْرِ",
+   "en": "Zakat al-Fiṭr"
+  },
+  {
+   "t": "p",
+   "ar": "أَيُّهَا الْمُسْلِمُونَ، مِمَّا يُشْرَعُ لَنَا فِي نِهَايَةِ الشَّهْرِ الْكَرِيمِ شَهْرِ رَمَضَانَ زَكَاةُ الْفِطْرِ الَّتِي هِيَ طُهْرَةٌ لِلصَّائِمِ مِنَ اللَّغْوِ وَالرَّفَثِ وَطُعْمَةٌ لِلْمَسَاكِينِ، وَقَدْ فَرَضَهَا رَسُولُ اللَّهِ ﷺ صَاعًا مِنْ طَعَامٍ، عَلَى الصَّغِيرِ وَالْكَبِيرِ وَالذَّكَرِ وَالْأُنْثَى مِنَ الْمُسْلِمِينَ. فَبَادِرُوا إِلَى إِخْرَاجِ زَكَاةِ فِطْرِكُمْ.",
+   "en": "O Muslims, among what is prescribed for us at the end of the noble month, the month of Ramadan, is Zakat al-Fiṭr, which purifies the fasting person from idle and indecent talk and feeds the poor. The Messenger of Allah ﷺ made it obligatory as a ṣāʿ of food on young and old, male and female, of the Muslims. So hurry to pay your Zakat al-Fiṭr."
+  },
+  {
+   "t": "head",
+   "ar": "وَقْتُ التَّكْبِيرِ وَصِفَتُهُ",
+   "en": "When the Takbīr Is Said, and Its Wording"
+  },
+  {
+   "t": "p",
+   "ar": "وَمِمَّا يُشْرَعُ لَنَا كَذَلِكَ فِي نِهَايَةِ الشَّهْرِ تَكْبِيرُ اللَّهِ تَعَالَى، قَالَ اللَّهُ عَزَّ وَجَلَّ:",
+   "en": "Also prescribed for us at the end of the month is proclaiming the greatness of Allah the Most High (takbīr). Allah (Mighty and Majestic is He) says:"
+  },
+  {
+   "t": "ayah",
+   "ar": "﴿وَلِتُكْمِلُوا الْعِدَّةَ وَلِتُكَبِّرُوا اللَّهَ عَلَى مَا هَدَاكُمْ وَلَعَلَّكُمْ تَشْكُرُونَ﴾",
+   "en": "“…and so that you complete the count, and proclaim Allah’s greatness for having guided you, and so that you may be grateful.”",
+   "ref": {
+    "ar": "الْبَقَرَة: 185",
+    "en": "al-Baqarah 2:185"
+   }
+  },
+  {
+   "t": "p",
+   "ar": "أَيْ: لِتَذْكُرُوا اللَّهَ عِنْدَ انْقِضَاءِ عِبَادَتِكُمْ، فَكَمَا شُرِعَ ذِكْرُ اللَّهِ بِالتَّسْبِيحِ وَالتَّحْمِيدِ وَالتَّكْبِيرِ عَقِبَ الصَّلَاةِ، وَشُرِعَ عِنْدَ انْقِضَاءِ مَنَاسِكِ الْحَجِّ كَمَا قَالَ تَعَالَى:",
+   "en": "That is, so that you remember Allah when your worship is complete. Just as remembering Allah with tasbīḥ, taḥmīd and takbīr was prescribed after the prayer, and prescribed at the end of the rites of hajj, as Allah the Most High says:"
+  },
+  {
+   "t": "ayah",
+   "ar": "﴿فَإِذَا قَضَيْتُمْ مَنَاسِكَكُمْ فَاذْكُرُوا اللَّهَ كَذِكْرِكُمْ آبَاءَكُمْ أَوْ أَشَدَّ ذِكْرًا﴾",
+   "en": "“When you have completed your rites, remember Allah as you remember your forefathers, or with even greater remembrance.”",
+   "ref": {
+    "ar": "الْبَقَرَة: 200",
+    "en": "al-Baqarah 2:200"
+   }
+  },
+  {
+   "t": "p",
+   "ar": "شُرِعَ كَذَلِكَ عِنْدَ انْقِضَاءِ الصَّوْمِ ذِكْرُ اللَّهِ تَعَالَى بِالتَّكْبِيرِ، وَيَبْدَأُ وَقْتُهُ مِنْ رُؤْيَةِ هِلَالِ شَوَّالٍ أَوْ غُرُوبِ شَمْسِ آخِرِ لَيْلَةٍ مِنْ رَمَضَانَ، وَيَنْتَهِي وَقْتُهُ بِصَلَاةِ الْعِيدِ.",
+   "en": "so too remembering Allah the Most High with takbīr was prescribed at the end of the fast. Its time begins with the sighting of the new moon of Shawwāl, or the sunset of the last night of Ramadan, and it ends with the ʿĪd prayer."
+  },
+  {
+   "t": "p",
+   "ar": "وَصِيغَةُ التَّكْبِيرِ كَمَا جَاءَ عَنِ ابْنِ مَسْعُودٍ رَضِيَ اللَّهُ عَنْهُ:",
+   "en": "The wording of the takbīr, as reported from Ibn Masʿūd (may Allah be pleased with him), is:"
+  },
+  {
+   "t": "quote",
+   "ar": "«اللَّهُ أَكْبَرُ اللَّهُ أَكْبَرُ لَا إِلَهَ إِلَّا اللَّهُ، وَاللَّهُ أَكْبَرُ اللَّهُ أَكْبَرُ وَلِلَّهِ الْحَمْدُ»",
+   "en": "“Allah is the Greatest, Allah is the Greatest; there is no god but Allah. Allah is the Greatest, Allah is the Greatest, and to Allah belongs all praise.”"
+  },
+  {
+   "t": "p",
+   "ar": "وَيُشْرَعُ الْجَهْرُ بِالتَّكْبِيرِ عَقِبَ الصَّلَوَاتِ، وَعِنْدَ الْخُرُوجِ إِلَى مُصَلَّى الْعِيدِ فِي الطَّرِيقِ، وَفِي الْمُصَلَّى أَثْنَاءَ انْتِظَارِ الصَّلَاةِ، وَكُلَّمَا تَذَكَّرَ الْمُسْلِمُ يُشْرَعُ لَهُ تَكْبِيرُ اللَّهِ تَعَالَى شُكْرًا لَهُ عَلَى تَوْفِيقِهِ لَنَا وَإِنْعَامِهِ عَلَيْنَا.",
+   "en": "It is prescribed to say the takbīr aloud after the prayers, on the way out to the ʿĪd prayer ground, and at the prayer ground while waiting for the prayer. And whenever the Muslim remembers, it is prescribed for him to proclaim the greatness of Allah the Most High, in gratitude to Him for granting us success and for His blessings upon us."
+  },
+  {
+   "t": "head",
+   "ar": "إِدْخَالُ السُّرُورِ عَلَى الْأَهْلِ وَالْأَوْلَادِ",
+   "en": "Bringing Joy to One’s Family and Children"
+  },
+  {
+   "t": "p",
+   "ar": "وَيُشْرَعُ لِلْمُسْلِمِ يَوْمَ الْعِيدِ أَنْ يَلْبَسَ أَجْمَلَ ثِيَابِهِ؛ لِمَا جَاءَ عَنْ عَلِيٍّ أَنَّ النَّبِيَّ ﷺ كَانَ يَلْبَسُ بُرْدَ حِبَرَةٍ فِي كُلِّ عِيدٍ. رَوَاهُ الشَّافِعِيُّ وَالطَّبَرَانِيُّ. وَرَوَى ابْنُ خُزَيْمَةَ عَنْ جَابِرٍ أَنَّ النَّبِيَّ ﷺ كَانَ يَلْبَسُ بُرْدَهُ الْأَحْمَرَ فِي الْعِيدَيْنِ وَالْجُمُعَةِ. وَبُرْدُ الْحِبَرَةِ: نَوْعٌ مِنَ الْبُرُودِ يُصْنَعُ بِالْيَمَنِ.",
+   "en": "On the day of ʿĪd it is prescribed for the Muslim to wear his finest clothes, because it is reported from ʿAlī that the Prophet ﷺ used to wear a ḥibarah cloak on every ʿĪd (narrated by al-Shāfiʿī and al-Ṭabarānī); and Ibn Khuzaymah narrated from Jābir that the Prophet ﷺ used to wear his red cloak on the two ʿĪds and on Friday. A ḥibarah cloak is a kind of cloak made in Yemen."
+  },
+  {
+   "t": "p",
+   "ar": "وَيُشْرَعُ لِلْمُسْلِمِ إِدْخَالُ السُّرُورِ عَلَى أَهْلِهِ وَأَوْلَادِهِ يَوْمَ الْعِيدِ، وَأَنْ يُهَنِّئَ الْمُسْلِمُونَ بَعْضُهُمْ بَعْضًا بِقَوْلِ: تَقَبَّلَ اللَّهُ مِنَّا وَمِنْكُمْ.",
+   "en": "It is prescribed for the Muslim to bring joy to his family and children on the day of ʿĪd, and for the Muslims to congratulate one another by saying, “May Allah accept from us and from you.”"
+  },
+  {
+   "t": "p",
+   "ar": "وَيُسْتَحَبُّ الِاغْتِسَالُ قَبْلَ الْخُرُوجِ لِصَلَاةِ الْعِيدِ؛ لِوُرُودِ ذَلِكَ مِنْ فِعْلِ جَمَاعَةٍ مِنَ الصَّحَابَةِ رَضِيَ اللَّهُ عَنْهُمْ.",
+   "en": "It is recommended to take a full bath before going out to the ʿĪd prayer, as a number of the Companions (may Allah be pleased with them) are reported to have done."
+  },
+  {
+   "t": "head",
+   "ar": "شُهُودُ النِّسَاءِ صَلَاةَ الْعِيدِ",
+   "en": "Women Attending the ʿĪd Prayer"
+  },
+  {
+   "t": "p",
+   "ar": "وَصَلَاةُ الْعِيدِ شَعِيرَةٌ ظَاهِرَةٌ مِنْ شَعَائِرِ الْإِسْلَامِ، يُشْرَعُ أَنْ يَخْرُجَ إِلَيْهَا الْمُسْلِمُونَ، رِجَالًا وَنِسَاءً وَصِغَارًا وَكِبَارًا. عَنْ أُمِّ عَطِيَّةَ رَضِيَ اللَّهُ عَنْهَا قَالَتْ:",
+   "en": "The ʿĪd prayer is a visible rite of Islam, and it is prescribed for the Muslims to go out to it, men and women, young and old. Umm ʿAṭiyyah (may Allah be pleased with her) said:"
+  },
+  {
+   "t": "quote",
+   "ar": "أَمَرَنَا رَسُولُ اللَّهِ ﷺ أَنْ نُخْرِجَهُنَّ فِي الْفِطْرِ وَالْأَضْحَى الْعَوَاتِقَ وَالْحُيَّضَ وَذَوَاتِ الْخُدُورِ — الْعَوَاتِقُ اللَّائِي قَارَبْنَ الْبُلُوغَ، وَذَوَاتُ الْخُدُورِ الشَّابَّاتُ الْأَبْكَارُ — فَأَمَّا الْحُيَّضُ فَيَعْتَزِلْنَ الصَّلَاةَ وَيَشْهَدْنَ الْخَيْرَ وَدَعْوَةَ الْمُسْلِمِينَ، قُلْتُ: يَا رَسُولَ اللَّهِ، إِحْدَانَا لَا يَكُونُ لَهَا جِلْبَابٌ، قَالَ: «لِتُلْبِسْهَا أُخْتُهَا مِنْ جِلْبَابِهَا»",
+   "en": "The Messenger of Allah ﷺ commanded us to bring them out on [ʿĪd] al-Fiṭr and al-Aḍḥā: the young women near maturity, the menstruating women and those kept in seclusion—the young women near maturity being those close to adulthood, and those in seclusion the young unmarried women. As for the menstruating women, they stay away from the prayer itself but witness the good and the supplication of the Muslims. I said, “O Messenger of Allah, one of us has no outer garment.” He said, “Let her sister clothe her with one of her own.”",
+   "ref": {
+    "ar": "رَوَاهُ الْبُخَارِيُّ وَمُسْلِمٌ وَأَصْحَابُ السُّنَنِ، وَزَادَ أَبُو دَاوُدَ فِي رِوَايَتِهِ: وَالْحُيَّضُ يَكُنَّ خَلْفَ النَّاسِ يُكَبِّرْنَ مَعَ النَّاسِ.",
+    "en": "Narrated by al-Bukhārī, Muslim and the authors of the Sunan. Abū Dāwūd adds in his narration: “And the menstruating women are to be behind the people, saying the takbīr with them.”"
+   }
+  },
+  {
+   "t": "p",
+   "ar": "وَفِيهِ مَشْرُوعِيَّةُ التَّكْبِيرِ لِلنِّسَاءِ وَلَكِنْ سِرًّا، وَأَنْ تَخْرُجَ النِّسَاءُ لِصَلَاةِ الْعِيدِ فِي جَلَابِيبِهِنَّ وَحِجَابِهِنَّ السَّابِغِ.",
+   "en": "In it is evidence that women too say the takbīr, but quietly, and that women go out to the ʿĪd prayer in their outer garments and full covering."
+  },
+  {
+   "t": "p",
+   "ar": "وَقَدْ ذَهَبَ الْإِمَامُ أَبُو حَنِيفَةَ إِلَى أَنَّ صَلَاةَ الْعِيدِ فَرْضُ عَيْنٍ، وَذَهَبَ الْإِمَامُ أَحْمَدُ إِلَى أَنَّهَا فَرْضُ كِفَايَةٍ، وَذَهَبَ الْإِمَامَانِ مَالِكٌ وَالشَّافِعِيُّ إِلَى أَنَّهَا سُنَّةٌ.",
+   "en": "Imam Abū Ḥanīfah held that the ʿĪd prayer is an individual obligation, Imam Aḥmad that it is a communal obligation, and the two Imams Mālik and al-Shāfiʿī that it is a Sunnah."
+  },
+  {
+   "t": "head",
+   "ar": "الذَّهَابُ مَشْيًا",
+   "en": "Walking to the Prayer"
+  },
+  {
+   "t": "p",
+   "ar": "وَيُسْتَحَبُّ أَنْ يَذْهَبَ إِلَى صَلَاةِ الْعِيدِ مَاشِيًا وَأَنْ يَرْجِعَ مَاشِيًا إِذَا اسْتَطَاعَ ذَلِكَ؛ لِمَا فِيهِ مِنْ إِظْهَارِ شِعَارِ الْإِسْلَامِ فِي الطُّرُقَاتِ، وَيُسْتَحَبُّ أَنْ يَرْجِعَ مِنْ غَيْرِ الطَّرِيقِ الَّذِي ذَهَبَ مِنْهُ كَمَا رَوَاهُ الْبُخَارِيُّ.",
+   "en": "It is recommended to walk to the ʿĪd prayer, and to walk back if one can, because it displays the emblem of Islam in the streets. It is also recommended to return by a different way from the one he came by, as al-Bukhārī narrated."
+  },
+  {
+   "t": "head",
+   "ar": "أَكْلُ تَمَرَاتٍ قَبْلَ الْخُرُوجِ لِلْعِيدِ",
+   "en": "Eating Dates Before Going Out for ʿĪd"
+  },
+  {
+   "t": "p",
+   "ar": "وَعَنْ أَنَسٍ قَالَ: كَانَ النَّبِيُّ ﷺ لَا يَغْدُو يَوْمَ الْفِطْرِ حَتَّى يَأْكُلَ تَمَرَاتٍ وَيَأْكُلُهُنَّ وِتْرًا. رَوَاهُ الْبُخَارِيُّ. وَفِيهِ اسْتِحْبَابُ أَكْلِ تَمَرَاتٍ وِتْرًا قَبْلَ الْخُرُوجِ إِلَى صَلَاةِ عِيدِ الْفِطْرِ.",
+   "en": "Anas said: The Prophet ﷺ would not go out on the day of al-Fiṭr until he had eaten some dates, and he would eat an odd number of them (narrated by al-Bukhārī). In this is the recommendation to eat an odd number of dates before going out to the ʿĪd al-Fiṭr prayer."
+  },
+  {
+   "t": "p",
+   "ar": "وَعَلَى الْمُسْلِمِ الْحِرْصُ عَلَى التَّبْكِيرِ يَوْمَ الْعِيدِ لِحُضُورِ الصَّلَاةِ، وَالْحِرْصُ عَلَى الِاسْتِمَاعِ إِلَى خُطْبَةِ الْعِيدِ بَعْدَ الصَّلَاةِ.",
+   "en": "The Muslim should be keen to come early on the day of ʿĪd for the prayer, and keen to listen to the ʿĪd khuṭbah after the prayer."
+  },
+  {
+   "t": "head",
+   "ar": "التَّحْذِيرُ مِنْ أَعْيَادِ الْمُشْرِكِينَ",
+   "en": "The Warning Against the Festivals of the Polytheists"
+  },
+  {
+   "t": "p",
+   "ar": "أَيُّهَا الْمُسْلِمُونَ، إِنَّ الْأَعْيَادَ مِنْ شَعَائِرِ الْإِسْلَامِ الَّتِي يَتَمَيَّزُ بِهَا الْمُسْلِمُونَ عَنْ أَعْيَادِ الْمُشْرِكِينَ، فَلَا يَجُوزُ لِلْمُسْلِمِ أَنْ يَحْتَفِلَ بِأَعْيَادِ الْمُشْرِكِينَ وَلَا أَنْ يُهَنِّئَ الْمُشْرِكِينَ بِهَا بِإِجْمَاعِ الْعُلَمَاءِ، قَالَ تَعَالَى:",
+   "en": "O Muslims, the festivals are among the rites of Islam by which the Muslims are set apart from the festivals of the polytheists. It is not permissible for a Muslim to celebrate the festivals of the polytheists, nor to congratulate the polytheists on them, by the consensus of the scholars. Allah the Most High says:"
+  },
+  {
+   "t": "ayah",
+   "ar": "﴿وَالَّذِينَ لَا يَشْهَدُونَ الزُّورَ﴾",
+   "en": "“And those who do not witness falsehood…”",
+   "ref": {
+    "ar": "الْفُرْقَان: 72",
+    "en": "al-Furqān 25:72"
+   }
+  },
+  {
+   "t": "p",
+   "ar": "قَالَ أَبُو الْعَالِيَةِ وَابْنُ سِيرِينَ وَطَاوُوسٌ وَكَثِيرٌ مِنَ السَّلَفِ: «أَيْ: لَا يَشْهَدُونَ أَعْيَادَ الْمُشْرِكِينَ».",
+   "en": "Abū al-ʿĀliyah, Ibn Sīrīn, Ṭāwūs and many of the Salaf said: “That is, they do not attend the festivals of the polytheists.”"
+  },
+  {
+   "t": "p",
+   "ar": "وَلَمَّا دَخَلَ النَّبِيُّ ﷺ الْمَدِينَةَ وَجَدَ أَهْلَهَا يَحْتَفِلُونَ بِيَوْمَيْنِ مِنْ أَعْيَادِ الْجَاهِلِيَّةِ، فَنَهَاهُمُ النَّبِيُّ ﷺ وَقَالَ:",
+   "en": "When the Prophet ﷺ came to Madinah, he found its people celebrating two days from the festivals of the Jāhiliyyah. The Prophet ﷺ forbade them, and said:"
+  },
+  {
+   "t": "quote",
+   "ar": "«إِنَّ اللَّهَ أَبْدَلَكُمْ بِهِمَا يَوْمَيْنِ خَيْرًا مِنْهُمَا: يَوْمَ الْفِطْرِ وَيَوْمَ الْأَضْحَى»",
+   "en": "“Allah has given you in their place two days better than them: the day of al-Fiṭr and the day of al-Aḍḥā.”"
+  },
+  {
+   "t": "p",
+   "ar": "وَالْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ.",
+   "en": "And all praise is for Allah, Lord of the worlds."
+  },
+  {
+   "t": "part",
+   "ar": "الْخُطْبَةُ الثَّانِيَةُ",
+   "en": "The Second Khuṭbah"
+  },
+  {
+   "t": "p",
+   "ar": "لَمْ تَرِدْ.",
+   "en": "Not provided."
+  }
+ ]
+}
