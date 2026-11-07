@@ -2,8 +2,9 @@ import type { Lecture } from './types.ts';
 
 /* ═══════════════════════════════════════════════════════════════════════════
    The Shaykh's lessons, lectures and khuṭbahs, shown on /lectures and in the
-   home page's Lectures section in the order listed here: newest first, so a
-   new one goes at the top.
+   home page's Lectures section by `date`, newest first (src/lectures/
+   index.ts sorts them; one without a date goes last, and two on the same
+   date keep the order they have here).
 
    A recorded one is an entry with `media` (a YouTube link, or an audio or
    video file) and a deploy, e.g.
@@ -27,6 +28,7 @@ export const LECTURE_REGISTRY: Lecture[] = [
     title: 'Good Character',
     titleAr: 'حُسْنُ الْخُلُقِ',
     kind: 'khutbah',
+    date: '2015-11-16', // as almenesi.com dates it
     description: 'The greatness of the Prophet’s ﷺ character, the virtue and reward of good character, what it truly is, how it is both inborn and acquired, and why perfecting noble character was a purpose of his mission.',
     written: true,
   },
@@ -36,6 +38,7 @@ export const LECTURE_REGISTRY: Lecture[] = [
     titleAr: 'أَحْوَالُ الْقُلُوبِ',
     kind: 'khutbah',
     series: 'No. 1630',
+    date: '2015-11-16', // as almenesi.com dates it
     description: 'How temptations mark the heart, the kinds of hearts, and the signs of a sick heart: on the danger of temptations, and how mistakes taken lightly damage the heart over time.',
     written: true,
   },

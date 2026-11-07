@@ -52,6 +52,12 @@ describe('lectures', () => {
     for (const want of ['lowercase', 'title', 'yyyy-mm-dd', 'https://', 'YouTube', 'listed twice']) expect(probs).toContain(want);
     expect(lectureProblems([{ id: 'no-media', title: 'Nothing to open' }]).join()).toMatch(/needs media, or written/);
   });
+  it('lists lectures by date, newest first, undated last', () => {
+    const dates = LECTURES.map((l) => l.date ?? '');
+    const dated = dates.filter(Boolean);
+    expect(dated).toEqual([...dated].sort().reverse());
+    expect(dates.slice(dated.length).every((d) => !d)).toBe(true);
+  });
   it('every written lecture has its text, and every text its entry', () => {
     const written = LECTURES.filter((l) => l.written).map((l) => l.id).sort();
     expect(Object.keys(LECTURE_TEXTS).sort()).toEqual(written);

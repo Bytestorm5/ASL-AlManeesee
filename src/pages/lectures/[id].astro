@@ -9,7 +9,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE } from '../../config/site.ts';
 import { LECTURES_PATH } from '../../config/sections.ts';
-import { LECTURES, hasArabic, lectureKind, type LectureBlock } from '../../lectures/index.ts';
+import { LECTURES, hasArabic, lectureDate, lectureKind, type LectureBlock } from '../../lectures/index.ts';
 import { LECTURE_TEXTS } from '../../../content/lectures/index.ts';
 import '../../styles/guide.css';
 import '../../styles/lectures.css';
@@ -32,6 +32,9 @@ const arHtml = (s: string) => esc(s).replace(/﴿[^﴾]*﴾/g, (m) => `<span cla
 /* Section headings get an id, so a heading can be linked to. */
 let h = 0;
 const blocks = doc.blocks.map((b: LectureBlock) => ({ b, anchor: b.t === 'head' || b.t === 'part' ? `s${++h}` : undefined }));
+/* the date, unless the byline already gives it */
+const year = lecture.date?.slice(0, 4);
+const dateLine = year && !doc.byline.some((b) => b.en.includes(year)) ? lectureDate(lecture.date, 'long') : '';
 const description = lecture.description
   ?? `${doc.title.en}, a ${kind.toLowerCase()} by the Shaykh${both ? ', in Arabic with an English translation' : ', in English translation'}.`;
 ---
@@ -65,6 +68,7 @@ const description = lecture.description
         <span class="en">{b.en}</span>
       </div>
     ))}
+    {dateLine && <div class="ls-by-line"><span class="en">{dateLine}</span></div>}
   </div>
 </header>
 

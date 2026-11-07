@@ -7,8 +7,11 @@ import type { Lecture, LectureText } from './types.ts';
 
 export type { Bilingual, Lecture, LectureBlock, LectureText, Para } from './types.ts';
 
-/** In the registry's own order, which is newest first: a new lecture goes at the top. */
-export const LECTURES: readonly Lecture[] = [...LECTURE_REGISTRY];
+/** Newest first by date; undated ones last; the same date keeps registry order. */
+export const LECTURES: readonly Lecture[] = LECTURE_REGISTRY
+  .map((l, i) => ({ l, i }))
+  .sort((a, b) => (b.l.date ?? '').localeCompare(a.l.date ?? '') || a.i - b.i)
+  .map(({ l }) => l);
 
 /** A lecture's date as the pages show it (US style): "Nov 6, 2026" (month 'short') or "November 6, 2026". */
 export function lectureDate(d: string | undefined, month: 'short' | 'long' = 'short'): string {

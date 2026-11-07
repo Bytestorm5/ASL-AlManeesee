@@ -20,9 +20,14 @@ import '../styles/theme.css';
 const s = sectionById('lectures');
 const eyebrow = `al-Asl · ${SITE.collection.en}`;
 const matnName = (id?: string) => (id ? POEMS.find((p) => p.id === id)?.shortEn : undefined);
+/* One compact card per lecture, so a long list stays easy to scan: the
+   title with its Arabic, one line of facts, two lines of description (one
+   on a phone). A written one is a link as a whole. */
+const langOf = (id: string) => (LECTURE_TEXTS[id] ? (hasArabic(LECTURE_TEXTS[id]!) ? 'Arabic & English' : 'English') : '');
 const items = LECTURES.map((l) => ({
   l,
-  meta: [lectureKind(l), l.series, l.place, l.dateHijri, lectureDate(l.date, 'long'), l.minutes ? `${l.minutes} min` : ''].filter(Boolean).join(' · '),
+  meta: [lectureKind(l), lectureDate(l.date), l.series, l.place, l.minutes ? `${l.minutes} min` : '', l.written ? langOf(l.id) : '']
+    .filter(Boolean).join(' · '),
   matn: matnName(l.matn),
 }));
 ---
@@ -44,18 +49,22 @@ const items = LECTURES.map((l) => ({
   {items.length > 0 ? (
     <ol class="lec-cards">
       {items.map(({ l, meta, matn }) => (
-        <li class="lec-card" id={l.id}>
-          {l.titleAr && <div class="lc-ar" lang="ar" dir="rtl">{l.titleAr}</div>}
-          <h2 class="lc-t">{l.written ? <a href={lectureHref(l)}>{l.title}</a> : l.title}</h2>
+        <li class={`lec-card${l.written ? ' is-link' : ''}`} id={l.id}>
+          <div class="lc-head">
+            <h2 class="lc-t">{l.written ? <a class="lc-link" href={lectureHref(l)}>{l.title}</a> : l.title}</h2>
+            {l.titleAr && <span class="lc-ar" lang="ar" dir="rtl">{l.titleAr}</span>}
+          </div>
           {meta && <div class="lc-meta">{meta}</div>}
           {l.description && <p class="lc-d">{l.description}</p>}
           {l.media?.kind === 'audio' && <audio class="lc-media" controls preload="none" src={l.media.url}></audio>}
           {l.media?.kind === 'video' && <video class="lc-media" controls preload="none" playsinline src={l.media.url}></video>}
-          <div class="lc-acts">
-            {l.written && <a class="lc-btn" href={lectureHref(l)}>Read the {(lectureKind(l) || 'lecture').toLowerCase()} · {LECTURE_TEXTS[l.id] && !hasArabic(LECTURE_TEXTS[l.id]!) ? 'English translation' : 'Arabic & English'}</a>}
-            {l.media?.kind === 'youtube' && <a class="lc-btn" href={l.media.url} target="_blank" rel="noopener">Watch on YouTube ↗</a>}
-            {matn && l.matn && <a class="lc-btn lc-btn-q" href={poemHref(l.matn)}>Read {matn}</a>}
-          </div>
+          {(l.media?.kind === 'youtube' || (matn && l.matn)) && (
+            <div class="lc-acts">
+              {l.media?.kind === 'youtube' && <a class="lc-btn" href={l.media.url} target="_blank" rel="noopener">Watch on YouTube ↗</a>}
+              {matn && l.matn && <a class="lc-btn lc-btn-q" href={poemHref(l.matn)}>Read {matn}</a>}
+            </div>
+          )}
+          {l.written && <span class="lc-go" aria-hidden="true">›</span>}
         </li>
       ))}
     </ol>

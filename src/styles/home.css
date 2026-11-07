@@ -111,11 +111,13 @@ header.hero::before{content:""; position:absolute; inset:0; opacity:.5;
 @media (max-width:480px){ .sec-tab .st-long{display:none} .sec-tab .st-short{display:inline} }
 @media (max-width:420px){ .sec-switch{margin-left:10px; margin-right:10px} .sec-tab .st-ar{font-size:1.06rem} .sec-tab .st-en{font-size:.58rem; letter-spacing:.04em} }
 /* the Lectures panel: the newest few, then a link to /lectures */
-.lec-list{max-width:760px; margin:0 auto; padding:0 14px; display:flex; flex-direction:column; gap:10px}
-.lec-row{display:flex; flex-direction:column; gap:2px; padding:14px 16px; border-radius:14px; text-decoration:none;
+.lec-list{max-width:760px; margin:0 auto; padding:0 14px; display:flex; flex-direction:column; gap:8px}
+/* compact rows: the title with its Arabic on one line, then one line of facts */
+.lec-row{display:flex; flex-direction:column; gap:0; padding:10px 14px 11px; border-radius:12px; text-decoration:none;
   background:linear-gradient(180deg,var(--surface),var(--paper-2)); border:1px solid var(--paper-edge)}
 @media (hover:hover){.lec-row:hover{border-color:var(--gilt)}}
-.lec-row .lr-ar{font-family:"Scheherazade New","Amiri",serif; font-size:1.2rem; line-height:1.5; color:var(--madder); text-align:right}
+.lec-row .lr-top{display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:0 12px}
+.lec-row .lr-ar{margin-left:auto; font-family:"Scheherazade New","Amiri",serif; font-size:1.15rem; line-height:1.5; color:var(--madder); text-align:right}
 .lec-row .lr-en{font-family:"Cormorant Garamond"; font-weight:600; font-size:1.12rem; color:var(--ink)}
 .lec-row .lr-meta{font-family:"Montserrat",sans-serif; font-size:.7rem; color:var(--sage)}
 .sec-more{text-align:center; margin:16px 0 0}

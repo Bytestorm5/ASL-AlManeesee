@@ -136,9 +136,11 @@ const lectures = LECTURES.slice(0, LECTURE_PREVIEW);
           <div class="lec-list">
             {lectures.map((l) => (
               <a class="lec-row" href={lectureHref(l)}>
-                {l.titleAr && <span class="lr-ar" lang="ar" dir="rtl">{l.titleAr}</span>}
-                <span class="lr-en">{l.title}</span>
-                <span class="lr-meta">{[lectureKind(l), l.series, l.place, lectureDate(l.date), l.minutes ? `${l.minutes} min` : ''].filter(Boolean).join(' · ')}</span>
+                <span class="lr-top">
+                  <span class="lr-en">{l.title}</span>
+                  {l.titleAr && <span class="lr-ar" lang="ar" dir="rtl">{l.titleAr}</span>}
+                </span>
+                <span class="lr-meta">{[lectureKind(l), lectureDate(l.date), l.minutes ? `${l.minutes} min` : ''].filter(Boolean).join(' · ')}</span>
               </a>
             ))}
           </div>
