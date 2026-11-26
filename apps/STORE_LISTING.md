@@ -90,7 +90,8 @@ First release: the Shaykh's poems with translation, word meanings and explanatio
 
 - App icon: `apps/play-store-icon-512.png` — the Shaykh's portrait on Deep Navy,
   512 × 512 32-bit PNG, full square (Play rounds the corners itself). The
-  app's home-screen icon is still the al-Asl emblem (`public/icon-512.png`).
+  Android home-screen icon is still the al-Asl emblem (`public/icon-512.png`);
+  the iPhone app uses the same portrait (see the App Store section).
 - Feature graphic: 1024 × 500 JPEG
 - Phone screenshots: 1080 × 1920 (six)
 - 7-inch and 10-inch tablet screenshots: 1600 × 2844 (six)
@@ -188,6 +189,11 @@ Things to try:
 5. Turn on Airplane Mode after opening a poem: it keeps working offline.
 6. Lectures: open a khutbah and use the ع + EN / ع / EN switch.
 ```
+
+**App icon**: taken from the build, not uploaded —
+`apps/ios/App/Assets.xcassets/AppIcon.appiconset/AppIcon.png`, the Shaykh's
+portrait on Deep Navy (1024 × 1024, no transparency), the same crop as the
+Play icon. Changing it needs a new build.
 
 **Screenshots**
 
