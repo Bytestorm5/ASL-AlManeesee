@@ -121,7 +121,45 @@ Poems & lectures with English
 The poems and khutbahs of Shaykh Dr Waleed Idris al-Meneese: vowelled Arabic, English beneath it, word meanings, explanations, and a memorization coach.
 ```
 
-**Description** — the Play full description above, unchanged.
+**Description** (≤ 4000) — App Store Connect rejects the transliteration
+marks (ʾ, ḥ, ā …) as invalid characters, so this copy is plain letters only
+(bullets are fine):
+
+```
+AlMenesi brings together the work of Shaykh Dr Waleed Idris al-Menesi in one reader: his own poems, bayt by bayt, and his lectures and khutbahs, in his Arabic with an English translation beneath every paragraph.
+
+HIS POEMS
+Each poem is set out bayt by bayt in fully vowelled Arabic, with:
+• An English translation of every bayt
+• Word meanings: tap a highlighted word to see what it means
+• An explanation of each bayt, laid out like the book it comes from, with the ayat and ahadith it quotes and their references
+• Chapters, a contents grid, and search in Arabic (no diacritics needed)
+
+His poems include counsel for those who memorise the Quran, a poem on Islamic governance with the Shaykh's own commentary, and a collection of poems on Quranic recitation, language and scholarly etiquette.
+
+LECTURES AND KHUTBAHS
+Read the Shaykh's khutbahs on their own pages: the Arabic paragraph by paragraph, with the English under each one. Ayat are set apart with their reference, and ahadith in a shaded box. Show both languages, Arabic only, or English only. New lectures are added as they are published.
+
+MEMORIZE
+• Hide words at four levels, from the last word to the whole bayt
+• Tap to reveal, then mark "Got it" or "Review"
+• Mastered abyat come back for review after 1, 3, 7, 16, 35 and 90 days
+• A daily goal for each poem, a streak, and progress per chapter
+• Back up your progress and restore it on another device
+
+MAKE IT YOURS
+• Bookmark any bayt and write your own notes under it
+• Pick up where you left off from the Home screen
+• Light and dark modes
+
+WORKS OFFLINE
+Texts, translations and fonts are saved on your device as you read, so you can keep studying without a connection.
+
+PRIVATE BY DESIGN
+No account and nothing to sign into. Your bookmarks, notes and progress stay on your device; the app collects no data.
+
+AlMenesi is a resource of the al-Asl Institute (al-asl.com).
+```
 
 **Keywords** (≤ 100, commas, no spaces)
 
