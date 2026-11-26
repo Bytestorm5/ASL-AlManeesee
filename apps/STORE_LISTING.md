@@ -15,7 +15,8 @@ mode; the sizes are listed at the end.
 | Field | Answer |
 |---|---|
 | Privacy policy | https://almenesi.al-asl.com/privacy |
-| Support / marketing URL | https://almenesi.al-asl.com/guide · https://almenesi.al-asl.com |
+| Support URL (needs contact details) | https://www.al-asl.com/contact/ |
+| Marketing URL | https://almenesi.al-asl.com |
 | Contact email | info@al-asl.com |
 | Price | Free, no in-app purchases, no ads |
 | Category | Education (secondary: Books / Books & Reference) |
@@ -128,7 +129,7 @@ The poems and khutbahs of Shaykh Dr Waleed Idris al-Meneese: vowelled Arabic, En
 Arabic,poetry,Islam,Quran,hifz,memorize,khutbah,lecture,matn,mutun,tajweed,qiraat,Islamic,study
 ```
 
-**Support URL**: https://almenesi.al-asl.com/guide
+**Support URL**: https://www.al-asl.com/contact/
 **Marketing URL**: https://almenesi.al-asl.com
 **Privacy policy URL**: https://almenesi.al-asl.com/privacy
 **Copyright**: `2026 al-Asl Institute`
