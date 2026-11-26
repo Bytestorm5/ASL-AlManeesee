@@ -87,7 +87,9 @@ First release: the Shaykh's poems with translation, word meanings and explanatio
 
 **Graphics**
 
-- App icon: `public/icon-512.png` (512 × 512)
+- App icon: `apps/play-store-icon-512.png` — the Shaykh's portrait on Deep Navy,
+  512 × 512 32-bit PNG, full square (Play rounds the corners itself). The
+  app's home-screen icon is still the al-Asl emblem (`public/icon-512.png`).
 - Feature graphic: 1024 × 500 JPEG
 - Phone screenshots: 1080 × 1920 (six)
 - 7-inch and 10-inch tablet screenshots: 1600 × 2844 (six)
