@@ -15,8 +15,12 @@
   `2A:E0:1B:22:F9:22:BB:6E:A1:7A:CA:55:CD:99:7E:2F:57:DC:20:F4:27:F2:DB:6B:1C:AC:35:C5:E5:AD:60:D7`.
 - **App signing key** (held by Google, Play App Signing): SHA-256
   `D0:99:71:08:54:78:B2:B9:3E:1E:13:03:6A:D4:4D:7E:24:DB:4B:07:63:23:50:1F:67:09:57:2B:F1:8B:B8:89`.
-- **`public/.well-known/assetlinks.json`** lists both: Play's app-signing key
-  (store installs) and the upload key (sideloaded test builds).
+- **Post-quantum app signing key** (held by Google, for newer Android): SHA-256
+  `EF:50:4B:54:A1:53:A7:43:55:38:6F:98:14:45:9C:40:54:5F:BE:CD:A7:CD:B3:31:8A:C3:C6:2D:F6:21:76:3D`.
+- **`public/.well-known/assetlinks.json`** lists all three: Play's classical and
+  post-quantum app-signing keys (store installs) and the upload key
+  (sideloaded test builds). If Play Console ever shows a new signing key, add
+  its SHA-256 there too.
 - Next release: bump `appVersionCode` to **2** and `appVersion` in
   `twa-manifest.json`, rebuild with the same upload key.
 - Store listing text, privacy answers and screenshot sizes:
@@ -378,7 +382,7 @@ hours up to a few days. Once approved, the app is live on Google Play. 🎉
 | `src/pages/manifest.webmanifest.ts` | Web app manifest (installable PWA), generated from `src/config/site.ts` |
 | `src/sw/sw.ts` | Service worker (offline caching), built into `/sw.js` |
 | `public/icon-192/512(.|-maskable).png` | App icons |
-| `public/.well-known/assetlinks.json` | App ↔ site verification (Play's app-signing key + the upload key) |
+| `public/.well-known/assetlinks.json` | App ↔ site verification (Play's two app-signing keys + the upload key) |
 | `src/pages/privacy.astro` | Privacy policy at `/privacy` (required by Play) |
 | `apps/android/twa-manifest.json` | Bubblewrap/TWA build configuration |
 | `apps/android/enable-r8.mjs` | One-command R8 enable for the generated project |
