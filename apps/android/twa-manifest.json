@@ -21,7 +21,7 @@
     "path": "./android.keystore",
     "alias": "upload"
   },
-  "appVersionName": "1.0.0",
+  "appVersion": "1.0.0",
   "appVersionCode": 1,
   "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
@@ -31,7 +31,7 @@
   "isChromeOSOnly": false,
   "isMetaQuest": false,
   "fullScopeUrl": "https://almenesi.al-asl.com/",
-  "minSdkVersion": 21,
+  "minSdkVersion": 24,
   "additionalTrustedOrigins": [],
   "fingerprints": []
 }

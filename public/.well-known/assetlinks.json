@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.alasl.almenesi",
+      "sha256_cert_fingerprints": [
+        "2A:E0:1B:22:F9:22:BB:6E:A1:7A:CA:55:CD:99:7E:2F:57:DC:20:F4:27:F2:DB:6B:1C:AC:35:C5:E5:AD:60:D7"
+      ]
+    }
+  }
+]

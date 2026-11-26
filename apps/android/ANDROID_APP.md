@@ -2,9 +2,38 @@
 > its own package id (`com.alasl.almenesi`), its own host
 > (`almenesi.al-asl.com`, which must match `SITE.url` in
 > `src/config/site.ts`), its own Play listing and its own signing key — reuse
-> nothing of the Mutūn app's. Digital Asset Links: once the app is signed, publish
-> its fingerprints at `public/.well-known/assetlinks.json` (not shipped until
-> then, since a wrong file is worse than none).
+> nothing of the Mutūn app's.
+
+## Release status
+
+| versionCode | appVersion | Built | Notes |
+|---|---|---|---|
+| 1 | 1.0.0 | 2026-11-26 | First release. minSdk 24, targetSdk 36, R8 on, launch-flash fix applied. |
+
+- **Upload key**: alias `upload`, PKCS12 keystore `almenesi-upload.keystore`,
+  held by the al-Asl team (never committed). SHA-256
+  `2A:E0:1B:22:F9:22:BB:6E:A1:7A:CA:55:CD:99:7E:2F:57:DC:20:F4:27:F2:DB:6B:1C:AC:35:C5:E5:AD:60:D7`.
+- **`public/.well-known/assetlinks.json`** ships with the upload key's
+  fingerprint (right for a sideloaded test build). Once the app exists in Play
+  Console, **add** Play's app-signing fingerprint to the same array (Step 4) —
+  that is the one store installs are signed with.
+- Next release: bump `appVersionCode` to **2** and `appVersion` in
+  `twa-manifest.json`, rebuild with the same upload key.
+- Store listing text, privacy answers and screenshot sizes:
+  [`apps/STORE_LISTING.md`](../STORE_LISTING.md).
+
+### Building it in a Linux container (what was done for 1.0.0)
+
+- Bubblewrap needs **JDK 17 exactly** (`openjdk-17-jdk-headless`) and an Android
+  SDK with `cmdline-tools`, `build-tools;36.1.0`, `platforms;android-36`; it
+  looks for `<sdk>/bin/sdkmanager`, so link `bin` → `cmdline-tools/latest/bin`.
+- `androidbrowserhelper` 2.8 needs **minSdk 24** (set in `twa-manifest.json`).
+- The version name is read from **`appVersion`** (not `appVersionName`).
+- If Maven Central answers 429, a Gradle init script that points
+  `repo.maven.apache.org`/`repo1.maven.org` at Google's mirror
+  (`maven-central.storage-download.googleapis.com/maven2/`) gets past it.
+- Order: `bubblewrap update --skipVersionUpgrade` → `enable-r8.mjs` →
+  `fix-launch-flash.mjs` → `bubblewrap build`.
 
 # Publishing al-Asl AlMenesi to the Google Play Store
 
@@ -40,7 +69,7 @@ site is deployed:
 - `icon-192.png`, `icon-512.png`, `icon-192-maskable.png`,
   `icon-512-maskable.png` — the app icons (the al-Asl medallion).
 - `.well-known/assetlinks.json` — the Digital Asset Links file that links the
-  app to the website (one value still to fill in — see Step 4).
+  app to the website (Play's app-signing fingerprint still to add — see Step 4).
 - `/privacy` (`src/pages/privacy.astro`) — a privacy policy page (Google Play requires a privacy
   policy URL): `https://<your-domain>/privacy`.
 - PWA `<link>`/`<meta>` tags + service-worker registration added to all four
@@ -170,9 +199,9 @@ No custom keep-rules are strictly required — the `androidbrowserhelper` librar
 ships its own, and manifest-declared activities/services are kept automatically —
 but copy `apps/android/proguard-rules.pro` to `app/proguard-rules.pro` as a safety net.
 
-Then rebuild the `.aab`, bump `appVersionCode` (last upload was **2**, so use
-**3**) and `appVersionName` in `apps/android/twa-manifest.json`, and upload a new
-release. The recommendation clears once Play processes a build with R8 on.
+Then rebuild the `.aab`, bump `appVersionCode` (one more than the last upload —
+see "Release status" at the top) and `appVersion` in
+`apps/android/twa-manifest.json`, and upload a new release. The recommendation clears once Play processes a build with R8 on.
 
 > **Bubblewrap note:** apply this *after* `bubblewrap init` / `bubblewrap update`
 > and *before* `bubblewrap build`. Re-running `bubblewrap update` regenerates
@@ -278,10 +307,11 @@ the site must vouch for each other via a SHA-256 certificate fingerprint.
    - Play Console → your app → **Test and release → App integrity → App
      signing** → copy the **SHA-256 certificate fingerprint**.
    - (If you skipped Play App Signing, use the fingerprint that Step 2 printed.)
-2. Put it into `.well-known/assetlinks.json`, replacing
-   `REPLACE_WITH_APP_SIGNING_KEY_SHA256_FROM_PLAY_CONSOLE`:
+2. Add it to `public/.well-known/assetlinks.json`, next to the upload key's
+   fingerprint that is already there (keep both: the upload key's covers
+   sideloaded test builds, Play's covers store installs):
    ```json
-   "sha256_cert_fingerprints": ["AB:CD:EF:...:99"]
+   "sha256_cert_fingerprints": ["2A:E0:…:60:D7", "<Play app-signing SHA-256>"]
    ```
    (If PWABuilder gave you an `assetlinks.json`, just use its contents — same
    thing.)
@@ -300,15 +330,12 @@ disappears (may take a reinstall).
 
 Play Console → **Grow → Store presence → Main store listing**:
 
-- **App name**: the collection's name (`SITE.appName` in `src/config/site.ts`)
-- **Short description** (≤80 chars): what the collection holds, once its
-  mutūn are published.
-- **Full description**: the texts, translations, word-by-word meanings,
-  offline reading, recitations and PDF downloads.
+- **Title, short and full description, release notes**: copy them from
+  [`apps/STORE_LISTING.md`](../STORE_LISTING.md) (lengths already checked).
 - **App icon**: upload `public/icon-512.png` (512×512).
-- **Feature graphic** (1024×500) and **phone screenshots** (1080×1920, at least
-  two): make them from the live site once it carries its first mutūn — the
-  Mutūn app's own assets show its texts and were not carried over.
+- **Feature graphic** (1024×500) and **phone / tablet screenshots**
+  (1080×1920 and 1600×2844): made from the live site in app mode; how to make
+  them again is at the end of `STORE_LISTING.md`.
 
 Then complete the required questionnaires under **Policy / App content**:
 - **Privacy policy**: `https://<your-domain>/privacy`
@@ -334,10 +361,10 @@ hours up to a few days. Once approved, the app is live on Google Play. 🎉
   deploy the website. The app shows them automatically — **no new app version
   needed.** Returning users get fresh content; the service worker keeps the
   last-seen version available offline.
-  - When you change the offline file list in `sw.js`, bump `CACHE_VERSION`
-    (e.g. `v1` → `v2`) so devices refresh their cache.
+  - The service worker's version is a hash of what it precaches, so a deploy
+    that changes those files refreshes devices by itself — nothing to bump.
 - **App changes** (icon, name, app shortcuts, Android settings): edit
-  `apps/android/twa-manifest.json`, bump `appVersionCode` (and `appVersionName`),
+  `apps/android/twa-manifest.json`, bump `appVersionCode` (and `appVersion`),
   rebuild with the **same signing key**, and upload the new `.aab`. After the
   project is regenerated, re-run `node apps/android/enable-r8.mjs .` from its root so
   R8 stays on (see "Enable R8 optimization" above).
@@ -351,7 +378,7 @@ hours up to a few days. Once approved, the app is live on Google Play. 🎉
 | `src/pages/manifest.webmanifest.ts` | Web app manifest (installable PWA), generated from `src/config/site.ts` |
 | `src/sw/sw.ts` | Service worker (offline caching), built into `/sw.js` |
 | `public/icon-192/512(.|-maskable).png` | App icons |
-| `public/.well-known/assetlinks.json` | App ↔ site verification — add it once the app is signed |
+| `public/.well-known/assetlinks.json` | App ↔ site verification (upload key now; add Play's app-signing key) |
 | `src/pages/privacy.astro` | Privacy policy at `/privacy` (required by Play) |
 | `apps/android/twa-manifest.json` | Bubblewrap/TWA build configuration |
 | `apps/android/enable-r8.mjs` | One-command R8 enable for the generated project |
