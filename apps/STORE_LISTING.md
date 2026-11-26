@@ -76,10 +76,13 @@ No account and nothing to sign into. Your bookmarks, notes and progress stay on 
 AlMenesi is a resource of the al-Asl Institute (al-asl.com).
 ```
 
-**Release notes, 1.0.0**
+**Release notes, 1.0.0** (≤ 500 per language; paste with the language tags,
+or replace only the middle line if Play already shows them)
 
 ```
-First release: the Shaykh's poems with translation, word meanings and explanation; his khutbahs in Arabic and English; memorization with spaced review; bookmarks, notes and offline reading.
+<en-US>
+First release: the Shaykh's poems with translation, word meanings and explanations; his khutbahs in Arabic and English; memorization, bookmarks and notes; works offline.
+</en-US>
 ```
 
 **Graphics**
