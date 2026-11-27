@@ -13,13 +13,16 @@ export const LECTURES: readonly Lecture[] = LECTURE_REGISTRY
   .sort((a, b) => (b.l.date ?? '').localeCompare(a.l.date ?? '') || a.i - b.i)
   .map(({ l }) => l);
 
-/** A lecture's date as the pages show it (US style): "Nov 6, 2026" (month 'short') or "November 6, 2026". */
+/** A lecture's date as the pages show it (US style): "Nov 6, 2026" (month 'short') or "November 6, 2026";
+    a year alone ("2015") as it is. */
 export function lectureDate(d: string | undefined, month: 'short' | 'long' = 'short'): string {
-  return d ? new Date(d + 'T00:00:00Z').toLocaleDateString('en-US', { day: 'numeric', month, year: 'numeric', timeZone: 'UTC' }) : '';
+  if (!d) return '';
+  if (/^\d{4}$/.test(d)) return d;
+  return new Date(d + 'T00:00:00Z').toLocaleDateString('en-US', { day: 'numeric', month, year: 'numeric', timeZone: 'UTC' });
 }
 
-const KIND_LABEL = { khutbah: 'Khuṭbah', lesson: 'Lesson', lecture: 'Lecture' } as const;
-/** "Khuṭbah", "Lesson", "Lecture", or '' when the entry does not say. */
+const KIND_LABEL = { khutbah: 'Khuṭbah', lesson: 'Lesson', lecture: 'Lecture', book: 'Book' } as const;
+/** "Khuṭbah", "Lesson", "Lecture", "Book", or '' when the entry does not say. */
 export function lectureKind(l: Lecture): string {
   return l.kind ? KIND_LABEL[l.kind] : '';
 }
@@ -36,8 +39,8 @@ export function lectureProblems(list: readonly Lecture[] = LECTURE_REGISTRY): st
     if (seen.has(l.id)) out.push(`${l.id}: listed twice`);
     seen.add(l.id);
     if (!l.title?.trim()) out.push(`${l.id}: needs a title`);
-    if (l.date && !/^\d{4}-\d{2}-\d{2}$/.test(l.date)) out.push(`${l.id}: date must be yyyy-mm-dd`);
-    if (l.kind && !(l.kind in KIND_LABEL)) out.push(`${l.id}: kind must be khutbah, lesson or lecture`);
+    if (l.date && !/^\d{4}(-\d{2}-\d{2})?$/.test(l.date)) out.push(`${l.id}: date must be yyyy-mm-dd (or yyyy for a book)`);
+    if (l.kind && !(l.kind in KIND_LABEL)) out.push(`${l.id}: kind must be khutbah, lesson, lecture or book`);
     if (!l.media && !l.written) out.push(`${l.id}: needs media, or written: true with a text in content/lectures/`);
     if (l.media) {
       const u = l.media.url ?? '';

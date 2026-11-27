@@ -62,7 +62,7 @@ export const SECTIONS: readonly Section[] = [
     arShort: 'الدُّرُوسُ',
     en: 'Lectures',
     short: 'Lectures',
-    lead: 'The Shaykh’s lessons, lectures and khuṭbahs, to read, listen to or watch.',
+    lead: 'The Shaykh’s lessons, lectures, khuṭbahs and books, to read, listen to or watch.',
     empty: {
       title: 'His lectures are being gathered',
       text: 'The Shaykh’s lessons and lectures are being gathered and checked. They will appear here, to listen to or watch, as they are published.',

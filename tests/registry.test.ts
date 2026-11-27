@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { ALL_POEMS, POEMS, audioSetsOf, getAudioSet, poemsIn, registryProblems } from '../src/poems/index.ts';
-import { LECTURES, lectureHref, lectureProblems, lectureTextProblems } from '../src/lectures/index.ts';
+import { LECTURES, lectureDate, lectureHref, lectureKind, lectureProblems, lectureTextProblems } from '../src/lectures/index.ts';
 import { LECTURE_TEXTS } from '../content/lectures/index.ts';
 import { SECTIONS, SHOWN_SECTIONS } from '../src/config/sections.ts';
 import { REGISTRY } from '../src/poems/registry.ts';
@@ -51,6 +51,13 @@ describe('lectures', () => {
     const probs = lectureProblems([l, { ...l, id: 'ok-id' }, { ...l, id: 'ok-id' }]).join('\n');
     for (const want of ['lowercase', 'title', 'yyyy-mm-dd', 'https://', 'YouTube', 'listed twice']) expect(probs).toContain(want);
     expect(lectureProblems([{ id: 'no-media', title: 'Nothing to open' }]).join()).toMatch(/needs media, or written/);
+  });
+  it('takes a year alone for a book, and shows it as the year', () => {
+    const book = { id: 'a-book', title: 'A Book', kind: 'book' as const, date: '2015', written: true };
+    expect(lectureProblems([book])).toEqual([]);
+    expect(lectureProblems([{ ...book, date: '15' }]).join()).toMatch(/yyyy-mm-dd/);
+    expect(lectureDate('2015')).toBe('2015');
+    expect(lectureKind(book)).toBe('Book');
   });
   it('lists lectures by date, newest first, undated last', () => {
     const dates = LECTURES.map((l) => l.date ?? '');

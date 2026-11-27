@@ -11,6 +11,7 @@ import fadailRamadan from './fadail-ramadan.json';
 import hikamAlSiyam from './hikam-al-siyam.json';
 import sunanEidAlFitr from './sunan-eid-al-fitr.json';
 import alQabul from './al-qabul.json';
+import qaswatAlQalb from './qaswat-al-qalb.json';
 
 export const LECTURE_TEXTS: Readonly<Record<string, LectureText>> = {
   'sunan-eid-al-fitr': sunanEidAlFitr as LectureText,
@@ -19,4 +20,5 @@ export const LECTURE_TEXTS: Readonly<Record<string, LectureText>> = {
   'husn-al-khuluq': husnAlKhuluq as LectureText,
   'ahwal-al-qulub': ahwalAlQulub as LectureText,
   'al-qabul': alQabul as LectureText,
+  'qaswat-al-qalb': qaswatAlQalb as LectureText,
 };

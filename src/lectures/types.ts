@@ -8,13 +8,14 @@ export interface Lecture {
   title: string;
   /** Arabic title, if it has one. */
   titleAr?: string;
-  /** What it is, shown as its label: a khuṭbah, a lesson, a lecture. */
-  kind?: 'khutbah' | 'lesson' | 'lecture';
+  /** What it is, shown as its label: a khuṭbah, a lesson, a lecture, a book. */
+  kind?: 'khutbah' | 'lesson' | 'lecture' | 'book';
   /** The course or series it belongs to, e.g. "Explanation of al-Jazariyyah". */
   series?: string;
   /** Where it was given, e.g. "AMJA Imams’ Conference, Dallas". */
   place?: string;
-  /** When it was given, yyyy-mm-dd (Gregorian). Newest first on the page. */
+  /** When it was given, yyyy-mm-dd (Gregorian); a book's edition may give
+      only its year, yyyy. Newest first on the page. */
   date?: string;
   /** The Hijri date as the Shaykh gave it, e.g. "15 Rabīʿ al-Awwal 1448 AH". */
   dateHijri?: string;

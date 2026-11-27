@@ -1,0 +1,552 @@
+{
+  "title": {
+    "ar": "قَسْوَةُ الْقَلْبِ",
+    "en": "Hardness of the Heart"
+  },
+  "kicker": {
+    "en": "A Book"
+  },
+  "byline": [
+    {
+      "ar": "أَسْبَابُهَا وَمَظَاهِرُهَا وَعِلَاجُهَا",
+      "en": "Its Causes, Its Signs and Its Cure"
+    },
+    {
+      "ar": "لِفَضِيلَةِ الشَّيْخِ الدُّكْتُورِ وَلِيدِ بْنِ إِدْرِيسَ بْنِ عَبْدِ الْعَزِيزِ الْمُنَيْسِيِّ",
+      "en": "By Shaykh Dr Waleed ibn Idris ibn ʿAbd al-ʿAzīz al-Meneese"
+    },
+    {
+      "ar": "دَارُ الْجَامِعَةِ الْإِسْلَامِيَّةِ بِوِلَايَةِ مِينِيسُوتَا لِلنَّشْرِ وَالتَّوْزِيعِ، الطَّبْعَةُ الْأُولَى 1436 هـ – 2015 م",
+      "en": "Islamic University of Minnesota Press, first edition, 1436 AH / 2015 CE"
+    }
+  ],
+  "blocks": [
+    {
+      "t": "list",
+      "title": {
+        "ar": "فِهْرِسُ الْمَوْضُوعَاتِ",
+        "en": "Contents"
+      },
+      "items": [
+        {
+          "ar": "الْمُقَدِّمَةُ",
+          "en": "Introduction"
+        },
+        {
+          "ar": "أَسْبَابُ قَسْوَةِ الْقَلْبِ",
+          "en": "The Causes of Hardness of the Heart"
+        },
+        {
+          "ar": "مَظَاهِرُ قَسْوَةِ الْقَلْبِ",
+          "en": "The Signs of Hardness of the Heart"
+        },
+        {
+          "ar": "عِلَاجُ قَسْوَةِ الْقَلْبِ",
+          "en": "The Cure for Hardness of the Heart"
+        }
+      ]
+    },
+    {
+      "t": "head",
+      "ar": "الْمُقَدِّمَةُ",
+      "en": "Introduction"
+    },
+    {
+      "t": "p",
+      "ar": "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ",
+      "en": "In the name of Allah, the Most Merciful, the Bestower of Mercy."
+    },
+    {
+      "t": "p",
+      "ar": "إِنَّ الْحَمْدَ لِلَّهِ، نَحْمَدُهُ، وَنَسْتَعِينُهُ، وَنَسْتَغْفِرُهُ، وَنَعُوذُ بِاللَّهِ مِنْ شُرُورِ أَنْفُسِنَا، وَمِنْ سَيِّئَاتِ أَعْمَالِنَا، مَنْ يَهْدِهِ اللَّهُ فَلَا مُضِلَّ لَهُ، وَمَنْ يُضْلِلْ فَلَا هَادِيَ لَهُ، وَأَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ، صَلَّى اللَّهُ عَلَيْهِ وَعَلَى آلِهِ وَصَحْبِهِ وَسَلَّمَ. أَمَّا بَعْدُ:",
+      "en": "All praise is for Allah. We praise Him, seek His help and ask His forgiveness, and we seek refuge in Allah from the evils of our own souls and from our bad deeds. Whomever Allah guides, no one can lead astray, and whomever He leaves astray, no one can guide. I bear witness that there is no god but Allah alone, with no partner, and I bear witness that Muhammad is His servant and His Messenger, may Allah send blessings and peace upon him, his family and his Companions. To proceed:"
+    },
+    {
+      "t": "p",
+      "ar": "فَقَدْ رَوَى الْإِمَامُ أَحْمَدُ فِي مُسْنَدِهِ بِسَنَدٍ حَسَنٍ مِنْ حَدِيثِ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ أَنَّ رَجُلًا شَكَا إِلَى رَسُولِ اللَّهِ ﷺ قَسْوَةَ قَلْبِهِ، فَقَالَ ﷺ:",
+      "en": "Imam Aḥmad narrated in his Musnad, with a good (ḥasan) chain, from Abū Hurayrah (may Allah be pleased with him) that a man complained to the Messenger of Allah ﷺ of the hardness of his heart, and he ﷺ said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«امْسَحْ رَأْسَ الْيَتِيمِ، وَأَطْعِمِ الْمِسْكِينَ»",
+      "en": "“Wipe the head of the orphan, and feed the poor.”",
+      "ref": {
+        "ar": "مُسْنَدُ الْإِمَامِ أَحْمَدَ 9255",
+        "en": "Musnad Aḥmad 9255"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَفِي لَفْظٍ:",
+      "en": "And in another wording:"
+    },
+    {
+      "t": "quote",
+      "ar": "«إِنْ أَرَدْتَ أَنْ يَلِينَ قَلْبُكَ، فَأَطْعِمِ الْمِسْكِينَ، وَامْسَحْ رَأْسَ الْيَتِيمِ»",
+      "en": "“If you want your heart to soften, feed the poor and wipe the head of the orphan.”",
+      "ref": {
+        "ar": "مُسْنَدُ الْإِمَامِ أَحْمَدَ 7787",
+        "en": "Musnad Aḥmad 7787"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "فِي هَذَا الْحَدِيثِ يَتَّضِحُ لَنَا أَنَّ أَصْحَابَ النَّبِيِّ ﷺ كَانُوا يَتَفَقَّدُونَ قُلُوبَهُمْ، وَيَنْظُرُونَ إِلَى مَا يَطْرَأُ عَلَيْهَا مِنْ قَسْوَةٍ وَرِقَّةٍ، وَصِحَّةٍ وَضَعْفٍ؛ لِأَنَّ الْإِيمَانَ يَزِيدُ وَيَنْقُصُ، وَإِذَا قَوِيَ الْإِيمَانُ رَقَّ الْقَلْبُ وَلَانَ، وَإِذَا ضَعُفَ الْإِيمَانُ قَسَا الْقَلْبُ، وَالْعِيَاذُ بِاللَّهِ تَعَالَى.",
+      "en": "This hadith makes clear to us that the Companions of the Prophet ﷺ used to look after their hearts, watching for whatever came over them: hardness or tenderness, health or weakness. For faith increases and decreases: when faith is strong, the heart grows tender and soft, and when faith is weak, the heart hardens, and we seek refuge in Allah the Exalted."
+    },
+    {
+      "t": "p",
+      "ar": "فَكَانَ أَصْحَابُ النَّبِيِّ ﷺ يَتَفَقَّدُونَ قُلُوبَهُمْ، وَيَتَفَقَّدُونَ مَا يَطْرَأُ عَلَيْهَا مِنْ تَغْيِيرٍ، وَيَشْتَكُونَ إِلَى النَّبِيِّ ﷺ مَا يَجِدُونَ مِنْ تَغَيُّرٍ فِي حَالِ قُلُوبِهِمْ، فَيَصِفُ لَهُمُ النَّبِيُّ ﷺ الدَّوَاءَ النَّافِعَ، وَالْعِلَاجَ النَّاجِعَ.",
+      "en": "So the Companions of the Prophet ﷺ would look after their hearts and notice any change that came over them. They would complain to the Prophet ﷺ of any change they found in the state of their hearts, and the Prophet ﷺ would prescribe for them the beneficial medicine and the effective cure."
+    },
+    {
+      "t": "p",
+      "ar": "إِنَّ قَسْوَةَ الْقَلْبِ – أَعَاذَنَا اللَّهُ وَإِيَّاكُمْ مِنْهَا – لَهَا أَسْبَابٌ، وَلَهَا مَظَاهِرُ، وَلَهَا عِلَاجٌ، كُلُّ ذَلِكَ جَاءَ بَيَانُهُ فِي كِتَابِ اللَّهِ تَعَالَى، وَفِي سُنَّةِ رَسُولِهِ ﷺ.",
+      "en": "Hardness of the heart (may Allah protect us and you from it) has its causes, its signs and its cure, and all of this is explained in the Book of Allah the Exalted and in the Sunnah of His Messenger ﷺ."
+    },
+    {
+      "t": "head",
+      "ar": "أَسْبَابُ قَسْوَةِ الْقَلْبِ",
+      "en": "The Causes of Hardness of the Heart"
+    },
+    {
+      "t": "sub",
+      "ar": "الذُّنُوبُ وَالْمَعَاصِي",
+      "en": "Sins and Acts of Disobedience"
+    },
+    {
+      "t": "p",
+      "ar": "فَأَعْظَمُ أَسْبَابِ قَسْوَةِ الْقَلْبِ الذُّنُوبُ وَالْمَعَاصِي؛ فَالذُّنُوبُ وَالْمَعَاصِي كُلَّمَا ازْدَادَتْ مِنَ الْإِنْسَانِ كُلَّمَا قَسَا قَلْبُهُ، وَكُلَّمَا اسْتَقَلَّ مِنْهَا قَلَّتْ قَسْوَةُ قَلْبِهِ عَلَى حَسَبِ حَالِهِ؛ وَلِهَذَا يَقُولُ اللَّهُ عَزَّ وَجَلَّ فِي كِتَابِهِ الْكَرِيمِ:",
+      "en": "The greatest cause of hardness of the heart is sins and acts of disobedience. The more a person’s sins and acts of disobedience increase, the harder his heart becomes, and the fewer of them he commits, the less his heart hardens, according to his state. This is why Allah (Mighty and Majestic is He) says in His Noble Book:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿كَلَّا بَلْ رَانَ عَلَى قُلُوبِهِمْ مَا كَانُوا يَكْسِبُونَ﴾",
+      "en": "“No! Rather, the stain has covered their hearts of that which they were earning.”",
+      "ref": {
+        "ar": "الْمُطَفِّفِين: 14",
+        "en": "al-Muṭaffifīn 83:14"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "يَعْنِي: غَطَّى عَلَى قُلُوبِهِمُ الرَّانُ، وَهُوَ الصَّدَأُ. بِمَاذَا؟ بِمَا كَانُوا يَكْسِبُونَ بِأَعْمَالِهِمْ، وَذُنُوبُهُمْ وَمَعَاصِيهِمْ ثَبَّتَتْ هَذَا الرَّيْنَ عَلَى الْقُلُوبِ.",
+      "en": "That is, a stain, which is rust, has covered their hearts. Through what? Through what they earned by their deeds: their sins and acts of disobedience fixed this stain upon the hearts."
+    },
+    {
+      "t": "p",
+      "ar": "وَيَقُولُ اللَّهُ عَزَّ وَجَلَّ:",
+      "en": "And Allah (Mighty and Majestic is He) says:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿فَبِمَا نَقْضِهِمْ مِيثَاقَهُمْ لَعَنَّاهُمْ وَجَعَلْنَا قُلُوبَهُمْ قَاسِيَةً يُحَرِّفُونَ الْكَلِمَ عَنْ مَوَاضِعِهِ﴾",
+      "en": "“So for their breaking of the covenant We cursed them and made their hearts hard. They distort words from their proper places.”",
+      "ref": {
+        "ar": "الْمَائِدَة: 13",
+        "en": "al-Māʾidah 5:13"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "هَذَا فِي وَصْفِ الْيَهُودِ: لِمَاذَا قَسَتْ قُلُوبُهُمْ؟ بِسَبَبِ نَقْضِهِمُ الْمِيثَاقَ، وَنَقْضُ الْمِيثَاقِ يَشْمَلُ جَمِيعَ الذُّنُوبِ وَالْمَعَاصِي؛ لِأَنَّ الْعَبْدَ إِذَا قَالَ: أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللَّهُ، فَقَدْ أَعْطَى اللَّهَ سُبْحَانَهُ مِيثَاقًا أَنْ يُطِيعَهُ وَلَا يَعْصِيَهُ، فَيَقُولُ سُبْحَانَهُ:",
+      "en": "This describes the Jews: why did their hearts harden? Because they broke the covenant. And breaking the covenant includes every sin and act of disobedience, because when a servant says, “I bear witness that there is no god but Allah,” he has given Allah (Glorified is He) a covenant to obey Him and not to disobey Him. So He (Glorified is He) says:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿فَبِمَا نَقْضِهِمْ مِيثَاقَهُمْ لَعَنَّاهُمْ وَجَعَلْنَا قُلُوبَهُمْ قَاسِيَةً﴾",
+      "en": "“So for their breaking of the covenant We cursed them and made their hearts hard.”",
+      "ref": {
+        "ar": "الْمَائِدَة: 13",
+        "en": "al-Māʾidah 5:13"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَيَصِفُ اللَّهُ تَعَالَى الْيَهُودَ أَيْضًا فَيَقُولُ سُبْحَانَهُ:",
+      "en": "Allah the Exalted also describes the Jews, saying:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿ثُمَّ قَسَتْ قُلُوبُكُمْ مِنْ بَعْدِ ذَلِكَ فَهِيَ كَالْحِجَارَةِ أَوْ أَشَدُّ قَسْوَةً﴾",
+      "en": "“Then your hearts became hardened after that, being like stones or even harder.”",
+      "ref": {
+        "ar": "الْبَقَرَة: 74",
+        "en": "al-Baqarah 2:74"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَيَقُولُ عَبْدُ اللَّهِ بْنُ عَبَّاسٍ رَضِيَ اللَّهُ عَنْهُمَا:",
+      "en": "ʿAbdullāh ibn ʿAbbās (may Allah be pleased with them both) said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«إِنَّ لِلطَّاعَةِ لَنُورًا فِي الْقَلْبِ، وَبَيَاضًا فِي الْوَجْهِ، وَسَعَةً فِي الرِّزْقِ، وَمَحَبَّةً فِي قُلُوبِ الْخَلْقِ، وَإِنَّ لِلْمَعْصِيَةِ لَظُلْمَةً فِي الْقَلْبِ، وَسَوَادًا فِي الْوَجْهِ، وَضِيقًا فِي الرِّزْقِ، وَبُغْضًا فِي قُلُوبِ الْخَلْقِ»",
+      "en": "“Obedience brings a light in the heart, a brightness in the face, abundance in provision and love in the hearts of people; and disobedience brings a darkness in the heart, a blackness in the face, straitness in provision and hatred in the hearts of people.”"
+    },
+    {
+      "t": "p",
+      "ar": "فَإِذًا أَهَمُّ أَسْبَابِ قَسْوَةِ الْقَلْبِ الذُّنُوبُ وَالْمَعَاصِي.",
+      "en": "So the most important cause of hardness of the heart is sins and acts of disobedience."
+    },
+    {
+      "t": "sub",
+      "ar": "تَرْكُ الْمُسْتَحَبَّاتِ وَالنَّوَافِلِ",
+      "en": "Leaving Recommended and Voluntary Deeds"
+    },
+    {
+      "t": "p",
+      "ar": "كَذَلِكَ مِنْ أَسْبَابِ قَسْوَةِ الْقَلْبِ تَرْكُ الْمُسْتَحَبَّاتِ وَالنَّوَافِلِ الَّتِي اعْتَادَ عَلَيْهَا الْإِنْسَانُ؛ كُلَّمَا تَرَكَ الْإِنْسَانُ شَيْئًا مِنَ النَّوَافِلِ وَالْقُرُبَاتِ الَّتِي اعْتَادَ أَنْ يَتَقَرَّبَ بِهَا إِلَى اللَّهِ سُبْحَانَهُ وَتَعَالَى، حَصَلَ شَيْءٌ مِنْ قَسْوَةِ الْقَلْبِ، حَتَّى لَوْ كَانَ مَعْذُورًا فِي تَرْكِهِ.",
+      "en": "Another cause of hardness of the heart is leaving the recommended and voluntary deeds a person has made his habit. Whenever a person leaves off some of the voluntary deeds and acts of devotion by which he used to draw near to Allah (Glorified and Exalted is He), some hardness comes over the heart, even if he has an excuse for leaving them."
+    },
+    {
+      "t": "p",
+      "ar": "وَلِهَذَا فَإِنَّ الْمَرْأَةَ نَاقِصَةُ عَقْلٍ وَدِينٍ، كَمَا قَالَ النَّبِيُّ ﷺ: «النِّسَاءُ نَاقِصَاتُ عَقْلٍ وَدِينٍ»، وَنُقْصَانُ دِينِهِنَّ بِنُقْصَانِ الصَّلَاةِ وَالصِّيَامِ، وَإِنْ كَانَتْ مَعْذُورَةً فِي ذَلِكَ؛ فَتَرْكُ شَيْءٍ مِنَ الْعِبَادَاتِ – حَتَّى إِنْ كَانَ الْإِنْسَانُ مَعْذُورًا – يُسَبِّبُ قَسْوَةً فِي الْقَلْبِ.",
+      "en": "This is why a woman is described as lacking in intellect and religion, as the Prophet ﷺ said: “Women are lacking in intellect and religion.” The lack in their religion is the prayers and fasts they miss, even though they are excused in that. So leaving some acts of worship causes hardness in the heart, even when a person is excused."
+    },
+    {
+      "t": "p",
+      "ar": "وَيَقُولُ النَّبِيُّ ﷺ:",
+      "en": "And the Prophet ﷺ said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«إِنَّهُ لَيُغَانُ عَلَى قَلْبِي، وَإِنِّي لَأَسْتَغْفِرُ اللَّهَ فِي الْيَوْمِ مِائَةَ مَرَّةٍ»",
+      "en": "“A veil comes over my heart, and I seek Allah’s forgiveness a hundred times a day.”",
+      "ref": {
+        "ar": "صَحِيحُ مُسْلِمٍ 7033",
+        "en": "Ṣaḥīḥ Muslim 7033"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَالْغَيْنُ: قَالَ الْعُلَمَاءُ فِي الْفَرْقِ بَيْنَ الْغَيْنِ وَالرَّيْنِ: أَنَّ الْغَيْنَ وَحْشَةٌ تَعْتَرِي الْقَلْبَ بِسَبَبِ تَرْكِ شَيْءٍ مِنَ النَّوَافِلِ أَوِ الْمُسْتَحَبَّاتِ؛ فَالنَّبِيُّ ﷺ نَفْسُهُ قَالَ: «إِنَّهُ لَيُغَانُ عَلَى قَلْبِي»، يَعْنِي: يَحْصُلُ شَيْءٌ مِنَ الْوَحْشَةِ بِسَبَبِ تَرْكِ شَيْءٍ مِنَ النَّوَافِلِ الَّتِي كَانَ النَّبِيُّ ﷺ يُكْثِرُ مِنْهَا، «وَإِنِّي لَأَسْتَغْفِرُ اللَّهَ فِي الْيَوْمِ مِائَةَ مَرَّةٍ»؛ هَذَا عِلَاجُ هَذَا الْغَيْنِ، وَذَهَابُهُ الِاسْتِغْفَارُ.",
+      "en": "As for the ghayn (the veil): distinguishing between ghayn and rayn (the stain), the scholars say that ghayn is a desolation that comes over the heart because some voluntary or recommended deeds were left. The Prophet ﷺ himself said, “A veil comes over my heart,” meaning that some of this desolation came about because he had left some of the voluntary deeds he used to do often. “And I seek Allah’s forgiveness a hundred times a day”: that is the cure for this veil, and seeking forgiveness is what removes it."
+    },
+    {
+      "t": "sub",
+      "ar": "سَمَاعُ الْأَغَانِي وَالْمَعَازِفِ",
+      "en": "Listening to Songs and Musical Instruments"
+    },
+    {
+      "t": "p",
+      "ar": "كَذَلِكَ مِنْ أَسْبَابِ قَسْوَةِ الْقَلْبِ – أَعَاذَنَا اللَّهُ وَإِيَّاكُمْ مِنْهَا – سَمَاعُ الْأَغَانِي وَالْمَعَازِفِ، وَالِاسْتِمَاعُ إِلَى الْمَلَاهِي، وَإِلَى الْأَغَانِي وَالْمَعَازِفِ، وَهَذِهِ تُقَسِّي الْقَلْبَ أَعْظَمَ قَسْوَةٍ، وَفِي هَذَا يَقُولُ عَبْدُ اللَّهِ بْنُ مَسْعُودٍ رَضِيَ اللَّهُ عَنْهُ:",
+      "en": "Another cause of hardness of the heart (may Allah protect us and you from it) is listening to songs and musical instruments, listening to idle amusements, songs and instruments. These harden the heart most severely. About this ʿAbdullāh ibn Masʿūd (may Allah be pleased with him) said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«الْغِنَاءُ يُنْبِتُ النِّفَاقَ فِي الْقَلْبِ كَمَا يُنْبِتُ الْمَاءُ الزَّرْعَ»",
+      "en": "“Singing grows hypocrisy in the heart as water grows crops.”",
+      "ref": {
+        "ar": "سُنَنُ الْبَيْهَقِيِّ 21536",
+        "en": "Sunan al-Bayhaqī 21536"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "كُلَّمَا كَانَ الْإِنْسَانُ مِمَّنْ يَسْتَمِعُ إِلَى الطَّرَبِ وَالْأَغَانِي وَالْمَعَازِفِ، كُلَّمَا قَسَا قَلْبُهُ بِقَدْرِ اسْتِكْثَارِهِ مِنْ سَمَاعِ هَذِهِ الْأَغَانِي وَالْمَعَازِفِ، وَالْغِنَاءُ يُنْبِتُ النِّفَاقَ فِي الْقَلْبِ كَمَا يُنْبِتُ الْمَاءُ الزَّرْعَ؛ كُلَّمَا اسْتَمَعَ إِلَى الْأَغَانِي كَأَنَّهُ رَوَى بَذْرَةَ النِّفَاقِ فِي قَلْبِهِ، وَالْعِيَاذُ بِاللَّهِ تَعَالَى.",
+      "en": "The more a person listens to music, songs and instruments, the harder his heart becomes, in proportion to how much of these songs and instruments he listens to. Singing grows hypocrisy in the heart as water grows crops: every time he listens to songs, it is as if he has watered the seed of hypocrisy in his heart, and we seek refuge in Allah the Exalted."
+    },
+    {
+      "t": "sub",
+      "ar": "كَثْرَةُ الْكَلَامِ بِغَيْرِ ذِكْرِ اللَّهِ",
+      "en": "Much Talk Without the Remembrance of Allah"
+    },
+    {
+      "t": "p",
+      "ar": "كَذَلِكَ مِنْ أَسْبَابِ قَسْوَةِ الْقَلْبِ – أَعَاذَنَا اللَّهُ وَإِيَّاكُمْ مِنْهَا – كَثْرَةُ الْكَلَامِ بِغَيْرِ ذِكْرِ اللَّهِ عَزَّ وَجَلَّ. طَبْعًا يُبَاحُ لِلْإِنْسَانِ أَنْ يَتَكَلَّمَ فِي أُمُورِ حَيَاتِهِ، وَأُمُورِ مَعَاشِهِ، وَلَكِنْ لَا يَنْبَغِي أَنْ يُكْثِرَ الْإِنْسَانُ مِنْ ذَلِكَ؛ إِذَا اعْتَادَ الْإِنْسَانُ أَنْ يَكُونَ أَكْثَرُ كَلَامِهِ فِي أُمُورِ الدُّنْيَا وَأُمُورِ الْمَعَاشِ، وَأَقَلُّ الْكَلَامِ بِذِكْرِ اللَّهِ سُبْحَانَهُ وَتَعَالَى، أَدَّى هَذَا إِلَى قَسْوَةِ الْقَلْبِ.",
+      "en": "Another cause of hardness of the heart (may Allah protect us and you from it) is much talk without the remembrance of Allah (Mighty and Majestic is He). Of course, a person may talk about the affairs of his life and his livelihood, but he should not do so excessively. When a person grows used to most of his talk being about worldly affairs and earning a living, and the least of it being the remembrance of Allah (Glorified and Exalted is He), this leads to hardness of the heart."
+    },
+    {
+      "t": "p",
+      "ar": "فَالْإِنْسَانُ لَهُ أَنْ يَتَكَلَّمَ فِي أُمُورِ الدُّنْيَا، وَأُمُورِ حَيَاتِهِ، وَلَكِنْ عَلَيْهِ كَذَلِكَ أَنْ يُكْثِرَ مِنْ ذِكْرِ اللَّهِ سُبْحَانَهُ وَتَعَالَى، وَأَنْ يُكْثِرَ مِنَ الْحَدِيثِ النَّافِعِ، وَفِي هَذَا الْمَعْنَى جَاءَ حَدِيثُ عَبْدِ اللَّهِ بْنِ عُمَرَ رَضِيَ اللَّهُ عَنْهُمَا الَّذِي رَوَاهُ التِّرْمِذِيُّ أَنَّ النَّبِيَّ ﷺ قَالَ:",
+      "en": "So a person may talk about worldly matters and the affairs of his life, but he must also remember Allah (Glorified and Exalted is He) often and speak often of what is beneficial. On this comes the hadith of ʿAbdullāh ibn ʿUmar (may Allah be pleased with them both), narrated by al-Tirmidhī, that the Prophet ﷺ said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«لَا تُكْثِرُوا الْكَلَامَ بِغَيْرِ ذِكْرِ اللَّهِ، فَإِنَّ كَثْرَةَ الْكَلَامِ بِغَيْرِ ذِكْرِ اللَّهِ قَسْوَةٌ لِلْقَلْبِ، وَإِنَّ أَبْعَدَ النَّاسِ مِنَ اللَّهِ الْقَلْبُ الْقَاسِي»",
+      "en": "“Do not talk much without the remembrance of Allah, for much talk without the remembrance of Allah is hardness of the heart, and the furthest of people from Allah is the hard heart.”",
+      "ref": {
+        "ar": "سُنَنُ التِّرْمِذِيِّ 2593",
+        "en": "Sunan al-Tirmidhī 2593"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَفِي هَذَا الْمَعْنَى أَيْضًا جَاءَ فِي مُوَطَّأِ مَالِكٍ أَنَّ الْإِمَامَ مَالِكًا قَالَ: بَلَغَنِي أَنَّ عِيسَى ابْنَ مَرْيَمَ عَلَيْهِ السَّلَامُ كَانَ يَقُولُ:",
+      "en": "On this too, it comes in the Muwaṭṭaʾ that Imam Mālik said: It reached me that ʿĪsā, the son of Maryam (peace be upon him), used to say:"
+    },
+    {
+      "t": "quote",
+      "ar": "«لَا تُكْثِرُوا الْكَلَامَ بِغَيْرِ ذِكْرِ اللَّهِ فَتَقْسُوَ قُلُوبُكُمْ، فَإِنَّ الْقَلْبَ الْقَاسِيَ بَعِيدٌ مِنَ اللَّهِ وَلَكِنْ لَا تَعْلَمُونَ، وَلَا تَنْظُرُوا فِي ذُنُوبِ النَّاسِ كَأَنَّكُمْ أَرْبَابٌ، وَانْظُرُوا فِي ذُنُوبِكُمْ كَأَنَّكُمْ عَبِيدٌ، فَإِنَّمَا النَّاسُ مُبْتَلًى وَمُعَافًى، فَارْحَمُوا أَهْلَ الْبَلَاءِ، وَاحْمَدُوا اللَّهَ عَلَى الْعَافِيَةِ»",
+      "en": "“Do not talk much without the remembrance of Allah, lest your hearts harden, for the hard heart is far from Allah, but you do not know. Do not look at people’s sins as if you were lords, but look at your own sins as if you were slaves. People are only afflicted or kept safe: so have mercy on the afflicted, and praise Allah for your well-being.”",
+      "ref": {
+        "ar": "مُوَطَّأُ مَالِكٍ 1821",
+        "en": "Muwaṭṭaʾ Mālik 1821"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "هَكَذَا ذَكَرَ الْإِمَامُ مَالِكٌ عَنْ عِيسَى ابْنِ مَرْيَمَ عَلَيْهِ السَّلَامُ فِي مُوَطَّئِهِ أَنَّهُ كَانَ يَقُولُ هَذَا: «لَا تُكْثِرُوا الْكَلَامَ بِغَيْرِ ذِكْرِ اللَّهِ فَتَقْسُوَ قُلُوبُكُمْ، فَإِنَّ الْقَلْبَ الْقَاسِيَ بَعِيدٌ مِنَ اللَّهِ وَلَكِنْ لَا تَعْلَمُونَ، وَلَا تَنْظُرُوا فِي ذُنُوبِ النَّاسِ كَأَنَّكُمْ أَرْبَابٌ» – لِأَنَّ اللَّهَ سُبْحَانَهُ وَتَعَالَى هُوَ الَّذِي سَيُحَاسِبُ عَبِيدَهُ عَلَى مَا يَعْمَلُونَ – «وَانْظُرُوا فِي ذُنُوبِكُمْ كَأَنَّكُمْ عَبِيدٌ» – الْإِنْسَانُ يَنْظُرُ إِلَى النَّاسِ وَيَعْلَمُ أَنَّهُ عَبْدٌ مُذْنِبٌ خَطَّاءٌ مِثْلُهُمْ – «فَإِنَّمَا النَّاسُ مُبْتَلًى وَمُعَافًى، فَارْحَمُوا أَهْلَ الْبَلَاءِ» – الْإِنْسَانُ إِذَا رَأَى مُبْتَلًى عَلَيْهِ أَنْ يَرْحَمَهُ وَيُشْفِقَ عَلَيْهِ – «وَاحْمَدُوا اللَّهَ عَلَى الْعَافِيَةِ».",
+      "en": "So Imam Mālik reported in his Muwaṭṭaʾ that ʿĪsā, the son of Maryam (peace be upon him), used to say: “Do not talk much without the remembrance of Allah, lest your hearts harden, for the hard heart is far from Allah, but you do not know. Do not look at people’s sins as if you were lords” (for it is Allah, Glorified and Exalted is He, who will call His servants to account for what they do), “but look at your own sins as if you were slaves” (a person looks at people knowing that he is a sinning, erring servant just like them). “People are only afflicted or kept safe: so have mercy on the afflicted” (when a person sees someone afflicted, he should have mercy on him and feel for him), “and praise Allah for your well-being.”"
+    },
+    {
+      "t": "p",
+      "ar": "فَإِذًا كَثْرَةُ الْكَلَامِ بِغَيْرِ ذِكْرِ اللَّهِ عَزَّ وَجَلَّ مِنَ الْأَسْبَابِ الْمُؤَدِّيَةِ لِقَسْوَةِ الْقَلْبِ.",
+      "en": "So much talk without the remembrance of Allah (Mighty and Majestic is He) is one of the causes that lead to hardness of the heart."
+    },
+    {
+      "t": "sub",
+      "ar": "كَثْرَةُ الْمِزَاحِ وَالضَّحِكِ",
+      "en": "Much Joking and Laughter"
+    },
+    {
+      "t": "p",
+      "ar": "كَذَلِكَ أَيْضًا كَثْرَةُ الْمِزَاحِ وَالضَّحِكِ؛ وَالْمِزَاحُ وَالضَّحِكُ أَيْضًا مُبَاحٌ، وَكَانَ رَسُولُ اللَّهِ ﷺ يَمْزَحُ وَلَا يَقُولُ إِلَّا حَقًّا، وَلَكِنَّ الشَّأْنَ فِي الْإِكْثَارِ مِنْهُ بِحَيْثُ تُصْبِحُ حَيَاةُ الْإِنْسَانِ كُلُّهَا لَهْوًا وَلَعِبًا، كَمَا هُوَ حَالُ كَثِيرٍ مِنَ النَّاسِ؛ فَالْإِكْثَارُ مِنَ الْمِزَاحِ وَالضَّحِكِ، وَاسْتِغْرَاقُ الْأَوْقَاتِ فِي هَذَا، مِنْ أَسْبَابِ قَسْوَةِ الْقَلْبِ كَذَلِكَ.",
+      "en": "Likewise, much joking and laughter. Joking and laughter are permitted too, and the Messenger of Allah ﷺ used to joke, yet he said nothing but the truth. The problem is doing it so much that a person’s whole life becomes amusement and play, as is the state of many people. So much joking and laughter, and losing one’s time in it, is also one of the causes of hardness of the heart."
+    },
+    {
+      "t": "p",
+      "ar": "وَجَاءَ فِي تَفْسِيرِ قَوْلِهِ تَعَالَى:",
+      "en": "It comes in the explanation of the words of Allah the Exalted:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿أَلَمْ يَأْنِ لِلَّذِينَ آمَنُوا أَنْ تَخْشَعَ قُلُوبُهُمْ لِذِكْرِ اللَّهِ وَمَا نَزَلَ مِنَ الْحَقِّ وَلَا يَكُونُوا كَالَّذِينَ أُوتُوا الْكِتَابَ مِنْ قَبْلُ فَطَالَ عَلَيْهِمُ الْأَمَدُ فَقَسَتْ قُلُوبُهُمْ﴾",
+      "en": "“Has the time not come for those who have believed that their hearts should become humbly submissive at the remembrance of Allah and what has come down of the truth? And let them not be like those who were given the Scripture before, and a long period passed over them, so their hearts hardened.”",
+      "ref": {
+        "ar": "الْحَدِيد: 16",
+        "en": "al-Ḥadīd 57:16"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "جَاءَ فِي سَبَبِ نُزُولِ هَذِهِ الْآيَةِ الْكَرِيمَةِ – كَمَا رَوَى ابْنُ أَبِي شَيْبَةَ فِي مُصَنَّفِهِ – أَنَّ أَصْحَابَ مُحَمَّدٍ ﷺ ظَهَرَ فِيهِمُ الْمِزَاحُ وَالضَّحِكُ؛ فِي فَتْرَةٍ مِنَ الْفَتَرَاتِ كَثُرَ الْمِزَاحُ وَالضَّحِكُ فِي أَصْحَابِ النَّبِيِّ ﷺ، فَأَنْزَلَ اللَّهُ تَعَالَى هَذِهِ الْآيَةَ:",
+      "en": "About the occasion of this noble āyah, Ibn Abī Shaybah narrated in his Muṣannaf that joking and laughter appeared among the Companions of Muhammad ﷺ: for a time there was much joking and laughter among the Companions of the Prophet ﷺ, and Allah the Exalted revealed this āyah:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿أَلَمْ يَأْنِ لِلَّذِينَ آمَنُوا أَنْ تَخْشَعَ قُلُوبُهُمْ لِذِكْرِ اللَّهِ وَمَا نَزَلَ مِنَ الْحَقِّ وَلَا يَكُونُوا كَالَّذِينَ أُوتُوا الْكِتَابَ مِنْ قَبْلُ فَطَالَ عَلَيْهِمُ الْأَمَدُ فَقَسَتْ قُلُوبُهُمْ وَكَثِيرٌ مِنْهُمْ فَاسِقُونَ﴾",
+      "en": "“Has the time not come for those who have believed that their hearts should become humbly submissive at the remembrance of Allah and what has come down of the truth? And let them not be like those who were given the Scripture before, and a long period passed over them, so their hearts hardened; and many of them are defiantly disobedient.”",
+      "ref": {
+        "ar": "الْحَدِيد: 16",
+        "en": "al-Ḥadīd 57:16"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "فَإِذًا كَثْرَةُ الْمِزَاحِ وَالضَّحِكِ تُؤَدِّي إِلَى قَسْوَةِ الْقَلْبِ، لَكِنْ – كَمَا بَيَّنَّا – فَإِنَّ النَّبِيَّ ﷺ كَانَ يَضْحَكُ، وَأَحْيَانًا كَانَ يَمْزَحُ وَلَا يَقُولُ إِلَّا حَقًّا ﷺ، وَلَكِنَّهُ كَانَ لَا يَتَّخِذُ دِينَهُ لَهْوًا وَلَعِبًا، وَيَقْضِي حَيَاتَهُ فِي الضَّحِكِ وَالْعَبَثِ.",
+      "en": "So much joking and laughter leads to hardness of the heart. But, as we have explained, the Prophet ﷺ did laugh, and at times he joked, yet he said nothing but the truth ﷺ. He did not, however, take his religion as amusement and play, or spend his life in laughter and frivolity."
+    },
+    {
+      "t": "p",
+      "ar": "فَإِذًا يَجُوزُ الْمِزَاحُ وَالضَّحِكُ، وَلَكِنْ لَا يَنْبَغِي أَنْ يُكْثِرَ مِنْهُ الْإِنْسَانُ؛ لِأَنَّ كَثْرَتَهُ تُؤَدِّي إِلَى قَسْوَةِ الْقَلْبِ، أَعَاذَنَا اللَّهُ وَإِيَّاكُمْ مِنْهَا.",
+      "en": "So joking and laughter are allowed, but a person should not do them to excess, because too much of them leads to hardness of the heart, may Allah protect us and you from it."
+    },
+    {
+      "t": "sub",
+      "ar": "الْبُعْدُ عَنْ مَجَالِسِ الْعِلْمِ",
+      "en": "Staying Away from Gatherings of Knowledge"
+    },
+    {
+      "t": "p",
+      "ar": "كَذَلِكَ مِنَ الْأَسْبَابِ الْبُعْدُ عَنْ مَجَالِسِ الْعِلْمِ، وَالْبُعْدُ عَنْ سَمَاعِ خُطَبِ الْجُمُعَةِ، وَعَنْ شُهُودِ الصَّلَاةِ فِي الْمَسَاجِدِ؛ الْبُعْدُ عَنْ ذَلِكَ مِمَّا يُؤَدِّي إِلَى قَسْوَةِ الْقَلْبِ؛ لِأَنَّ سَمَاعَ ذِكْرِ اللَّهِ سُبْحَانَهُ، وَسَمَاعَ الْوَعْظِ مِمَّا يُرَقِّقُ قَلْبَ الْإِنْسَانِ، فَإِذَا ابْتَعَدَ الْإِنْسَانُ عَنْ سَمَاعِ مَجَالِسِ الذِّكْرِ، وَسَمَاعِ خُطَبِ الْجُمُعَةِ، وَنَحْوِهَا مِمَّا يُذَكِّرُ الْإِنْسَانَ بِاللَّهِ سُبْحَانَهُ وَتَعَالَى، فَإِنَّ هَذَا الْإِعْرَاضَ يُؤَدِّي إِلَى قَسْوَةِ الْقَلْبِ، أَعَاذَنَا اللَّهُ وَإِيَّاكُمْ مِنْهَا.",
+      "en": "Another cause is staying away from gatherings of knowledge, from listening to the Friday khuṭbahs and from attending the prayer in the mosques. Staying away from these leads to hardness of the heart, because hearing the remembrance of Allah (Glorified is He) and hearing admonition soften a person’s heart. When a person keeps away from gatherings of remembrance, from the Friday khuṭbahs and the like, which remind him of Allah (Glorified and Exalted is He), this turning away leads to hardness of the heart, may Allah protect us and you from it."
+    },
+    {
+      "t": "head",
+      "ar": "مَظَاهِرُ قَسْوَةِ الْقَلْبِ",
+      "en": "The Signs of Hardness of the Heart"
+    },
+    {
+      "t": "p",
+      "ar": "وَأَبْرَزُ مَظَاهِرِ قَسْوَةِ الْقَلْبِ انْعِدَامُ الرَّحْمَةِ؛ لِأَنَّ الرَّحْمَةَ هِيَ لِينُ الْقَلْبِ وَرِقَّتُهُ، عَكْسُ الْقَسْوَةِ، فَمِنَ الْمَظَاهِرِ الَّتِي تَدُلُّ عَلَى قَسْوَةِ قَلْبِ الْإِنْسَانِ انْعِدَامُ الرَّحْمَةِ مِنْ قَلْبِهِ تُجَاهَ الْمَخْلُوقَاتِ؛ لِأَنَّهُ كُلَّمَا قَسَا الْقَلْبُ كُلَّمَا قَلَّتْ رَحْمَةُ الْإِنْسَانِ بِخَلْقِ اللَّهِ سُبْحَانَهُ وَتَعَالَى.",
+      "en": "The clearest sign of hardness of the heart is the absence of mercy, because mercy is the softness and tenderness of the heart, the opposite of hardness. So among the signs that a person’s heart has hardened is the absence of mercy in his heart toward other creatures, because the harder the heart becomes, the less mercy a person has for the creation of Allah (Glorified and Exalted is He)."
+    },
+    {
+      "t": "p",
+      "ar": "وَفِي هَذَا الْمَعْنَى جَاءَ فِي الصَّحِيحِ حَدِيثُ الْأَقْرَعِ بْنِ حَابِسٍ التَّمِيمِيِّ – وَكَانَ حَدِيثَ الْإِسْلَامِ، وَكَانَ مِنْ جُفَاةِ الْأَعْرَابِ – فَدَخَلَ عَلَى النَّبِيِّ ﷺ وَهُوَ يُقَبِّلُ الْحَسَنَ أَوِ الْحُسَيْنَ، أَوْلَادَ بِنْتِهِ فَاطِمَةَ رَضِيَ اللَّهُ عَنْهَا، فَقَالَ الْأَقْرَعُ: «إِنَّ لِي عَشَرَةً مِنَ الْوَلَدِ مَا قَبَّلْتُ مِنْهُمْ أَحَدًا»، فَقَالَ النَّبِيُّ ﷺ:",
+      "en": "On this comes, in the Ṣaḥīḥ, the hadith of al-Aqraʿ ibn Ḥābis al-Tamīmī. He was new to Islam and one of the rough Bedouins. He came in to the Prophet ﷺ while he was kissing al-Ḥasan or al-Ḥusayn, the children of his daughter Fāṭimah (may Allah be pleased with her), and al-Aqraʿ said, “I have ten children, and I have never kissed any of them.” The Prophet ﷺ said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«أَوَأَمْلِكُ أَنْ نَزَعَ اللَّهُ الرَّحْمَةَ مِنْ قَلْبِكَ، مَنْ لَا يَرْحَمُ لَا يُرْحَمُ»",
+      "en": "“What can I do for you if Allah has taken mercy out of your heart? Whoever does not show mercy will not be shown mercy.”"
+    },
+    {
+      "t": "p",
+      "ar": "وَقَالَ رَسُولُ اللَّهِ ﷺ – كَمَا فِي حَدِيثِ عَبْدِ اللَّهِ بْنِ عَمْرٍو رَضِيَ اللَّهُ عَنْهُمَا، كَمَا عِنْدَ الْإِمَامِ أَحْمَدَ وَغَيْرِهِ – أَنَّ النَّبِيَّ ﷺ قَالَ:",
+      "en": "And the Messenger of Allah ﷺ said, as in the hadith of ʿAbdullāh ibn ʿAmr (may Allah be pleased with them both) reported by Imam Aḥmad and others, that the Prophet ﷺ said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«الرَّاحِمُونَ يَرْحَمُهُمُ الرَّحْمَنُ، ارْحَمُوا مَنْ فِي الْأَرْضِ يَرْحَمْكُمْ مَنْ فِي السَّمَاءِ»",
+      "en": "“The merciful are shown mercy by the Most Merciful. Have mercy on those on the earth, and the One above the heavens will have mercy on you.”",
+      "ref": {
+        "ar": "سُنَنُ التِّرْمِذِيِّ 2049",
+        "en": "Sunan al-Tirmidhī 2049"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "فَمِنْ مَظَاهِرِ قَسْوَةِ الْقَلْبِ انْعِدَامُ الرَّحْمَةِ لِخَلْقِ اللَّهِ حَتَّى بِالْحَيَوَانِ؛ فَالْقَسْوَةُ مَعَ الْحَيَوَانِ أَيْضًا مِنْ مَظَاهِرِ قَسْوَةِ الْقَلْبِ. وَقَدْ أَخْبَرَ النَّبِيُّ ﷺ أَنَّ امْرَأَةً دَخَلَتِ النَّارَ فِي هِرَّةٍ حَبَسَتْهَا، لَا هِيَ أَطْعَمَتْهَا وَسَقَتْهَا، وَلَا هِيَ تَرَكَتْهَا تَأْكُلُ مِنْ خَشَاشِ الْأَرْضِ.",
+      "en": "So among the signs of hardness of the heart is having no mercy for the creation of Allah, even for animals: cruelty to animals is also a sign of a hard heart. The Prophet ﷺ told of a woman who entered the Fire because of a cat she shut up, neither feeding it and giving it water nor letting it eat of the creatures of the earth."
+    },
+    {
+      "t": "p",
+      "ar": "وَأَنَّ امْرَأَةً بَغِيًّا مِنْ بَغَايَا بَنِي إِسْرَائِيلَ رَأَتْ كَلْبًا يَلْهَثُ، يَأْكُلُ الثَّرَى مِنْ شِدَّةِ الْعَطَشِ، فَخَلَعَتْ خُفَّهَا فَسَقَتْهُ؛ رَحِمَتْ هَذَا الْكَلْبَ فَخَلَعَتْ خُفَّهَا فَسَقَتْهُ، قَالَ النَّبِيُّ ﷺ: «فَشَكَرَ اللَّهُ لَهَا فَغَفَرَ لَهَا»؛ غَفَرَ اللَّهُ لَهَا ذَنْبَهَا الْعَظِيمَ بِهَذِهِ الرَّحْمَةِ الَّتِي وُجِدَتْ فِي قَلْبِهَا.",
+      "en": "And he told of a prostitute from among the prostitutes of the Children of Israel who saw a dog panting, eating the damp earth from the severity of its thirst. She took off her shoe and gave it water: she had mercy on this dog, took off her shoe and gave it water. The Prophet ﷺ said, “So Allah thanked her for it and forgave her.” Allah forgave her great sin because of this mercy that was found in her heart."
+    },
+    {
+      "t": "head",
+      "ar": "عِلَاجُ قَسْوَةِ الْقَلْبِ",
+      "en": "The Cure for Hardness of the Heart"
+    },
+    {
+      "t": "p",
+      "ar": "أَمَّا الْعِلَاجُ الَّذِي يُعَالِجُ بِهِ الْإِنْسَانُ نَفْسَهُ مِنْ قَسْوَةِ الْقَلْبِ، فَهُوَ مَا يَلِي:",
+      "en": "As for the cure with which a person can treat himself for hardness of the heart, it is as follows."
+    },
+    {
+      "t": "sub",
+      "ar": "تَوَقِّي أَسْبَابِ الْمَرَضِ",
+      "en": "Guarding Against the Causes of the Illness"
+    },
+    {
+      "t": "p",
+      "ar": "أَوَّلُ أَسْبَابِ الْعِلَاجِ: أَنْ يَتَوَقَّى الْإِنْسَانُ أَسْبَابَ الْمَرَضِ، بِأَنْ يَبْتَعِدَ عَنِ الْأَسْبَابِ الَّتِي تُؤَدِّي إِلَى قَسْوَةِ الْقَلْبِ الَّتِي ذَكَرْنَاهَا.",
+      "en": "The first means of cure is for a person to guard against the causes of the illness, by keeping away from the causes of hardness of the heart that we have mentioned."
+    },
+    {
+      "t": "sub",
+      "ar": "الِاسْتِمَاعُ إِلَى الْمَوَاعِظِ",
+      "en": "Listening to Admonition"
+    },
+    {
+      "t": "p",
+      "ar": "ثَانِيًا: الِاسْتِمَاعُ إِلَى الْمَوَاعِظِ، وَإِلَى ذِكْرِ اللَّهِ سُبْحَانَهُ وَتَعَالَى؛ أَنْ يَجْعَلَ الْإِنْسَانُ لِنَفْسِهِ وَقْتًا يَسْتَمِعُ فِيهِ إِلَى الْوَعْظِ وَالتَّذْكِيرِ، إِمَّا بِالْحُضُورِ إِلَى الْمَسَاجِدِ لِسَمَاعِ مَجَالِسِ الْعِلْمِ الَّتِي يَكُونُ فِيهَا التَّذْكِيرُ بِاللَّهِ سُبْحَانَهُ وَتَعَالَى؛ لِأَنَّ الْوَعْظَ يُحْيِي الْقَلْبَ، فَإِنْ لَمْ يَسْتَطِعِ الْإِنْسَانُ فَلْيَسْتَمِعْ إِلَى الْأَشْرِطَةِ، وَإِلَى بَعْضِ الْمَوَاقِعِ الْإِسْلَامِيَّةِ عَلَى شَبَكَةِ الْإِنْتَرْنِتْ وَغَيْرِهَا، يَسْتَمِعُ فِيهَا إِلَى شَيْءٍ مِنَ الْمَوَاعِظِ، وَيَجْعَلُ لِنَفْسِهِ وَقْتًا لَا بُدَّ أَنْ يَسْتَمِعَ فِيهِ إِلَى الْوَعْظِ حَتَّى يَرِقَّ قَلْبُهُ وَيَلِينَ، وَيُزِيلَ الْإِنْسَانُ هَذِهِ الْغِشَاوَةَ الَّتِي تُغَطِّي الْقَلْبَ.",
+      "en": "Second: listening to admonitions and to the remembrance of Allah (Glorified and Exalted is He). A person should set aside a time in which he listens to admonition and reminders: either by going to the mosques to attend gatherings of knowledge in which people are reminded of Allah (Glorified and Exalted is He), for admonition gives life to the heart; or, if he cannot, by listening to recordings and to some Islamic websites and the like, where he can hear some admonitions. He should set aside a time in which he makes sure to listen to admonition, so that his heart grows tender and soft and he removes this film that covers the heart."
+    },
+    {
+      "t": "p",
+      "ar": "فَإِنَّ الْمَوْعِظَةَ تُرَقِّقُ الْقَلْبَ، كَمَا جَاءَ فِي حَدِيثِ الْعِرْبَاضِ بْنِ سَارِيَةَ رَضِيَ اللَّهُ عَنْهُ قَالَ:",
+      "en": "For admonition softens the heart, as in the hadith of al-ʿIrbāḍ ibn Sāriyah (may Allah be pleased with him), who said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«فَوَعَظَنَا رَسُولُ اللَّهِ ﷺ مَوْعِظَةً بَلِيغَةً وَجِلَتْ مِنْهَا الْقُلُوبُ، وَذَرَفَتْ مِنْهَا الْعُيُونُ»",
+      "en": "“The Messenger of Allah ﷺ admonished us with a moving admonition at which hearts trembled and eyes shed tears.”",
+      "ref": {
+        "ar": "سُنَنُ أَبِي دَاوُدَ 4609",
+        "en": "Sunan Abī Dāwūd 4609"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "فَالْمَوْعِظَةُ تُرَقِّقُ الْقَلْبَ، وَكَذَلِكَ جَاءَ فِي الصَّحِيحِ أَنَّ مُوسَى عَلَيْهِ السَّلَامُ ذَكَّرَ بَنِي إِسْرَائِيلَ يَوْمًا حَتَّى وَجِلَتْ قُلُوبُهُمْ، وَذَرَفَتْ عُيُونُهُمْ. فَإِذًا الْمَوْعِظَةُ تُرَقِّقُ الْقَلْبَ، لَا سِيَّمَا إِذَا حَسُنَ قَصْدُ الْوَاعِظِ أَوِ النَّاصِحِ، وَكَذَلِكَ صَادَفَ هَذَا قَلْبًا يَقْبَلُ هَذِهِ الْمَوْعِظَةَ؛ لِأَنَّ قُلُوبَ النَّاسِ كَذَلِكَ مِثْلُ الْأَرْضِ: مِنْهَا أَرْضٌ طَيِّبَةٌ تَسْتَقْبِلُ هَذَا الْوَعْظَ فَتَنْفَعِلُ بِهِ وَتَتَأَثَّرُ، وَيَظْهَرُ لِذَلِكَ أَثَرٌ عَلَى الْجَوَارِحِ، وَعَلَى الْعَمَلِ، وَهُنَاكَ قُلُوبٌ قَاسِيَةٌ مِثْلُ الْأَرْضِ الصُّلْبَةِ الَّتِي لَا تُنْفِذُ الْمَاءَ وَلَا تُنْبِتُ الْكَلَأَ.",
+      "en": "So admonition softens the heart. It is also reported in the Ṣaḥīḥ that Mūsā (peace be upon him) reminded the Children of Israel one day until their hearts trembled and their eyes shed tears. So admonition softens the heart, especially when the one admonishing or advising has a good intention, and when it meets a heart that accepts the admonition. For people’s hearts are like the earth: some is good land that receives this admonition, responds to it and is moved by it, and its effect shows on the limbs and in deeds; and there are hard hearts, like hard ground that lets no water through and grows no pasture."
+    },
+    {
+      "t": "sub",
+      "ar": "تِلَاوَةُ الْقُرْآنِ الْكَرِيمِ وَذِكْرُ اللَّهِ",
+      "en": "Reciting the Noble Qurʾān and Remembering Allah"
+    },
+    {
+      "t": "p",
+      "ar": "ثَالِثًا مِنْ أَسْبَابِ الْعِلَاجِ كَذَلِكَ: تِلَاوَةُ الْقُرْآنِ الْكَرِيمِ؛ لِأَنَّ الْقُرْآنَ الْكَرِيمَ صِلَةٌ بَيْنَ الْعَبْدِ وَرَبِّهِ، فَعَلَى الْإِنْسَانِ أَنْ يَجْعَلَ لِنَفْسِهِ وِرْدًا مِنْ هَذَا الْكِتَابِ الْعَزِيزِ، يَقْرَأُ الْقُرْآنَ الْكَرِيمَ، وَيَتَدَبَّرُهُ، وَعَدَمُ تَدَبُّرِ الْقُرْآنِ يُؤَدِّي إِلَى انْغِلَاقِ الْقَلْبِ بِالْأَقْفَالِ، كَمَا قَالَ اللَّهُ سُبْحَانَهُ:",
+      "en": "Third among the means of cure: reciting the Noble Qurʾān, because the Noble Qurʾān is a bond between the servant and his Lord. A person should set himself a regular portion of this Mighty Book, reading the Noble Qurʾān and reflecting on it. Not reflecting on the Qurʾān leads to the heart being shut with locks, as Allah (Glorified is He) said:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿أَفَلَا يَتَدَبَّرُونَ الْقُرْآنَ أَمْ عَلَى قُلُوبٍ أَقْفَالُهَا﴾",
+      "en": "“Then do they not reflect upon the Qurʾān, or are there locks upon their hearts?”",
+      "ref": {
+        "ar": "مُحَمَّد: 24",
+        "en": "Muḥammad 47:24"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "الْقُلُوبُ الَّتِي لَا تَتَدَبَّرُ الْقُرْآنَ، وَلَا تَتَدَبَّرُ فِي مَعَانِي هَذَا الْكِتَابِ الْعَزِيزِ، وَفِي مَعَانِي كَلَامِ رَبِّ الْعِزَّةِ سُبْحَانَهُ، هَذِهِ قُلُوبٌ عَلَيْهَا أَقْفَالٌ، فَتَدَبُّرُ الْقُرْآنِ يَفْتَحُ هَذِهِ الْأَقْفَالَ، وَيُرَقِّقُ الْقُلُوبَ، وَيُلَيِّنُهَا.",
+      "en": "Hearts that do not reflect on the Qurʾān, nor on the meanings of this Mighty Book and the meanings of the speech of the Lord of Might (Glorified is He), are hearts with locks upon them. Reflecting on the Qurʾān opens these locks and makes the hearts tender and soft."
+    },
+    {
+      "t": "p",
+      "ar": "وَكَذَلِكَ الْإِكْثَارُ مِنْ ذِكْرِ اللَّهِ سُبْحَانَهُ وَتَعَالَى: إِذَا أَكْثَرَ الْإِنْسَانُ مِنْ قَوْلِ: سُبْحَانَ اللَّهِ، الْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا اللَّهُ، اللَّهُ أَكْبَرُ، لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ، وَهُوَ فِي الطَّرِيقِ يُكْثِرُ مِنْ ذِكْرِ اللَّهِ سُبْحَانَهُ وَتَعَالَى؛ فَذِكْرُ اللَّهِ سُبْحَانَهُ وَتَعَالَى هُوَ غِذَاءُ الْقَلْبِ، وَيُؤَدِّي إِلَى رِقَّتِهِ وَلِينِهِ، قَالَ اللَّهُ سُبْحَانَهُ:",
+      "en": "Likewise, remembering Allah (Glorified and Exalted is He) often: when a person often says “Glory be to Allah,” “All praise is for Allah,” “There is no god but Allah,” “Allah is the Greatest” and “There is no might nor power except by Allah,” remembering Allah (Glorified and Exalted is He) often even as he walks along the road. The remembrance of Allah (Glorified and Exalted is He) is the food of the heart and makes it tender and soft. Allah (Glorified is He) said:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿الَّذِينَ آمَنُوا وَتَطْمَئِنُّ قُلُوبُهُمْ بِذِكْرِ اللَّهِ أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ﴾",
+      "en": "“Those who have believed and whose hearts are assured by the remembrance of Allah. Unquestionably, by the remembrance of Allah hearts are assured.”",
+      "ref": {
+        "ar": "الرَّعْد: 28",
+        "en": "al-Raʿd 13:28"
+      }
+    },
+    {
+      "t": "sub",
+      "ar": "مُخَالَطَةُ الضُّعَفَاءِ وَالْمَسَاكِينِ",
+      "en": "Keeping Company with the Weak and the Poor"
+    },
+    {
+      "t": "p",
+      "ar": "رَابِعًا مِنْ أَسْبَابِ الْعِلَاجِ كَذَلِكَ: مُخَالَطَةُ الضُّعَفَاءِ وَالْمَسَاكِينِ، وَالْبُعْدُ عَنْ أَهْلِ الْقَسْوَةِ، وَأَهْلِ التَّكَبُّرِ، وَأَهْلِ الدُّنْيَا؛ الْإِنْسَانُ إِذَا كَانَ كُلُّ مَنْ حَوْلَهُ مِمَّنْ لَا هَمَّ لَهُ إِلَّا الدُّنْيَا، وَحَدِيثُ الْأَمْوَالِ وَالْبَيْعِ وَالشِّرَاءِ، وَلَا يُصَاحِبُ أَحَدًا مِنَ الْفُقَرَاءِ وَالْمَسَاكِينِ، وَيَعْطِفُ عَلَيْهِمْ، وَيُحْسِنُ إِلَيْهِمْ، فَإِنَّ هَذَا مِمَّا يُقَسِّي الْقَلْبَ.",
+      "en": "Fourth among the means of cure: keeping company with the weak and the poor, and keeping away from people of hardness, arrogance and worldliness. If everyone around a person cares for nothing but this world, money, buying and selling, and he keeps no company with any of the poor and needy, showing them kindness and doing them good, this is something that hardens the heart."
+    },
+    {
+      "t": "p",
+      "ar": "وَهَذَا هُوَ الْعِلَاجُ الَّذِي وَصَفَهُ النَّبِيُّ ﷺ لَمَّا جَاءَ الرَّجُلُ يَشْتَكِي قَسْوَةَ قَلْبِهِ؛ مَاذَا وَصَفَ لَهُ النَّبِيُّ ﷺ مِنَ الْعِلَاجِ؟ فَقَالَ:",
+      "en": "This is the cure the Prophet ﷺ prescribed when the man came complaining of the hardness of his heart. What cure did the Prophet ﷺ prescribe for him? He said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«إِنْ أَرَدْتَ أَنْ يَلِينَ قَلْبُكَ، فَأَطْعِمِ الْمِسْكِينَ، وَامْسَحْ رَأْسَ الْيَتِيمِ»",
+      "en": "“If you want your heart to soften, feed the poor and wipe the head of the orphan.”",
+      "ref": {
+        "ar": "مُسْنَدُ الْإِمَامِ أَحْمَدَ 7787",
+        "en": "Musnad Aḥmad 7787"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَجَاءَ فِي صَحِيحِ مُسْلِمٍ مِنْ حَدِيثِ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ أَنَّ النَّبِيَّ ﷺ قَالَ:",
+      "en": "And in Ṣaḥīḥ Muslim, from the hadith of Abū Hurayrah (may Allah be pleased with him), the Prophet ﷺ said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«السَّاعِي عَلَى الْأَرْمَلَةِ وَالْمِسْكِينِ كَالْمُجَاهِدِ فِي سَبِيلِ اللَّهِ»",
+      "en": "“The one who strives to care for the widow and the poor is like one who fights in the path of Allah.”"
+    },
+    {
+      "t": "p",
+      "ar": "هَذَا عَمَلٌ عَظِيمٌ: أَنْ تَسْعَى عَلَى أَرْمَلَةٍ أَوْ مِسْكِينٍ، أَنْ تَجْعَلَ مِنْ بَيْنِ مَنْ تَعُولُهُ امْرَأَةً أَرْمَلَةً تُوُفِّيَ زَوْجُهَا وَلَا عَائِلَ لَهَا، أَوْ إِنْسَانًا مِسْكِينًا لَا عَائِلَ لَهُ، فَتُنْفِقَ عَلَيْهِ وَتَعُولَهُ وَتَعْطِفَ عَلَيْهِ، فَيَقُولُ النَّبِيُّ ﷺ: «السَّاعِي عَلَى الْأَرْمَلَةِ وَالْمِسْكِينِ كَالْمُجَاهِدِ فِي سَبِيلِ اللَّهِ»، قَالَ أَبُو هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ: وَأَحْسِبُهُ قَالَ:",
+      "en": "This is a great deed: to strive for a widow or a poor person; to count among those you provide for a widow whose husband has died and who has no one to support her, or a poor person with no one to support him, so that you spend on him, provide for him and show him kindness. The Prophet ﷺ says, “The one who strives to care for the widow and the poor is like one who fights in the path of Allah,” and Abū Hurayrah (may Allah be pleased with him) said: I think he also said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«وَكَالْقَائِمِ لَا يَفْتُرُ، وَكَالصَّائِمِ لَا يُفْطِرُ»",
+      "en": "“And like one who stands in prayer without tiring, and one who fasts without breaking his fast.”",
+      "ref": {
+        "ar": "صَحِيحُ مُسْلِمٍ 7659",
+        "en": "Ṣaḥīḥ Muslim 7659"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "يَعْنِي: أَجْرُ السَّاعِي عَلَى الْأَرْمَلَةِ وَالْمِسْكِينِ كَأَجْرِ الْمُجَاهِدِ فِي سَبِيلِ اللَّهِ، وَكَأَجْرِ الْقَائِمِ الَّذِي يُصَلِّي اللَّيْلَ لَا يَفْتُرُ، لَا يَتْعَبُ وَلَا يَمَلُّ، وَالصَّائِمِ الَّذِي لَا يُفْطِرُ.",
+      "en": "That is, the reward of one who strives for the widow and the poor is like the reward of one who fights in the path of Allah, and like the reward of one who stands praying through the night without tiring, never weary or bored, and of one who fasts without breaking his fast."
+    },
+    {
+      "t": "p",
+      "ar": "فَهَذِهِ طُرُقُ الْعِلَاجِ، وَأَسْبَابُ الْوِقَايَةِ مِنْ قَسْوَةِ الْقَلْبِ، أَعَاذَنَا اللَّهُ وَإِيَّاكُمْ مِنْهَا.",
+      "en": "These, then, are the ways of cure and the means of protection from hardness of the heart, may Allah protect us and you from it."
+    },
+    {
+      "t": "p",
+      "ar": "تَمَّ بِحَمْدِ اللَّهِ.",
+      "en": "Completed, with praise to Allah."
+    }
+  ]
+}

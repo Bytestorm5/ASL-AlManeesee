@@ -1,7 +1,7 @@
 import type { Lecture } from './types.ts';
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   The Shaykh's lessons, lectures and khuṭbahs, shown on /lectures and in the
+   The Shaykh's lessons, lectures, khuṭbahs and books, shown on /lectures and in the
    home page's Lectures section by `date`, newest first (src/lectures/
    index.ts sorts them; one without a date goes last, and two on the same
    date keep the order they have here).
@@ -78,6 +78,16 @@ export const LECTURE_REGISTRY: Lecture[] = [
     date: '2026-08-28',
     dateHijri: '15 Rabīʿ al-Awwal 1448 AH',
     description: 'Why the righteous feared their deeds would not be accepted, what ruins a deed, and the qualities of those whose deeds Allah accepts.',
+    written: true,
+  },
+  {
+    id: 'qaswat-al-qalb',
+    title: 'Hardness of the Heart',
+    titleAr: 'قَسْوَةُ الْقَلْبِ',
+    kind: 'book',
+    date: '2015', // first edition, 1436 AH / 2015
+    dateHijri: '1436 AH',
+    description: 'Its causes, signs and cure: how sins, neglected voluntary worship, music, idle talk and too much joking harden the heart, how a hard heart shows in a lack of mercy, and how admonition, the Qurʾān, remembrance of Allah and caring for the poor soften it again.',
     written: true,
   },
 ];
