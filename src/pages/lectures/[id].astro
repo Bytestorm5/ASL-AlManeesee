@@ -140,9 +140,14 @@ const description = lecture.description
         {b.ref && <p class="ref en">{b.ref.en}</p>}
       </blockquote>
     );
+    /* the āyāt and aḥādīth quoted inside the paragraph, for English-only view */
+    const cited = b.t === 'p' && b.quotes !== false ? (b.ar ?? '').match(/﴿[^﴾]*﴾|«[^»]*»/g) ?? [] : [];
     return (
       <div class="ls-p">
         {b.ar && <p class="ar" lang="ar" dir="rtl" set:html={arHtml(b.ar)} />}
+        {cited.length > 0 && (
+          <div class="ls-inq" lang="ar" dir="rtl">{cited.map((c) => <p set:html={arHtml(c)} />)}</div>
+        )}
         <p class="en">{b.en}</p>
       </div>
     );

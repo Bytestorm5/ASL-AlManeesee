@@ -111,7 +111,13 @@ video.lc-media{background:var(--midnight); aspect-ratio:16/9}
 .ls-page[data-show="ar"] .ls .en{display:none}
 .ls-page[data-show="en"] .ls .ar{display:none}
 .ls-page[data-show="en"] .ls-p .en{padding-left:0; border-left:0; margin-top:0; font-size:1.16rem}
-.ls-page[data-show="en"] .ls-ayah .en-side{margin-top:0; padding-top:0; border-top:0}
+/* English only still shows an āyah or a ḥadīth in Arabic, above its English
+   (poetry and plain prose stay English) */
+.ls-page[data-show="en"] .ls-ayah .ar, .ls-page[data-show="en"] .ls-q:not(.ls-verse) .ar{display:block}
+.ls-inq{display:none}
+.ls-page[data-show="en"] .ls-inq{display:block; margin:0 0 4px; padding-right:12px; border-right:2px solid var(--paper-edge);
+  font-family:"Scheherazade New","Amiri",serif; font-size:clamp(1.22rem,3.4vw,1.38rem); line-height:1.85; text-align:right; color:var(--ink)}
+.ls-page[data-show="en"] .ls-inq p{margin:0}
 .ls-note{max-width:720px; margin:30px auto 0; padding:0 20px; text-align:center; font-family:"Montserrat",sans-serif; font-size:.72rem;
   line-height:1.6; color:var(--sage)}
 /* a heading within a section (one of the kinds of heart, say) */

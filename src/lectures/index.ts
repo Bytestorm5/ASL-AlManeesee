@@ -89,6 +89,7 @@ export function lectureTextProblems(id: string, doc: LectureText): string[] {
     }
     pair(where, b);
     if (b.t === 'ayah' && b.ar && !/^﴿[^]*﴾$/.test(b.ar.trim())) out.push(`${id} ${where}: an āyah is written in ﴿ ﴾`);
+    if ('quotes' in b && (b.t !== 'p' || b.quotes !== false)) out.push(`${id} ${where}: quotes can only be false, on a paragraph`);
     if ((b.t === 'ayah' || b.t === 'quote') && b.ref) pair(where + ' ref', b.ref);
   });
   if (doc.blocks?.[0] && !['part', 'head', 'list'].includes(doc.blocks[0].t)) out.push(`${id}: should open with a part, a heading or its summary`);

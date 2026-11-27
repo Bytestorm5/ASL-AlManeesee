@@ -28,6 +28,19 @@ so a change to one is a deploy.
 | `lectures/ahwal-al-qulub.json` | Aḥwāl al-Qulūb, Conditions of the Hearts, khuṭbah no. 1630 (`/lectures/ahwal-al-qulub`) | The Shaykh's Arabic (from almenesi.com, first khuṭbah only; the second is marked there as not provided) paired with Ahmed Abuelyaman's English translation. Arabic as given, with ﷺ restored where the copy had lost it, ﴿ ﴾ around the āyāt, references moved under their quotations (verse numbers supplied; al-Isrāʾ 36 for the copy's "2"), and one long paragraph split at its own sentence breaks. English: his wording in house style (Allah, ﷺ, transliterations, US spelling, typos; al-Baqarah 2:74 for his 73; "side" for "face" and "our hearts" for "my heart", as the Arabic has them). The few lines his translation leaves out (al-Nūr 24:48–49, the saying of the Salaf, "To proceed", "O Allah, āmīn") were translated for this site. The khuṭbah's three summary points head its sections. |
 | `lectures/al-qabul.json` | al-Qabūl, a Friday khuṭbah (`/lectures/al-qabul`) | The Shaykh's text, prepared and delivered at the AMJA Imams' Conference in Dallas, 15 Rabīʿ al-Awwal 1448 AH. The Arabic is his, with typographic tidy-ups only (three missing or stray stops and spaces, and the muṣḥaf vowels on Āl ʿImrān 36); the US-English translation under each paragraph is written for this site. |
 
+English house style for these texts: the familiar Arabic terms stay in
+Arabic rather than being translated, wherever the Arabic uses them: ṣalāh,
+duʿāʾ, dhikr, īmān, taqwā, Jannah, Jahannam, Shayṭān, ṣadaqah, tawbah,
+istighfār, dunyā, Ākhirah, nifāq, ikhlāṣ, riyāʾ, ṣabr, shukr, nawāfil, fitnah
+(fitan), ummah, masjid (masājid), Jumuʿah, ḥajj, suḥūr, Laylat al-Qadr; the
+honorifics too: ʿazza wa jall, subḥānahu wa taʿālā, Allah taʿālā, raḍiya
+Allāhu ʿanhu (ʿanhā, ʿanhumā, ʿanhum), ʿalayhi al-salām, raḥimahu Allāh, ﷺ;
+and Ammā baʿd. Plain words with an everyday English equivalent stay English
+(fasting, reward, believer, the Companions, the Fire). In English-only view a
+paragraph shows the Arabic of the āyāt and aḥādīth it quotes; mark one
+`"quotes": false` when its « » hold only words being explained or a saying
+that is neither.
+
 To store one on a site (it is checked first, and nothing is sent without
 `--write`):
 

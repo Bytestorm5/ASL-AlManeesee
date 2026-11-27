@@ -45,8 +45,10 @@ export type LectureBlock =
   | ({ t: 'head' } & Para)
   /** a heading within a section, e.g. one of the kinds of heart */
   | ({ t: 'sub' } & Para)
-  /** a paragraph */
-  | ({ t: 'p' } & Para)
+  /** a paragraph. In English-only view, the āyāt and aḥādīth it quotes (its
+      ﴿ ﴾ and « ») keep their Arabic above its English; `quotes: false` when
+      its « » hold only words being explained, or a saying that is neither. */
+  | ({ t: 'p'; quotes?: false } & Para)
   /** an āyah (its Arabic in ﴿ ﴾), with its reference (sūrah and verse) */
   | ({ t: 'ayah'; ref?: Para } & Para)
   /** a hadith or a saying, with its source; `verse` sets it as poetry, one line per hemistich */
