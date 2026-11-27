@@ -45,8 +45,6 @@ export const SITE = {
     links: [
       { label: 'Home', href: 'https://www.al-asl.com/' },
       { label: 'Courses', href: 'https://www.al-asl.com/courses/' },
-      { label: 'Books', href: 'https://www.al-asl.com/books/' },
-      { label: 'Lectures', href: 'https://www.al-asl.com/lecture-series/' },
       { label: 'Contact', href: 'https://www.al-asl.com/contact/' },
     ],
   },
