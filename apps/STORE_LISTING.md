@@ -182,12 +182,12 @@ the app shows only its own site, and any outside link opens in a Safari sheet).
 AlMenesi is the reader for the poems and lectures of Shaykh Dr Waleed Idris al-Meneese, published by the al-Asl Institute (the same publisher as our Mutun app). It needs no account and no sign-in.
 
 Things to try:
-1. Home: switch between "His Poems" and "Lectures".
+1. Home: switch between "His Poems", "Khutbahs" and "Books".
 2. Open a poem and tap a highlighted Arabic word to see its meaning; tap the book button under a bayt for its explanation.
 3. In a poem, tap the Memorize tab: words are hidden; tap a blank to reveal, then "Got it" or "Review". Progress, streaks and the daily goal are kept on the device.
 4. Tap the ribbon or pen under a bayt to bookmark it or write a note; both appear in the Marginalia tab.
 5. Turn on Airplane Mode after opening a poem: it keeps working offline.
-6. Lectures: open a khutbah and use the ع + EN / ع / EN switch.
+6. Khutbahs and Books: open one and use the ع + EN / ع / EN switch.
 ```
 
 **App icon**: taken from the build, not uploaded —

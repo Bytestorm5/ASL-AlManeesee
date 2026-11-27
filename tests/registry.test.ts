@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { ALL_POEMS, POEMS, audioSetsOf, getAudioSet, poemsIn, registryProblems } from '../src/poems/index.ts';
-import { LECTURES, lectureDate, lectureHref, lectureKind, lectureProblems, lectureTextProblems } from '../src/lectures/index.ts';
+import { LECTURES, lectureDate, lectureHref, lectureKind, lectureProblems, lectureSection, lectureTextProblems, lecturesIn } from '../src/lectures/index.ts';
 import { LECTURE_TEXTS } from '../content/lectures/index.ts';
-import { SECTIONS, SHOWN_SECTIONS } from '../src/config/sections.ts';
+import { SECTIONS, SHOWN_SECTIONS, isListSection, type TextSectionId } from '../src/config/sections.ts';
 import { REGISTRY } from '../src/poems/registry.ts';
 
 describe('poem registry', () => {
@@ -31,11 +31,11 @@ describe('sections', () => {
   });
   it('keeps a matn off the sections\' own addresses', () => {
     const base = POEMS[0]!;
-    for (const id of ['lectures', 'shuruh', 'mutun']) expect(registryProblems([{ ...base, id }]).join()).toMatch(/collides/);
+    for (const id of ['lectures', 'shuruh', 'mutun', 'khutab', 'kutub', 'khutbahs', 'books']) expect(registryProblems([{ ...base, id }]).join()).toMatch(/collides/);
   });
   it('hides no published matn: a hidden section holds none', () => {
     for (const s of SECTIONS.filter((x) => x.hidden)) {
-      expect(s.id === 'lectures' ? LECTURES.length : poemsIn(s.id).length, `${s.id} is hidden`).toBe(0);
+      expect(isListSection(s) ? lecturesIn(s.id).length : poemsIn(s.id as TextSectionId).length, `${s.id} is hidden`).toBe(0);
     }
     expect(SHOWN_SECTIONS.length).toBeGreaterThan(0);
   });
@@ -58,6 +58,14 @@ describe('lectures', () => {
     expect(lectureProblems([{ ...book, date: '15' }]).join()).toMatch(/yyyy-mm-dd/);
     expect(lectureDate('2015')).toBe('2015');
     expect(lectureKind(book)).toBe('Book');
+  });
+  it('puts every entry in the one section its kind belongs to', () => {
+    for (const k of ['khutbah', 'lesson', 'lecture', 'book'] as const) {
+      expect(SECTIONS.filter((s) => s.list?.kinds.includes(k)).length, k).toBe(1);
+    }
+    for (const l of LECTURES) expect(lectureSection(l).list.kinds).toContain(l.kind ?? 'lecture');
+    expect(lecturesIn('khutab').every((l) => l.kind === 'khutbah')).toBe(true);
+    expect(lecturesIn('kutub').every((l) => l.kind === 'book')).toBe(true);
   });
   it('lists lectures by date, newest first, undated last', () => {
     const dates = LECTURES.map((l) => l.date ?? '');

@@ -5,19 +5,25 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE, siteHost } from '../config/site.ts';
 import { listedPoems } from '../client/page.ts';
-import { LECTURES_PATH, SHOWN_SECTIONS } from '../config/sections.ts';
-import { LECTURES } from '../lectures/index.ts';
+import { SHOWN_SECTIONS, isListSection, type TextSectionId } from '../config/sections.ts';
+import { countOf, lecturesIn } from '../lectures/index.ts';
 import '../styles/guide.css';
 import '../styles/theme.css';
 
 const poems = listedPoems();
 /* What each section holds right now, for "The sections" below. */
 const sections = SHOWN_SECTIONS.map((s) => {
-  const n = s.id === 'lectures' ? LECTURES.length : listedPoems(s.id).length;
-  const what = s.id === 'lectures' ? (n === 1 ? 'lecture' : 'lectures') : n === 1 ? 'matn' : 'mutūn';
-  return { s, status: n ? `${n} ${what}` : 'Being prepared' };
+  if (isListSection(s)) {
+    const n = lecturesIn(s.id).length;
+    return { s, status: n ? countOf(s, n) : 'Being prepared' };
+  }
+  const n = listedPoems(s.id as TextSectionId).length;
+  return { s, status: n ? `${n} ${n === 1 ? 'matn' : 'mutūn'}` : 'Being prepared' };
 });
 const sectionNames = SHOWN_SECTIONS.map((s) => s.en).join(' · ');
+/* "Khuṭbahs and Books": the list sections, for the Collection line */
+const listNames = SHOWN_SECTIONS.filter(isListSection).map((s) => s.en);
+const listNamesText = listNames.length > 1 ? listNames.slice(0, -1).join(', ') + ' and ' + listNames[listNames.length - 1] : listNames[0] ?? '';
 const partsWord = ['no', 'one', 'two', 'three', 'four'][SHOWN_SECTIONS.length] ?? String(SHOWN_SECTIONS.length);
 const eyebrow = `al-Asl · ${SITE.collection.en}`;
 const host = siteHost();
@@ -50,7 +56,7 @@ const orgHost = SITE.org.url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, 
         <div><b>Appearance</b><span>Auto · Light · Dark.</span></div>
         <div><b>App tabs</b><span><b>Home · Collection · Marginalia · More</b>. On a matn: <b>Home · Read · Memorize · More</b>.</span></div>
         <div><b>Home</b><span>A <b>Continue</b> card back to your last bayt, a strip showing overall progress, current streak and total study time, then the <b>sections switch</b>: <b>{sectionNames}</b>. One section shows at a time; Home remembers the one you last chose.</span></div>
-        <div><b>Collection</b><span>App → Collection: the same sections, one list at a time. Lectures shows the newest few and <b>All lectures →</b>.</span></div>
+        <div><b>Collection</b><span>App → Collection: the same sections, one list at a time.{listNamesText && <> {listNamesText} {listNames.length > 1 ? 'show' : 'shows'} the newest few and a link to all of them.</>}</span></div>
         <div><b>Favorites</b><span>App → Collection → ★ on up to 2 mutūn; in their section on Home they show alone, under <i>My Favorites</i>.</span></div>
         <div><b>Daily goal</b><span>App → More → 1–50 abyāt a day, set <b>per matn</b>. Each card shows <i>Goal today</i>.</span></div>
         <div><b>Opening the app</b><span>The al-Asl star beats while the app settles. Tap it to go straight through.</span></div>
@@ -66,7 +72,7 @@ const orgHost = SITE.org.url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, 
       <p class="lede">The Shaykh’s work in {partsWord} parts. A section with nothing published yet says so, and fills in as it is published.</p>
       <div class="rows">
         {sections.map(({ s, status }) => (
-          <div><b>{s.en}</b><span>{s.lead} <i>{status}.</i>{s.id === 'lectures' && <> Every one is on the <a href={LECTURES_PATH}>Lectures</a> page, newest first: audio and video play there, YouTube opens on YouTube, and a lecture on a matn here links to it.</>}</span></div>
+          <div><b>{s.en}</b><span>{s.lead} <i>{status}.</i>{s.list && <> Every one is on the <a href={s.list.path}>{s.en}</a> page, newest first: a recording plays there, a YouTube one opens on YouTube, and one on a matn here links to it.</>}</span></div>
         ))}
         <div><b>A written khuṭbah or book</b><span>Opens on its own page: the Shaykh’s Arabic paragraph by paragraph, with the English translation under each. Tap an entry in its contents or summary at the top to jump to that section. Āyāt are set apart in green with their reference; aḥādīth and sayings in a shaded box. The <b><bdi>ع + EN</bdi> · <bdi>ع</bdi> · <bdi>EN</bdi></b> switch at the top shows both, Arabic only, or English only (an āyah or a ḥadīth keeps its Arabic even then), and is remembered on this device. The English keeps the familiar Arabic terms as they are: ṣalāh, duʿāʾ, dhikr, īmān, taqwā, Jannah. A khuṭbah that has so far come only in English translation shows that alone, with its translator named, and has no switch.</span></div>
       </div>

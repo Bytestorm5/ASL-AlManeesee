@@ -1,8 +1,9 @@
 import type { Lecture } from './types.ts';
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   The Shaykh's lessons, lectures, khuṭbahs and books, shown on /lectures and in the
-   home page's Lectures section by `date`, newest first (src/lectures/
+   The Shaykh's khuṭbahs, books, lessons and lectures. Each is shown in the
+   section its `kind` belongs to (src/config/sections.ts: Khuṭbahs, Books,
+   Lectures), on that section's page and on Home, by `date`, newest first (src/lectures/
    index.ts sorts them; one without a date goes last, and two on the same
    date keep the order they have here).
 

@@ -1,7 +1,7 @@
 /* The lectures, newest first, how each is labelled and linked, and the
    checks the tests run on the registry and on the written texts. Nothing
    here imports a written text, so the app's menus can use it cheaply. */
-import { LECTURES_PATH } from '../config/sections.ts';
+import { LECTURES_PATH, SECTIONS, isListSection, type ListSection, type ListSectionId } from '../config/sections.ts';
 import { LECTURE_REGISTRY } from './registry.ts';
 import type { Lecture, LectureText } from './types.ts';
 
@@ -26,9 +26,22 @@ const KIND_LABEL = { khutbah: 'Khuṭbah', lesson: 'Lesson', lecture: 'Lecture',
 export function lectureKind(l: Lecture): string {
   return l.kind ? KIND_LABEL[l.kind] : '';
 }
-/** Where a lecture opens: its own page when it is written, else its card on /lectures. */
+/** The section an entry belongs to, by its kind (an entry with no kind is a lecture). */
+export function lectureSection(l: Lecture): ListSection {
+  const kind = l.kind ?? 'lecture';
+  return SECTIONS.filter(isListSection).find((s) => s.list.kinds.includes(kind))!;
+}
+/** A list section's entries, newest first. */
+export function lecturesIn(id: ListSectionId): Lecture[] {
+  return LECTURES.filter((l) => lectureSection(l).id === id);
+}
+/** Where an entry opens: its own page when it is written, else its card on its section's page. */
 export function lectureHref(l: Lecture): string {
-  return l.written ? `${LECTURES_PATH}/${l.id}` : `${LECTURES_PATH}#${l.id}`;
+  return l.written ? `${LECTURES_PATH}/${l.id}` : `${lectureSection(l).list.path}#${l.id}`;
+}
+/** "6 khuṭbahs", "1 book". */
+export function countOf(s: ListSection, n: number): string {
+  return `${n} ${n === 1 ? s.list.one : s.list.many}`;
 }
 
 export function lectureProblems(list: readonly Lecture[] = LECTURE_REGISTRY): string[] {

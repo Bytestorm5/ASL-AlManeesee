@@ -4,8 +4,8 @@
    unchanged. It hides web chrome (site header, back link, footer) and adds an
    app-style top bar + bottom tab navigation. */
 import { SITE } from '../config/site.ts';
-import { LECTURES_PATH, SHOWN_SECTIONS, type SectionId, type TextSectionId } from '../config/sections.ts';
-import { LECTURES, lectureDate, lectureHref, lectureKind } from '../lectures/index.ts';
+import { SHOWN_SECTIONS, isListSection, type ListSectionId, type SectionId, type TextSectionId } from '../config/sections.ts';
+import { countOf, lectureDate, lectureHref, lectureKind, lecturesIn } from '../lectures/index.ts';
 import { getPoem, sectionOf } from '../poems/index.ts';
 import type { AslOfflineStatus } from './globals.d.ts';
 import { baytRef, currentPoemId, esc, isAppMode, listedPoems, poemHref } from './page.ts';
@@ -336,7 +336,7 @@ function shell(): void {
   // Home · Read · Memorize (both open the matn you last used) · More
   // (a sheet listing every matn, the guide and the appearance setting).
   // The mutūn are the registry's listed ones, in its order.
-  const TEXT_SECTIONS = SHOWN_SECTIONS.map((s) => s.id).filter((id): id is TextSectionId => id !== 'lectures');
+  const TEXT_SECTIONS = SHOWN_SECTIONS.filter((s) => !isListSection(s)).map((s) => s.id as TextSectionId);
   const MUTUN: MatnTab[] = TEXT_SECTIONS.flatMap((sec) => listedPoems(sec).map((p, i) => (
     { id: p.id, ar: p.shortAr, en: p.shortEn, n: String(i + 1), sec })));
   const HOME_IC = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.7 12 3.5l9 7.2"/><path d="M5.5 9.5V20h13V9.5"/></svg>';
@@ -643,12 +643,14 @@ function shell(): void {
     goPoem(row.getAttribute('data-poem'), btn ? btn.getAttribute('data-go') || undefined : undefined);
   }
 
-  // The sheets' sections switch (Poems · Lectures; SHOWN_SECTIONS). A sheet
-  // shows one section's list at a time, so it never stacks one long list
-  // on another. A text section lists its mutūn; Lectures shows the newest
-  // few and a link to /lectures; an empty section says it is on its way.
+  // The sheets' sections switch (Poems · Khuṭbahs · Books; SHOWN_SECTIONS).
+  // A sheet shows one section's list at a time, so it never stacks one long
+  // list on another. A text section lists its mutūn; a list section shows
+  // its newest few and a link to its page; an empty section says it is on
+  // its way.
   const LEC_PREVIEW = 3;
-  const secCount = (id: SectionId): number => (id === 'lectures' ? LECTURES.length : MUTUN.filter((m) => m.sec === id).length);
+  const listIds = new Set(SHOWN_SECTIONS.filter(isListSection).map((s) => s.id as SectionId));
+  const secCount = (id: SectionId): number => (listIds.has(id) ? lecturesIn(id as ListSectionId).length : MUTUN.filter((m) => m.sec === id).length);
   function secSwitchHtml(active: SectionId): string {
     return '<div class="as-secs" role="tablist" aria-label="Sections">' + SHOWN_SECTIONS.map((s) => {
       const n = secCount(s.id);
@@ -659,12 +661,13 @@ function shell(): void {
   function secBodyHtml(id: SectionId, withFav: boolean): string {
     const s = SHOWN_SECTIONS.find((x) => x.id === id) ?? SHOWN_SECTIONS[0]!;
     const empty = '<div class="as-empty"><b>' + esc(s.empty.title) + '</b>' + esc(s.empty.text) + '</div>';
-    if (id === 'lectures') {
-      if (!LECTURES.length) return empty;
-      return LECTURES.slice(0, LEC_PREVIEW).map((l) =>
+    if (isListSection(s)) {
+      const all = lecturesIn(s.id);
+      if (!all.length) return empty;
+      return all.slice(0, LEC_PREVIEW).map((l) =>
         '<a class="as-lec" href="' + esc(lectureHref(l)) + '"><span class="as-lec-t">' + esc(l.title) + '</span>' +
         '<span class="as-en">' + esc([lectureKind(l), l.series, lectureDate(l.date)].filter(Boolean).join(' · ')) + '</span></a>').join('') +
-        '<a class="as-link" href="' + LECTURES_PATH + '">' + (LECTURES.length > LEC_PREVIEW ? 'All ' + LECTURES.length + ' lectures →' : 'The Lectures page →') + '</a>';
+        '<a class="as-link" href="' + esc(s.list.path) + '">' + esc(all.length > LEC_PREVIEW ? 'All ' + countOf(s, all.length) + ' →' : 'The ' + s.en + ' page →') + '</a>';
     }
     const list = MUTUN.filter((m) => m.sec === id);
     if (!list.length) return empty;

@@ -16,7 +16,7 @@ import path from 'node:path';
 import { chromium, type Page } from 'playwright';
 import { ADMIN_PATH } from '../src/config/site.ts';
 import { LECTURES, lectureHref } from '../src/lectures/index.ts';
-import { SHOWN_SECTIONS } from '../src/config/sections.ts';
+import { SHOWN_LISTS, SHOWN_SECTIONS } from '../src/config/sections.ts';
 
 const PORT = Number(process.env.E2E_PORT || 8790);
 const ORIGIN = `http://127.0.0.1:${PORT}`;
@@ -99,8 +99,11 @@ try {
   check(await page.locator('.sec-tab').count() === SHOWN_SECTIONS.length, `home shows a tab for each shown section (${SHOWN_SECTIONS.map((s) => s.short).join(', ')})`);
   check(await page.locator('#tab-shuruh').count() === (SHOWN_SECTIONS.some((s) => s.id === 'shuruh') ? 1 : 0), 'a hidden section has no tab');
   check(await page.locator('.sec-panel:not([hidden])').count() === 1, 'home shows one section at a time');
-  await page.click('#tab-lectures');
-  check(await page.locator('#sec-lectures').isVisible() && !(await page.locator('#sec-mutun').isVisible()), 'the Lectures tab swaps the list');
+  const firstList = SHOWN_LISTS[0];
+  if (firstList) {
+    await page.click(`#tab-${firstList.id}`);
+    check(await page.locator(`#sec-${firstList.id}`).isVisible() && !(await page.locator('#sec-mutun').isVisible()), `the ${firstList.en} tab swaps the list`);
+  }
 
   const written = LECTURES.find((l) => l.written);
   if (written) {
@@ -112,7 +115,7 @@ try {
     check(!(await page.locator('.ls-p .en').first().isVisible()), 'its switch shows the Arabic alone');
   }
 
-  for (const url of ['/lectures', ...LECTURES.filter((l) => l.written).map(lectureHref), '/guide', '/privacy', '/layout-check', '/does-not-exist']) {
+  for (const url of [...SHOWN_LISTS.map((x) => x.list.path), ...LECTURES.filter((l) => l.written).map(lectureHref), '/guide', '/privacy', '/layout-check', '/does-not-exist']) {
     problems = await open(page, url);
     check(problems.filter((p) => !(url === '/does-not-exist' && p.includes('404'))).length === 0, `${url} loads cleanly ${problems.join(' | ')}`);
   }
@@ -134,7 +137,7 @@ try {
     check((h.headers.get('x-robots-tag') ?? '').includes('noindex, nofollow')
       && h.headers.get('referrer-policy') === 'no-referrer', `${ADMIN_PATH}${t} is served noindex, nofollow, no-referrer`);
   }
-  const publicPages = ['/', '/lectures', ...LECTURES.filter((l) => l.written).map(lectureHref), '/guide', '/privacy', '/robots.txt', '/sitemap.xml', '/manifest.webmanifest', '/sw.js'];
+  const publicPages = ['/', ...SHOWN_LISTS.map((x) => x.list.path), ...LECTURES.filter((l) => l.written).map(lectureHref), '/guide', '/privacy', '/robots.txt', '/sitemap.xml', '/manifest.webmanifest', '/sw.js'];
   const named = [];
   for (const u of publicPages) if ((await (await fetch(ORIGIN + u)).text()).includes(ADMIN_PATH)) named.push(u);
   check(named.length === 0, `no public page names the admin path ${named.join(' ')}`);

@@ -12,8 +12,8 @@ import Brandbar from '../components/Brandbar.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import { SITE } from '../config/site.ts';
 import { listedPoems, poemHref } from '../client/page.ts';
-import { LECTURES_PATH, SHOWN_SECTIONS } from '../config/sections.ts';
-import { LECTURES, lectureDate, lectureHref, lectureKind } from '../lectures/index.ts';
+import { SHOWN_SECTIONS, isListSection, type TextSectionId } from '../config/sections.ts';
+import { countOf, lectureDate, lectureHref, lectureKind, lecturesIn } from '../lectures/index.ts';
 import { bootSplash, inlineBoot } from '../client/boot.ts';
 import { runSplash } from '../client/splash.ts';
 import '../styles/home.css';
@@ -29,22 +29,32 @@ const orgHost = SITE.org.url.replace(/^https?:\/\//, '').replace(/\/$/, '');
 const WORDS = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve'];
 const headingFor = (n: number) => (n === 1 ? 'One Text to Begin' : `${WORDS[n] ?? n} Texts, One Path`);
 
-/* One panel per section. The lectures panel previews the newest few and
-   links to /lectures, so it never grows into a second long list. */
+/* One panel per section. A list section (Khuṭbahs, Books) previews its
+   newest few and links to its own page, so it never grows into a second
+   long list. */
 const LECTURE_PREVIEW = 3;
+const cap = (w: string) => w.charAt(0).toUpperCase() + w.slice(1);
 const panels = SHOWN_SECTIONS.map((s) => {
-  const list = s.id === 'lectures' ? [] : listedPoems(s.id);
+  const list = isListSection(s) ? [] : listedPoems(s.id as TextSectionId);
+  const entries = isListSection(s) ? lecturesIn(s.id) : [];
   return {
     s,
-    count: s.id === 'lectures' ? LECTURES.length : list.length,
+    count: isListSection(s) ? entries.length : list.length,
     rows: list.map((p, i) => ({
       p,
       ord: i + 1,
       meta: [p.author?.name, `${p.verses} abyāt`, p.subject].filter(Boolean).join(' · '),
     })),
+    entries,
+    preview: entries.slice(0, LECTURE_PREVIEW),
+    heading: isListSection(s)
+      ? (entries.length === 1 ? `His ${cap(s.list.one)}` : entries.length > LECTURE_PREVIEW ? `The Latest ${cap(s.list.many)}` : `His ${cap(s.list.many)}`)
+      : '',
+    more: isListSection(s)
+      ? { href: s.list.path, text: entries.length > LECTURE_PREVIEW ? `All ${countOf(s, entries.length)} →` : `The ${s.en} page →` }
+      : undefined,
   };
 });
-const lectures = LECTURES.slice(0, LECTURE_PREVIEW);
 ---
 <BaseLayout boot={[bootSplash]}>
 <link slot="head" rel="preload" as="image" href="/brand/emblem.png">
@@ -95,9 +105,9 @@ const lectures = LECTURES.slice(0, LECTURE_PREVIEW);
     ))}
   </div>
 
-  {panels.map(({ s, rows }, i) => (
+  {panels.map(({ s, rows, entries, preview, heading, more }, i) => (
     <div class="sec-panel" id={`sec-${s.id}`} role="tabpanel" aria-labelledby={`tab-${s.id}`} data-sec={s.id} hidden={i !== 0}>
-      {s.id !== 'lectures' && rows.length > 0 && (
+      {!s.list && rows.length > 0 && (
         <>
           <div class="sec-head">
             <div class="lbl">{s.en}</div>
@@ -126,15 +136,15 @@ const lectures = LECTURES.slice(0, LECTURE_PREVIEW);
           </div>
         </>
       )}
-      {s.id === 'lectures' && lectures.length > 0 && (
+      {s.list && preview.length > 0 && (
         <>
           <div class="sec-head">
             <div class="lbl">{s.en}</div>
-            <h2>{LECTURES.length === 1 ? 'The Latest Lecture' : 'The Latest Lectures'}</h2>
+            <h2>{heading}</h2>
             <p>{s.lead}</p>
           </div>
           <div class="lec-list">
-            {lectures.map((l) => (
+            {preview.map((l) => (
               <a class="lec-row" href={lectureHref(l)}>
                 <span class="lr-top">
                   <span class="lr-en">{l.title}</span>
@@ -144,10 +154,10 @@ const lectures = LECTURES.slice(0, LECTURE_PREVIEW);
               </a>
             ))}
           </div>
-          <div class="sec-more"><a href={LECTURES_PATH}>{LECTURES.length > LECTURE_PREVIEW ? `All ${LECTURES.length} lectures →` : 'The Lectures page →'}</a></div>
+          {more && <div class="sec-more"><a href={more.href}>{more.text}</a></div>}
         </>
       )}
-      {(s.id === 'lectures' ? lectures.length === 0 : rows.length === 0) && (
+      {(s.list ? entries.length === 0 : rows.length === 0) && (
         <div class="prep">
           <div class="prep-card">
             <div class="prep-emblem" role="img" aria-hidden="true"></div>

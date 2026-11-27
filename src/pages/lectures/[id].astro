@@ -8,8 +8,7 @@
    translator. */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE } from '../../config/site.ts';
-import { LECTURES_PATH } from '../../config/sections.ts';
-import { LECTURES, hasArabic, lectureDate, lectureKind, type LectureBlock } from '../../lectures/index.ts';
+import { LECTURES, hasArabic, lectureDate, lectureKind, lectureSection, type LectureBlock } from '../../lectures/index.ts';
 import { LECTURE_TEXTS } from '../../../content/lectures/index.ts';
 import '../../styles/guide.css';
 import '../../styles/lectures.css';
@@ -23,6 +22,8 @@ const { id } = Astro.params;
 const lecture = LECTURES.find((l) => l.id === id)!;
 const doc = LECTURE_TEXTS[id!]!;
 const kind = lectureKind(lecture) || 'Lecture';
+/* back to its own section's page: Khuṭbahs, Books, Lectures */
+const sec = lectureSection(lecture);
 const both = hasArabic(doc);
 
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -52,7 +53,7 @@ const description = lecture.description
 {both && <script is:inline>try{var v=localStorage.getItem('asl-lesson-show');if(v==='ar'||v==='en')document.currentScript.parentElement.dataset.show=v}catch(e){}</script>}
 
 <div class="gbar"><div class="gbar-inner">
-  <a class="gback" href={LECTURES_PATH}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Lectures</a>
+  <a class="gback" href={sec.list.path}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>{sec.en}</a>
   <span class="t ls-bar-t">{kind}</span>
   {both && (
     <div class="ls-show" role="group" aria-label="Languages shown">
@@ -159,7 +160,7 @@ const description = lecture.description
     ? `The Arabic is the Shaykh’s. The English under it is ${doc.translator}’s translation; the few lines it leaves out were translated for this site.`
     : 'The Arabic is the Shaykh’s. The English under it is a translation of the meaning, made for this site.')
   : `Translated from the Shaykh’s Arabic by ${doc.translator}. The English renders the meanings of the āyāt and aḥādīth it quotes.`}</p>
-<footer class="gf">{SITE.org.name} · <a href={LECTURES_PATH}>Lectures</a> · <a href="/">Home</a></footer>
+<footer class="gf">{SITE.org.name} · <a href={sec.list.path}>{sec.en}</a> · <a href="/">Home</a></footer>
 </div>
 <script>import '../../client/entries/lesson.ts';</script>
 </BaseLayout>

@@ -8,6 +8,7 @@
    shows its "being prepared" card instead, and none of this has anything to
    draw. */
 import { baytLabel, baytRef, esc, listedPoems, lsGet, lsJSON, lsSet, poemHref } from './page.ts';
+import { SECTIONS, SHOWN_LISTS } from '../config/sections.ts';
 
 interface MatnMeta { en: string; cls: string }
 /** asl-mz-prog-<id>, written by memorize mode. s: 1 = learning, 2 = memorized. */
@@ -63,8 +64,10 @@ function sectionSwitch(): void {
     document.querySelectorAll<HTMLElement>('.sec-panel').forEach((p) => { p.hidden = p.dataset.sec !== id; });
     lsSet(KEY, id);
   }
-  const fromHash = location.hash.slice(1);
-  const saved = lsGet(KEY) || '';
+  // an old link or saved tab for a section now hidden (/#lectures, say) opens the first list
+  const alias = (id: string): string => (SECTIONS.some((x) => x.id === id && x.hidden && x.list) ? SHOWN_LISTS[0]?.id ?? id : id);
+  const fromHash = alias(location.hash.slice(1));
+  const saved = alias(lsGet(KEY) || '');
   const start = ids.includes(fromHash) ? fromHash : ids.includes(saved) ? saved : ids[0]!;
   if (start !== ids[0]) show(start);
   for (const t of tabs) t.addEventListener('click', () => show(t.dataset.sec || ids[0]!));
@@ -77,7 +80,7 @@ function sectionSwitch(): void {
       : (at + (k === 'ArrowRight' ? 1 : -1) + ids.length) % ids.length;
     show(ids[next]!, true);
   });
-  window.addEventListener('hashchange', () => { const h = location.hash.slice(1); if (ids.includes(h)) show(h); });
+  window.addEventListener('hashchange', () => { const h = alias(location.hash.slice(1)); if (ids.includes(h)) show(h); });
 }
 
 export function init(): void {

@@ -1,0 +1,7 @@
+---
+/* /books — the Shaykh's books: src/components/LectureList.astro for the
+   'kutub' section (src/config/sections.ts). */
+import LectureList from '../components/LectureList.astro';
+import { sectionById, type ListSection } from '../config/sections.ts';
+---
+<LectureList section={sectionById('kutub') as ListSection} />

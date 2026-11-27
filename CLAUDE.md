@@ -29,19 +29,23 @@ the registry (and the content folders, `fixtures/` for the dev fixture and
 text can ship in `content/` (listed in `content/index.ts`): the worker stores
 it, create-only, the first time the matn is asked for (`src/worker/seed.ts`).
 
-## Sections: poems, explanations, lectures
-`src/config/sections.ts` names the site's three sections: the Shaykh's own
-poems (`mutun`), his explanations of classical mutūn (`shuruh`, set with
-`section: 'shuruh'` on a registry entry) and his lectures (their own
-registry, `src/lectures/registry.ts`, shown on `/lectures`; a written one,
-`written: true`, has its Arabic and English in `content/lectures/` and its own
-page, `/lectures/<id>`). Home and the
-app's sheets show **one section at a time** behind a switch, never one list
-after another; keep it that way when adding to them. An empty section shows
-its "being prepared" text from `sections.ts`. Explanations (`shuruh`) is
-`hidden: true` for now: pages read `SHOWN_SECTIONS`, so it has no tab, menu
-link or guide entry until that line is removed (the tests refuse a listed
-matn in a hidden section).
+## Sections: poems, explanations, khuṭbahs, books, lectures
+`src/config/sections.ts` names the site's sections: the Shaykh's own poems
+(`mutun`), his explanations of classical mutūn (`shuruh`, set with
+`section: 'shuruh'` on a registry entry), his khuṭbahs (`khutab`, page
+`/khutbahs`), his books (`kutub`, page `/books`) and his lessons and lectures
+(`lectures`, page `/lectures`). The last three are lists from one registry,
+`src/lectures/registry.ts`: an entry goes to the section whose `list.kinds`
+holds its `kind` (khutbah, book, lesson/lecture). A written one, `written:
+true`, has its Arabic and English in `content/lectures/` and its own page,
+`/lectures/<id>`, whatever its section. Home and the app's sheets show **one
+section at a time** behind a switch, never one list after another; keep it
+that way when adding to them. An empty section shows its "being prepared"
+text from `sections.ts`. Explanations (`shuruh`) and Lectures (`lectures`)
+are `hidden: true` for now: pages read `SHOWN_SECTIONS`, so they have no tab,
+menu link or guide entry until that line is removed (the tests refuse an
+entry in a hidden section), and a hidden list's page forwards to the first
+shown list (`dist/_redirects`).
 
 ## One reading page
 `src/pages/[poem].astro` + `src/client/reading/render.ts` render every matn.

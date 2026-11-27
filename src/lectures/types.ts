@@ -1,6 +1,9 @@
-/* A lesson, lecture or khuṭbah by the Shaykh, listed in src/lectures/registry.ts
-   and shown on /lectures and in the home page's Lectures section. One may be
-   recorded (media), written (its text on its own page), or both. */
+/* A khuṭbah, book, lesson or lecture by the Shaykh, listed in
+   src/lectures/registry.ts and shown in the section its kind belongs to
+   (src/config/sections.ts: Khuṭbahs, Books, Lectures), on that section's page
+   and on Home. One may be recorded (media), written (its text on its own
+   page), or both. */
+export type LectureKind = 'khutbah' | 'lesson' | 'lecture' | 'book';
 export interface Lecture {
   /** Lowercase latin letters, digits and dashes; unique. Also the written page's address, /lectures/<id>. */
   id: string;
@@ -9,7 +12,7 @@ export interface Lecture {
   /** Arabic title, if it has one. */
   titleAr?: string;
   /** What it is, shown as its label: a khuṭbah, a lesson, a lecture, a book. */
-  kind?: 'khutbah' | 'lesson' | 'lecture' | 'book';
+  kind?: LectureKind;
   /** The course or series it belongs to, e.g. "Explanation of al-Jazariyyah". */
   series?: string;
   /** Where it was given, e.g. "AMJA Imams’ Conference, Dallas". */

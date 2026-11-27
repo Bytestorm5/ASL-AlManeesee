@@ -74,7 +74,7 @@ export function explanationBayts(p: PoemConfig): number[] {
 export const RESERVED_IDS = new Set([
   'admin', 'not-an-admin', 'api', 'media', 'guide', 'privacy', 'fonts', 'brand', 'pdf', 'index',
   'sw', 'manifest', 'robots', 'sitemap', '404', '_astro', 'offline', 'audio',
-  'lectures', 'shuruh', 'mutun',
+  'lectures', 'shuruh', 'mutun', 'khutab', 'kutub', 'khutbahs', 'books',
 ]);
 export function registryProblems(list: readonly PoemConfig[] = ALL_POEMS): string[] {
   const out: string[] = [];
