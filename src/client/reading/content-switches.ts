@@ -36,6 +36,12 @@ function defaults(p: PoemConfig | undefined): AslSwitchMaps {
   return { enabled, trHidden: {}, urHidden: {} };
 }
 
+/** The switches as the page applies them right now, without the network:
+    the last answer it fetched, else the registered default. */
+export function current(poem: string, p?: PoemConfig): AslSwitchMaps {
+  return cached(poem) || defaults(p);
+}
+
 /** One request per matn per page; the cached copy, then the defaults, on failure. */
 export function get(poem: string, p?: PoemConfig): Promise<AslSwitchMaps> {
   MEM[poem] ??= getSwitches(poem)

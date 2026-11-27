@@ -439,21 +439,30 @@ function shell(): void {
   // Home's UI changes. Any step whose element isn't on the page right now
   // (no "Continue" card yet, no progress yet, etc.) is skipped.
   const HOME_TOUR_KEY = 'asl-home-tour';
+  /** "A and B", "A, B and C". */
+  function listOf(items: readonly string[]): string {
+    return items.length < 2 ? items.join('') : items.slice(0, -1).join(', ') + ' and ' + items[items.length - 1];
+  }
   let homeTourOpen = false; // guard against the auto-play timer and a manual tap both firing
   function startHomeTour(): void {
     if (homeTourOpen) return;
     const STEPS = [
       { sel: '.cont-card', title: 'Continue', text: 'Straight back to your last bayt.' },
       { sel: '#statsWrap .stats-card', title: 'Your progress', text: 'Overall progress, current streak and study time — kept on this device only.' },
-      { sel: '.sec-switch', title: 'Sections', text: SHOWN_SECTIONS.map((s) => s.en).join(' · ') + ': one at a time.' },
+      { sel: '.sec-switch', title: 'Sections', text: 'Switch between ' + listOf(SHOWN_SECTIONS.map((s) => s.en)) + '. Home remembers the one you chose.' },
       { sel: '.sec-panel:not([hidden]) .matn-row:not(.fav-hide)', title: 'Each matn', text: 'Progress and today’s goal on the card. Read or Memorize from here.' },
       { sel: '[data-tab="collection"]', title: 'Collection', text: 'Every matn, section by section. Tap ★ on up to two to lead your Home screen.' },
       { sel: '[data-tab="marginalia"]', title: 'Marginalia', text: 'Your bookmarks and notes, from every matn, in one place.' },
-      { sel: '[data-tab="more"]', title: 'More', text: 'Daily goal per matn, Appearance, offline recitations, the User Guide — and this tour again.' },
+      { sel: '[data-tab="more"]', title: 'More', text: 'Daily goal per matn, Appearance, the User Guide — and this tour again.' },
     ];
     const steps = STEPS.map((s) => ({ el: document.querySelector<HTMLElement>(s.sel), title: s.title, text: s.text }))
       .filter((s): s is { el: HTMLElement; title: string; text: string } => !!s.el);
     if (!steps.length) return;
+    // Offline recitations are mentioned only once there are some to download.
+    const moreStep = steps.find((s) => s.title === 'More');
+    window.AslOffline?.status().then((st) => {
+      if (moreStep && st?.total) moreStep.text = 'Daily goal per matn, Appearance, offline recitations, the User Guide — and this tour again.';
+    }).catch(() => { /* none: the shorter line stands */ });
     homeTourOpen = true;
 
     const scrim = document.createElement('div'); scrim.className = 'htour-scrim';

@@ -8,8 +8,10 @@
    them), "Show me around", the User Guide, the edition (nuskha) picker on a
    matn with more than one, and Appearance (Auto / Light / Dark). */
 import { currentPoem, esc, listedPoems, lsGet, lsSet } from '../page.ts';
-import type { PoemConfig } from '../../poems/types.ts';
+import type { PoemConfig, WordCell } from '../../poems/types.ts';
 import { sectionOf } from '../../poems/index.ts';
+import { BTN as EXP_BTN } from './explanation.ts';
+import { current as currentSwitches } from './content-switches.ts';
 
 const KEY = 'asl-tour';
 
@@ -20,6 +22,8 @@ const HELP = '<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12
 const LIST = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg>';
 const PEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>';
 const PLAY_ICON = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>';
+/* the explanation button's own book icon, so the scene shows the real button */
+const BOOK = (EXP_BTN.match(/<svg[\s\S]*<\/svg>/) || [''])[0];
 
 const CSS = [
   '.helpbtn{cursor:pointer;display:inline-grid;place-items:center;width:34px;height:34px;padding:0;',
@@ -160,7 +164,15 @@ const CSS = [
   '.x-card{position:absolute;left:50%;top:68px;transform:translateX(-50%) translateY(8px);opacity:0;transition:opacity .25s,transform .25s;background:var(--surface,#fff);border:1px solid var(--paper-edge,#CBDDEA);border-radius:12px;box-shadow:0 12px 26px rgba(14,38,56,.16);padding:8px 12px;min-width:238px}',
   '.x-card .xh{font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sage,#456E80);margin-bottom:3px}',
   '.x-card .xa{font-family:"Scheherazade New","Amiri",serif;font-size:1.15rem;direction:rtl;color:var(--ink,#0B3D6E)}',
-  '.x-card .xt{font-size:.72rem;color:var(--ink-soft,#33586F);margin-top:3px}',
+  '.x-card .xt{font-size:.72rem;line-height:1.4;color:var(--ink-soft,#33586F);margin-top:3px}',
+  '.x-card{max-width:292px}',
+  /* centred with left:50%, these rows would otherwise shrink to half the
+     stage and wrap their buttons onto two or three lines */
+  '.p-rate,.e-row,.t-row,.l-dial,.n-row{width:max-content}',
+  '.p-rate span,.e-row span,.t-row span{white-space:nowrap}',
+  /* a short list of mutūn has room to breathe; six stay tight to fit */
+  '.s-list.roomy span{line-height:1.75}',
+  '.x-btn svg{width:17px;height:17px}',
   '.scene.revealed .x-card{opacity:1;transform:translateX(-50%)}',
   /* scene: light or dark */
   '.t-row{position:absolute;left:50%;top:78px;transform:translateX(-50%);display:flex;gap:7px}',
@@ -223,6 +235,123 @@ function hasWordGlosses(): boolean {
   return false;
 }
 
+/* The scenes show the matn being read: its own words, a word's own meaning
+   and its own explanation, so they always match the page — and no matn's
+   lines are written into the code. The basmala stands in only when the page
+   has no abyāt to draw from. */
+const FALLBACK = ['بِسْمِ', 'اللَّهِ', 'الرَّحْمَٰنِ', 'الرَّحِيمِ'];
+const TASHKEEL = /[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06ED]/g;
+
+/** Plain text of a piece of verse or note markup, parsed inertly. */
+function plain(html: string): string {
+  return (new DOMParser().parseFromString(html, 'text/html').body.textContent || '').replace(/\s+/g, ' ').trim();
+}
+
+interface Hemi { words: string[]; cells: WordCell[] | null }
+/** Every hemistich of the matn as words, in reading order. With word cells,
+    words[i] is cells[i], so a gloss stays with its word. */
+function hemistichs(): Hemi[] {
+  const out: Hemi[] = [];
+  for (const ch of window.ASL_POEM?.snapshot ?? []) {
+    for (const v of ch.verses) {
+      for (const [text, cells] of [[v.sadr, v.sadrW], [v.ajuz, v.ajuzW]] as const) {
+        const c = cells?.length ? cells : null;
+        const words = c ? c.map((x) => plain(x.w)) : plain(text || '').split(' ').filter(Boolean);
+        if (words.some(Boolean)) out.push({ words, cells: c });
+      }
+    }
+  }
+  return out;
+}
+
+/** Up to n words from the start, short enough for the 360px stage. */
+function clip(words: string[], n: number, max = 22): string[] {
+  const out: string[] = [];
+  for (const w of words.filter(Boolean)) {
+    if (out.length >= n) break;
+    if (out.length && [...out, w].join(' ').replace(TASHKEEL, '').length > max) break;
+    out.push(w);
+  }
+  return out;
+}
+
+/** The first plain sentence of an explanation, skipping its headings. */
+const EXP_FIT = 92; // characters the scene's card shows without cutting
+function firstSentence(html: string): string {
+  const doc = new DOMParser().parseFromString(html, 'text/html');
+  const para = [...doc.querySelectorAll('p')].find((x) => !x.className && (x.textContent || '').trim().length > 20);
+  const text = (para?.textContent || doc.body.textContent || '').replace(/\s+/g, ' ').trim();
+  return (text.match(/^.*?[.!?](?=\s|$)/) || [text])[0]!;
+}
+const cut = (t: string) => (t.length <= EXP_FIT ? t : t.slice(0, EXP_FIT - 4).replace(/\s+\S*$/, '') + '…');
+
+interface Samples {
+  /** a short run of words: the bookmark, note and audio scenes */
+  line: string;
+  /** three words; the first stays and the rest hide */
+  memo: string[];
+  /** up to four words for the hide-level dial */
+  dial: string[];
+  /** one word as a reader types it, without diacritics */
+  search: string;
+  word: { before: string; w: string; after: string; g: string } | null;
+}
+
+type ExpSample = { ar: string; text: string } | null;
+/** An explanation a reader can open (its bayt switched on): the first whose
+    opening sentence fits the card whole, looking a dozen in; failing that,
+    the first one, cut short. */
+function expSample(on: (n: number) => boolean): ExpSample {
+  let exp: ExpSample = null;
+  let seen = 0;
+  for (const ch of window.ASL_POEM?.snapshot ?? []) {
+    for (const v of ch.verses) {
+      const e = v.exp;
+      if (!e || !on(v.n)) continue;
+      const text = firstSentence(typeof e === 'string' ? e : e.en || e.ar || e.ur || '');
+      if (!text) continue;
+      const cand = { ar: clip(plain(v.sadr || '').split(' '), 3, 20).join(' '), text: cut(text) };
+      if (!exp) exp = cand;
+      // a whole sentence that says something, not a lead-in to a list
+      if (text.length <= EXP_FIT && text.length >= 30 && /[.!?]$/.test(text)) return cand;
+      if (++seen >= 12) return exp;
+    }
+  }
+  return exp;
+}
+
+function samples(): Samples {
+  const hs = hemistichs();
+  const pick = (min: number): string[] =>
+    (hs.find((h) => h.words.filter(Boolean).length >= min) ?? hs[0])?.words ?? FALLBACK;
+
+  // one word as a reader would type it: a definite noun if there is one
+  // early on (الحمد), else the first word of a useful length
+  const pool = hs.slice(0, 6).flatMap((h) => h.words.join(' ').split(' '))
+    .map((w) => w.replace(TASHKEEL, '').replace(/[^\u0621-\u064A]/g, ''))
+    .filter((w) => w.length >= 4 && w.length <= 8);
+  const search = pool.find((w) => w.startsWith('ال')) || pool[0] || FALLBACK[1]!.replace(TASHKEEL, '');
+
+  // a glossed word, preferably with a word before it to read it in context
+  let word: Samples['word'] = null;
+  find: for (const h of hs) {
+    if (!h.cells) continue;
+    for (let i = 0; i < h.cells.length; i++) {
+      const g = plain(h.cells[i]!.g || '');
+      const w = h.words[i] || '';
+      if (!g || !w || g.length > 26) continue;
+      let before = h.words[i - 1] || '', after = h.words[i + 1] || '';
+      if ([before, w, after].join(' ').replace(TASHKEEL, '').length > 24) after = '';
+      if ([before, w].join(' ').replace(TASHKEEL, '').length > 24) before = '';
+      const cand = { before, w, after, g };
+      if (!word) word = cand;
+      if (i > 0) { word = cand; break find; }
+    }
+  }
+
+  return { line: clip(pick(3), 3, 20).join(' '), memo: clip(pick(3), 3), dial: clip(pick(4), 4), search, word };
+}
+
 export function init(): void {
   if (!document.querySelector('.navbar')) return; // reading pages only
   // The tour also teaches the Translation menu, so suppress the small coach mark.
@@ -239,36 +368,47 @@ export function init(): void {
      from memory, so "Export/Import" and "Theme" are gone: the buttons say
      ↓ Back up / ↑ Restore, and the menu section is Appearance. */
   const scenes: Scene[] = [];
-  /* A matn with no translation at all has no Translation menu to teach. */
-  if (!document.getElementById('viewMenu')?.hidden) {
+  const S = samples();
+  /* A matn with no translation at all has no Translation menu to teach; the
+     scene lists the languages its menu really offers. */
+  const trLangs = [...document.querySelectorAll('#viewDrop button')]
+    .map((b) => (b.textContent || '').replace('✓', '').trim()).filter(Boolean);
+  if (trLangs.length && !document.getElementById('viewMenu')?.hidden) {
     scenes.push({ title: 'Choose a translation',
-      text: 'Translation ▾ — English, and Urdu where it exists. Arabic is always shown.',
-      html: '<button class="sc-target m-pill">Translation ▾</button><div class="m-drop"><span class="m-opt on">✓ English</span><span class="m-opt">Urdu</span></div>' });
+      text: trLangs.length === 1
+        ? 'Translation ▾ shows the ' + trLangs[0] + ' under each bayt, or hides it. Arabic is always shown.'
+        : 'Translation ▾ — ' + trLangs.join(' or ') + ', or both. Arabic is always shown.',
+      html: '<button class="sc-target m-pill">Translation ▾</button><div class="m-drop">'
+        + trLangs.map((l, i) => '<span class="m-opt' + (i === 0 ? ' on' : '') + '">' + (i === 0 ? '✓ ' : '') + esc(l) + '</span>').join('')
+        + '</div>' });
   }
   scenes.push(
     { title: 'Bookmark a bayt',
       text: 'Tap the ribbon. Bookmarks lists every one you have saved.',
-      html: '<div class="m-row"><button class="sc-target m-ribbon">' + RIBBON + '</button><span class="m-line">وَبَعْدُ فَحَبْلُ اللهِ</span></div><div class="m-saved">Saved</div>' },
+      html: '<div class="m-row"><button class="sc-target m-ribbon">' + RIBBON + '</button><span class="m-line">' + esc(S.line) + '</span></div><div class="m-saved">Saved</div>' },
     { title: 'Write a note',
       text: 'Tap the pen. Your note sits under the bayt; Notes lists them all.',
-      html: '<div class="n-row"><button class="sc-target n-pen">' + PEN + '</button><span class="n-line">وَبَعْدُ فَحَبْلُ اللهِ</span></div><div class="n-box">Shaykh: read this one slowly</div>' },
+      html: '<div class="n-row"><button class="sc-target n-pen">' + PEN + '</button><span class="n-line">' + esc(S.line) + '</span></div><div class="n-box">My note: revise this bayt tomorrow</div>' },
     { title: 'Search',
       text: 'Any part of a bayt, in Arabic. No diacritics needed.',
-      html: '<button class="sc-target m-mag">' + MAG + '</button><div class="m-field">القُرآن</div>' },
+      html: '<button class="sc-target m-mag">' + MAG + '</button><div class="m-field">' + esc(S.search) + '</div>' },
   );
   const mutun = switchList(here);
   if (mutun) {
+    const roomy = (mutun.match(/<span/g) || []).length <= 4;
     scenes.push({ title: 'Move between the mutūn',
       text: 'Mutūn ▾ switches matn, and each remembers where you were.',
-      html: '<button class="sc-target s-pill">Mutūn ▾</button><div class="s-list">' + mutun + '</div>' });
+      html: '<button class="sc-target s-pill">Mutūn ▾</button><div class="s-list' + (roomy ? ' roomy' : '') + '">' + mutun + '</div>' });
   }
   scenes.push(
     { title: 'Memorize',
       text: 'The words hide. Recite from memory, then tap a blank to check.',
-      html: '<span class="sc-target h-hat">' + CAP + '</span><div class="h-tag">Memorize mode</div><div class="h-line">أَقولُ <span class="h-w">مَقالاً</span> <span class="h-w">مُعجِباً</span></div>' },
+      html: '<span class="sc-target h-hat">' + CAP + '</span><div class="h-tag">Memorize mode</div><div class="h-line">'
+        + S.memo.map((w, i) => (i === 0 ? esc(w) : '<span class="h-w">' + esc(w) + '</span>')).join(' ') + '</div>' },
     { title: 'Hide less or more',
       text: '1 hides the last word · 4 hides the whole bayt. Raise it as abyāt stick.',
-      html: '<div class="l-dial"><span class="l-cap">less</span><span class="l-b">1</span><span class="l-b">2</span><span class="l-b">3</span><span class="sc-target l-b">4</span><span class="l-cap">more</span></div><div class="l-line">أَقولُ <span class="l-w">مَقالاً</span> <span class="l-w last">مُعجِباً</span> <span class="l-w">لِأُولِي</span></div>' },
+      html: '<div class="l-dial"><span class="l-cap">less</span><span class="l-b">1</span><span class="l-b">2</span><span class="l-b">3</span><span class="sc-target l-b">4</span><span class="l-cap">more</span></div><div class="l-line">'
+        + S.dial.map((w, i, a) => '<span class="l-w' + (i === a.length - 1 ? ' last' : '') + '">' + esc(w) + '</span>').join(' ') + '</div>' },
     { title: 'Rate each bayt',
       text: 'Two ✓ Got it master it — one is enough at level 4. The number earns a ring.',
       html: '<span class="p-med">١</span><div class="p-rate"><span class="sc-target p-got">✓ Got it</span><span class="p-rev">↺ Review</span></div><div class="p-badge">Mastered ✓</div>' },
@@ -298,11 +438,13 @@ export function init(): void {
      opens, once the page has actually drawn its abyāt. */
   let wordSceneAdded = false;
   function maybeAddWordScene(): void {
-    if (wordSceneAdded || !hasWordGlosses()) return;
+    if (wordSceneAdded || !hasWordGlosses() || !S.word) return;
     wordSceneAdded = true;
+    const wd = S.word;
     scenes.unshift({ title: 'Tap a word',
       text: 'Any highlighted word gives its meaning.',
-      html: '<div class="m-verse">أَقولُ <span class="sc-target m-word">مَقالاً</span> مُعجِباً</div><div class="m-tip">a saying</div>' });
+      html: '<div class="m-verse">' + [esc(wd.before), '<span class="sc-target m-word">' + esc(wd.w) + '</span>', esc(wd.after)].filter(Boolean).join(' ')
+        + '</div><div class="m-tip">' + esc(wd.g) + '</div>' });
     syncDots?.();
   }
 
@@ -318,15 +460,19 @@ export function init(): void {
     });
   }
 
-  // Only the mutūn that carry commentary or Qurʾānic examples.
-  /* qiraat.ts draws its buttons only for bayts as they come into view, so the
-     DOM is no guide while this runs; the matn's registration is. Decide when
-     the tour actually opens. */
+  // Only the mutūn that carry explanations or Qurʾānic examples.
+  /* qiraat.ts and the explanation cards draw only for bayts as they come into
+     view, so the DOM is no guide while this runs; the matn's registration and
+     its data are. Decide when the tour actually opens. */
   let explSceneAdded = false;
   function maybeAddExplScene(): void {
     if (explSceneAdded) return;
     const isQx = !!here?.qiraat;
-    if (!(isQx || document.querySelector('.explanation'))) return;
+    // the switches as the page shows them now: only an explanation the
+    // reader can open is quoted
+    const sw = here ? currentSwitches(here.id, here) : null;
+    const ex = isQx ? null : expSample((n) => sw?.enabled[n] === true);
+    if (!(isQx || ex)) return;
     explSceneAdded = true;
     /* Two different cards wear this button. On the qirāʾāt mutūn it opens a
        Qurʾānic example; elsewhere it is a plain explanation of the bayt —
@@ -338,10 +484,10 @@ export function init(): void {
         + '<div class="x-card"><div class="xh">Qurʾānic example</div><div class="xa">مَٰلِكِ يَوْمِ ٱلدِّينِ</div><div class="xt">ʿĀṣim: <b>Māliki</b> · the rest: <b>Maliki</b></div></div>',
     } : {
       title: 'See why, not just what',
-      text: 'The book button opens a plain explanation of that bayt.',
-      html: '<button class="sc-target x-btn">۞</button>'
-        + '<div class="x-card"><div class="xh">Explanation</div><div class="xa">وَاللَّامُ لِلتَّعْرِيفِ</div>'
-        + '<div class="xt">Lām before a sun letter is not pronounced.</div></div>',
+      text: 'The book button under a bayt opens its explanation.',
+      html: '<button class="sc-target x-btn">' + BOOK + '</button>'
+        + '<div class="x-card"><div class="xh">Explanation</div><div class="xa">' + esc(ex!.ar) + '</div>'
+        + '<div class="xt">' + esc(ex!.text) + '</div></div>',
     });
     syncDots?.();
   }
@@ -355,7 +501,7 @@ export function init(): void {
     putBefore('Memorize', {
       title: 'Listen & repeat',
       text: '▶ plays on through the abyāt. 🎧 loops a range for ḥifẓ — speed, repeats, a gap to recite.',
-      html: '<div class="a-tag">▶ Playing bayt 3</div><div class="a-line">وَعِتْرَتِهِ ثُمَّ الصَّحابَةِ</div><button class="sc-target a-play">' + PLAY_ICON + '</button>',
+      html: '<div class="a-tag">▶ Playing bayt 3</div><div class="a-line">' + esc(S.line) + '</div><button class="sc-target a-play">' + PLAY_ICON + '</button>',
     });
     syncDots?.();
   }
