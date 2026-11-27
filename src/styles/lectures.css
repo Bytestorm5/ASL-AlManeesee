@@ -127,6 +127,15 @@ video.lc-media{background:var(--midnight); aspect-ratio:16/9}
 .ls-list li{margin:5px 0; padding-left:2px; font-family:"Cormorant Garamond",Georgia,serif; font-size:1.12rem; line-height:1.4; color:var(--ink)}
 .ls-list li::marker{color:var(--madder); font-weight:700}
 .ls-list li .ar{display:block; font-size:1.25rem; line-height:1.95} /* vowelled lines need room for their marks */
+/* an item that names a section jumps to it */
+.ls-list-a{display:block; margin:0 -8px; padding:2px 8px; border-radius:8px; color:inherit; text-decoration:none; -webkit-tap-highlight-color:transparent; transition:background .15s, color .15s}
+.ls-list-a .en{text-decoration:underline; text-decoration-color:var(--paper-edge); text-underline-offset:3px; text-decoration-thickness:1px}
+.ls-list-a:hover, .ls-list-a:focus-visible{background:var(--paper-2); color:var(--madder)}
+.ls-list-a:hover .en{text-decoration-color:currentColor}
+.ls-page[data-show="ar"] .ls-list-a .ar{text-decoration:underline; text-decoration-color:var(--paper-edge); text-underline-offset:.5em; text-decoration-thickness:1px}
+.ls-page[data-show="ar"] .ls-list-a:hover .ar{text-decoration-color:currentColor}
+.ls-list-a:focus-visible{outline:2px solid var(--madder); outline-offset:1px}
+@media (prefers-reduced-motion:no-preference){ html:has(.ls-page){scroll-behavior:smooth} }
 /* a hadith's source, and a quotation set as verse */
 .ls-q .ref{margin-top:4px; font-family:"Montserrat",sans-serif; font-style:normal; font-size:.66rem; font-weight:600; letter-spacing:.04em; color:var(--sage)}
 .ls-q .ref.ar{font-family:"Scheherazade New","Amiri",serif; font-size:.98rem; letter-spacing:0}

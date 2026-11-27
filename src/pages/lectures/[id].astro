@@ -32,6 +32,15 @@ const arHtml = (s: string) => esc(s).replace(/﴿[^﴾]*﴾/g, (m) => `<span cla
 /* Section headings get an id, so a heading can be linked to. */
 let h = 0;
 const blocks = doc.blocks.map((b: LectureBlock) => ({ b, anchor: b.t === 'head' || b.t === 'part' ? `s${++h}` : undefined }));
+/* A contents or summary item that names a section — the same words as its
+   heading, vowels aside — links to it; an item that only sums up stays text. */
+const key = (s?: string) => (s ?? '').replace(/[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06ED\u0640]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
+const anchorOf = new Map<string, string>();
+for (const { b, anchor } of blocks) {
+  if (!anchor || (b.t !== 'head' && b.t !== 'part')) continue;
+  for (const k of [key(b.ar), key(b.en)]) if (k && !anchorOf.has(k)) anchorOf.set(k, anchor);
+}
+const itemAnchor = (it: { ar?: string; en: string }) => anchorOf.get(key(it.en)) ?? anchorOf.get(key(it.ar));
 /* the date, unless the byline already gives it */
 const year = lecture.date?.slice(0, 4);
 const dateLine = year && !doc.byline.some((b) => b.en.includes(year)) ? lectureDate(lecture.date, 'long') : '';
@@ -83,12 +92,11 @@ const description = lecture.description
           </div>
         )}
         <ol>
-          {b.items.map((it) => (
-            <li>
-              {it.ar && <span class="ar" lang="ar" dir="rtl" set:html={arHtml(it.ar)} />}
-              <span class="en">{it.en}</span>
-            </li>
-          ))}
+          {b.items.map((it) => {
+            const to = itemAnchor(it);
+            const inner = <>{it.ar && <span class="ar" lang="ar" dir="rtl" set:html={arHtml(it.ar)} />}<span class="en">{it.en}</span></>;
+            return <li>{to ? <a class="ls-list-a" href={`#${to}`}>{inner}</a> : inner}</li>;
+          })}
         </ol>
       </nav>
     );
