@@ -1,0 +1,406 @@
+{
+  "title": {
+    "ar": "أَحْوَالُ النَّاسِ فِي الْحَشْرِ",
+    "en": "The States of People at the Gathering"
+  },
+  "kicker": {
+    "en": "The Last Day · Khuṭbah 4 of 10"
+  },
+  "byline": [
+    {
+      "ar": "سِلْسِلَةُ خُطَبٍ عَنِ الْيَوْمِ الْآخِرِ",
+      "en": "A Series of Khuṭbahs on the Last Day"
+    },
+    {
+      "ar": "إِعْدَادُ أ. د. وَلِيدِ بْنِ إِدْرِيسَ بْنِ عَبْدِ الْعَزِيزِ الْمُنَيْسِيِّ",
+      "en": "By Prof. Dr Waleed ibn Idris ibn ʿAbd al-ʿAzīz al-Meneese"
+    },
+    {
+      "ar": "دَارُ الْجَامِعَةِ الْإِسْلَامِيَّةِ بِمِنِيسُوتَا لِلنَّشْرِ",
+      "en": "Islamic University of Minnesota Press"
+    }
+  ],
+  "blocks": [
+    {
+      "t": "part",
+      "ar": "الْخُطْبَةُ الْأُولَى",
+      "en": "The First Khuṭbah"
+    },
+    {
+      "t": "p",
+      "ar": "إِنَّ الْحَمْدَ لِلَّهِ، نَحْمَدُهُ وَنَسْتَعِينُهُ وَنَسْتَغْفِرُهُ، وَنَعُوذُ بِاللَّهِ مِنْ شُرُورِ أَنْفُسِنَا وَمِنْ سَيِّئَاتِ أَعْمَالِنَا، مَنْ يَهْدِهِ اللَّهُ فَلَا مُضِلَّ لَهُ، وَمَنْ يُضْلِلْ فَلَا هَادِيَ لَهُ، وَأَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ صَلَّى اللَّهُ عَلَيْهِ وَعَلَى آلِهِ وَصَحْبِهِ وَسَلَّمَ.",
+      "en": "Indeed, all praise is for Allah. We praise Him, seek His help, and ask His forgiveness, and we seek refuge in Allah from the evils of our souls and from our bad deeds. Whomever Allah guides, no one can lead astray; and whomever He leaves astray, no one can guide. I bear witness that there is no god but Allah alone, without partner, and I bear witness that Muhammad is His servant and Messenger, may Allah send blessings and peace upon him, his family, and his Companions."
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ حَقَّ تُقَاتِهِ وَلَا تَمُوتُنَّ إِلَّا وَأَنتُم مُّسْلِمُونَ﴾",
+      "en": "“O you who believe, fear Allah as He should be feared, and do not die except as Muslims.”",
+      "ref": {
+        "ar": "آلِ عِمْرَانَ: 102",
+        "en": "Āl ʿImrān 3:102"
+      }
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿يَا أَيُّهَا النَّاسُ اتَّقُوا رَبَّكُمُ الَّذِي خَلَقَكُم مِّن نَّفْسٍ وَاحِدَةٍ وَخَلَقَ مِنْهَا زَوْجَهَا وَبَثَّ مِنْهُمَا رِجَالًا كَثِيرًا وَنِسَاءً وَاتَّقُوا اللَّهَ الَّذِي تَسَاءَلُونَ بِهِ وَالْأَرْحَامَ إِنَّ اللَّهَ كَانَ عَلَيْكُمْ رَقِيبًا﴾",
+      "en": "“O mankind, fear your Lord, who created you from a single soul, created from it its mate, and spread from the two of them many men and women. And fear Allah, in whose name you ask of one another, and honor the ties of kinship. Indeed, Allah is ever watchful over you.”",
+      "ref": {
+        "ar": "النِّسَاءِ: 1",
+        "en": "al-Nisāʾ 4:1"
+      }
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَقُولُوا قَوْلًا سَدِيدًا ۝ يُصْلِحْ لَكُمْ أَعْمَالَكُمْ وَيَغْفِرْ لَكُمْ ذُنُوبَكُمْ وَمَن يُطِعِ اللَّهَ وَرَسُولَهُ فَقَدْ فَازَ فَوْزًا عَظِيمًا﴾",
+      "en": "“O you who believe, fear Allah and speak words that are upright. He will set your deeds right for you and forgive you your sins. And whoever obeys Allah and His Messenger has certainly attained a great triumph.”",
+      "ref": {
+        "ar": "الْأَحْزَابِ: 70–71",
+        "en": "al-Aḥzāb 33:70–71"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "أَمَّا بَعْدُ، فَإِنَّ أَصْدَقَ الْحَدِيثِ كِتَابُ اللَّهِ، وَخَيْرَ الْهَدْيِ هَدْيُ مُحَمَّدٍ ﷺ، وَشَرَّ الْأُمُورِ مُحْدَثَاتُهَا، وَكُلَّ مُحْدَثَةٍ بِدْعَةٌ، وَكُلَّ بِدْعَةٍ ضَلَالَةٌ، وَكُلَّ ضَلَالَةٍ فِي النَّارِ، وَمَا قَلَّ وَكَفَى خَيْرٌ مِمَّا كَثُرَ وَأَلْهَى، وَ﴿إِنَّ مَا تُوعَدُونَ لَآتٍ وَمَا أَنتُم بِمُعْجِزِينَ﴾ [الْأَنْعَامِ: 134].",
+      "en": "Ammā baʿd: The truest speech is the Book of Allah, and the best guidance is the guidance of Muhammad ﷺ. The worst of matters are those newly invented; every newly invented matter is an innovation, every innovation is misguidance, and every misguidance is in the Fire. What is little and suffices is better than what is plentiful and distracts, and “indeed, what you are promised is coming, and you will not escape it” (al-Anʿām 6:134)."
+    },
+    {
+      "t": "p",
+      "ar": "أَيُّهَا الْإِخْوَةُ الْكِرَامُ، تَحَدَّثْنَا فِي الْخُطَبِ السَّابِقَةِ عَنْ ثَلَاثَةِ مَشَاهِدَ عِظَامٍ: نَفْخَةِ الصَّعْقِ الَّتِي تُعْلِنُ نِهَايَةَ الدُّنْيَا وَتَبْغَتُ النَّاسَ وَهُمْ فِي مَعَايِشِهِمْ، ثُمَّ التَّغْيِيرَاتِ الْكَوْنِيَّةِ الْهَائِلَةِ الَّتِي تَقَعُ بَيْنَ النَّفْخَتَيْنِ تَمْهِيدًا لِلْبَعْثِ، ثُمَّ نَفْخَةِ الْبَعْثِ الَّتِي تُرَدُّ فِيهَا الْأَرْوَاحُ إِلَى الْأَجْسَادِ بَعْدَ نَبَاتِهَا فَيَقُومُ النَّاسُ مِنْ قُبُورِهِمْ لِرَبِّ الْعَالَمِينَ. وَمَوْعِدُنَا الْيَوْمَ مَعَ الْمَشْهَدِ الرَّابِعِ، أَلَا وَهُوَ «الْحَشْرُ»؛ وَالْمَقْصُودُ بِالْحَشْرِ سَوْقُ الْخَلَائِقِ وَجَمْعُهُمْ مِنْ أَمَاكِنِ قُبُورِهِمُ الَّتِي بُعِثُوا مِنْهَا إِلَى مَوْقِفِ الْحِسَابِ وَفَصْلِ الْقَضَاءِ؛ وَاللَّهُ تَعَالَى أَعْلَمُ بِمِقْدَارِ الْمَسَافَةِ بَيْنَ مَوَاضِعِ بَعْثِهِمْ وَأَرْضِ الْمَحْشَرِ.",
+      "en": "Dear brothers, in the previous khuṭbahs we spoke of three tremendous scenes: the blast that strikes all dead (nafkhat al-ṣaʿq), which announces the end of the dunyā and takes people by surprise in the midst of their livelihoods; then the immense cosmic changes that take place between the two blasts, in preparation for the Resurrection; then the blast of the Resurrection (nafkhat al-baʿth), in which souls are returned to their bodies after the bodies have grown, and people rise from their graves for the Lord of the worlds. Today we come to the fourth scene, which is the Gathering (al-Ḥashr). What is meant by the Gathering is the driving and assembling of all creatures, from the places of the graves out of which they were resurrected, to the place of standing for the Reckoning and the passing of judgment; and Allah taʿālā knows best how great the distance is between the places where they are resurrected and the land of the Gathering."
+    },
+    {
+      "t": "p",
+      "ar": "وَقَدْ وَرَدَ ذِكْرُ الْحَشْرِ وَبَيَانُ صِفَتِهِ فِي آيَاتٍ كَثِيرَةٍ مِنْ كِتَابِ اللَّهِ تَعَالَى، مِنْهَا قَوْلُهُ سُبْحَانَهُ:",
+      "en": "Mention of the Gathering, and a description of it, have come in many verses of the Book of Allah taʿālā, among them His words (subḥānahu):"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿وَيَوْمَ يَحْشُرُهُمْ كَأَن لَّمْ يَلْبَثُوا إِلَّا سَاعَةً مِّنَ النَّهَارِ يَتَعَارَفُونَ بَيْنَهُمْ﴾",
+      "en": "“And on the Day when He will gather them, it will be as if they had not remained but an hour of the day; they will know one another.”",
+      "ref": {
+        "ar": "يُونُسَ: 45",
+        "en": "Yūnus 10:45"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَفِي آيَةٍ أُخْرَى:",
+      "en": "And in another verse:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿إِلَّا سَاعَةً مِّن نَّهَارٍ﴾",
+      "en": "“except an hour of a day.”",
+      "ref": {
+        "ar": "الْأَحْقَافِ: 35",
+        "en": "al-Aḥqāf 46:35"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "إِذْ يَتَقَاصَرُونَ مُدَّةَ لُبْثِهِمْ فِي الدُّنْيَا وَفِي الْقُبُورِ، وَقَوْلُهُ تَعَالَى:",
+      "en": "For they will think their stay in the dunyā and in the graves to have been short. And Allah taʿālā says:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿وَيَوْمَ يَحْشُرُهُمْ جَمِيعًا ثُمَّ يَقُولُ لِلْمَلَائِكَةِ أَهَٰؤُلَاءِ إِيَّاكُمْ كَانُوا يَعْبُدُونَ﴾",
+      "en": "“And on the Day He will gather them all, then He will say to the angels, ‘Was it you that these used to worship?’”",
+      "ref": {
+        "ar": "سَبَإٍ: 40",
+        "en": "Sabaʾ 34:40"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَقَوْلُهُ سُبْحَانَهُ:",
+      "en": "And He (subḥānahu) says:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿وَيَوْمَ يَحْشُرُهُمْ وَمَا يَعْبُدُونَ مِنْ دُونِ اللَّهِ فَيَقُولُ أَأَنتُمْ أَضْلَلْتُمْ عِبَادِي هَٰؤُلَاءِ أَمْ هُمْ ضَلُّوا السَّبِيلَ﴾",
+      "en": "“And on the Day He will gather them and that which they worship besides Allah, and will say, ‘Did you mislead these, My servants, or did they stray from the way?’”",
+      "ref": {
+        "ar": "الْفُرْقَانِ: 17",
+        "en": "al-Furqān 25:17"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَبَيَّنَ اللَّهُ سُبْحَانَهُ أَنَّ الْحَشْرَ يَشْمَلُ الْخَلَائِقَ جَمِيعًا مِنَ الْإِنْسِ وَالْجِنِّ وَالطَّيْرِ وَالْحَيَوَانِ؛ فَقَالَ عَزَّ وَجَلَّ:",
+      "en": "Allah (subḥānahu) has made clear that the Gathering includes all creatures alike, of mankind, jinn, birds and animals, for He (ʿazza wa jall) says:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿وَمَا مِنْ دَابَّةٍ فِي الْأَرْضِ وَلَا طَائِرٍ يَطِيرُ بِجَنَاحَيْهِ إِلَّا أُمَمٌ أَمْثَالُكُم مَّا فَرَّطْنَا فِي الْكِتَابِ مِنْ شَيْءٍ ثُمَّ إِلَىٰ رَبِّهِمْ يُحْشَرُونَ﴾",
+      "en": "“And there is no creature on the earth or bird that flies with its wings except that they are communities like you. We have not neglected anything in the Register. Then to their Lord they will be gathered.”",
+      "ref": {
+        "ar": "الْأَنْعَامِ: 38",
+        "en": "al-Anʿām 6:38"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَقَالَ تَعَالَى:",
+      "en": "And Allah taʿālā says:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿وَإِذَا الْوُحُوشُ حُشِرَتْ﴾",
+      "en": "“And when the wild beasts are gathered.”",
+      "ref": {
+        "ar": "التَّكْوِيرِ: 5",
+        "en": "al-Takwīr 81:5"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "فَتُحْشَرُ الْوُحُوشُ الْكَاسِرَةُ يَوْمَ الْقِيَامَةِ ذَلِيلَةً خَاضِعَةً مُسْتَكِينَةً لَا تَعْتَدِي عَلَى أَحَدٍ، فَيَقْضِي اللَّهُ سُبْحَانَهُ بَيْنَ الْبَهَائِمِ وَالْحَيَوَانَاتِ- مَعَ أَنَّهَا غَيْرُ مُكَلَّفَةٍ- إِظْهَارًا لِكَمَالِ عَدْلِهِ، حَتَّى يُقْتَصَّ لِلشَّاةِ الْجَلْحَاءِ مِنَ الشَّاةِ الْقَرْنَاءِ الَّتِي نَطَحَتْهَا فِي الدُّنْيَا، ثُمَّ يَقُولُ اللَّهُ لَهَا: كُونِي تُرَابًا فَتَفْنَى، وَيَقُولُ الْكَافِرُ حِينَئِذٍ حَسْرَةً وَنَدَمًا:",
+      "en": "So the ferocious beasts will be gathered on the Day of Resurrection humbled, submissive and subdued, attacking no one. Then Allah (subḥānahu) will judge between the beasts and animals – even though they bear no religious obligation – to show the perfection of His justice, so that even the hornless sheep will be given its due from the horned sheep that butted it in the dunyā. Then Allah will say to them, “Be dust,” and they will pass out of existence; and at that moment the disbeliever will say, in anguish and regret:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿يَا لَيْتَنِي كُنتُ تُرَابًا﴾",
+      "en": "“Oh, I wish that I were dust!”",
+      "ref": {
+        "ar": "النَّبَإِ: 40",
+        "en": "al-Nabaʾ 78:40"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "أَيُّهَا الْإِخْوَةُ الْكِرَامُ، لَقَدْ ثَبَتَ فِي الصَّحِيحَيْنِ مِنْ حَدِيثِ أُمِّ الْمُؤْمِنِينَ عَائِشَةَ رَضِيَ اللَّهُ عَنْهَا أَنَّ النَّبِيَّ ﷺ قَالَ: «تُحْشَرُونَ حُفَاةً عُرَاةً غُرْلًا» - أَيْ غَيْرَ مَخْتُونِينَ،- قَالَتْ عَائِشَةُ: فَقُلْتُ: يَا رَسُولَ اللَّهِ، الرِّجَالُ وَالنِّسَاءُ يَنْظُرُ بَعْضُهُمْ إِلَى بَعْضٍ؟ فَقَالَ:",
+      "en": "Dear brothers, it is established in the two Ṣaḥīḥs, from the hadith of the Mother of the Believers ʿĀʾishah (raḍiya Allāhu ʿanhā), that the Prophet ﷺ said: “You will be gathered barefoot, naked and ghurlan” – that is, uncircumcised. ʿĀʾishah said: I said, “O Messenger of Allah, men and women, looking at one another?” He said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«الْأَمْرُ أَشَدُّ مِنْ أَنْ يُهِمَّهُمْ ذَلِكَ»",
+      "en": "“The matter will be too severe for that to concern them.”",
+      "ref": {
+        "ar": "مُتَّفَقٌ عَلَيْهِ",
+        "en": "al-Bukhārī and Muslim"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "فَلِهَوْلِ ذَلِكَ الْمَوْقِفِ الْعَظِيمِ يَنْشَغِلُ كُلُّ إِنْسَانٍ بِنَفْسِهِ وَمَصِيرِهِ عَنِ النَّظَرِ أَوِ الِالْتِفَاتِ إِلَى غَيْرِهِ، قَالَ تَعَالَى:",
+      "en": "For the terror of that tremendous standing, every person will be too occupied with himself and his own fate to look or turn toward anyone else. Allah taʿālā says:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿يَوْمَ يَفِرُّ الْمَرْءُ مِنْ أَخِيهِ ۝ وَأُمِّهِ وَأَبِيهِ ۝ وَصَاحِبَتِهِ وَبَنِيهِ ۝ لِكُلِّ امْرِئٍ مِّنْهُمْ يَوْمَئِذٍ شَأْنٌ يُغْنِيهِ﴾",
+      "en": "“On the Day a man will flee from his brother, and his mother and his father, and his wife and his children, for every man, that Day, will have a matter enough to occupy him.”",
+      "ref": {
+        "ar": "عَبَسَ: 34–37",
+        "en": "ʿAbasa 80:34–37"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "ثُمَّ بَعْدَ أَنْ يُحْشَرَ الْخَلْقُ حُفَاةً عُرَاةً غُرْلًا تَبْدَأُ كِسْوَتُهُمْ بِحَسَبِ أَعْمَالِهِمْ؛ فَأَوَّلُ مَنْ يُكْسَى مِنَ الْخَلَائِقِ خَلِيلُ الرَّحْمَنِ إِبْرَاهِيمُ عَلَيْهِ السَّلَامُ، ثُمَّ نَبِيُّنَا مُحَمَّدٌ ﷺ، كَمَا ثَبَتَ فِي الصَّحِيحَيْنِ أَنَّ النَّبِيَّ ﷺ قَالَ: «إِنَّ أَوَّلَ الْخَلَائِقِ يُكْسَى يَوْمَ الْقِيَامَةِ إِبْرَاهِيمُ»، وَفِي رِوَايَةٍ:",
+      "en": "Then, after creation has been gathered barefoot, naked and uncircumcised, their clothing begins, according to their deeds. The first of all creatures to be clothed is the Intimate Friend of the Most Merciful, Ibrāhīm (ʿalayhi al-salām), then our Prophet Muhammad ﷺ, as is established in the two Ṣaḥīḥs: the Prophet ﷺ said, “The first of creation to be clothed on the Day of Resurrection will be Ibrāhīm.” And in one narration:"
+    },
+    {
+      "t": "quote",
+      "ar": "«ثُمَّ أُكْسَى حُلَّةً مِنَ الْجَنَّةِ لَا يَقُومُ لَهَا الْبَشَرُ»",
+      "en": "“Then I will be clothed in a robe from Jannah such as no human being could rival.”",
+      "ref": {
+        "ar": "أَخْرَجَهُ أَحْمَدُ",
+        "en": "Aḥmad"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "فَعُوِّضَ نَبِيُّنَا ﷺ عَنْ تَقَدُّمِ إِبْرَاهِيمَ عَلَيْهِ السَّلَامُ فِي الْكِسْوَةِ بِنَفَاسَةِ تِلْكَ الْحُلَّةِ الْعَظِيمَةِ. وَذَكَرَ شُرَّاحُ الْحَدِيثِ أَنَّ الْحِكْمَةَ فِي الْبَدْءِ بِكِسْوَةِ إِبْرَاهِيمَ عَلَيْهِ السَّلَامُ أَنَّ الْكُفَّارَ لَمَّا أَلْقَوْهُ فِي النَّارِ جَرَّدُوهُ مِنْ ثِيَابِهِ، فَلَمَّا ابْتُلِيَ بِالتَّجْرِيدِ فِي ذَاتِ اللَّهِ كَافَأَهُ اللَّهُ يَوْمَ الْقِيَامَةِ بِأَنْ جَعَلَهُ أَوَّلَ مَنْ يُسْتَرُ وَيُكْسَى عَلَى رُؤُوسِ الْأَشْهَادِ؛ وَالْجَزَاءُ مِنْ جِنْسِ الْعَمَلِ.",
+      "en": "So our Prophet ﷺ was compensated for Ibrāhīm (ʿalayhi al-salām) going before him in being clothed by the preciousness of that magnificent robe. The commentators on the hadith mention that the wisdom in beginning with the clothing of Ibrāhīm (ʿalayhi al-salām) is that when the disbelievers threw him into the fire, they stripped him of his clothes; and since he was tried with being stripped for the sake of Allah, Allah will reward him on the Day of Resurrection by making him the first to be covered and clothed before all witnesses. The recompense is of the same kind as the deed."
+    },
+    {
+      "t": "p",
+      "ar": "ثُمَّ يُكْسَى الْمُؤْمِنُونَ بِحُلَلٍ مِنَ الْجَنَّةِ عَلَى قَدْرِ أَعْمَالِهِمْ؛ فَحَامِلُ الْقُرْآنِ يُكْسَى حُلَّةَ الْكَرَامَةِ، وَيُلْبَسُ وَالِدَاهُ تَاجَ الْوَقَارِ الضَّوْءُ فِيهِ أَحْسَنُ مِنْ ضَوْءِ الشَّمْسِ، وَالْيَاقُوتَةُ مِنْهُ خَيْرٌ مِنَ الدُّنْيَا وَمَا فِيهَا. وَمَنْ تَرَكَ فَاخِرَ اللِّبَاسِ وَالْمُبَالَغَةَ فِيهِ تَوَاضُعًا لِلَّهِ مَعَ قُدْرَتِهِ عَلَيْهِ شَمِلَهُ قَوْلُ النَّبِيِّ ﷺ:",
+      "en": "Then the believers will be clothed in robes from Jannah according to their deeds. The one who carries the Qurʾān will be clothed in the robe of honor, and his parents will be made to wear the crown of dignity, whose light is more beautiful than the light of the sun, and a single gem of which is better than the dunyā and all it contains. And whoever gives up luxurious clothing and excess in it out of humility to Allah, though he is able to afford it, is included in the words of the Prophet ﷺ:"
+    },
+    {
+      "t": "quote",
+      "ar": "«مَنْ تَرَكَ اللِّبَاسَ تَوَاضُعًا لِلَّهِ وَهُوَ يَقْدِرُ عَلَيْهِ دَعَاهُ اللَّهُ يَوْمَ الْقِيَامَةِ عَلَى رُؤُوسِ الْخَلَائِقِ حَتَّى يُخَيِّرَهُ مِنْ أَيِّ حُلَلِ الْإِيمَانِ شَاءَ يَلْبَسُهَا»",
+      "en": "“Whoever gives up fine clothing out of humility to Allah while he is able to afford it, Allah will call him on the Day of Resurrection before all creation, so that He lets him choose whichever of the robes of īmān he wishes to wear.”",
+      "ref": {
+        "ar": "أَخْرَجَهُ التِّرْمِذِيُّ وَحَسَّنَهُ الْأَلْبَانِيُّ",
+        "en": "Narrated by al-Tirmidhī, and graded ḥasan by al-Albānī"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَأَمَّا الْكُفَّارُ وَالْعُصَاةُ الظَّالِمُونَ- أَعَاذَنَا اللَّهُ وَإِيَّاكُمْ مِنْ حَالِهِمْ- فَيُكْسَوْنَ ثِيَابَ الْعَذَابِ وَالْمَهَانَةِ؛ قَالَ تَعَالَى:",
+      "en": "As for the disbelievers and the wrongdoing sinners – may Allah protect us and you from their state – they will be clothed in garments of torment and humiliation. Allah taʿālā says:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿سَرَابِيلُهُم مِّن قَطِرَانٍ وَتَغْشَىٰ وُجُوهَهُمُ النَّارُ﴾",
+      "en": "“Their garments are of liquid pitch, and their faces are covered by the Fire.”",
+      "ref": {
+        "ar": "إِبْرَاهِيمَ: 50",
+        "en": "Ibrāhīm 14:50"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَقَالَ ﷺ فِي النَّائِحَةِ الَّتِي تَنُوحُ عَلَى الْمَيِّتِ بِالصِّيَاحِ وَاللَّطْمِ وَالِاعْتِرَاضِ عَلَى قَدَرِ اللَّهِ إِنْ لَمْ تَتُبْ قَبْلَ مَوْتِهَا:",
+      "en": "And he ﷺ said of the wailing woman, who wails over the dead with shrieking, slapping herself and objecting to the decree of Allah, if she does not repent before her death:"
+    },
+    {
+      "t": "quote",
+      "ar": "«تُقَامُ يَوْمَ الْقِيَامَةِ وَعَلَيْهَا سِرْبَالٌ مِنْ قَطِرَانٍ وَدِرْعٌ مِنْ جَرَبٍ»",
+      "en": "“She will be made to stand on the Day of Resurrection wearing a garment of pitch and a gown of scabies.”",
+      "ref": {
+        "ar": "أَخْرَجَهُ مُسْلِمٌ",
+        "en": "Muslim"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَالسِّرْبَالُ هُوَ الْقَمِيصُ، وَالدِّرْعُ مَا يَسْتُرُ الْبَدَنَ مِنَ الْكَتِفِ إِلَى الْقَدَمِ.",
+      "en": "The garment (sirbāl) is a shirt, and the gown (dirʿ) is what covers the body from the shoulder to the foot."
+    },
+    {
+      "t": "p",
+      "ar": "أَيُّهَا الْإِخْوَةُ الْكِرَامُ، يَتَفَاوَتُ النَّاسُ فِي كَيْفِيَّةِ ذَهَابِهِمْ مِنْ قُبُورِهِمْ إِلَى أَرْضِ الْمَحْشَرِ عَلَى ثَلَاثَةِ أَصْنَافٍ؛ كَمَا ثَبَتَ فِي الصَّحِيحَيْنِ مِنْ حَدِيثِ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ أَنَّ النَّبِيَّ ﷺ قَالَ: «يُحْشَرُ النَّاسُ عَلَى ثَلَاثِ طَرَائِقَ: رَاغِبِينَ رَاهِبِينَ، وَاثْنَانِ عَلَى بَعِيرٍ وَثَلَاثَةٌ عَلَى بَعِيرٍ وَأَرْبَعَةٌ عَلَى بَعِيرٍ وَعَشَرَةٌ عَلَى بَعِيرٍ، وَتَحْشُرُ بَقِيَّتَهُمُ النَّارُ؛ تَقِيلُ مَعَهُمْ حَيْثُ قَالُوا، وَتَبِيتُ مَعَهُمْ حَيْثُ بَاتُوا، وَتُصْبِحُ مَعَهُمْ حَيْثُ أَصْبَحُوا، وَتُمْسِي مَعَهُمْ حَيْثُ أَمْسَوْا». فَالْمُتَّقُونَ الْأَبْرَارُ تَتَلَقَّاهُمُ الْمَلَائِكَةُ عِنْدَ قُبُورِهِمْ بِنَجَائِبَ وَإِبِلٍ مُكَرَّمَةٍ فَيُحْشَرُونَ رَاكِبِينَ وَفْدًا مُكَرَّمِينَ، وَعُصَاةُ الْمُؤْمِنِينَ يَسِيرُونَ مَاشِينَ رَاغِبِينَ فِي عَفْوِ اللَّهِ رَاهِبِينَ مِنْ عِقَابِهِ، وَأَمَّا الْكُفَّارُ الْمُجْرِمُونَ فَتَسُوقُهُمُ النَّارُ وَيُسْحَبُونَ عَلَى وُجُوهِهِمْ عِطَاشًا إِلَى جَهَنَّمَ؛ قَالَ تَعَالَى:",
+      "en": "Dear brothers, people will differ in the way they go from their graves to the land of the Gathering, in three kinds, as is established in the two Ṣaḥīḥs from the hadith of Abū Hurayrah (raḍiya Allāhu ʿanhu), that the Prophet ﷺ said: “People will be gathered in three ways: hoping and fearing; two on a camel, three on a camel, four on a camel and ten on a camel; and the rest of them the Fire will gather, stopping with them for the midday rest where they stop at midday, spending the night with them where they spend the night, being with them in the morning wherever they are in the morning, and being with them in the evening wherever they are in the evening.” So the God-fearing and virtuous will be met by the angels at their graves with noble thoroughbreds and honored camels, and they will be gathered riding, as an honored delegation; the sinners among the believers will go on foot, hoping for Allah’s pardon and fearing His punishment; and as for the criminal disbelievers, the Fire will drive them, and they will be dragged on their faces, thirsty, to Jahannam. Allah taʿālā says:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿يَوْمَ نَحْشُرُ الْمُتَّقِينَ إِلَى الرَّحْمَٰنِ وَفْدًا ۝ وَنَسُوقُ الْمُجْرِمِينَ إِلَىٰ جَهَنَّمَ وِرْدًا﴾",
+      "en": "“On the Day We will gather the righteous to the Most Merciful as a delegation, and will drive the criminals to Jahannam in thirst.”",
+      "ref": {
+        "ar": "مَرْيَمَ: 85–86",
+        "en": "Maryam 19:85–86"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "قَالَ ابْنُ عَبَّاسٍ رَضِيَ اللَّهُ عَنْهُمَا: «وَفْدًا: أَيْ رُكْبَانًا، وَوِرْدًا: أَيْ عِطَاشًا». نَسْأَلُ اللَّهَ تَعَالَى أَنْ يُنَجِّيَنَا مِنْ كَرْبِ ذَلِكَ الْيَوْمِ الْعَظِيمِ، وَأَقُولُ قَوْلِي هَذَا وَأَسْتَغْفِرُ اللَّهَ لِي وَلَكُمْ.",
+      "en": "Ibn ʿAbbās (raḍiya Allāhu ʿanhumā) said: “‘As a delegation’ (wafdan) means riding, and ‘in thirst’ (wirdan) means thirsty.” We ask Allah taʿālā to save us from the distress of that tremendous Day. I say these words of mine, and I seek Allah’s forgiveness for myself and for you."
+    },
+    {
+      "t": "part",
+      "ar": "الْخُطْبَةُ الثَّانِيَةُ",
+      "en": "The Second Khuṭbah"
+    },
+    {
+      "t": "p",
+      "ar": "الْحَمْدُ لِلَّهِ، وَالصَّلَاةُ وَالسَّلَامُ عَلَى رَسُولِ اللَّهِ، وَعَلَى آلِهِ وَصَحْبِهِ وَمَنِ اتَّبَعَ هَدْيَهُ إِلَى يَوْمِ الدِّينِ.",
+      "en": "All praise is for Allah, and blessings and peace be upon the Messenger of Allah, and upon his family, his Companions and those who follow his guidance until the Day of Judgment."
+    },
+    {
+      "t": "p",
+      "ar": "أَمَّا بَعْدُ، أَيُّهَا الْإِخْوَةُ الْكِرَامُ، لَقَدْ دَلَّتْ نُصُوصُ الْقُرْآنِ وَالسُّنَّةِ عَلَى أَنَّ النَّاسَ يُحْشَرُونَ يَوْمَ الْقِيَامَةِ عَلَى صُوَرٍ وَهَيْئَاتٍ تَدُلُّ عَلَى أَعْمَالِهِمُ الَّتِي كَانُوا عَلَيْهَا فِي الدُّنْيَا وَمَاتُوا عَلَيْهَا؛ لِقَوْلِهِ ﷺ فِي صَحِيحِ مُسْلِمٍ عَنْ جَابِرٍ رَضِيَ اللَّهُ عَنْهُ:",
+      "en": "Ammā baʿd: Dear brothers, the texts of the Qurʾān and the Sunnah show that on the Day of Resurrection people will be gathered in forms and appearances that point to the deeds they kept to in the dunyā and died upon, because of his words ﷺ in Ṣaḥīḥ Muslim, from Jābir (raḍiya Allāhu ʿanhu):"
+    },
+    {
+      "t": "quote",
+      "ar": "«يُبْعَثُ كُلُّ عَبْدٍ عَلَى مَا مَاتَ عَلَيْهِ»",
+      "en": "“Every servant will be resurrected in the state in which he died.”",
+      "ref": {
+        "ar": "أَخْرَجَهُ مُسْلِمٌ",
+        "en": "Muslim"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "فَمِنْ أَهْلِ الطَّاعَةِ: الْمُحْرِمُ الَّذِي يَمُوتُ فِي حَجٍّ أَوْ عُمْرَةٍ، يُبْعَثُ يَوْمَ الْقِيَامَةِ فِي أَرْضِ الْمَحْشَرِ مُلَبِّيًا يَقُولُ: «لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ»؛ كَمَا ثَبَتَ فِي الصَّحِيحَيْنِ عَنِ ابْنِ عَبَّاسٍ رَضِيَ اللَّهُ عَنْهُمَا فِي الرَّجُلِ الَّذِي وَقَصَتْهُ نَاقَتُهُ- أَيْ أَسْقَطَتْهُ فَدَقَّتْ عُنُقَهُ- وَهُوَ مُحْرِمٌ مَعَ النَّبِيِّ ﷺ فَقَالَ ﷺ:",
+      "en": "Among the people of obedience is the one in iḥrām who dies during ḥajj or ʿumrah: he will be resurrected on the Day of Resurrection in the land of the Gathering reciting the talbiyah, saying, “Here I am, O Allah, here I am.” This is established in the two Ṣaḥīḥs from Ibn ʿAbbās (raḍiya Allāhu ʿanhumā), concerning the man whose she-camel struck him down – that is, threw him off and broke his neck – while he was in iḥrām with the Prophet ﷺ, and he ﷺ said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«اغْسِلُوهُ بِمَاءٍ وَسِدْرٍ، وَكَفِّنُوهُ فِي ثَوْبَيْهِ- أَيِ الْإِزَارِ وَالرِّدَاءِ،- وَلَا تَمَسُّوهُ طِيبًا، وَلَا تُخَمِّرُوا رَأْسَهُ- أَيْ لَا تُغَطُّوهُ؛- فَإِنَّهُ يُبْعَثُ يَوْمَ الْقِيَامَةِ مُلَبِّيًا»",
+      "en": "“Wash him with water and lote leaves, and shroud him in his two garments – that is, the lower wrap and the upper wrap – and do not touch him with perfume, and do not veil his head – that is, do not cover it – for he will be resurrected on the Day of Resurrection reciting the talbiyah.”",
+      "ref": {
+        "ar": "مُتَّفَقٌ عَلَيْهِ",
+        "en": "al-Bukhārī and Muslim"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَكَذَلِكَ الشَّهِيدُ فِي سَبِيلِ اللَّهِ؛ قَالَ فِيهِ النَّبِيُّ ﷺ:",
+      "en": "Likewise the martyr in the path of Allah; the Prophet ﷺ said about him:"
+    },
+    {
+      "t": "quote",
+      "ar": "«يُبْعَثُ الشَّهِيدُ يَوْمَ الْقِيَامَةِ وَجُرْحُهُ يَثْعَبُ دَمًا- أَيْ يَنْزِفُ؛- اللَّوْنُ لَوْنُ الدَّمِ، وَالرِّيحُ رِيحُ الْمِسْكِ»",
+      "en": "“The martyr will be resurrected on the Day of Resurrection with his wound gushing blood – that is, bleeding – its color the color of blood, and its scent the scent of musk.”",
+      "ref": {
+        "ar": "مُتَّفَقٌ عَلَيْهِ",
+        "en": "al-Bukhārī and Muslim"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَفِي الْمُقَابِلِ يُبْعَثُ أَهْلُ الْكَبَائِرِ عَلَى صُوَرٍ تَفْضَحُ جَرَائِمَهُمْ فِي أَرْضِ الْمَحْشَرِ قَبْلَ انْقِضَاءِ الْحِسَابِ؛ فَمَانِعُ الزَّكَاةِ يُعَذَّبُ بِمَالِهِ الَّذِي بَخِلَ بِهِ، كَمَا ثَبَتَ فِي الصَّحِيحَيْنِ مِنْ حَدِيثِ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ أَنَّ النَّبِيَّ ﷺ قَالَ:",
+      "en": "In contrast, the people of major sins will be resurrected in forms that expose their crimes in the land of the Gathering before the Reckoning is over. The one who withholds zakāh will be punished with the very wealth he held back out of stinginess, as is established in the two Ṣaḥīḥs from the hadith of Abū Hurayrah (raḍiya Allāhu ʿanhu), that the Prophet ﷺ said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«مَا مِنْ صَاحِبِ ذَهَبٍ وَلَا فِضَّةٍ لَا يُؤَدِّي مِنْهَا حَقَّهَا إِلَّا إِذَا كَانَ يَوْمُ الْقِيَامَةِ صُفِّحَتْ لَهُ صَفَائِحُ مِنْ نَارٍ، فَأُحْمِيَ عَلَيْهَا فِي نَارِ جَهَنَّمَ، فَيُكْوَى بِهَا جَنْبُهُ وَجَبِينُهُ وَظَهْرُهُ، كُلَّمَا بَرَدَتْ أُعِيدَتْ لَهُ فِي يَوْمٍ كَانَ مِقْدَارُهُ خَمْسِينَ أَلْفَ سَنَةٍ حَتَّى يُقْضَى بَيْنَ الْعِبَادِ... وَلَا صَاحِبِ إِبِلٍ لَا يُؤَدِّي مِنْهَا حَقَّهَا إِلَّا بُطِحَ لَهَا بِقَاعٍ قَرْقَرٍ أَوْفَرَ مَا كَانَتْ، تَطَؤُهُ بِأَخْفَافِهَا وَتَعَضُّهُ بِأَفْوَاهِهَا، كُلَّمَا مَرَّ عَلَيْهِ أُولَاهَا رُدَّ عَلَيْهِ أُخْرَاهَا فِي يَوْمٍ كَانَ مِقْدَارُهُ خَمْسِينَ أَلْفَ سَنَةٍ حَتَّى يُقْضَى بَيْنَ الْعِبَادِ»",
+      "en": "“There is no owner of gold or silver who does not pay what is due on it but that, when the Day of Resurrection comes, it will be beaten into plates of fire for him, which will be heated in the fire of Jahannam, and his side, his forehead and his back will be branded with them. Whenever they cool, they will be brought back to him, on a Day whose length is fifty thousand years, until judgment is passed between the servants… Nor is there any owner of camels who does not pay what is due on them but that he will be laid flat for them on a wide, level plain, with them as plentiful as they ever were, trampling him with their hooves and biting him with their mouths. Whenever the first of them has passed over him, the last of them will be brought back over him, on a Day whose length is fifty thousand years, until judgment is passed between the servants.”",
+      "ref": {
+        "ar": "أَخْرَجَهُ مُسْلِمٌ",
+        "en": "Muslim"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَهَكَذَا صَاحِبُ الْبَقَرِ وَالْغَنَمِ. كَمَا يُمَثَّلُ لِمَانِعِ الزَّكَاةِ مَالُهُ شُجَاعًا أَقْرَعَ- وَهُوَ الثُّعْبَانُ الْعَظِيمُ الَّذِي تَسَاقَطَ شَعْرُ رَأْسِهِ مِنْ كَثْرَةِ سُمِّهِ- فَيُطَوَّقُ بِهِ عُنُقُهُ وَيَأْخُذُ بِلِهْزِمَتَيْهِ- أَيْ شِدْقَيْهِ- وَيَقُولُ: «أَنَا مَالُكَ، أَنَا كَنْزُكَ»، ثُمَّ تَلَا النَّبِيُّ ﷺ:",
+      "en": "And so too the owner of cattle and sheep. Likewise, the one who withholds zakāh will have his wealth made to appear to him as a bald serpent – that is, the huge snake whose head has lost its hair from the abundance of its venom – which will be wound around his neck as a collar and will take hold of him by his jowls – that is, the corners of his mouth – saying, “I am your wealth, I am your treasure.” Then the Prophet ﷺ recited:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿سَيُطَوَّقُونَ مَا بَخِلُوا بِهِ يَوْمَ الْقِيَامَةِ﴾",
+      "en": "“Their necks will be encircled by what they withheld on the Day of Resurrection.”",
+      "ref": {
+        "ar": "آلِ عِمْرَانَ: 180",
+        "en": "Āl ʿImrān 3:180"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "[أَخْرَجَهُ الْبُخَارِيُّ].",
+      "en": "[Narrated by al-Bukhārī]."
+    },
+    {
+      "t": "p",
+      "ar": "وَكَذَلِكَ الْمُتَكَبِّرُونَ؛ رَوَى التِّرْمِذِيُّ مِنْ حَدِيثِ عَبْدِ اللَّهِ بْنِ عَمْرٍو رَضِيَ اللَّهُ عَنْهُمَا أَنَّ النَّبِيَّ ﷺ قَالَ:",
+      "en": "Likewise the arrogant. Al-Tirmidhī narrated, from the hadith of ʿAbdullāh ibn ʿAmr (raḍiya Allāhu ʿanhumā), that the Prophet ﷺ said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«يُحْشَرُ الْمُتَكَبِّرُونَ يَوْمَ الْقِيَامَةِ أَمْثَالَ الذَّرِّ- أَيْ فِي حَجْمِ النَّمْلِ الصِّغَارِ- فِي صُوَرِ الرِّجَالِ، يَغْشَاهُمُ الذُّلُّ مِنْ كُلِّ مَكَانٍ، يَطَؤُهُمُ النَّاسُ بِأَقْدَامِهِمْ»",
+      "en": "“The arrogant will be gathered on the Day of Resurrection like tiny specks – that is, the size of small ants – in the forms of men, humiliation covering them from every side, and people will trample them underfoot.”",
+      "ref": {
+        "ar": "أَخْرَجَهُ التِّرْمِذِيُّ وَحَسَّنَهُ الْأَلْبَانِيُّ",
+        "en": "Narrated by al-Tirmidhī, and graded ḥasan by al-Albānī"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَأَمَّا الْغَادِرُ الَّذِي يُضْمِرُ الشَّرَّ وَالْخِيَانَةَ وَيُظْهِرُ الْخَيْرَ وَالْوَفَاءَ، فَيُفْضَحُ عَلَى رُؤُوسِ الْأَشْهَادِ؛ لِقَوْلِهِ ﷺ فِي صَحِيحِ مُسْلِمٍ عَنْ أَبِي سَعِيدٍ الْخُدْرِيِّ رَضِيَ اللَّهُ عَنْهُ:",
+      "en": "As for the treacherous one, who hides evil and betrayal while showing goodness and loyalty, he will be exposed before all witnesses, because of his words ﷺ in Ṣaḥīḥ Muslim, from Abū Saʿīd al-Khudrī (raḍiya Allāhu ʿanhu):"
+    },
+    {
+      "t": "quote",
+      "ar": "«لِكُلِّ غَادِرٍ لِوَاءٌ عِنْدَ اسْتِهِ يَوْمَ الْقِيَامَةِ، يُرْفَعُ لَهُ بِقَدْرِ غَدْرَتِهِ، يُقَالُ: هَذِهِ غَدْرَةُ فُلَانِ بْنِ فُلَانٍ»",
+      "en": "“Every betrayer will have a banner at his backside on the Day of Resurrection, raised for him according to the measure of his betrayal. It will be said: ‘This is the betrayal of so-and-so, son of so-and-so.’”",
+      "ref": {
+        "ar": "أَخْرَجَهُ مُسْلِمٌ",
+        "en": "Muslim"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَيَطُولُ وُقُوفُ الْخَلَائِقِ فِي أَرْضِ الْمَحْشَرِ فِي يَوْمٍ كَانَ مِقْدَارُهُ خَمْسِينَ أَلْفَ سَنَةٍ يَنْتَظِرُونَ مَجِيءَ اللَّهِ سُبْحَانَهُ لِفَصْلِ الْقَضَاءِ؛ غَيْرَ أَنَّ اللَّهَ تَعَالَى بِرَحْمَتِهِ يُشْبِعُ الْمُؤْمِنِينَ وَيَرْوِيهِمْ مِنْ حَوْضِ نَبِيِّهِ ﷺ، وَيُخَفِّفُ عَنْهُمْ طُولَ ذَلِكَ الْيَوْمِ وَيُهَوِّنُهُ عَلَيْهِمْ حَتَّى يَمُرَّ عَلَى الْمُؤْمِنِ كَبَعْضِ يَوْمٍ أَوْ كَوَقْتِ صَلَاةٍ مَكْتُوبَةٍ، بَيْنَمَا يَشْتَدُّ عُسْرُهُ وَطُولُهُ وَجُوعُهُ وَعَطَشُهُ عَلَى الْكَافِرِينَ.",
+      "en": "The standing of all creatures in the land of the Gathering will be long, on a Day whose length is fifty thousand years, as they wait for Allah (subḥānahu) to come to pass judgment. Yet Allah taʿālā, by His mercy, will satisfy the believers and quench their thirst from the Pond (al-Ḥawḍ) of His Prophet ﷺ, and will lighten for them the length of that Day and make it easy for them, until it passes for the believer like part of a day, or like the time of an obligatory ṣalāh; while its hardship, its length, its hunger and its thirst grow severe for the disbelievers."
+    },
+    {
+      "t": "p",
+      "ar": "نَسْأَلُ اللَّهَ عَزَّ وَجَلَّ أَنْ يَنْفَعَنَا وَإِيَّاكُمْ بِمَا قُلْنَا وَسَمِعْنَا. اللَّهُمَّ أَصْلِحْ لَنَا دِينَنَا الَّذِي هُوَ عِصْمَةُ أَمْرِنَا، وَأَصْلِحْ لَنَا دُنْيَانَا الَّتِي فِيهَا مَعَاشُنَا، وَأَصْلِحْ لَنَا آخِرَتَنَا الَّتِي فِيهَا مَعَادُنَا، وَاجْعَلِ الْحَيَاةَ زِيَادَةً لَنَا فِي كُلِّ خَيْرٍ، وَاجْعَلِ الْمَوْتَ رَاحَةً لَنَا مِنْ كُلِّ شَرٍّ. رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً، وَفِي الْآخِرَةِ حَسَنَةً، وَقِنَا عَذَابَ النَّارِ. اللَّهُمَّ نَجِّ الْمُسْتَضْعَفِينَ مِنَ الْمُؤْمِنِينَ فِي كُلِّ مَكَانٍ، اللَّهُمَّ ارْحَمْ مَوْتَاهُمْ، وَفُكَّ أَسْرَاهُمْ، وَانْصُرْهُمْ عَلَى الْقَوْمِ الْكَافِرِينَ، اللَّهُمَّ آمِينَ، وَآخِرُ دَعْوَانَا أَنِ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ.",
+      "en": "We ask Allah (ʿazza wa jall) to benefit us and you by what we have said and heard. O Allah, set right for us our religion, which is the safeguard of our affairs; set right for us our dunyā, in which is our livelihood; and set right for us our Ākhirah, to which is our return. Make life an increase for us in every good, and make death a relief for us from every evil. Our Lord, give us good in the dunyā and good in the Ākhirah, and protect us from the punishment of the Fire. O Allah, rescue the oppressed among the believers everywhere. O Allah, have mercy on their dead, free their captives, and give them victory over the disbelieving people. O Allah, āmīn. And the last of our supplication is that all praise is for Allah, Lord of the worlds."
+    }
+  ]
+}

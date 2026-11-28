@@ -1,0 +1,451 @@
+{
+  "title": {
+    "ar": "الْعَرْضُ وَالْحِسَابُ وَقَوَاعِدُهُ",
+    "en": "The Presentation, the Reckoning and Its Principles"
+  },
+  "kicker": {
+    "en": "The Last Day · Khuṭbah 7 of 10"
+  },
+  "byline": [
+    {
+      "ar": "سِلْسِلَةُ خُطَبٍ عَنِ الْيَوْمِ الْآخِرِ",
+      "en": "A Series of Khuṭbahs on the Last Day"
+    },
+    {
+      "ar": "إِعْدَادُ أ. د. وَلِيدِ بْنِ إِدْرِيسَ بْنِ عَبْدِ الْعَزِيزِ الْمُنَيْسِيِّ",
+      "en": "By Prof. Dr Waleed ibn Idris ibn ʿAbd al-ʿAzīz al-Meneese"
+    },
+    {
+      "ar": "دَارُ الْجَامِعَةِ الْإِسْلَامِيَّةِ بِمِنِيسُوتَا لِلنَّشْرِ",
+      "en": "Islamic University of Minnesota Press"
+    }
+  ],
+  "blocks": [
+    {
+      "t": "part",
+      "ar": "الْخُطْبَةُ الْأُولَى",
+      "en": "The First Khuṭbah"
+    },
+    {
+      "t": "p",
+      "ar": "إِنَّ الْحَمْدَ لِلَّهِ، نَحْمَدُهُ وَنَسْتَعِينُهُ وَنَسْتَغْفِرُهُ، وَنَعُوذُ بِاللَّهِ مِنْ شُرُورِ أَنْفُسِنَا وَمِنْ سَيِّئَاتِ أَعْمَالِنَا، مَنْ يَهْدِهِ اللَّهُ فَلَا مُضِلَّ لَهُ، وَمَنْ يُضْلِلْ فَلَا هَادِيَ لَهُ، وَأَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ صَلَّى اللَّهُ عَلَيْهِ وَعَلَى آلِهِ وَصَحْبِهِ وَسَلَّمَ.",
+      "en": "All praise is for Allah. We praise Him, seek His help and ask His forgiveness, and we seek refuge in Allah from the evils of our own souls and from our bad deeds. Whomever Allah guides, no one can lead astray, and whomever He leaves astray, no one can guide. I bear witness that there is no god but Allah alone, with no partner, and I bear witness that Muhammad is His servant and His Messenger, may Allah send blessings and peace upon him, his family and his Companions."
+    },
+    {
+      "t": "p",
+      "ar": "أَمَّا بَعْدُ، أَيُّهَا الْإِخْوَةُ الْكِرَامُ، تَكَلَّمْنَا فِي الْخُطْبَةِ الْمَاضِيَةِ عَنِ الشَّفَاعَةِ الْعُظْمَى، وَعَرَفْنَا أَنَّ النَّاسَ حِينَ يَطُولُ وُقُوفُهُمْ فِي الْمَحْشَرِ يَسْتَشْفِعُونَ بِالْأَنْبِيَاءِ وَاحِدًا بَعْدَ آخَرَ حَتَّى يَنْتَهُوا إِلَى نَبِيِّنَا مُحَمَّدٍ ﷺ، فَيَشْفَعُ لَهُمْ عِنْدَ رَبِّهِ لِيَأْتِيَ لِفَصْلِ الْقَضَاءِ بَيْنَهُمْ؛ وَعِنْدَئِذٍ تُشْرِقُ أَرْضُ الْمَحْشَرِ بِنُورِ رَبِّهَا عِنْدَ مَجِيئِهِ سُبْحَانَهُ فِي ظُلَلٍ مِنَ الْغَمَامِ وَالْمَلَائِكَةِ، وَتُحْضَرُ صُحُفُ الْأَعْمَالِ وَالنَّبِيُّونَ وَالشُّهَدَاءُ، كَمَا قَالَ تَعَالَى:",
+      "en": "Ammā baʿd: Dear brothers, in the last khuṭbah we spoke about the Great Intercession (al-Shafāʿah al-ʿUẓmā). We learned that when people’s standing in the place of Gathering (al-Maḥshar) grows long, they ask the prophets, one after another, to intercede for them, until they come at last to our Prophet Muhammad ﷺ, and he intercedes for them with his Lord, that He come to pass judgment between them. At that point the land of the Gathering shines with the light of its Lord as He (subḥānahu) comes in canopies of cloud and of angels, and the scrolls of deeds, the prophets and the witnesses are brought forward, as Allah taʿālā says:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿وَأَشْرَقَتِ الْأَرْضُ بِنُورِ رَبِّهَا وَوُضِعَ الْكِتَابُ وَجِيءَ بِالنَّبِيِّينَ وَالشُّهَدَاءِ وَقُضِيَ بَيْنَهُم بِالْحَقِّ وَهُمْ لَا يُظْلَمُونَ﴾",
+      "en": "“And the earth will shine with the light of its Lord, and the record will be placed, and the prophets and the witnesses will be brought, and it will be judged between them in truth, and they will not be wronged.”",
+      "ref": {
+        "ar": "الزُّمَرِ: 69",
+        "en": "al-Zumar 39:69"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "فَتَبْدَأُ بِذَلِكَ مَرَاسِمُ الْمَحْكَمَةِ الْإِلَهِيَّةِ الْكُبْرَى فِي مَرْحَلَةِ «الْعَرْضِ وَالْحِسَابِ».",
+      "en": "With this begin the proceedings of the supreme divine court, at the stage of “the Presentation and the Reckoning (al-ʿArḍ wa al-Ḥisāb).”"
+    },
+    {
+      "t": "p",
+      "ar": "وَالْعَرْضُ يَوْمَ الْقِيَامَةِ يَأْتِي عَلَى مَعْنَيَيْنِ؛ الْمَعْنَى الْأَوَّلُ: «الْعَرْضُ الْعَامُّ»، وَهُوَ وُقُوفُ الْخَلَائِقِ جَمِيعًا- مُؤْمِنِهِمْ وَكَافِرِهِمْ، مَنْ يُحَاسَبُ مِنْهُمْ وَمَنْ يَدْخُلُ الْجَنَّةَ بِغَيْرِ حِسَابٍ- صُفُوفًا بَارِزِينَ بَيْنَ يَدَيِ اللَّهِ تَعَالَى لَا يَسْتُرُهُمْ شَيْءٌ، وَفِيهِ يَقُولُ سُبْحَانَهُ:",
+      "en": "The Presentation on the Day of Resurrection has two meanings. The first meaning is “the general Presentation”: all creatures standing together – believers and disbelievers alike, those of them who will be reckoned and those who will enter Jannah without reckoning – in rows, fully exposed before Allah taʿālā, with nothing to screen them. Of this He (subḥānahu) says:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿يَوْمَئِذٍ تُعْرَضُونَ لَا تَخْفَىٰ مِنكُمْ خَافِيَةٌ﴾",
+      "en": "“That Day, you will be presented; not hidden among you is anything concealed.”",
+      "ref": {
+        "ar": "الْحَاقَّةِ: 18",
+        "en": "al-Ḥāqqah 69:18"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَالْمَعْنَى الثَّانِي: «الْعَرْضُ الْخَاصُّ بِالْمُؤْمِنِينَ»، وَهُوَ الْحِسَابُ الْيَسِيرُ الَّذِي يَعْرِضُ اللَّهُ فِيهِ عَلَى عَبْدِهِ الْمُؤْمِنِ ذُنُوبَهُ فِيمَا بَيْنَهُ وَبَيْنَهُ مِنْ غَيْرِ أَنْ يَفْضَحَهُ عَلَى رُؤُوسِ الْأَشْهَادِ؛ كَمَا ثَبَتَ فِي الصَّحِيحَيْنِ مِنْ حَدِيثِ ابْنِ عُمَرَ رَضِيَ اللَّهُ عَنْهُمَا أَنَّ النَّبِيَّ ﷺ قَالَ:",
+      "en": "The second meaning is “the Presentation particular to the believers”: the easy reckoning, in which Allah sets his sins before His believing servant, privately between Him and him, without disgracing him before all witnesses. As is established in the two Ṣaḥīḥs, from the hadith of Ibn ʿUmar (raḍiya Allāhu ʿanhumā), the Prophet ﷺ said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«إِنَّ اللَّهَ يُدْنِي الْمُؤْمِنَ، فَيَضَعُ عَلَيْهِ كَنَفَهُ وَيَسْتُرُهُ، فَيَقُولُ: أَتَعْرِفُ ذَنْبَ كَذَا؟ أَتَعْرِفُ ذَنْبَ كَذَا؟ فَيَقُولُ: نَعَمْ أَيْ رَبِّ، حَتَّى إِذَا قَرَّرَهُ بِذُنُوبِهِ وَرَأَى فِي نَفْسِهِ أَنَّهُ هَلَكَ، قَالَ: سَتَرْتُهَا عَلَيْكَ فِي الدُّنْيَا، وَأَنَا أَغْفِرُهَا لَكَ الْيَوْمَ، فَيُعْطَى كِتَابَ حَسَنَاتِهِ»",
+      "en": "“Allah brings the believer near, places His cover over him and screens him, and says: ‘Do you recognize such-and-such a sin? Do you recognize such-and-such a sin?’ He says, ‘Yes, my Lord.’ When He has made him acknowledge his sins, and he sees within himself that he is ruined, He says: ‘I concealed them for you in the dunyā, and I forgive them for you today.’ Then he is given the record of his good deeds.”",
+      "ref": {
+        "ar": "مُتَّفَقٌ عَلَيْهِ",
+        "en": "al-Bukhārī and Muslim"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَأَمَّا الْحِسَابُ بِمَعْنَاهُ الْعَامِّ فَيَشْمَلُ مُسَاءَلَةَ الْعِبَادِ وَمُنَاقَشَتَهُمْ وَإِقَامَةَ الْحُجَّةِ عَلَيْهِمْ وَتَطَايُرَ الصُّحُفِ؛ وَقَدْ وَرَدَ فِي سُنَنِ التِّرْمِذِيِّ وَابْنِ مَاجَهْ وَفِي آثَارٍ عَنِ الصَّحَابَةِ أَنَّ النَّاسَ يُعْرَضُونَ يَوْمَ الْقِيَامَةِ ثَلَاثَ عَرْضَاتٍ:",
+      "en": "As for the Reckoning in its general sense, it includes questioning the servants, scrutinizing them, establishing the proof against them, and the flying of the scrolls. It has come in the Sunan of al-Tirmidhī and Ibn Mājah, and in reports from the Companions, that people will be presented on the Day of Resurrection three times:"
+    },
+    {
+      "t": "quote",
+      "ar": "«فَأَمَّا عَرْضَتَانِ فَجِدَالٌ وَمَعَاذِيرُ، وَأَمَّا الثَّالِثَةُ فَعِنْدَ ذَلِكَ تَطِيرُ الصُّحُفُ فِي الْأَيْدِي»",
+      "en": "“As for two of the presentations, they are argument and excuses; and as for the third, at that point the scrolls fly into the hands.”",
+      "ref": {
+        "ar": "أَخْرَجَهُ التِّرْمِذِيُّ وَابْنُ مَاجَهْ",
+        "en": "al-Tirmidhī and Ibn Mājah"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "فَفِي مَرْحَلَةِ الْجِدَالِ تُحَاوِلُ كُلُّ نَفْسٍ الدِّفَاعَ عَنْ نَفْسِهَا كَمَا قَالَ تَعَالَى:",
+      "en": "In the stage of argument, every soul tries to defend itself, as Allah taʿālā says:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿يَوْمَ تَأْتِي كُلُّ نَفْسٍ تُجَادِلُ عَن نَّفْسِهَا وَتُوَفَّىٰ كُلُّ نَفْسٍ مَّا عَمِلَتْ وَهُمْ لَا يُظْلَمُونَ﴾",
+      "en": "“On the Day when every soul will come disputing for itself, and every soul will be fully compensated for what it did, and they will not be wronged.”",
+      "ref": {
+        "ar": "النَّحْلِ: 111",
+        "en": "al-Naḥl 16:111"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَفِي مَرْحَلَةِ الْمَعَاذِيرِ يَعْذِرُ اللَّهُ تَعَالَى أَصْحَابَ الْأَعْذَارِ الصَّحِيحَةِ كَالْمُكْرَهِ وَالْمُضْطَرِّ وَمَنْ لَمْ تَبْلُغْهُ الْحُجَّةُ؛ لِقَوْلِهِ ﷺ:",
+      "en": "In the stage of excuses, Allah taʿālā accepts the excuses of those whose excuses are valid, such as one who was coerced, one driven by necessity, and one whom the proof never reached, because he ﷺ said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«لَيْسَ أَحَدٌ أَحَبَّ إِلَيْهِ الْعُذْرُ مِنَ اللَّهِ»",
+      "en": "“There is no one who loves excuses more than Allah.”",
+      "ref": {
+        "ar": "مُتَّفَقٌ عَلَيْهِ",
+        "en": "al-Bukhārī and Muslim"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَيَرُدُّ سُبْحَانَهُ مَعَاذِيرَ الْكَافِرِينَ الْبَاطِلَةَ الَّذِينَ يَحْتَجُّونَ بِتَقْلِيدِ آبَائِهِمْ.",
+      "en": "And He (subḥānahu) rejects the false excuses of the disbelievers who plead that they were following their forefathers."
+    },
+    {
+      "t": "p",
+      "ar": "ثُمَّ فِي الْعَرْضَةِ الثَّالِثَةِ تَتَطَايَرُ الصُّحُفُ؛ فَيَأْخُذُ الْمُؤْمِنُ كِتَابَهُ بِيَمِينِهِ مِنْ أَمَامِهِ، وَيَأْخُذُ الْكَافِرُ كِتَابَهُ بِشِمَالِهِ مِنْ وَرَاءِ ظَهْرِهِ، قَالَ تَعَالَى:",
+      "en": "Then, at the third presentation, the scrolls fly. The believer takes his record in his right hand, from in front of him, and the disbeliever takes his record in his left hand, from behind his back. Allah taʿālā says:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿وَكُلَّ إِنسَانٍ أَلْزَمْنَاهُ طَائِرَهُ فِي عُنُقِهِ وَنُخْرِجُ لَهُ يَوْمَ الْقِيَامَةِ كِتَابًا يَلْقَاهُ مَنشُورًا ۝ اقْرَأْ كِتَابَكَ كَفَىٰ بِنَفْسِكَ الْيَوْمَ عَلَيْكَ حَسِيبًا﴾",
+      "en": "“And for every person We have imposed his fate upon his neck, and We will produce for him on the Day of Resurrection a record which he will encounter spread open. ‘Read your record. Sufficient is yourself against you this Day as accountant.’”",
+      "ref": {
+        "ar": "الْإِسْرَاءِ: 13–14",
+        "en": "al-Isrāʾ 17:13–14"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَاللَّهُ سُبْحَانَهُ هُوَ",
+      "en": "And Allah (subḥānahu) is"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿أَسْرَعُ الْحَاسِبِينَ﴾",
+      "en": "“the swiftest of accountants”",
+      "ref": {
+        "ar": "الْأَنْعَامِ: 62",
+        "en": "al-Anʿām 6:62"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "إِذْ يُحَاسِبُ الْإِنْسَ وَالْجِنَّ مِنْ لَدُنْ آدَمَ عَلَيْهِ السَّلَامُ إِلَى قِيَامِ السَّاعَةِ فِي آنٍ وَاحِدٍ، لَا يَشْغَلُهُ حِسَابُ أَحَدٍ عَنْ حِسَابِ غَيْرِهِ.",
+      "en": "for He reckons with humans and jinn, from Ādam (ʿalayhi al-salām) until the Hour is established, at one and the same time, and reckoning with one does not keep Him from reckoning with another."
+    },
+    {
+      "t": "p",
+      "ar": "أَيُّهَا الْإِخْوَةُ الْكِرَامُ، وَمِنَ الْمَسَائِلِ الْمُتَعَلِّقَةِ بِالْحِسَابِ: مَسْأَلَةُ حِسَابِ الْكُفَّارِ؛ وَالصَّحِيحُ الَّذِي تَجْتَمِعُ بِهِ الْأَدِلَّةُ أَنَّ الْكُفَّارَ يُوقَفُونَ وَيُسْأَلُونَ سُؤَالَ تَقْرِيعٍ وَتَوْبِيخٍ لَا حِسَابَ مُوَازَنَةٍ؛ وَأَنَّ أَحْوَالَهُمْ تَتَعَدَّدُ بِتَعَدُّدِ مَوَاقِفِ الْقِيَامَةِ؛ فَفِي مَرْحَلَةٍ يُمْنَعُونَ مِنَ النُّطْقِ وَالِاعْتِذَارِ- قَالَ الْإِمَامُ أَحْمَدُ رَحِمَهُ اللَّهُ: يَقِفُ الْخَلْقُ سِتِّينَ سَنَةً لَا يَنْطِقُونَ- وَهُوَ مَعْنَى قَوْلِهِ تَعَالَى:",
+      "en": "Dear brothers, among the questions connected with the Reckoning is the question of the reckoning of the disbelievers. The correct view, by which all the evidence is reconciled, is that the disbelievers will be made to stand and will be questioned with a questioning of rebuke and reproach, not a reckoning that weighs good deeds against bad; and that their states vary with the many stations of the Day of Resurrection. At one stage they are prevented from speaking and from making excuses – Imam Aḥmad (raḥimahu Allāh) said: Creation will stand for sixty years without speaking – and this is the meaning of the words of Allah taʿālā:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿هَٰذَا يَوْمُ لَا يَنطِقُونَ ۝ وَلَا يُؤْذَنُ لَهُمْ فَيَعْتَذِرُونَ﴾",
+      "en": "“This is a Day they will not speak, nor will it be permitted for them to make an excuse.”",
+      "ref": {
+        "ar": "الْمُرْسَلَاتِ: 35–36",
+        "en": "al-Mursalāt 77:35–36"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَفِي مَرْحَلَةٍ أُخْرَى يُسْأَلُونَ وَيَخْتَصِمُونَ كَمَا قَالَ تَعَالَى:",
+      "en": "At another stage they are questioned and they dispute, as Allah taʿālā says:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿فَلَنَسْأَلَنَّ الَّذِينَ أُرْسِلَ إِلَيْهِمْ وَلَنَسْأَلَنَّ الْمُرْسَلِينَ﴾",
+      "en": "“Then We will surely question those to whom [a message] was sent, and We will surely question the messengers.”",
+      "ref": {
+        "ar": "الْأَعْرَافِ: 6",
+        "en": "al-Aʿrāf 7:6"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَقَالَ:",
+      "en": "And He says:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿ثُمَّ إِنَّكُمْ يَوْمَ الْقِيَامَةِ عِندَ رَبِّكُمْ تَخْتَصِمُونَ﴾",
+      "en": "“Then indeed you, on the Day of Resurrection, before your Lord, will dispute.”",
+      "ref": {
+        "ar": "الزُّمَرِ: 31",
+        "en": "al-Zumar 39:31"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "حَتَّى إِذَا أُلْقُوا فِي جَهَنَّمَ قِيلَ لَهُمْ:",
+      "en": "And when at last they are cast into Jahannam, they are told:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿اخْسَئُوا فِيهَا وَلَا تُكَلِّمُونِ﴾",
+      "en": "“Remain despised therein and do not speak to Me.”",
+      "ref": {
+        "ar": "الْمُؤْمِنُونَ: 108",
+        "en": "al-Muʾminūn 23:108"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَأَمَّا الْمُنْتَسِبُونَ إِلَى الْقِبْلَةِ وَالْإِيمَانِ فَيَنْقَسِمُونَ فِي الْحِسَابِ إِلَى أَقْسَامٍ:",
+      "en": "As for those who belong to the qiblah and to īmān, they fall into several groups in the Reckoning:"
+    },
+    {
+      "t": "p",
+      "ar": "قِسْمٌ يَدْخُلُونَ الْجَنَّةَ بِغَيْرِ حِسَابٍ وَلَا عَذَابٍ؛ وَهُمْ سَبْعُونَ أَلْفًا مَعَ كُلِّ أَلْفٍ سَبْعُونَ أَلْفًا وَثَلَاثُ حَثَيَاتٍ مِنْ حَثَيَاتِ رَبِّنَا عَزَّ وَجَلَّ.",
+      "en": "One group enter Jannah without reckoning and without punishment. They are seventy thousand, with every thousand of them seventy thousand, and three handfuls from the handfuls of our Lord (ʿazza wa jall)."
+    },
+    {
+      "t": "p",
+      "ar": "وَقِسْمٌ يُحَاسَبُونَ حِسَابًا يَسِيرًا هُوَ الْعَرْضُ؛ كَمَا قَالَتْ عَائِشَةُ رَضِيَ اللَّهُ عَنْهَا حِينَ سَمِعَتِ النَّبِيَّ ﷺ يَقُولُ: «مَنْ حُوسِبَ عُذِّبَ»، قَالَتْ: أَوَلَيْسَ يَقُولُ اللَّهُ تَعَالَى:",
+      "en": "Another group are reckoned with an easy reckoning, which is the Presentation. When ʿĀʾishah (raḍiya Allāhu ʿanhā) heard the Prophet ﷺ say, “Whoever is reckoned with is punished,” she asked: Does Allah taʿālā not say:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿فَأَمَّا مَنْ أُوتِيَ كِتَابَهُ بِيَمِينِهِ ۝ فَسَوْفَ يُحَاسَبُ حِسَابًا يَسِيرًا﴾",
+      "en": "“Then as for the one who is given his record in his right hand, he will be reckoned with an easy reckoning”",
+      "ref": {
+        "ar": "الِانْشِقَاقِ: 7–8",
+        "en": "al-Inshiqāq 84:7–8"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "؟ فَقَالَ ﷺ: «إِنَّمَا ذَلِكِ الْعَرْضُ، وَلَكِنْ مَنْ نُوقِشَ الْحِسَابَ يَهْلِكْ- أَوْ عُذِّبَ»- [مُتَّفَقٌ عَلَيْهِ].",
+      "en": "He ﷺ replied: “That is only the Presentation. But whoever has his reckoning scrutinized will perish – or: will be punished.” (al-Bukhārī and Muslim)"
+    },
+    {
+      "t": "p",
+      "ar": "وَمِنَ الْعُصَاةِ مَنْ يُعَذَّبُ بِقَدْرِ ذُنُوبِهِ ثُمَّ يَخْرُجُ مِنَ النَّارِ بِالشَّفَاعَةِ أَوْ بِرَحْمَةِ أَرْحَمِ الرَّاحِمِينَ فَيُلْقَى فِي نَهْرِ الْحَيَاةِ وَيَدْخُلُ الْجَنَّةَ.",
+      "en": "And among the sinners are some who are punished in proportion to their sins and then come out of the Fire, through intercession or through the mercy of the Most Merciful of the merciful, and are cast into the River of Life and enter Jannah."
+    },
+    {
+      "t": "p",
+      "ar": "وَأَمَّا الْمُنَافِقُونَ وَالْفُجَّارُ الَّذِينَ يُنَاقَشُونَ الْحِسَابَ فَيَكْذِبُونَ عَلَى اللَّهِ تَعَالَى وَيَحْلِفُونَ لَهُ كَمَا كَانُوا يَحْلِفُونَ لِلْمُؤْمِنِينَ فِي الدُّنْيَا؛ قَالَ تَعَالَى:",
+      "en": "As for the hypocrites and the wicked, whose reckoning is scrutinized, they lie against Allah taʿālā and swear to Him just as they used to swear to the believers in the dunyā. Allah taʿālā says:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿يَوْمَ يَبْعَثُهُمُ اللَّهُ جَمِيعًا فَيَحْلِفُونَ لَهُ كَمَا يَحْلِفُونَ لَكُمْ وَيَحْسَبُونَ أَنَّهُمْ عَلَىٰ شَيْءٍ﴾",
+      "en": "“On the Day Allah will resurrect them all, and they will swear to Him as they swear to you and think that they are [standing] on something.”",
+      "ref": {
+        "ar": "الْمُجَادَلَةِ: 18",
+        "en": "al-Mujādilah 58:18"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَيَقُولُ الْعَبْدُ مِنْهُمْ: لَا أُجِيزُ عَلَيَّ إِلَّا شَاهِدًا مِنْ نَفْسِي، فَيَخْتِمُ اللَّهُ عَلَى فِيهِ وَيَسْتَنْطِقُ جَوَارِحَهُ فَتَشْهَدُ عَلَيْهِ يَدُهُ وَرِجْلُهُ وَسَمْعُهُ وَبَصَرُهُ بِمَا اقْتَرَفَ، ثُمَّ يُخَلَّى بَيْنَهُ وَبَيْنَ الْكَلَامِ فَيَقُولُ لِأَعْضَائِهِ:",
+      "en": "One of them says: I allow no witness against me except one from myself. So Allah seals his mouth and makes his limbs speak, and his hand, his foot, his hearing and his sight testify against him to what he committed. Then he is left free to speak, and he says to his limbs:"
+    },
+    {
+      "t": "quote",
+      "ar": "«بُعْدًا لَكُنَّ وَسُحْقًا، فَعَنْكُنَّ كُنْتُ أُنَاضِلُ»",
+      "en": "“Away with you, and ruin to you! It was for your sake that I was pleading.”",
+      "ref": {
+        "ar": "أَخْرَجَهُ مُسْلِمٌ",
+        "en": "Muslim"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "ثُمَّ يُؤْمَرُ بِهِ إِلَى النَّارِ وَالْعِيَاذُ بِاللَّهِ. نَسْأَلُ اللَّهَ تَعَالَى أَنْ يَسْتُرَنَا وَيَعْفُوَ عَنَّا، وَأَقُولُ قَوْلِي هَذَا وَأَسْتَغْفِرُ اللَّهَ لِي وَلَكُمْ.",
+      "en": "Then he is ordered into the Fire, and we seek refuge in Allah. We ask Allah taʿālā to cover us and pardon us. I say these words of mine, and I seek Allah’s forgiveness for myself and for you."
+    },
+    {
+      "t": "part",
+      "ar": "الْخُطْبَةُ الثَّانِيَةُ",
+      "en": "The Second Khuṭbah"
+    },
+    {
+      "t": "p",
+      "ar": "الْحَمْدُ لِلَّهِ، وَالصَّلَاةُ وَالسَّلَامُ عَلَى رَسُولِ اللَّهِ، وَعَلَى آلِهِ وَصَحْبِهِ وَمَنِ اتَّبَعَ هَدْيَهُ إِلَى يَوْمِ الدِّينِ.",
+      "en": "All praise is for Allah, and peace and blessings be upon the Messenger of Allah, and upon his family, his Companions and those who follow his guidance until the Day of Judgment."
+    },
+    {
+      "t": "p",
+      "ar": "أَمَّا بَعْدُ، أَيُّهَا الْإِخْوَةُ الْكِرَامُ، إِنَّ الْحِسَابَ بَيْنَ يَدَيِ اللَّهِ سُبْحَانَهُ وَتَعَالَى يَقُومُ عَلَى قَوَاعِدَ عَظِيمَةٍ:",
+      "en": "Ammā baʿd: Dear brothers, the reckoning before Allah (subḥānahu wa taʿālā) rests on great principles:"
+    },
+    {
+      "t": "p",
+      "ar": "الْقَاعِدَةُ الْأُولَى: الْعَدْلُ الْمُطْلَقُ؛ فَاللَّهُ عَزَّ وَجَلَّ أَحْكَمُ الْحَاكِمِينَ لَا يَظْلِمُ مِثْقَالَ ذَرَّةٍ، فَلَا يَخَافُ الْمُؤْمِنُ بَيْنَ يَدَيْهِ ظُلْمًا بِأَنْ يُحَمَّلَ سَيِّئَةً لَمْ يَعْمَلْهَا، وَلَا هَضْمًا بِأَنْ يُنْقَصَ مِنْ أَجْرِ حَسَنَةٍ عَمِلَهَا.",
+      "en": "The first principle: perfect justice. Allah (ʿazza wa jall) is the most just of judges and does not wrong anyone by so much as the weight of an atom. So before Him the believer need fear neither injustice, by being made to bear a bad deed he did not do, nor deprivation, by having the reward of a good deed he did reduced."
+    },
+    {
+      "t": "p",
+      "ar": "وَالْقَاعِدَةُ الثَّانِيَةُ: أَنَّ كُلَّ إِنْسَانٍ يُحَاسَبُ عَلَى عَمَلِهِ وَلَا يُؤَاخَذُ بِجَرِيرَةِ غَيْرِهِ مَهْمَا قَرُبَ نَسَبُهُ؛ لِقَوْلِهِ تَعَالَى:",
+      "en": "The second principle: every person is reckoned for his own deeds and is not taken to task for another’s wrongdoing, however close their kinship, because Allah taʿālā says:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿وَلَا تَزِرُ وَازِرَةٌ وِزْرَ أُخْرَىٰ﴾",
+      "en": "“And no bearer of burdens will bear the burden of another.”",
+      "ref": {
+        "ar": "الْأَنْعَامِ: 164",
+        "en": "al-Anʿām 6:164"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "غَيْرَ أَنَّ مَنْ سَنَّ سُنَّةً حَسَنَةً أَوْ دَعَا إِلَى هُدًى كَانَ لَهُ مِثْلُ أُجُورِ مَنْ تَبِعَهُ، وَمَنْ دَعَا إِلَى ضَلَالَةٍ أَوْ تَسَبَّبَ فِي مَعْصِيَةٍ حَمَلَ وِزْرَهُ وَمِثْلَ أَوْزَارِ مَنْ أَضَلَّهُمْ مِنْ غَيْرِ أَنْ يَنْقُصَ مِنْ أَوْزَارِهِمْ شَيْءٌ؛ كَمَا قَالَ تَعَالَى:",
+      "en": "However, whoever starts a good practice or calls to guidance will have the like of the rewards of those who follow him; and whoever calls to misguidance or causes a sin bears his own burden and the like of the burdens of those he led astray, without anything being taken away from their burdens, as Allah taʿālā says:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿وَلَيَحْمِلُنَّ أَثْقَالَهُمْ وَأَثْقَالًا مَّعَ أَثْقَالِهِمْ﴾",
+      "en": "“And they will surely carry their burdens and [other] burdens along with their burdens”",
+      "ref": {
+        "ar": "الْعَنْكَبُوتِ: 13",
+        "en": "al-ʿAnkabūt 29:13"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَقَالَ:",
+      "en": "And He says:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿وَمِنْ أَوْزَارِ الَّذِينَ يُضِلُّونَهُم بِغَيْرِ عِلْمٍ﴾",
+      "en": "“and some of the burdens of those whom they misguide without knowledge”",
+      "ref": {
+        "ar": "النَّحْلِ: 25",
+        "en": "al-Naḥl 16:25"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَالْقَاعِدَةُ الثَّالِثَةُ: مُضَاعَفَةُ الْحَسَنَاتِ مِنْ عَشْرِ أَمْثَالِهَا إِلَى سَبْعِمِائَةِ ضِعْفٍ إِلَى أَضْعَافٍ كَثِيرَةٍ، بَيْنَمَا تُجْزَى السَّيِّئَةُ بِمِثْلِهَا أَوْ يَعْفُو اللَّهُ عَنْهَا.",
+      "en": "The third principle: good deeds are multiplied, from ten times their like to seven hundred times, and on to many times more, while a bad deed is repaid with its like, or Allah pardons it."
+    },
+    {
+      "t": "p",
+      "ar": "وَالْقَاعِدَةُ الرَّابِعَةُ: إِقَامَةُ الْحُجَّةِ بِالصُّحُفِ وَالشُّهُودِ؛ فَيَعْرِضُ اللَّهُ عَلَى كُلِّ إِنْسَانٍ صَحِيفَةَ أَعْمَالِهِ الَّتِي سَطَّرَهَا الْمَلَكَانِ الْكَرِيمَانِ فِي الدُّنْيَا كَمَا قَالَ تَعَالَى:",
+      "en": "The fourth principle: establishing the proof through the scrolls and the witnesses. Allah sets before every person the scroll of his deeds, which the two noble angels wrote down in the dunyā, as Allah taʿālā says:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿وَإِنَّ عَلَيْكُمْ لَحَافِظِينَ ۝ كِرَامًا كَاتِبِينَ ۝ يَعْلَمُونَ مَا تَفْعَلُونَ﴾",
+      "en": "“And indeed, over you are keepers, noble and recording; they know whatever you do.”",
+      "ref": {
+        "ar": "الِانْفِطَارِ: 10–12",
+        "en": "al-Infiṭār 82:10–12"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَيُقِيمُ سُبْحَانَهُ الشُّهُودَ الْعُدُولَ عَلَى الْعِبَادِ؛ فَيَشْهَدُ الرُّسُلُ وَالْمَلَائِكَةُ وَالْمُؤْمِنُونَ، وَتَشْهَدُ الْجَوَارِحُ عَلَى أَصْحَابِهَا، وَتَشْهَدُ الْأَرْضُ بِمَا عُمِلَ عَلَى ظَهْرِهَا مِنْ خَيْرٍ أَوْ شَرٍّ كَمَا قَالَ تَعَالَى:",
+      "en": "And He (subḥānahu) sets up just witnesses over the servants: the messengers, the angels and the believers bear witness; the limbs bear witness against their owners; and the earth bears witness to the good or evil that was done upon it, as Allah taʿālā says:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿يَوْمَئِذٍ تُحَدِّثُ أَخْبَارَهَا﴾",
+      "en": "“That Day, it will report its news.”",
+      "ref": {
+        "ar": "الزَّلْزَلَةِ: 4",
+        "en": "al-Zalzalah 99:4"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَلِذَا يَجْدُرُ بِالْمُسْلِمِ أَنْ يُكْثِرَ مِنْ شُهُودِ الْخَيْرِ لَهُ بِالذِّكْرِ وَالطَّاعَةِ فِي كُلِّ بِقَاعِ الْأَرْضِ، وَقَدْ قَالَ النَّبِيُّ ﷺ فِي فَضْلِ الْأَذَانِ:",
+      "en": "So it befits a Muslim to gain many witnesses who will testify to good on his behalf, through dhikr and obedience in every corner of the earth. The Prophet ﷺ said about the virtue of the call to prayer:"
+    },
+    {
+      "t": "quote",
+      "ar": "«لَا يَسْمَعُ مَدَى صَوْتِ الْمُؤَذِّنِ جِنٌّ وَلَا إِنْسٌ وَلَا شَيْءٌ إِلَّا شَهِدَ لَهُ يَوْمَ الْقِيَامَةِ»",
+      "en": "“No jinn, no human and nothing else hears the farthest reach of the muezzin’s voice but that it will bear witness for him on the Day of Resurrection.”",
+      "ref": {
+        "ar": "أَخْرَجَهُ الْبُخَارِيُّ",
+        "en": "al-Bukhārī"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "أَيُّهَا الْإِخْوَةُ الْكِرَامُ، إِنَّ أَوَّلَ مَا يُحَاسَبُ عَلَيْهِ الْعَبْدُ يَوْمَ الْقِيَامَةِ مِنْ حُقُوقِ اللَّهِ هُوَ الصَّلَاةُ؛ لِقَوْلِهِ ﷺ:",
+      "en": "Dear brothers, the first of the rights of Allah for which a servant will be reckoned on the Day of Resurrection is the ṣalāh, because he ﷺ said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«إِنَّ أَوَّلَ مَا يُحَاسَبُ بِهِ الْعَبْدُ يَوْمَ الْقِيَامَةِ مِنْ عَمَلِهِ صَلَاتُهُ؛ فَإِنْ صَلُحَتْ فَقَدْ أَفْلَحَ وَأَنْجَحَ، وَإِنْ فَسَدَتْ فَقَدْ خَابَ وَخَسِرَ، فَإِنِ انْتَقَصَ مِنْ فَرِيضَتِهِ شَيْءٌ قَالَ الرَّبُّ عَزَّ وَجَلَّ: انْظُرُوا هَلْ لِعَبْدِي مِنْ تَطَوُّعٍ فَيُكَمَّلَ بِهَا مَا انْتَقَصَ مِنَ الْفَرِيضَةِ؟ ثُمَّ يَكُونُ سَائِرُ عَمَلِهِ عَلَى ذَلِكَ»",
+      "en": "“The first of his deeds for which a servant will be reckoned on the Day of Resurrection is his ṣalāh. If it is sound, he has succeeded and prospered; and if it is corrupt, he has failed and lost. If anything is lacking from his obligatory ṣalāh, the Lord (ʿazza wa jall) will say: ‘See whether My servant has any voluntary prayer, so that what is lacking from the obligatory may be made up by it.’ Then the rest of his deeds will be dealt with in the same way.”",
+      "ref": {
+        "ar": "أَخْرَجَهُ أَبُو دَاوُدَ وَالتِّرْمِذِيُّ وَالنَّسَائِيُّ",
+        "en": "Abū Dāwūd, al-Tirmidhī and al-Nasāʾī"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "فَتُجْبَرُ النَّقَائِصُ فِي الصَّلَاةِ وَالزَّكَاةِ وَالصِّيَامِ وَالْحَجِّ بِرَصِيدِ الْعَبْدِ مِنَ النَّوَافِلِ وَالتَّطَوُّعَاتِ.",
+      "en": "So the shortfalls in ṣalāh, zakāh, fasting and ḥajj are made up from the servant’s store of nawāfil and voluntary deeds."
+    },
+    {
+      "t": "p",
+      "ar": "كَمَا يُسْأَلُ الْإِنْسَانُ عَنْ حَوَاسِّهِ وَعَقِيدَةِ قَلْبِهِ وَنِيَّاتِهِ؛ قَالَ تَعَالَى:",
+      "en": "Likewise, a person will be questioned about his senses, the belief in his heart and his intentions. Allah taʿālā says:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿إِنَّ السَّمْعَ وَالْبَصَرَ وَالْفُؤَادَ كُلُّ أُولَٰئِكَ كَانَ عَنْهُ مَسْئُولًا﴾",
+      "en": "“Indeed, the hearing, the sight and the heart—about all those [one] will be questioned.”",
+      "ref": {
+        "ar": "الْإِسْرَاءِ: 36",
+        "en": "al-Isrāʾ 17:36"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَيُسْأَلُ عَنِ الْكُلِّيَّاتِ الْأَرْبَعِ الَّتِي جَمَعَهَا النَّبِيُّ ﷺ فِي قَوْلِهِ:",
+      "en": "And he will be questioned about the four comprehensive matters that the Prophet ﷺ brought together in his words:"
+    },
+    {
+      "t": "quote",
+      "ar": "«لَا تَزُولُ قَدَمَا عَبْدٍ يَوْمَ الْقِيَامَةِ حَتَّى يُسْأَلَ عَنْ عُمُرِهِ فِيمَا أَفْنَاهُ، وَعَنْ عِلْمِهِ فِيمَ فَعَلَ، وَعَنْ مَالِهِ مِنْ أَيْنَ اكْتَسَبَهُ وَفِيمَ أَنْفَقَهُ، وَعَنْ جِسْمِهِ فِيمَ أَبْلَاهُ»",
+      "en": "“The feet of a servant will not move on the Day of Resurrection until he is asked about his life, how he spent it; about his knowledge, what he did with it; about his wealth, where he earned it and on what he spent it; and about his body, how he wore it out.”",
+      "ref": {
+        "ar": "أَخْرَجَهُ التِّرْمِذِيُّ وَصَحَّحَهُ الْأَلْبَانِيُّ",
+        "en": "Narrated by al-Tirmidhī and graded ṣaḥīḥ by al-Albānī"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "فَحَرِيٌّ بِالْمُؤْمِنِ أَنْ يَمْتَثِلَ وَصِيَّةَ أَمِيرِ الْمُؤْمِنِينَ عُمَرَ بْنِ الْخَطَّابِ رَضِيَ اللَّهُ عَنْهُ: «حَاسِبُوا أَنْفُسَكُمْ قَبْلَ أَنْ تُحَاسَبُوا، وَزِنُوا أَعْمَالَكُمْ قَبْلَ أَنْ تُوزَنَ عَلَيْكُمْ، وَتَزَيَّنُوا لِلْعَرْضِ الْأَكْبَرِ».",
+      "en": "So it is fitting for the believer to heed the counsel of the Commander of the Believers, ʿUmar ibn al-Khaṭṭāb (raḍiya Allāhu ʿanhu): “Take yourselves to account before you are taken to account, weigh your deeds before they are weighed against you, and adorn yourselves for the Great Presentation.”"
+    },
+    {
+      "t": "p",
+      "ar": "نَسْأَلُ اللَّهَ تَعَالَى أَنْ يَنْفَعَنَا وَإِيَّاكُمْ بِمَا قُلْنَا وَسَمِعْنَا. اللَّهُمَّ أَصْلِحْ لَنَا دِينَنَا الَّذِي هُوَ عِصْمَةُ أَمْرِنَا، وَأَصْلِحْ لَنَا دُنْيَانَا الَّتِي فِيهَا مَعَاشُنَا، وَأَصْلِحْ لَنَا آخِرَتَنَا الَّتِي فِيهَا مَعَادُنَا، وَاجْعَلِ الْحَيَاةَ زِيَادَةً لَنَا فِي كُلِّ خَيْرٍ، وَاجْعَلِ الْمَوْتَ رَاحَةً لَنَا مِنْ كُلِّ شَرٍّ، اللَّهُمَّ آمِينَ، وَآخِرُ دَعْوَانَا أَنِ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ.",
+      "en": "We ask Allah taʿālā to benefit us and you by what we have said and heard. O Allah, set right for us our religion, which is the safeguard of our affairs; set right for us our dunyā, in which is our livelihood; and set right for us our Ākhirah, to which is our return. Make life an increase for us in every good, and make death a relief for us from every evil. O Allah, āmīn. And the last of our call is that all praise is for Allah, Lord of the worlds."
+    }
+  ]
+}

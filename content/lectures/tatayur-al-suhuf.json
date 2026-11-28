@@ -1,0 +1,342 @@
+{
+  "title": {
+    "ar": "تَطَايُرُ الصُّحُفِ وَنَصْبُ الْمَوَازِينِ",
+    "en": "The Flying of the Scrolls and the Setting Up of the Scales"
+  },
+  "kicker": {
+    "en": "The Last Day · Khuṭbah 8 of 10"
+  },
+  "byline": [
+    {
+      "ar": "سِلْسِلَةُ خُطَبٍ عَنِ الْيَوْمِ الْآخِرِ",
+      "en": "A Series of Khuṭbahs on the Last Day"
+    },
+    {
+      "ar": "إِعْدَادُ أ. د. وَلِيدِ بْنِ إِدْرِيسَ بْنِ عَبْدِ الْعَزِيزِ الْمُنَيْسِيِّ",
+      "en": "By Prof. Dr Waleed ibn Idris ibn ʿAbd al-ʿAzīz al-Meneese"
+    },
+    {
+      "ar": "دَارُ الْجَامِعَةِ الْإِسْلَامِيَّةِ بِمِنِيسُوتَا لِلنَّشْرِ",
+      "en": "Islamic University of Minnesota Press"
+    }
+  ],
+  "blocks": [
+    {
+      "t": "part",
+      "ar": "الْخُطْبَةُ الْأُولَى",
+      "en": "The First Khuṭbah"
+    },
+    {
+      "t": "p",
+      "ar": "إِنَّ الْحَمْدَ لِلَّهِ، نَحْمَدُهُ وَنَسْتَعِينُهُ وَنَسْتَغْفِرُهُ، وَنَعُوذُ بِاللَّهِ مِنْ شُرُورِ أَنْفُسِنَا وَمِنْ سَيِّئَاتِ أَعْمَالِنَا، مَنْ يَهْدِهِ اللَّهُ فَلَا مُضِلَّ لَهُ، وَمَنْ يُضْلِلْ فَلَا هَادِيَ لَهُ، وَأَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ صَلَّى اللَّهُ عَلَيْهِ وَعَلَى آلِهِ وَصَحْبِهِ وَسَلَّمَ.",
+      "en": "Indeed, all praise is for Allah. We praise Him, seek His help and ask His forgiveness, and we seek refuge in Allah from the evils of our souls and from our bad deeds. Whomever Allah guides, no one can lead astray, and whomever He leaves astray, no one can guide. I bear witness that there is no god but Allah alone, with no partner, and I bear witness that Muhammad is His servant and His Messenger, may Allah send blessings and peace upon him, his family and his Companions."
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ حَقَّ تُقَاتِهِ وَلَا تَمُوتُنَّ إِلَّا وَأَنتُم مُّسْلِمُونَ﴾",
+      "en": "“O you who have believed, fear Allah as He should be feared and do not die except as Muslims.”",
+      "ref": {
+        "ar": "آلِ عِمْرَانَ: 102",
+        "en": "Āl ʿImrān 3:102"
+      }
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿يَا أَيُّهَا النَّاسُ اتَّقُوا رَبَّكُمُ الَّذِي خَلَقَكُم مِّن نَّفْسٍ وَاحِدَةٍ وَخَلَقَ مِنْهَا زَوْجَهَا وَبَثَّ مِنْهُمَا رِجَالًا كَثِيرًا وَنِسَاءً وَاتَّقُوا اللَّهَ الَّذِي تَسَاءَلُونَ بِهِ وَالْأَرْحَامَ إِنَّ اللَّهَ كَانَ عَلَيْكُمْ رَقِيبًا﴾",
+      "en": "“O mankind, fear your Lord, who created you from one soul and created from it its mate and dispersed from both of them many men and women. And fear Allah, through whom you ask one another, and the wombs. Indeed, Allah is ever, over you, an Observer.”",
+      "ref": {
+        "ar": "النِّسَاءِ: 1",
+        "en": "al-Nisāʾ 4:1"
+      }
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَقُولُوا قَوْلًا سَدِيدًا ۝ يُصْلِحْ لَكُمْ أَعْمَالَكُمْ وَيَغْفِرْ لَكُمْ ذُنُوبَكُمْ وَمَن يُطِعِ اللَّهَ وَرَسُولَهُ فَقَدْ فَازَ فَوْزًا عَظِيمًا﴾",
+      "en": "“O you who have believed, fear Allah and speak words of appropriate justice. He will amend for you your deeds and forgive you your sins. And whoever obeys Allah and His Messenger has certainly attained a great attainment.”",
+      "ref": {
+        "ar": "الْأَحْزَابِ: 70–71",
+        "en": "al-Aḥzāb 33:70–71"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "أَمَّا بَعْدُ، فَإِنَّ أَصْدَقَ الْحَدِيثِ كِتَابُ اللَّهِ، وَخَيْرَ الْهَدْيِ هَدْيُ مُحَمَّدٍ ﷺ، وَشَرَّ الْأُمُورِ مُحْدَثَاتُهَا، وَكُلَّ مُحْدَثَةٍ بِدْعَةٌ، وَكُلَّ بِدْعَةٍ ضَلَالَةٌ، وَكُلَّ ضَلَالَةٍ فِي النَّارِ، وَمَا قَلَّ وَكَفَى خَيْرٌ مِمَّا كَثُرَ وَأَلْهَى، وَ﴿إِنَّ مَا تُوعَدُونَ لَآتٍ وَمَا أَنتُم بِمُعْجِزِينَ﴾ [الْأَنْعَامِ: 134].",
+      "en": "Ammā baʿd: the truest speech is the Book of Allah, and the best guidance is the guidance of Muhammad ﷺ. The worst of matters are those newly invented; every newly invented matter is an innovation, every innovation is misguidance, and every misguidance is in the Fire. What is little and suffices is better than what is plentiful and distracts, and “indeed, what you are promised is coming, and you will not cause failure [to Allah]” (al-Anʿām 6:134)."
+    },
+    {
+      "t": "p",
+      "ar": "أَيُّهَا الْإِخْوَةُ الْكِرَامُ، تَكَلَّمْنَا فِي الْخُطَبِ السَّابِقَةِ عَنْ مَشَاهِدِ يَوْمِ الْقِيَامَةِ ابْتِدَاءً بِنَفْخَةِ الصَّعْقِ وَوُصُولًا إِلَى مَشْهَدِ الْعَرْضِ وَالْحِسَابِ، وَعَرَفْنَا أَنَّ اللَّهَ سُبْحَانَهُ سَيُكَلِّمُ كُلَّ عَبْدٍ كِفَاحًا؛ قَالَ ﷺ:",
+      "en": "Dear brothers, in the previous khuṭbahs we spoke about the scenes of the Day of Resurrection, beginning with the Blast of Swooning (Nafkhat al-Ṣaʿq) and reaching the scene of the Presentation and the Reckoning (al-ʿArḍ wa al-Ḥisāb), and we learned that Allah (subḥānahu) will speak to every servant directly, face to face. He ﷺ said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«مَا مِنْكُمْ مِنْ أَحَدٍ إِلَّا سَيُكَلِّمُهُ رَبُّهُ لَيْسَ بَيْنَهُ وَبَيْنَهُ تُرْجُمَانٌ»",
+      "en": "“There is none of you but his Lord will speak to him, with no interpreter between him and Him.”",
+      "ref": {
+        "ar": "مُتَّفَقٌ عَلَيْهِ",
+        "en": "al-Bukhārī and Muslim"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "فَيَسْأَلُهُ عَنْ عُمُرِهِ وَشَبَابِهِ وَعِلْمِهِ وَمَالِهِ وَسَمْعِهِ وَبَصَرِهِ وَفُؤَادِهِ وَصَلَاتِهِ وَسَائِرِ عَمَلِهِ؛ فَلَا يَنْجُو فِي ذَلِكَ الْمَوْقِفِ الْعَصِيبِ إِلَّا مَنْ حَاسَبَ نَفْسَهُ فِي الدُّنْيَا وَاسْتَعَدَّ لِلِقَاءِ رَبِّهِ بِالتَّقْوَى وَالْعَمَلِ الصَّالِحِ.",
+      "en": "He will ask him about his life, his youth, his knowledge, his wealth, his hearing, his sight, his heart, his ṣalāh and the rest of his deeds. No one will be saved in that harrowing standing except one who took himself to account in the dunyā and prepared to meet his Lord with taqwā and righteous deeds."
+    },
+    {
+      "t": "p",
+      "ar": "وَفِي خِتَامِ مَوْقِفِ الْحِسَابِ تَجْثُو الْأُمَمُ عَلَى الرُّكَبِ مِنْ شِدَّةِ الْهَوْلِ وَتَتَطَايَرُ الصُّحُفُ؛ قَالَ اللَّهُ عَزَّ وَجَلَّ:",
+      "en": "At the close of the standing for the Reckoning, the nations will fall to their knees from the intensity of the terror, and the scrolls (al-ṣuḥuf) will fly. Allah (ʿazza wa jall) says:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿وَتَرَىٰ كُلَّ أُمَّةٍ جَاثِيَةً كُلُّ أُمَّةٍ تُدْعَىٰ إِلَىٰ كِتَابِهَا الْيَوْمَ تُجْزَوْنَ مَا كُنتُمْ تَعْمَلُونَ﴾",
+      "en": "“And you will see every nation kneeling. Every nation will be called to its record: ‘Today you will be recompensed for what you used to do.’”",
+      "ref": {
+        "ar": "الْجَاثِيَةِ: 28",
+        "en": "al-Jāthiyah 45:28"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "فَأَمَّا الْمُؤْمِنُ فَيَتَنَاوَلُ صَحِيفَتَهُ بِيَمِينِهِ مِنْ أَمَامِهِ، فَيَجِدُ حَسَنَاتِهِ قَدْ ضُوعِفَتْ وَبُورِكَ فِيهَا، وَسَيِّئَاتِهِ قَدْ مُحِيَتْ أَوْ بُدِّلَتْ حَسَنَاتٍ، فَيَغْمُرُهُ السُّرُورُ وَيُنَادِي فِي أَهْلِ الْمَوْقِفِ فَرَحًا وَابْتِهَاجًا كَمَا وَصَفَهُ اللَّهُ تَعَالَى:",
+      "en": "As for the believer, he will take his scroll in his right hand, from in front of him, and he will find his good deeds multiplied and blessed, and his bad deeds erased or changed into good deeds. Joy will overwhelm him, and in his delight and gladness he will call out to all who are at the standing, as Allah taʿālā described him:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿فَأَمَّا مَنْ أُوتِيَ كِتَابَهُ بِيَمِينِهِ فَيَقُولُ هَاؤُمُ اقْرَءُوا كِتَابِيَهْ ۝ إِنِّي ظَنَنتُ أَنِّي مُلَاقٍ حِسَابِيَهْ ۝ فَهُوَ فِي عِيشَةٍ رَّاضِيَةٍ ۝ فِي جَنَّةٍ عَالِيَةٍ﴾",
+      "en": "“So as for the one who is given his record in his right hand, he will say, ‘Here, read my record! Indeed, I was certain that I would be meeting my account.’ So he will be in a pleasant life, in an elevated garden.”",
+      "ref": {
+        "ar": "الْحَاقَّةِ: 19–22",
+        "en": "al-Ḥāqqah 69:19–22"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَأَمَّا الْكَافِرُ وَالْمُنَافِقُ- أَعَاذَنَا اللَّهُ وَإِيَّاكُمْ مِنْ حَالِهِمْ- فَيَتَنَاوَلُ كِتَابَهُ بِشِمَالِهِ مِنْ وَرَاءِ ظَهْرِهِ، فَيَجِدُ أَعْمَالَهُ الَّتِي أَرَادَ بِهَا الدُّنْيَا قَدْ حَبِطَتْ، وَسَيِّئَاتِهِ قَدْ أُحْصِيَتْ عَلَيْهِ، فَيَدْعُو عَلَى نَفْسِهِ بِالْوَيْلِ وَالثُّبُورِ وَيَتَمَنَّى لَوْ كَانَتْ مَوْتَتُهُ الْأُولَى قَاضِيَةً لَا بَعْثَ بَعْدَهَا؛ قَالَ اللَّهُ عَزَّ وَجَلَّ:",
+      "en": "As for the disbeliever and the hypocrite – may Allah protect us and you from their state – he will take his record in his left hand, from behind his back, and he will find that the deeds by which he sought the dunyā have come to nothing, and that his bad deeds have been counted against him. So he will call down woe and ruin upon himself, and wish that his first death had been the end of him, with no resurrection after it. Allah (ʿazza wa jall) says:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿وَأَمَّا مَنْ أُوتِيَ كِتَابَهُ وَرَاءَ ظَهْرِهِ ۝ فَسَوْفَ يَدْعُو ثُبُورًا ۝ وَيَصْلَىٰ سَعِيرًا﴾",
+      "en": "“But as for the one who is given his record behind his back, he will cry out for destruction and burn in a Blaze.”",
+      "ref": {
+        "ar": "الِانْشِقَاقِ: 10–12",
+        "en": "al-Inshiqāq 84:10–12"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَقَالَ سُبْحَانَهُ:",
+      "en": "And He (subḥānahu) says:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿وَأَمَّا مَنْ أُوتِيَ كِتَابَهُ بِشِمَالِهِ فَيَقُولُ يَا لَيْتَنِي لَمْ أُوتَ كِتَابِيَهْ ۝ وَلَمْ أَدْرِ مَا حِسَابِيَهْ ۝ يَا لَيْتَهَا كَانَتِ الْقَاضِيَةَ ۝ مَا أَغْنَىٰ عَنِّي مَالِيَهْ ۝ هَلَكَ عَنِّي سُلْطَانِيَهْ ۝ خُذُوهُ فَغُلُّوهُ ۝ ثُمَّ الْجَحِيمَ صَلُّوهُ ۝ ثُمَّ فِي سِلْسِلَةٍ ذَرْعُهَا سَبْعُونَ ذِرَاعًا فَاسْلُكُوهُ ۝ إِنَّهُ كَانَ لَا يُؤْمِنُ بِاللَّهِ الْعَظِيمِ ۝ وَلَا يَحُضُّ عَلَىٰ طَعَامِ الْمِسْكِينِ ۝ فَلَيْسَ لَهُ الْيَوْمَ هَاهُنَا حَمِيمٌ ۝ وَلَا طَعَامٌ إِلَّا مِنْ غِسْلِينٍ ۝ لَّا يَأْكُلُهُ إِلَّا الْخَاطِئُونَ﴾",
+      "en": "“But as for the one who is given his record in his left hand, he will say, ‘Oh, I wish I had not been given my record and had not known what my account is. I wish my death had been the decisive one. My wealth has not availed me. Gone from me is my authority.’ [Allah will say], ‘Seize him and shackle him. Then into Hellfire drive him. Then into a chain whose length is seventy cubits insert him.’ Indeed, he did not believe in Allah, the Most Great, nor did he encourage the feeding of the poor. So there is not for him here this Day any devoted friend, nor any food except from the discharge of wounds. None will eat it except the sinners.”",
+      "ref": {
+        "ar": "الْحَاقَّةِ: 25–37",
+        "en": "al-Ḥāqqah 69:25–37"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "أَيُّهَا الْإِخْوَةُ الْكِرَامُ، وَعَقِبَ تَطَايُرِ الصُّحُفِ تَأْتِي مَرْحَلَةُ «نَصْبِ الْمَوَازِينِ»؛ وَمُعْتَقَدُ أَهْلِ السُّنَّةِ وَالْجَمَاعَةِ أَنَّ الْمِيزَانَ مِيزَانٌ حَقِيقِيٌّ حِسِّيٌّ لَهُ كِفَّتَانِ وَلِسَانٌ، تُوضَعُ فِي كِفَّتِهِ الْيُمْنَى الْحَسَنَاتُ وَصَحِيفَتُهَا، وَفِي كِفَّتِهِ الْيُسْرَى السَّيِّئَاتُ وَصَحِيفَتُهَا.",
+      "en": "Dear brothers, after the flying of the scrolls comes the stage of “the setting up of the Scales.” The creed of Ahl al-Sunnah wa al-Jamāʿah is that the Scale (al-Mīzān) is a real, tangible scale with two pans and a pointer. In its right pan the good deeds are placed, together with their scroll, and in its left pan the bad deeds, together with their scroll.",
+      "quotes": false
+    },
+    {
+      "t": "p",
+      "ar": "وَقَدِ اخْتَلَفَ أَهْلُ الْعِلْمِ: أَهُوَ مِيزَانٌ وَاحِدٌ تُوزَنُ بِهِ أَعْمَالُ الْخَلَائِقِ جَمِيعًا، أَمْ مَوَازِينُ مُتَعَدِّدَةٌ لِكُلِّ عَبْدٍ أَوْ أُمَّةٍ مِيزَانٌ؟ فَذَهَبَ فَرِيقٌ إِلَى أَنَّهُ مِيزَانٌ وَاحِدٌ عَظِيمٌ يَتَّسِعُ بِقُدْرَةِ اللَّهِ لِوَزْنِ الْخَلْقِ جَمِيعًا، مُسْتَدِلِّينَ بِحَدِيثِ سَلْمَانَ رَضِيَ اللَّهُ عَنْهُ أَنَّ النَّبِيَّ ﷺ قَالَ:",
+      "en": "The people of knowledge have differed over whether it is a single Scale by which the deeds of all creatures are weighed, or many scales, with a scale for each servant or each nation. One group held that it is a single, immense Scale that, by the power of Allah, is wide enough to weigh all of creation. They take as their evidence the hadith of Salmān (raḍiya Allāhu ʿanhu) that the Prophet ﷺ said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«يُوضَعُ الْمِيزَانُ يَوْمَ الْقِيَامَةِ فَلَوْ وُزِنَ فِيهِ السَّمَوَاتُ وَالْأَرْضُ لَوَسِعَتْ، فَتَقُولُ الْمَلَائِكَةُ: يَا رَبِّ، لِمَنْ يَزِنُ هَذَا؟ فَيَقُولُ اللَّهُ تَعَالَى: لِمَنْ شِئْتُ مِنْ خَلْقِي، فَتَقُولُ الْمَلَائِكَةُ: سُبْحَانَكَ مَا عَبَدْنَاكَ حَقَّ عِبَادَتِكَ»",
+      "en": "“The Scale will be set up on the Day of Resurrection, and if the heavens and the earth were weighed in it, it would hold them. The angels will say, ‘O Lord, for whom will this weigh?’ Allah taʿālā will say, ‘For whomever I will of My creation.’ The angels will say, ‘Glory be to You! We have not worshipped You as You truly deserve to be worshipped.’”",
+      "ref": {
+        "ar": "أَخْرَجَهُ الْحَاكِمُ وَصَحَّحَهُ الْأَلْبَانِيُّ",
+        "en": "Narrated by al-Ḥākim and graded ṣaḥīḥ by al-Albānī"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "بَيْنَمَا ذَهَبَ فَرِيقٌ آخَرُ إِلَى تَعَدُّدِ الْمَوَازِينِ لِوُرُودِهَا فِي الْقُرْآنِ بِلَفْظِ الْجَمْعِ كَمَا فِي قَوْلِهِ تَعَالَى:",
+      "en": "Another group, however, held that there are many scales, since they are mentioned in the Qurʾān in the plural, as in the words of Allah taʿālā:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿وَنَضَعُ الْمَوَازِينَ الْقِسْطَ لِيَوْمِ الْقِيَامَةِ فَلَا تُظْلَمُ نَفْسٌ شَيْئًا وَإِن كَانَ مِثْقَالَ حَبَّةٍ مِّنْ خَرْدَلٍ أَتَيْنَا بِهَا وَكَفَىٰ بِنَا حَاسِبِينَ﴾",
+      "en": "“And We place the scales of justice for the Day of Resurrection, so no soul will be treated unjustly at all. And if there is even the weight of a mustard seed, We will bring it forth. And sufficient are We as accountant.”",
+      "ref": {
+        "ar": "الْأَنْبِيَاءِ: 47",
+        "en": "al-Anbiyāʾ 21:47"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "أَوْ جُمِعَتْ بِاعْتِبَارِ تَعَدُّدِ الْمَوْزُونِ فِيهَا.",
+      "en": "Or else the plural is used because of the many things weighed in it."
+    },
+    {
+      "t": "p",
+      "ar": "وَالَّذِي يُوزَنُ فِي الْمِيزَانِ يَوْمَ الْقِيَامَةِ ثَلَاثَةُ أَشْيَاءَ دَلَّتْ عَلَيْهَا النُّصُوصُ الصَّحِيحَةُ: الْأَعْمَالُ، وَالصُّحُفُ، وَالْعَامِلُ نَفْسُهُ.",
+      "en": "What is weighed in the Scale on the Day of Resurrection is three things, as the authentic texts show: the deeds, the scrolls, and the doer himself."
+    },
+    {
+      "t": "p",
+      "ar": "أَمَّا وَزْنُ الْأَعْمَالِ؛ فَإِنَّ الْأَعْمَالَ وَإِنْ كَانَتْ فِي الدُّنْيَا مَعْنَوِيَّةً، إِلَّا أَنَّ اللَّهَ تَعَالَى بِقُدْرَتِهِ يُجَسِّدُهَا يَوْمَ الْقِيَامَةِ فِي صُوَرٍ حِسِّيَّةٍ لَهَا جِرْمٌ وَثِقَلٌ؛ كَمَا ثَبَتَ فِي صَحِيحِ مُسْلِمٍ أَنَّ النَّبِيَّ ﷺ قَالَ:",
+      "en": "As for the weighing of deeds: although deeds in the dunyā are intangible, Allah taʿālā, by His power, will give them bodily form on the Day of Resurrection, in tangible shapes that have mass and weight. As is established in Ṣaḥīḥ Muslim, the Prophet ﷺ said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«يُؤْتَى بِالْقُرْآنِ يَوْمَ الْقِيَامَةِ وَأَهْلِهِ الَّذِينَ كَانُوا يَعْمَلُونَ بِهِ تَقْدُمُهُ سُورَةُ الْبَقَرَةِ وَآلُ عِمْرَانَ كَأَنَّهُمَا غَمَامَتَانِ أَوْ غَيَايَتَانِ أَوْ فِرْقَانِ مِنْ طَيْرٍ صَوَافَّ- أَيْ سِرْبَانِ بَاسِطَاتٌ أَجْنِحَتَهَا- تُحَاجَّانِ عَنْ صَاحِبِهِمَا»",
+      "en": "“On the Day of Resurrection the Qurʾān will be brought, along with its people who used to act upon it, with Sūrat al-Baqarah and Āl ʿImrān going before it, as if they were two clouds, or two canopies of shade, or two flocks of birds in ranks – that is, two flocks with their wings spread out – pleading on behalf of their companion.”",
+      "ref": {
+        "ar": "أَخْرَجَهُ مُسْلِمٌ",
+        "en": "Muslim"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَقَالَ ﷺ:",
+      "en": "And he ﷺ said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«الصِّيَامُ وَالْقُرْآنُ يَشْفَعَانِ لِلْعَبْدِ يَوْمَ الْقِيَامَةِ»",
+      "en": "“Fasting and the Qurʾān will intercede for the servant on the Day of Resurrection.”",
+      "ref": {
+        "ar": "أَخْرَجَهُ أَحْمَدُ",
+        "en": "Aḥmad"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَقَالَ فِي الصَّحِيحَيْنِ:",
+      "en": "And in the two Ṣaḥīḥs he said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«كَلِمَتَانِ خَفِيفَتَانِ عَلَى اللِّسَانِ، ثَقِيلَتَانِ فِي الْمِيزَانِ، حَبِيبَتَانِ إِلَى الرَّحْمَنِ: سُبْحَانَ اللَّهِ وَبِحَمْدِهِ، سُبْحَانَ اللَّهِ الْعَظِيمِ»",
+      "en": "“Two words are light on the tongue, heavy in the Scale, and beloved to the Most Merciful: ‘Glory be to Allah and praise be to Him; glory be to Allah, the Magnificent.’”",
+      "ref": {
+        "ar": "مُتَّفَقٌ عَلَيْهِ",
+        "en": "al-Bukhārī and Muslim"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَقَالَ ﷺ:",
+      "en": "And he ﷺ said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«مَا مِنْ شَيْءٍ أَثْقَلُ فِي مِيزَانِ الْمُؤْمِنِ يَوْمَ الْقِيَامَةِ مِنْ خُلُقٍ حَسَنٍ»",
+      "en": "“Nothing is heavier in the believer’s scale on the Day of Resurrection than good character.”",
+      "ref": {
+        "ar": "أَخْرَجَهُ أَبُو دَاوُدَ وَالتِّرْمِذِيُّ",
+        "en": "Abū Dāwūd and al-Tirmidhī"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "نَسْأَلُ اللَّهَ تَعَالَى أَنْ يُثَقِّلَ مَوَازِينَنَا بِالصَّالِحَاتِ، وَأَقُولُ قَوْلِي هَذَا وَأَسْتَغْفِرُ اللَّهَ لِي وَلَكُمْ.",
+      "en": "We ask Allah taʿālā to make our scales heavy with righteous deeds. I say these words of mine, and I ask Allah’s forgiveness for myself and for you."
+    },
+    {
+      "t": "part",
+      "ar": "الْخُطْبَةُ الثَّانِيَةُ",
+      "en": "The Second Khuṭbah"
+    },
+    {
+      "t": "p",
+      "ar": "الْحَمْدُ لِلَّهِ، وَالصَّلَاةُ وَالسَّلَامُ عَلَى رَسُولِ اللَّهِ، وَعَلَى آلِهِ وَصَحْبِهِ وَمَنِ اتَّبَعَ هَدْيَهُ إِلَى يَوْمِ الدِّينِ.",
+      "en": "All praise is for Allah, and peace and blessings be upon the Messenger of Allah, and upon his family, his Companions and all who follow his guidance until the Day of Judgment."
+    },
+    {
+      "t": "p",
+      "ar": "أَمَّا بَعْدُ، أَيُّهَا الْإِخْوَةُ الْكِرَامُ، وَأَمَّا الْأَمْرُ الثَّانِي الَّذِي يُوزَنُ فِي الْمِيزَانِ فَهُوَ صُحُفُ الْأَعْمَالِ؛ وَيَدُلُّ عَلَيْهِ حَدِيثُ الْبِطَاقَةِ الشَّهِيرُ الَّذِي رَوَاهُ أَحْمَدُ وَالتِّرْمِذِيُّ وَابْنُ مَاجَهْ عَنْ عَبْدِ اللَّهِ بْنِ عَمْرِو بْنِ الْعَاصِ رَضِيَ اللَّهُ عَنْهُمَا أَنَّ النَّبِيَّ ﷺ قَالَ:",
+      "en": "Ammā baʿd: dear brothers, the second thing that is weighed in the Scale is the scrolls of deeds. This is shown by the well-known hadith of the card (al-biṭāqah), which Aḥmad, al-Tirmidhī and Ibn Mājah narrated from ʿAbdullāh ibn ʿAmr ibn al-ʿĀṣ (raḍiya Allāhu ʿanhumā), that the Prophet ﷺ said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«إِنَّ اللَّهَ سَيُخَلِّصُ رَجُلًا مِنْ أُمَّتِي عَلَى رُؤُوسِ الْخَلَائِقِ يَوْمَ الْقِيَامَةِ، فَيَنْشُرُ عَلَيْهِ تِسْعَةً وَتِسْعِينَ سِجِلًّا، كُلُّ سِجِلٍّ مِثْلُ مَدِّ الْبَصَرِ، ثُمَّ يَقُولُ: أَتُنْكِرُ مِنْ هَذَا شَيْئًا؟ أَظَلَمَكَ كَتَبَتِي الْحَافِظُونَ؟ فَيَقُولُ: لَا يَا رَبِّ، فَيَقُولُ: أَفَلَكَ عُذْرٌ؟ فَيَقُولُ: لَا يَا رَبِّ، فَيَقُولُ: بَلَى، إِنَّ لَكَ عِنْدَنَا حَسَنَةً، فَإِنَّهُ لَا ظُلْمَ عَلَيْكَ الْيَوْمَ، فَتَخْرُجُ بِطَاقَةٌ فِيهَا: أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ، فَيَقُولُ: احْضُرْ وَزْنَكَ، فَيَقُولُ: يَا رَبِّ، مَا هَذِهِ الْبِطَاقَةُ مَعَ هَذِهِ السِّجِلَّاتِ؟ فَقَالَ: إِنَّكَ لَا تُظْلَمُ، قَالَ: فَتُوضَعُ السِّجِلَّاتُ فِي كِفَّةٍ وَالْبِطَاقَةُ فِي كِفَّةٍ، فَطَاشَتِ السِّجِلَّاتُ وَثَقُلَتِ الْبِطَاقَةُ، فَلَا يَثْقُلُ مَعَ اسْمِ اللَّهِ شَيْءٌ»",
+      "en": "“Allah will single out a man from my ummah before all of creation on the Day of Resurrection, and spread out before him ninety-nine scrolls, each scroll stretching as far as the eye can see. Then He will say, ‘Do you deny any of this? Have My guardian scribes wronged you?’ He will say, ‘No, my Lord.’ He will say, ‘Do you have any excuse?’ He will say, ‘No, my Lord.’ He will say, ‘On the contrary, you have a good deed with Us, and no injustice will be done to you today.’ Then a card will be brought out on which is written: I bear witness that there is no god but Allah, and I bear witness that Muhammad is His servant and His Messenger. He will say, ‘Come to your weighing.’ He will say, ‘My Lord, what is this card beside these scrolls?’ He said, ‘You will not be wronged.’ He said: Then the scrolls will be placed in one pan and the card in the other; the scrolls will fly up and the card will be heavy, for nothing is heavy beside the name of Allah.”",
+      "ref": {
+        "ar": "أَخْرَجَهُ التِّرْمِذِيُّ وَابْنُ مَاجَهْ وَصَحَّحَهُ الْأَلْبَانِيُّ",
+        "en": "Narrated by al-Tirmidhī and Ibn Mājah, and graded ṣaḥīḥ by al-Albānī"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَلَا يَنْبَغِي لِلْمُسْلِمِ أَنْ يَغْتَرَّ فَيَتَّكِلَ وَيُفَرِّطَ فِي الْعَمَلِ، بَلْ عَلَيْهِ أَنْ يَجْمَعَ دَائِمًا بَيْنَ الْخَوْفِ وَالرَّجَاءِ؛ لِأَنَّ مَغْفِرَةَ الذُّنُوبِ دُونَ الشِّرْكِ دَاخِلَةٌ تَحْتَ مَشِيئَةِ اللَّهِ تَعَالَى كَمَا قَالَ سُبْحَانَهُ:",
+      "en": "The Muslim should not be deluded by this, relying on it and falling short in his deeds; rather, he must always hold fear and hope together, because the forgiveness of sins other than shirk falls under the will of Allah taʿālā, as He (subḥānahu) says:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿إِنَّ اللَّهَ لَا يَغْفِرُ أَن يُشْرَكَ بِهِ وَيَغْفِرُ مَا دُونَ ذَٰلِكَ لِمَن يَشَاءُ﴾",
+      "en": "“Indeed, Allah does not forgive association with Him, but He forgives what is less than that for whom He wills.”",
+      "ref": {
+        "ar": "النِّسَاءِ: 48",
+        "en": "al-Nisāʾ 4:48"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "فَهَذَا الرَّجُلُ قَالَ كَلِمَةَ التَّوْحِيدِ بِصِدْقٍ وَإِخْلَاصٍ وَتَوْحِيدٍ خَالِصٍ فِي قَلْبِهِ فَشَاءَ اللَّهُ نَجَاتَهُ بِهَا، بَيْنَمَا قَدْ يُعَذَّبُ غَيْرُهُ مِنْ عُصَاةِ الْمُوَحِّدِينَ فِي النَّارِ قَبْلَ إِخْرَاجِهِمْ مِنْهَا.",
+      "en": "This man said the word of tawḥīd with truthfulness and ikhlāṣ, with pure tawḥīd in his heart, so Allah willed to save him by it; whereas others among the sinners of the people of tawḥīd may be punished in the Fire before they are brought out of it."
+    },
+    {
+      "t": "p",
+      "ar": "وَأَمَّا الْأَمْرُ الثَّالِثُ الَّذِي يُوضَعُ فِي الْمِيزَانِ فَهُوَ الْعَامِلُ نَفْسُهُ؛ وَمِيزَانُ الْعَبْدِ يَوْمَ الْقِيَامَةِ لَا يَكُونُ بِضَخَامَةِ جَسَدِهِ فِي الدُّنْيَا، وَإِنَّمَا بِمَا فِي قَلْبِهِ مِنَ الْإِيمَانِ وَالتَّقْوَى وَالْعَمَلِ الصَّالِحِ؛ فَقَدْ ثَبَتَ فِي الصَّحِيحَيْنِ مِنْ حَدِيثِ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ أَنَّ النَّبِيَّ ﷺ قَالَ: «إِنَّهُ لَيَأْتِي الرَّجُلُ الْعَظِيمُ السَّمِينُ يَوْمَ الْقِيَامَةِ لَا يَزِنُ عِنْدَ اللَّهِ جَنَاحَ بَعُوضَةٍ، وَقَالَ: اقْرَءُوا:",
+      "en": "As for the third thing placed in the Scale, it is the doer himself. A servant’s weight on the Day of Resurrection will not be by the bulk of his body in the dunyā, but by the īmān, taqwā and righteous deeds in his heart. It is established in the two Ṣaḥīḥs, from the hadith of Abū Hurayrah (raḍiya Allāhu ʿanhu), that the Prophet ﷺ said: “Indeed, there will come on the Day of Resurrection a huge, fat man who will not weigh, in the sight of Allah, so much as the wing of a gnat.” And he said, “Recite:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿فَلَا نُقِيمُ لَهُمْ يَوْمَ الْقِيَامَةِ وَزْنًا﴾",
+      "en": "“So We will not assign to them on the Day of Resurrection any weight.”",
+      "ref": {
+        "ar": "الْكَهْفِ: 105",
+        "en": "al-Kahf 18:105"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "» [مُتَّفَقٌ عَلَيْهِ].",
+      "en": "” (al-Bukhārī and Muslim)."
+    },
+    {
+      "t": "p",
+      "ar": "وَفِي الْمُقَابِلِ رَوَى الْإِمَامُ أَحْمَدُ بِإِسْنَادٍ صَحِيحٍ عَنْ عَلِيِّ بْنِ أَبِي طَالِبٍ رَضِيَ اللَّهُ عَنْهُ أَنَّ عَبْدَ اللَّهِ بْنَ مَسْعُودٍ رَضِيَ اللَّهُ عَنْهُ صَعِدَ شَجَرَةَ أَرَاكٍ يَجْتَنِي مِنْهَا الْكَبَاثَ- وَهُوَ ثَمَرُ الْأَرَاكِ- فَضَحِكَ بَعْضُ الصَّحَابَةِ مِنْ دِقَّةِ سَاقَيْهِ وَنَحَافَتِهِمَا، فَقَالَ النَّبِيُّ ﷺ:",
+      "en": "By contrast, Imam Aḥmad narrated with an authentic chain from ʿAlī ibn Abī Ṭālib (raḍiya Allāhu ʿanhu) that ʿAbdullāh ibn Masʿūd (raḍiya Allāhu ʿanhu) climbed an arāk tree to pick kabāth from it – the fruit of the arāk – and some of the Companions laughed at how thin and slender his shins were. The Prophet ﷺ said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«مِمَّ تَضْحَكُونَ؟ لَرِجْلُ عَبْدِ اللَّهِ أَثْقَلُ فِي الْمِيزَانِ يَوْمَ الْقِيَامَةِ مِنْ أُحُدٍ»",
+      "en": "“What are you laughing at? ʿAbdullāh’s leg is heavier in the Scale on the Day of Resurrection than Mount Uḥud.”",
+      "ref": {
+        "ar": "أَخْرَجَهُ أَحْمَدُ",
+        "en": "Aḥmad"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "فَلْيَحْرِصْ كُلٌّ مِنَّا- أَيُّهَا الْإِخْوَةُ الْكِرَامُ- عَلَى تَثْقِيلِ مِيزَانِهِ بِتَقْوَى اللَّهِ وَحُسْنِ الْخُلُقِ- مِنْ طَلَاقَةِ الْوَجْهِ وَلِينِ الْكَلِمَةِ وَكَفِّ الْأَذَى- وَالْإِكْثَارِ مِنْ ذِكْرِ اللَّهِ وَبَاقِيَاتِ الصَّالِحَاتِ؛ حَتَّى نَكُونَ مِمَّنْ قَالَ اللَّهُ فِيهِمْ:",
+      "en": "So let each of us – dear brothers – strive to make his scale heavy with taqwā of Allah and good character – a cheerful face, gentle words and holding back from harm – and with much dhikr of Allah and the enduring good deeds, so that we may be among those of whom Allah said:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿فَأَمَّا مَن ثَقُلَتْ مَوَازِينُهُ ۝ فَهُوَ فِي عِيشَةٍ رَّاضِيَةٍ ۝ وَأَمَّا مَنْ خَفَّتْ مَوَازِينُهُ ۝ فَأُمُّهُ هَاوِيَةٌ ۝ وَمَا أَدْرَاكَ مَا هِيَهْ ۝ نَارٌ حَامِيَةٌ﴾",
+      "en": "“Then as for one whose scales are heavy, he will be in a pleasant life. But as for one whose scales are light, his refuge will be an abyss. And what can make you know what that is? It is a Fire, intensely hot.”",
+      "ref": {
+        "ar": "الْقَارِعَةِ: 6–11",
+        "en": "al-Qāriʿah 101:6–11"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "نَسْأَلُ اللَّهَ تَعَالَى السَّلَامَةَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ. اللَّهُمَّ أَصْلِحْ لَنَا دِينَنَا الَّذِي هُوَ عِصْمَةُ أَمْرِنَا، وَأَصْلِحْ لَنَا دُنْيَانَا الَّتِي فِيهَا مَعَاشُنَا، وَأَصْلِحْ لَنَا آخِرَتَنَا الَّتِي فِيهَا مَعَادُنَا، وَاجْعَلِ الْحَيَاةَ زِيَادَةً لَنَا فِي كُلِّ خَيْرٍ، وَاجْعَلِ الْمَوْتَ رَاحَةً لَنَا مِنْ كُلِّ شَرٍّ. اللَّهُمَّ إِنَّا نَسْأَلُكَ الْجَنَّةَ وَمَا قَرَّبَ إِلَيْهَا مِنْ قَوْلٍ أَوْ عَمَلٍ، وَنَعُوذُ بِكَ مِنَ النَّارِ وَمَا قَرَّبَ إِلَيْهَا مِنْ قَوْلٍ أَوْ عَمَلٍ، اللَّهُمَّ آمِينَ، وَآخِرُ دَعْوَانَا أَنِ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ.",
+      "en": "We ask Allah taʿālā for safety and well-being in the dunyā and the Ākhirah. O Allah, set right for us our religion, which is the safeguard of our affairs; set right for us our dunyā, in which is our livelihood; and set right for us our Ākhirah, to which is our return. Make life an increase for us in every good, and make death a rest for us from every evil. O Allah, we ask You for Jannah and for whatever word or deed brings one near to it, and we seek refuge in You from the Fire and from whatever word or deed brings one near to it. O Allah, āmīn. And our final call is that all praise is for Allah, Lord of the worlds."
+    }
+  ]
+}

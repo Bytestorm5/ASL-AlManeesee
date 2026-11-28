@@ -1,0 +1,374 @@
+{
+  "title": {
+    "ar": "الْإِيمَانُ بِالْيَوْمِ الْآخِرِ وَأَوَّلُ مَشَاهِدِ الْقِيَامَةِ",
+    "en": "Belief in the Last Day and the First Scenes of the Resurrection"
+  },
+  "kicker": {
+    "en": "The Last Day · Khuṭbah 1 of 10"
+  },
+  "byline": [
+    {
+      "ar": "سِلْسِلَةُ خُطَبٍ عَنِ الْيَوْمِ الْآخِرِ",
+      "en": "A Series of Khuṭbahs on the Last Day"
+    },
+    {
+      "ar": "إِعْدَادُ أ. د. وَلِيدِ بْنِ إِدْرِيسَ بْنِ عَبْدِ الْعَزِيزِ الْمُنَيْسِيِّ",
+      "en": "By Prof. Dr Waleed ibn Idris ibn ʿAbd al-ʿAzīz al-Meneese"
+    },
+    {
+      "ar": "دَارُ الْجَامِعَةِ الْإِسْلَامِيَّةِ بِمِنِيسُوتَا لِلنَّشْرِ",
+      "en": "Islamic University of Minnesota Press"
+    }
+  ],
+  "blocks": [
+    {
+      "t": "part",
+      "ar": "الْخُطْبَةُ الْأُولَى",
+      "en": "The First Khuṭbah"
+    },
+    {
+      "t": "p",
+      "ar": "إِنَّ الْحَمْدَ لِلَّهِ، نَحْمَدُهُ وَنَسْتَعِينُهُ وَنَسْتَغْفِرُهُ، وَنَعُوذُ بِاللَّهِ مِنْ شُرُورِ أَنْفُسِنَا وَمِنْ سَيِّئَاتِ أَعْمَالِنَا، مَنْ يَهْدِهِ اللَّهُ فَلَا مُضِلَّ لَهُ، وَمَنْ يُضْلِلْ فَلَا هَادِيَ لَهُ، وَأَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ صَلَّى اللَّهُ عَلَيْهِ وَعَلَى آلِهِ وَصَحْبِهِ وَسَلَّمَ.",
+      "en": "Indeed, all praise is for Allah. We praise Him, seek His help and ask His forgiveness, and we seek refuge in Allah from the evils of our own souls and from our bad deeds. Whomever Allah guides, no one can lead astray, and whomever He leaves astray, no one can guide. I bear witness that there is no god but Allah alone, with no partner, and I bear witness that Muhammad is His servant and His Messenger, may Allah send blessings and peace upon him, his family and his Companions."
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ حَقَّ تُقَاتِهِ وَلَا تَمُوتُنَّ إِلَّا وَأَنتُم مُّسْلِمُونَ﴾",
+      "en": "“O you who have believed, fear Allah as He should be feared, and do not die except as Muslims.”",
+      "ref": {
+        "ar": "آلِ عِمْرَانَ: 102",
+        "en": "Āl ʿImrān 3:102"
+      }
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿يَا أَيُّهَا النَّاسُ اتَّقُوا رَبَّكُمُ الَّذِي خَلَقَكُم مِّن نَّفْسٍ وَاحِدَةٍ وَخَلَقَ مِنْهَا زَوْجَهَا وَبَثَّ مِنْهُمَا رِجَالًا كَثِيرًا وَنِسَاءً وَاتَّقُوا اللَّهَ الَّذِي تَسَاءَلُونَ بِهِ وَالْأَرْحَامَ إِنَّ اللَّهَ كَانَ عَلَيْكُمْ رَقِيبًا﴾",
+      "en": "“O mankind, fear your Lord, who created you from one soul and created from it its mate and dispersed from both of them many men and women. And fear Allah, through whom you ask one another, and the wombs. Indeed, Allah is ever, over you, an Observer.”",
+      "ref": {
+        "ar": "النِّسَاءِ: 1",
+        "en": "al-Nisāʾ 4:1"
+      }
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَقُولُوا قَوْلًا سَدِيدًا ۝ يُصْلِحْ لَكُمْ أَعْمَالَكُمْ وَيَغْفِرْ لَكُمْ ذُنُوبَكُمْ وَمَن يُطِعِ اللَّهَ وَرَسُولَهُ فَقَدْ فَازَ فَوْزًا عَظِيمًا﴾",
+      "en": "“O you who have believed, fear Allah and speak words of appropriate justice. He will amend for you your deeds and forgive you your sins. And whoever obeys Allah and His Messenger has certainly attained a great attainment.”",
+      "ref": {
+        "ar": "الْأَحْزَابِ: 70–71",
+        "en": "al-Aḥzāb 33:70–71"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "أَمَّا بَعْدُ، فَإِنَّ أَصْدَقَ الْحَدِيثِ كِتَابُ اللَّهِ، وَخَيْرَ الْهَدْيِ هَدْيُ مُحَمَّدٍ ﷺ، وَشَرَّ الْأُمُورِ مُحْدَثَاتُهَا، وَكُلَّ مُحْدَثَةٍ بِدْعَةٌ، وَكُلَّ بِدْعَةٍ ضَلَالَةٌ، وَكُلَّ ضَلَالَةٍ فِي النَّارِ، وَمَا قَلَّ وَكَفَى خَيْرٌ مِمَّا كَثُرَ وَأَلْهَى، وَ﴿إِنَّ مَا تُوعَدُونَ لَآتٍ وَمَا أَنتُم بِمُعْجِزِينَ﴾ [الْأَنْعَامِ: 134].",
+      "en": "Ammā baʿd: the truest speech is the Book of Allah, and the best guidance is the guidance of Muhammad ﷺ. The worst of matters are those newly invented; every newly invented matter is an innovation, every innovation is misguidance, and every misguidance is in the Fire. What is little and suffices is better than what is plentiful and distracts, and “indeed, what you are promised is coming, and you will not cause failure [to Allah]” (al-Anʿām 6:134)."
+    },
+    {
+      "t": "p",
+      "ar": "أَيُّهَا الْإِخْوَةُ الْكِرَامُ، إِنَّ الْإِيمَانَ بِالْيَوْمِ الْآخِرِ رُكْنٌ مِنْ أَرْكَانِ الْإِيمَانِ السِّتَّةِ الَّتِي لَا يَكُونُ الْعَبْدُ مُؤْمِنًا إِلَّا بِهَا، وَقَدْ جَاءَ ذِكْرُهَا فِي حَدِيثِ جِبْرِيلَ عَلَيْهِ السَّلَامُ لَمَّا سَأَلَ النَّبِيَّ ﷺ: مَا الْإِيمَانُ؟ فَقَالَ ﷺ:",
+      "en": "Dear brothers, belief in the Last Day is one of the six pillars of īmān, without which a servant cannot be a believer. They are mentioned in the hadith of Jibrīl (ʿalayhi al-salām), when he asked the Prophet ﷺ, “What is īmān?” and he ﷺ said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«أَنْ تُؤْمِنَ بِاللَّهِ، وَمَلَائِكَتِهِ، وَكُتُبِهِ، وَرُسُلِهِ، وَالْيَوْمِ الْآخِرِ، وَالْقَدَرِ خَيْرِهِ وَشَرِّهِ»",
+      "en": "“That you believe in Allah, His angels, His Books, His messengers and the Last Day, and in the Decree, its good and its bad.”",
+      "ref": {
+        "ar": "أَخْرَجَهُ مُسْلِمٌ",
+        "en": "Muslim"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "كَمَا وَرَدَ ذِكْرُهَا فِي كِتَابِ اللَّهِ سُبْحَانَهُ فِي مَوَاضِعَ عَدِيدَةٍ، مِنْهَا قَوْلُهُ تَعَالَى:",
+      "en": "They are also mentioned in many places in the Book of Allah (subḥānahu), among them where He (taʿālā) says:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿وَلَٰكِنَّ الْبِرَّ مَنْ آمَنَ بِاللَّهِ وَالْيَوْمِ الْآخِرِ وَالْمَلَائِكَةِ وَالْكِتَابِ وَالنَّبِيِّينَ﴾",
+      "en": "“But righteousness is in one who believes in Allah, the Last Day, the angels, the Book, and the prophets.”",
+      "ref": {
+        "ar": "الْبَقَرَةِ: 177",
+        "en": "al-Baqarah 2:177"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَقَوْلُهُ سُبْحَانَهُ:",
+      "en": "And He (subḥānahu) says:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿وَمَن يَكْفُرْ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ وَالْيَوْمِ الْآخِرِ فَقَدْ ضَلَّ ضَلَالًا بَعِيدًا﴾",
+      "en": "“And whoever disbelieves in Allah, His angels, His books, His messengers, and the Last Day has certainly gone far astray.”",
+      "ref": {
+        "ar": "النِّسَاءِ: 136",
+        "en": "al-Nisāʾ 4:136"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "أَيُّهَا الْإِخْوَةُ الْكِرَامُ، لَقَدْ سَمَّى اللَّهُ عَزَّ وَجَلَّ الْيَوْمَ الْآخِرَ فِي كِتَابِهِ بِأَسْمَاءَ عَدِيدَةٍ، وَوَصَفَهُ بِأَوْصَافٍ عَظِيمَةٍ، وَلَا تَكَادُ تَخْلُو سُورَةٌ مِنْ سُوَرِ الْقُرْآنِ الْكَرِيمِ مِنَ التَّذْكِيرِ بِهَذَا الْيَوْمِ الْعَظِيمِ وَالْحَثِّ عَلَى الِاسْتِعْدَادِ وَالْعَمَلِ لَهُ؛ فَمِنْ أَسْمَائِهِ أَنَّهُ الْيَوْمُ الْآخِرُ لِأَنَّهُ آخِرُ الْأَيَّامِ فَلَيْسَ بَعْدَهُ يَوْمٌ، وَهُوَ الْيَوْمُ الْعَقِيمُ الَّذِي لَا يَلِدُ يَوْمًا بَعْدَهُ. وَهُوَ يَوْمُ التَّلَاقِي؛ حَيْثُ يَتَلَاقَى فِيهِ الْخَلْقُ جَمِيعًا مِنْ لَدُنْ آدَمَ عَلَيْهِ السَّلَامُ إِلَى أَنْ تَقُومَ السَّاعَةُ، وَيَلْقَى النَّاسُ فِيهِ رَبَّهُمْ سُبْحَانَهُ وَتَعَالَى. وَهُوَ يَوْمُ التَّنَادِي لِكَثْرَةِ مَا يَقَعُ فِيهِ مِنَ النِّدَاءِ؛ مَا بَيْنَ نِدَاءِ أَهْلِ النَّارِ لِأَهْلِ الْجَنَّةِ، وَنِدَاءِ أَهْلِ الْجَنَّةِ لِأَهْلِ النَّارِ، وَنِدَاءِ أَصْحَابِ الْأَعْرَافِ لِكُلٍّ مِنَ الْفَرِيقَيْنِ، وَنِدَاءِ اللَّهِ سُبْحَانَهُ وَتَعَالَى لِخَلْقِهِ:",
+      "en": "Dear brothers, Allah (ʿazza wa jall) has given the Last Day many names in His Book and described it with mighty attributes, and hardly a sūrah of the Noble Qurʾān is without some reminder of this mighty Day and some urging to prepare and work for it. Among its names: it is the Last Day (al-Yawm al-Ākhir), because it is the last of days and there is no day after it; and it is the Barren Day (al-Yawm al-ʿAqīm), which gives birth to no day after it. It is the Day of Meeting (Yawm al-Talāqī), for on it all creation meets, from Ādam (ʿalayhi al-salām) until the Hour is established, and on it people meet their Lord (subḥānahu wa taʿālā). It is the Day of Calling (Yawm al-Tanādī), because of all the calling out that takes place on it: the people of the Fire calling to the people of Jannah, the people of Jannah calling to the people of the Fire, the people of the Heights (al-Aʿrāf) calling to each of the two parties, and Allah (subḥānahu wa taʿālā) calling to His creation:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿وَيَوْمَ يُنَادِيهِمْ فَيَقُولُ أَيْنَ شُرَكَائِيَ﴾",
+      "en": "“And the Day He will call them and say, ‘Where are My partners?’”",
+      "ref": {
+        "ar": "الْقَصَصِ: 62",
+        "en": "al-Qaṣaṣ 28:62"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَهُوَ يَوْمُ التَّغَابُنِ؛ وَالتَّغَابُنُ هُوَ الْخُسْرَانُ وَأَنْ يُخْدَعَ الْإِنْسَانُ فَيَفْقِدَ الشَّيْءَ الثَّمِينَ النَّفِيسَ بِالثَّمَنِ الْحَقِيرِ، كَمَنْ يَبِيعُ سِلْعَةً تُسَاوِي مِائَةَ أَلْفِ دُولَارٍ بِدُولَارٍ أَوْ دُولَارَيْنِ فَيُغْبَنُ فِي بَيْعِهِ وَيَخْسَرُ؛ وَذَلِكَ أَنَّ الْمُفَرِّطَ يُدْرِكُ فِيهِ أَنَّهُ قَدْ غَبَنَ نَفْسَهُ فِيمَا أَعْطَاهُ اللَّهُ فِي الدُّنْيَا مِنْ عُمُرٍ وَمَالٍ وَنِعَمٍ كَانَ بِإِمْكَانِهِ أَنْ يَسْتَغِلَّهَا فِي التَّقَرُّبِ إِلَى اللَّهِ لِيَلْقَى الْجَزَاءَ الْحَمِيدَ فَلَمْ يَفْعَلْ. وَمِنْ أَسْمَائِهِ كَذَلِكَ أَنَّهُ يَوْمُ الْخُرُوجِ؛ إِذْ يَخْرُجُ فِيهِ النَّاسُ مِنَ الْقُبُورِ، وَهُوَ يَوْمُ الْخُلُودِ الَّذِي لَا مَوْتَ بَعْدَهُ، وَيَوْمُ الْوَعِيدِ، وَيَوْمُ الْجَمْعِ، وَيَوْمُ الْفَصْلِ، وَيَوْمُ الْقِيَامَةِ؛",
+      "en": "It is the Day of Mutual Loss (Yawm al-Taghābun). Taghābun is loss: a person is cheated and gives up something precious and valuable for a paltry price, like someone who sells an item worth a hundred thousand dollars for a dollar or two, and so is cheated in his sale and loses. That is because on that Day the negligent one realizes that he has cheated himself of what Allah gave him in the dunyā: a lifetime, wealth and blessings that he could have used to draw near to Allah and so meet with a praiseworthy reward, but he did not. Among its names too is the Day of Emergence (Yawm al-Khurūj), for on it people come out of their graves. It is the Day of Eternity (Yawm al-Khulūd), after which there is no death; the Day of the Threat (Yawm al-Waʿīd); the Day of Assembly (Yawm al-Jamʿ); the Day of Decision (Yawm al-Faṣl); and the Day of Resurrection (Yawm al-Qiyāmah):"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿يَوْمَ يَقُومُ النَّاسُ لِرَبِّ الْعَالَمِينَ﴾",
+      "en": "“The Day when mankind will stand before the Lord of the worlds.”",
+      "ref": {
+        "ar": "الْمُطَفِّفِينَ: 6",
+        "en": "al-Muṭaffifīn 83:6"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَقَدْ وَصَفَهُ اللَّهُ تَعَالَى بِأَنَّهُ يَوْمٌ عَظِيمٌ يَجْعَلُ الْوِلْدَانَ شِيبًا، فَقَالَ عَزَّ وَجَلَّ:",
+      "en": "Allah taʿālā has described it as a mighty Day that will make children white-haired, and He (ʿazza wa jall) said:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿فَكَيْفَ تَتَّقُونَ إِن كَفَرْتُمْ يَوْمًا يَجْعَلُ الْوِلْدَانَ شِيبًا ۝ السَّمَاءُ مُنفَطِرٌ بِهِ﴾",
+      "en": "“Then how can you fear, if you disbelieve, a Day that will make the children white-haired? The heaven will break apart therefrom.”",
+      "ref": {
+        "ar": "الْمُزَّمِّلِ: 17–18",
+        "en": "al-Muzzammil 73:17–18"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَقَالَ سُبْحَانَهُ:",
+      "en": "And He (subḥānahu) said:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿إِنَّ زَلْزَلَةَ السَّاعَةِ شَيْءٌ عَظِيمٌ ۝ يَوْمَ تَرَوْنَهَا تَذْهَلُ كُلُّ مُرْضِعَةٍ عَمَّا أَرْضَعَتْ وَتَضَعُ كُلُّ ذَاتِ حَمْلٍ حَمْلَهَا وَتَرَى النَّاسَ سُكَارَىٰ وَمَا هُم بِسُكَارَىٰ وَلَٰكِنَّ عَذَابَ اللَّهِ شَدِيدٌ﴾",
+      "en": "“Indeed, the convulsion of the Hour is a terrible thing. On the Day you see it, every nursing mother will be distracted from the one she was nursing, and every pregnant woman will abort her pregnancy, and you will see the people intoxicated while they are not intoxicated; but the punishment of Allah is severe.”",
+      "ref": {
+        "ar": "الْحَجِّ: 1–2",
+        "en": "al-Ḥajj 22:1–2"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "أَيُّهَا الْإِخْوَةُ الْكِرَامُ، لَقَدْ أَخْفَى اللَّهُ سُبْحَانَهُ وَتَعَالَى عَنَّا عِلْمَ ذَلِكَ الْيَوْمِ الْعَظِيمِ، وَاسْتَأْثَرَ بِعِلْمِ مَوْعِدِهِ وَلَمْ يُطْلِعْ عَلَيْهِ أَحَدًا مِنْ خَلْقِهِ؛ فَقَالَ عَزَّ وَجَلَّ لِنَبِيِّهِ ﷺ حِينَ سَأَلُوهُ عَنِ السَّاعَةِ كَأَنَّهُ حَفِيٌّ عَنْهَا مُطَّلِعٌ عَلَى وَقْتِهَا:",
+      "en": "Dear brothers, Allah (subḥānahu wa taʿālā) has hidden from us the knowledge of that mighty Day. He has kept the knowledge of its appointed time for Himself and has disclosed it to none of His creation. So He (ʿazza wa jall) said to His Prophet ﷺ, when they asked him about the Hour as though he were well acquainted with it and aware of its time:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿يَسْأَلُونَكَ عَنِ السَّاعَةِ أَيَّانَ مُرْسَاهَا قُلْ إِنَّمَا عِلْمُهَا عِندَ رَبِّي لَا يُجَلِّيهَا لِوَقْتِهَا إِلَّا هُوَ ثَقُلَتْ فِي السَّمَاوَاتِ وَالْأَرْضِ لَا تَأْتِيكُمْ إِلَّا بَغْتَةً يَسْأَلُونَكَ كَأَنَّكَ حَفِيٌّ عَنْهَا قُلْ إِنَّمَا عِلْمُهَا عِندَ اللَّهِ وَلَٰكِنَّ أَكْثَرَ النَّاسِ لَا يَعْلَمُونَ﴾",
+      "en": "“They ask you about the Hour: when is its arrival? Say, ‘Its knowledge is only with my Lord. None will reveal its time except Him. It lays heavily upon the heavens and the earth. It will not come upon you except unexpectedly.’ They ask you as if you are familiar with it. Say, ‘Its knowledge is only with Allah, but most of the people do not know.’”",
+      "ref": {
+        "ar": "الْأَعْرَافِ: 187",
+        "en": "al-Aʿrāf 7:187"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَلَمَّا سَأَلَ جِبْرِيلُ عَلَيْهِ السَّلَامُ النَّبِيَّ ﷺ: مَتَى السَّاعَةُ؟ قَالَ:",
+      "en": "And when Jibrīl (ʿalayhi al-salām) asked the Prophet ﷺ, “When is the Hour?” he said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«مَا الْمَسْئُولُ عَنْهَا بِأَعْلَمَ مِنَ السَّائِلِ»",
+      "en": "“The one asked about it knows no more than the one asking.”",
+      "ref": {
+        "ar": "مُتَّفَقٌ عَلَيْهِ",
+        "en": "al-Bukhārī and Muslim"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "فَأَشْرَفُ الْأَنْبِيَاءِ مُحَمَّدٌ ﷺ وَأَشْرَفُ الْمَلَائِكَةِ جِبْرِيلُ عَلَيْهِ السَّلَامُ لَمْ يُطْلِعْهُمَا اللَّهُ تَعَالَى عَلَى وَقْتِهَا. وَقَدْ سَأَلَ رَجُلٌ رَسُولَ اللَّهِ ﷺ: مَتَى السَّاعَةُ؟ فَأَرْشَدَهُ النَّبِيُّ ﷺ إِلَى مَا يَنْبَغِي أَنْ يَسْأَلَ عَنْهُ وَيَهْتَمَّ بِهِ قَائِلًا: «وَمَاذَا أَعْدَدْتَ لَهَا»؟ فَقَالَ الرَّجُلُ: أَعْدَدْتُ لَهَا حُبَّ اللَّهِ وَرَسُولِهِ، فَقَالَ ﷺ:",
+      "en": "So Allah taʿālā did not make its time known to the noblest of the prophets, Muhammad ﷺ, nor to the noblest of the angels, Jibrīl (ʿalayhi al-salām). A man once asked the Messenger of Allah ﷺ, “When is the Hour?” The Prophet ﷺ directed him to what he ought to ask about and concern himself with, saying, “And what have you prepared for it?” The man said, “I have prepared for it love of Allah and His Messenger.” He ﷺ said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«الْمَرْءُ مَعَ مَنْ أَحَبَّ»",
+      "en": "“A person will be with those he loves.”",
+      "ref": {
+        "ar": "مُتَّفَقٌ عَلَيْهِ",
+        "en": "al-Bukhārī and Muslim"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "فَهَذَا هُوَ الَّذِي يَنْفَعُ الْعَبْدَ وَيَكُونُ سَبَبًا فِي نَجَاتِهِ.",
+      "en": "This is what benefits a servant and becomes a means of his salvation."
+    },
+    {
+      "t": "p",
+      "ar": "أَيُّهَا الْإِخْوَةُ الْكِرَامُ، إِنَّ لِيَوْمِ الْقِيَامَةِ مَشَاهِدَ وَأَحْدَاثًا عِظَامًا جَاءَ تَفْصِيلُهَا فِي كِتَابِ اللَّهِ وَسُنَّةِ نَبِيِّهِ ﷺ؛ كَالنَّفْخِ فِي الصُّورِ، وَالْحِسَابِ، وَتَطَايُرِ الصُّحُفِ، وَالْمِيزَانِ، وَالْحَوْضِ، وَالصِّرَاطِ. وَإِنَّ الْعِلْمَ بِهَذِهِ التَّفْصِيلَاتِ وَالْإِيمَانَ بِهَا مِمَّا يَزْدَادُ بِهِ إِيمَانُ الْمُسْلِمِ وَيَقْوَى؛ فَمَنْ كَانَ إِيمَانُهُ بِالْيَوْمِ الْآخِرِ مُجْمَلًا يَكُونُ إِيمَانُهُ أَنْقَصَ مِنْ إِيمَانِ مَنْ عَلِمَ تَفَاصِيلَ مَا سَيَقَعُ فِيهِ فَآمَنَ بِذَلِكَ كُلِّهِ وَازْدَادَ اسْتِعْدَادًا لَهُ وَأَخْذًا بِأَسْبَابِ النَّجَاةِ فِيهِ. وَسَنَبْدَأُ بِإِذْنِ اللَّهِ تَعَالَى فِي هَذِهِ السِّلْسِلَةِ بِالْحَدِيثِ عَنْ مَشَاهِدِ ذَلِكَ الْيَوْمِ الْعَظِيمِ مُرَتَّبَةً عَلَى أَرْجَحِ أَقْوَالِ أَهْلِ الْعِلْمِ؛ إِذْ يَقَعُ أَحْيَانًا اخْتِلَافٌ يَسِيرٌ بَيْنَ الْعُلَمَاءِ فِي تَرْتِيبِ بَعْضِ الْأَحْدَاثِ- كَتَقْدِيمِ الْحَوْضِ عَلَى الصِّرَاطِ أَوْ عَكْسِهِ- وَهُوَ اخْتِلَافٌ لَا يَضُرُّ؛ لِأَنَّ جَمِيعَ تِلْكَ الْأَحْدَاثِ وَاقِعَةٌ لَا مَحَالَةَ.",
+      "en": "Dear brothers, the Day of Resurrection has mighty scenes and events, set out in detail in the Book of Allah and the Sunnah of His Prophet ﷺ: the blowing of the Trumpet (al-Ṣūr), the Reckoning, the flying of the records of deeds, the Scale (al-Mīzān), the Pond (al-Ḥawḍ) and the Bridge (al-Ṣirāṭ). Knowing these details and believing in them is among the things by which a Muslim’s īmān increases and grows strong. Whoever believes in the Last Day only in general terms has a lesser īmān than one who knows the details of what will happen on it, believes in all of it, and so grows in preparing for it and in taking the means of salvation on it. In this series, by the leave of Allah taʿālā, we will begin speaking about the scenes of that mighty Day in order, following the strongest of the views of the people of knowledge; for there is sometimes slight disagreement among the scholars over the order of some events – such as placing the Pond before the Ṣirāṭ or the reverse – and it is a disagreement that does no harm, because all of those events will certainly take place."
+    },
+    {
+      "t": "p",
+      "ar": "وَأَوَّلُ أَحْدَاثِ السَّاعَةِ الْكُبْرَى وَزَوَالِ الدُّنْيَا هُوَ النَّفْخَةُ الْأُولَى (نَفْخَةُ الصَّعْقِ)؛ وَأَمَّا مَا يَسْبِقُهَا مِنَ الْمَوْتِ وَنَعِيمِ الْقَبْرِ وَعَذَابِهِ فَهُوَ أَوَّلُ مَنَازِلِ الْآخِرَةِ وَالْقِيَامَةُ الصُّغْرَى الَّتِي تَخُصُّ كُلَّ إِنْسَانٍ عَلَى حِدَةٍ؛ فَلَا يَسْتَبْطِئَنَّ الْإِنْسَانُ يَوْمَ الْقِيَامَةِ أَوْ يَظُنَّنَّهُ بَعِيدًا، فَإِنَّ مَرَاحِلَهُ تَبْدَأُ بِالنِّسْبَةِ لِكُلِّ فَرْدٍ مُنْذُ لَحْظَةِ مَوْتِهِ وَمَجِيءِ الْمَلَائِكَةِ لِقَبْضِ رُوحِهِ- إِمَّا مَلَائِكَةُ الرَّحْمَةِ إِنْ كَانَ مِنَ الْمُؤْمِنِينَ جَعَلَنَا اللَّهُ وَإِيَّاكُمْ مِنْهُمْ، وَإِمَّا مَلَائِكَةُ الْعَذَابِ أَعَاذَنَا اللَّهُ مِنْ ذَلِكَ- بَيْنَمَا تَظَلُّ الدُّنْيَا قَائِمَةً وَالْأَرْضُ مَعْمُورَةً إِلَى أَنْ يَأْذَنَ اللَّهُ بِقِيَامِ السَّاعَةِ الْكُبْرَى بِنَفْخَةِ الصَّعْقِ.",
+      "en": "The first of the events of the Greater Hour and of the passing away of the dunyā is the first blast (the Blast of Swooning). As for what comes before it, namely death and the bliss and punishment of the grave, that is the first of the stations of the Ākhirah and the Lesser Resurrection, which concerns each person individually. So let no one think the Day of Resurrection slow in coming or suppose it far off, for its stages begin, for each individual, from the moment of his death and the coming of the angels to take his soul – either the angels of mercy, if he is among the believers (may Allah make us and you among them), or the angels of punishment (may Allah protect us from that) – while the dunyā remains standing and the earth inhabited until Allah permits the Greater Hour to come with the Blast of Swooning."
+    },
+    {
+      "t": "p",
+      "ar": "وَإِلَى تِلْكَ اللَّحْظَةِ الَّتِي يَنْفُخُ فِيهَا إِسْرَافِيلُ عَلَيْهِ السَّلَامُ فِي الصُّورِ يَكُونُ النَّاسُ فِي الدُّنْيَا يَتَبَايَعُونَ وَيَبْنُونَ الْمَسَاكِنَ وَيَأْكُلُونَ وَيَشْرَبُونَ، فَتَأْتِيهِمُ السَّاعَةُ بَغْتَةً؛ فَقَدْ أَخْبَرَ النَّبِيُّ ﷺ أَنَّهُ يُنْفَخُ فِي الصُّورِ وَالرَّجُلَانِ يَتَبَايَعَانِ الثَّوْبَ بَيْنَهُمَا وَيَتَسَاوَمَانِ فِي ثَمَنِهِ فَلَا يَتَبَايَعَانِهِ وَلَا يَطْوِيَانِهِ، وَرَجُلٌ يَلُوطُ حَوْضَهُ- أَيْ يَبْنِيهِ وَيَطْلِيهِ بِالطِّينِ وَالْجِصِّ لِيَجْمَعَ فِيهِ الْمَاءُ- فَلَا يَسْقِي فِيهِ، وَآخَرُ قَدْ حَلَبَ لِقْحَتَهُ- أَيْ نَاقَتَهُ- فَلَا يَرْفَعُ الْإِنَاءَ إِلَى فِيهِ حَتَّى تَقُومَ السَّاعَةُ. وَمَعَ أَنَّ لِلسَّاعَةِ عَلَامَاتٍ صُغْرَى قَدْ وَقَعَ أَكْثَرُهَا، وَعَلَامَاتٍ كُبْرَى كَالدُّخَانِ وَالدَّابَّةِ وَالدَّجَّالِ وَطُلُوعِ الشَّمْسِ مِنْ مَغْرِبِهَا لَنْ تَقُومَ السَّاعَةُ حَتَّى تَكْتَمِلَ، إِلَّا أَنَّ النَّاسَ لِطُولِ أَمَلِهِمْ وَغَفْلَتِهِمْ يُوَاصِلُونَ مَعَايِشَهُمْ وَلَا يَتَوَقَّعُونَ وُقُوعَهَا فِي تِلْكَ اللَّحْظَةِ حَتَّى تَبْغَتَهُمْ وَهُمْ لَا يَشْعُرُونَ.",
+      "en": "Right up to the moment when Isrāfīl (ʿalayhi al-salām) blows into the Trumpet, people in the dunyā will be buying and selling, building homes, eating and drinking, and then the Hour will come upon them suddenly. The Prophet ﷺ told us that the Trumpet will be blown while two men are trading a garment between them, bargaining over its price, and they will neither complete the sale nor fold it up; and while a man is plastering his basin – that is, building it and coating it with clay and gypsum so that water collects in it – and he will not water his animals from it; and while another has milked his milch camel – that is, his she-camel – and he will not raise the vessel to his mouth before the Hour comes. And although the Hour has minor signs, most of which have already happened, and major signs – such as the Smoke, the Beast, the Dajjāl and the rising of the sun from the west – without whose completion the Hour will not come, people, because of their long hopes and their heedlessness, carry on with their livelihoods and do not expect it to happen at that moment, until it takes them by surprise while they are unaware."
+    },
+    {
+      "t": "p",
+      "ar": "وَقَدْ أَخْبَرَ النَّبِيُّ ﷺ",
+      "en": "And the Prophet ﷺ told us"
+    },
+    {
+      "t": "quote",
+      "ar": "«أَنَّ السَّاعَةَ لَا تَقُومُ إِلَّا عَلَى شِرَارِ الْخَلْقِ»",
+      "en": "“that the Hour will come only upon the worst of creation.”",
+      "ref": {
+        "ar": "أَخْرَجَهُ مُسْلِمٌ",
+        "en": "Muslim"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَذَلِكَ أَنَّ اللَّهَ سُبْحَانَهُ يَبْعَثُ قُبَيْلَ قِيَامِ السَّاعَةِ رِيحًا طَيِّبَةً تَقْبِضُ أَرْوَاحَ الْمُؤْمِنِينَ جَمِيعًا، لَا تَدَعُ مُؤْمِنًا إِلَّا قَبَضَتْ رُوحَهُ وَلَوْ كَانَ فِي جَوْفِ غَارٍ، فَلَا يَحْضُرُ الْمُؤْمِنُونَ لَحْظَةَ نَفْخَةِ الصَّعْقِ، وَلَا يَبْقَى فِي الْأَرْضِ إِلَّا شِرَارُ الْخَلْقِ الَّذِينَ يُزَيِّنُ لَهُمُ الشَّيْطَانُ عِبَادَةَ الْأَوْثَانِ فَعَلَيْهِمْ تَقُومُ السَّاعَةُ. نَسْأَلُ اللَّهَ سُبْحَانَهُ وَتَعَالَى أَنْ يُعِينَنَا عَلَى الِاسْتِعْدَادِ وَالْعَمَلِ لِذَلِكَ الْيَوْمِ الْعَظِيمِ، وَأَنْ يَنْفَعَنَا وَإِيَّاكُمْ بِمَا قُلْنَا وَسَمِعْنَا، أَقُولُ قَوْلِي هَذَا وَأَسْتَغْفِرُ اللَّهَ لِي وَلَكُمْ.",
+      "en": "That is because, shortly before the Hour is established, Allah (subḥānahu) will send a pleasant wind that takes the souls of all the believers. It leaves no believer without taking his soul, even if he were deep inside a cave. So the believers will not be present at the moment of the Blast of Swooning, and none will remain on earth but the worst of creation, those for whom Shayṭān makes the worship of idols seem fair, and it is upon them that the Hour will come. We ask Allah (subḥānahu wa taʿālā) to help us prepare and work for that mighty Day, and to benefit us and you by what we have said and heard. I say these words of mine, and I seek Allah’s forgiveness for myself and for you."
+    },
+    {
+      "t": "part",
+      "ar": "الْخُطْبَةُ الثَّانِيَةُ",
+      "en": "The Second Khuṭbah"
+    },
+    {
+      "t": "p",
+      "ar": "الْحَمْدُ لِلَّهِ، وَالصَّلَاةُ وَالسَّلَامُ عَلَى رَسُولِ اللَّهِ، وَعَلَى آلِهِ وَصَحْبِهِ وَمَنِ اتَّبَعَ هَدْيَهُ إِلَى يَوْمِ الدِّينِ.",
+      "en": "All praise is for Allah, and peace and blessings be upon the Messenger of Allah, and upon his family, his Companions, and those who follow his guidance until the Day of Judgment."
+    },
+    {
+      "t": "p",
+      "ar": "أَمَّا بَعْدُ، أَيُّهَا الْإِخْوَةُ الْكِرَامُ، إِنَّ أَوَّلَ مَشَاهِدِ يَوْمِ الْقِيَامَةِ وَأَحْدَاثِهِ هُوَ نَفْخَةُ الصَّعْقِ، وَهِيَ النَّفْخَةُ الْأُولَى الَّتِي يَنْفُخُهَا إِسْرَافِيلُ عَلَيْهِ السَّلَامُ فِي الصُّورِ؛ وَالصُّورُ هُوَ الْبُوقُ الْعَظِيمُ الْمُعَدُّ لِهَذِهِ الْمُهِمَّةِ، كَمَا صَحَّ عَنِ النَّبِيِّ ﷺ أَنَّ أَعْرَابِيًّا سَأَلَهُ: يَا رَسُولَ اللَّهِ، مَا الصُّورُ؟ قَالَ:",
+      "en": "Ammā baʿd: dear brothers, the first of the scenes and events of the Day of Resurrection is the Blast of Swooning. It is the first blast, which Isrāfīl (ʿalayhi al-salām) blows into the Trumpet; and the Trumpet (al-Ṣūr) is the great horn made ready for this task, as is authentically reported from the Prophet ﷺ that a bedouin asked him, “O Messenger of Allah, what is the Trumpet?” He said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«قَرْنٌ يُنْفَخُ فِيهِ»",
+      "en": "“A horn that is blown into.”",
+      "ref": {
+        "ar": "أَخْرَجَهُ التِّرْمِذِيُّ",
+        "en": "al-Tirmidhī"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَإِسْرَافِيلُ عَلَيْهِ السَّلَامُ مَلَكٌ كَرِيمٌ عَظِيمٌ، وَهُوَ أَحَدُ رُؤَسَاءِ الْمَلَائِكَةِ الثَّلَاثَةِ الْمُقَدَّمِينَ عِنْدَ اللَّهِ تَعَالَى: جِبْرِيلَ وَمِيكَائِيلَ وَإِسْرَافِيلَ؛ وَلِفَضْلِهِمْ وَشَرَفِهِمْ كَانَ النَّبِيُّ ﷺ يَتَوَسَّلُ إِلَى اللَّهِ تَعَالَى بِرُبُوبِيَّتِهِ لَهُمْ فِي دُعَاءِ اسْتِفْتَاحِ صَلَاةِ اللَّيْلِ فَيَقُولُ:",
+      "en": "Isrāfīl (ʿalayhi al-salām) is a noble and mighty angel. He is one of the three chiefs of the angels who are given precedence with Allah taʿālā: Jibrīl, Mīkāʾīl and Isrāfīl. Because of their virtue and honor, the Prophet ﷺ would call on Allah taʿālā by His lordship over them in the opening duʿāʾ of his night ṣalāh, saying:"
+    },
+    {
+      "t": "quote",
+      "ar": "«اللَّهُمَّ رَبَّ جِبْرَائِيلَ وَمِيكَائِيلَ وَإِسْرَافِيلَ، فَاطِرَ السَّمَوَاتِ وَالْأَرْضِ، عَالِمَ الْغَيْبِ وَالشَّهَادَةِ، أَنْتَ تَحْكُمُ بَيْنَ عِبَادِكَ فِيمَا كَانُوا فِيهِ يَخْتَلِفُونَ، اهْدِنِي لِمَا اخْتُلِفَ فِيهِ مِنَ الْحَقِّ بِإِذْنِكَ، إِنَّكَ تَهْدِي مَنْ تَشَاءُ إِلَى صِرَاطٍ مُسْتَقِيمٍ»",
+      "en": "“O Allah, Lord of Jibrīl, Mīkāʾīl and Isrāfīl, Originator of the heavens and the earth, Knower of the unseen and the witnessed, You judge between Your servants in that over which they used to differ. Guide me, by Your leave, to the truth in that over which there has been difference. Indeed, You guide whom You will to a straight path.”",
+      "ref": {
+        "ar": "أَخْرَجَهُ مُسْلِمٌ",
+        "en": "Muslim"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَقَدْ وَكَّلَ اللَّهُ سُبْحَانَهُ إِسْرَافِيلَ عَلَيْهِ السَّلَامُ بِالنَّفْخِ فِي الصُّورِ لِيُصْعَقَ النَّاسُ ثُمَّ لِيُبْعَثُوا مِنْ قُبُورِهِمْ، وَأَخْبَرَ النَّبِيُّ ﷺ أَنَّ إِسْرَافِيلَ قَدِ الْتَقَمَ الصُّورَ مُنْذُ زَمَنِ النَّبِيِّ ﷺ وَأَحْنَى جَبْهَتَهُ وَأَصْغَى سَمْعَهُ يَنْتَظِرُ مَتَى يُؤْمَرُ بِالنَّفْخِ؛ فَقَالَ ﷺ: «كَيْفَ أَنْعَمُ وَصَاحِبُ الصُّورِ قَدِ الْتَقَمَ الْقَرْنَ، وَأَحْنَى جَبْهَتَهُ، وَأَصْغَى سَمْعَهُ يَنْتَظِرُ أَنْ يُؤْمَرَ أَنْ يَنْفُخَ فَيَنْفُخَ»؟ فَقَالَ الصَّحَابَةُ: فَمَا تَأْمُرُنَا يَا رَسُولَ اللَّهِ؟ قَالَ:",
+      "en": "Allah (subḥānahu) has entrusted Isrāfīl (ʿalayhi al-salām) with blowing the Trumpet, so that people will swoon and then be raised from their graves. The Prophet ﷺ told us that Isrāfīl has had the Trumpet in his mouth since the time of the Prophet ﷺ, his forehead bowed and his ear inclined, waiting for when he will be commanded to blow. He ﷺ said: “How can I live at ease when the one with the Trumpet has put the horn to his mouth, bowed his forehead and inclined his ear, waiting to be commanded to blow, so that he may blow?” The Companions said, “Then what do you command us to do, O Messenger of Allah?” He said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«قُولُوا: حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ»",
+      "en": "“Say: ‘Sufficient for us is Allah, and He is the best Disposer of affairs.’”",
+      "ref": {
+        "ar": "أَخْرَجَهُ التِّرْمِذِيُّ وَصَحَّحَهُ الْأَلْبَانِيُّ",
+        "en": "Narrated by al-Tirmidhī, and graded ṣaḥīḥ by al-Albānī"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَقَدْ جَاءَ ذِكْرُ النَّفْخِ فِي الصُّورِ فِي مَوَاضِعَ عَدِيدَةٍ مِنْ كِتَابِ اللَّهِ تَعَالَى، مِنْهَا قَوْلُهُ سُبْحَانَهُ:",
+      "en": "The blowing of the Trumpet is mentioned in many places in the Book of Allah taʿālā, among them where He (subḥānahu) says:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿فَإِذَا نُقِرَ فِي النَّاقُورِ ۝ فَذَٰلِكَ يَوْمَئِذٍ يَوْمٌ عَسِيرٌ ۝ عَلَى الْكَافِرِينَ غَيْرُ يَسِيرٍ﴾",
+      "en": "“And when the horn is sounded, that Day will be a difficult day, for the disbelievers – not easy.”",
+      "ref": {
+        "ar": "الْمُدَّثِّرِ: 8–10",
+        "en": "al-Muddaththir 74:8–10"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "- أَيْ إِذَا نُفِخَ فِي الصُّورِ،- وَقَوْلُهُ تَعَالَى فِي سُورَةِ الزُّمَرِ:",
+      "en": "– that is, when the Trumpet is blown – and where He (taʿālā) says in Sūrat al-Zumar:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿وَنُفِخَ فِي الصُّورِ فَصَعِقَ مَن فِي السَّمَاوَاتِ وَمَن فِي الْأَرْضِ إِلَّا مَن شَاءَ اللَّهُ ثُمَّ نُفِخَ فِيهِ أُخْرَىٰ فَإِذَا هُمْ قِيَامٌ يَنظُرُونَ﴾",
+      "en": "“And the Trumpet will be blown, and whoever is in the heavens and whoever is on the earth will fall dead except whom Allah wills. Then it will be blown again, and at once they will be standing, looking on.”",
+      "ref": {
+        "ar": "الزُّمَرِ: 68",
+        "en": "al-Zumar 39:68"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَقَوْلُهُ فِي سُورَةِ النَّمْلِ:",
+      "en": "And where He says in Sūrat al-Naml:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿وَيَوْمَ يُنفَخُ فِي الصُّورِ فَفَزِعَ مَن فِي السَّمَاوَاتِ وَمَن فِي الْأَرْضِ إِلَّا مَن شَاءَ اللَّهُ وَكُلٌّ أَتَوْهُ دَاخِرِينَ﴾",
+      "en": "“And the Day the Trumpet will be blown, and whoever is in the heavens and whoever is on the earth will be terrified except whom Allah wills. And all will come to Him humbled.”",
+      "ref": {
+        "ar": "النَّمْلِ: 87",
+        "en": "al-Naml 27:87"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَذَهَبَ جُمْهُورُ الْعُلَمَاءِ إِلَى أَنَّ نَفْخَةَ الْفَزَعِ الْمَذْكُورَةَ فِي سُورَةِ النَّمْلِ هِيَ نَفْسُهَا نَفْخَةُ الصَّعْقِ الْمَذْكُورَةُ فِي سُورَةِ الزُّمَرِ؛ لِأَنَّ إِسْرَافِيلَ عَلَيْهِ السَّلَامُ عِنْدَمَا يَنْفُخُ فِي الصُّورِ يُصِيبُ النَّاسَ فَزَعٌ عَظِيمٌ يَشِيبُ مِنْهُ الْوِلْدَانُ وَتَضَعُ كُلُّ ذَاتِ حَمْلٍ حَمْلَهَا، ثُمَّ يُصْعَقُونَ مِنْ هَوْلِ تِلْكَ الْفَزْعَةِ، فَلَيْسَ هُنَاكَ إِلَّا نَفْخَتَانِ: نَفْخَةُ الْفَزَعِ وَالصَّعْقِ، وَنَفْخَةُ الْبَعْثِ؛ بَيْنَمَا ذَهَبَ فَرِيقٌ آخَرُ مِنَ الْعُلَمَاءِ إِلَى أَنَّهَا ثَلَاثُ نَفَخَاتٍ: نَفْخَةُ الْفَزَعِ، ثُمَّ نَفْخَةُ الصَّعْقِ، ثُمَّ نَفْخَةُ الْبَعْثِ، وَالْقَوْلُ الْأَوَّلُ هُوَ الْأَرْجَحُ الَّذِي عَلَيْهِ أَكْثَرُ أَهْلِ الْعِلْمِ.",
+      "en": "The majority of scholars hold that the Blast of Terror mentioned in Sūrat al-Naml is the very same as the Blast of Swooning mentioned in Sūrat al-Zumar. For when Isrāfīl (ʿalayhi al-salām) blows into the Trumpet, a great terror strikes people, from which children turn white-haired and every pregnant woman aborts her pregnancy, and then they swoon from the horror of that terror. So there are only two blasts: the Blast of Terror and Swooning, and the Blast of Resurrection. Another group of scholars, however, hold that there are three blasts: the Blast of Terror, then the Blast of Swooning, then the Blast of Resurrection. The first view is the stronger one, and it is held by most of the people of knowledge."
+    },
+    {
+      "t": "p",
+      "ar": "وَأَمَّا الْمَقْصُودُ بِالِاسْتِثْنَاءِ فِي قَوْلِهِ تَعَالَى:",
+      "en": "As for who is meant by the exception where He (taʿālā) says:"
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿إِلَّا مَن شَاءَ اللَّهُ﴾",
+      "en": "“Except whom Allah wills.”",
+      "ref": {
+        "ar": "الزُّمَرِ: 68",
+        "en": "al-Zumar 39:68"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "فَقَدِ اخْتَلَفَ فِيهِ السَّلَفُ وَالْمُفَسِّرُونَ عَلَى أَقْوَالٍ؛ فَقَالَ الْإِمَامُ أَحْمَدُ بْنُ حَنْبَلٍ رَحِمَهُ اللَّهُ: هُمُ الشُّهَدَاءُ، وَالْحُورُ الْعِينُ، وَالْوِلْدَانُ الْمُخَلَّدُونَ، وَرِضْوَانُ خَازِنُ الْجَنَّةِ، وَزَبَانِيَةُ الْعَذَابِ؛ فَالشُّهَدَاءُ أَحْيَاءٌ عِنْدَ رَبِّهِمْ يُرْزَقُونَ، وَقَدْ جَاءَ فِي آثَارٍ أَنَّهُمْ يَكُونُونَ وَقْتَ النَّفْخِ فِي الصُّورِ حَوْلَ عَرْشِ الرَّحْمَنِ عَلَى نَجَائِبٍ- أَيْ إِبِلٍ نَجِيبَةٍ- مِنَ الْيَاقُوتِ فَلَا يُصْعَقُونَ، وَكَذَلِكَ الْحُورُ الْعِينُ وَالْوِلْدَانُ الْمُخَلَّدُونَ قَدْ خُلِقُوا فِي الْجَنَّةِ لِلْخُلُودِ وَرَآهُمُ النَّبِيُّ ﷺ فِي رِحْلَةِ الْإِسْرَاءِ وَالْمَعْرَاجِ فَلَا يَمُوتُونَ وَلَا يُصْعَقُونَ. وَقَالَ بَعْضُ الْمُفَسِّرِينَ: الْمُسْتَثْنَوْنَ هُمْ جِبْرِيلُ وَمِيكَائِيلُ وَإِسْرَافِيلُ وَمَلَكُ الْمَوْتِ، وَقَالَ الْحَسَنُ الْبَصْرِيُّ رَحِمَهُ اللَّهُ: بَلْ يُصْعَقُ الْخَلْقُ جَمِيعًا فَلَا يَبْقَى إِلَّا اللَّهُ الْوَاحِدُ الْقَهَّارُ، وَقَالَ قَتَادَةُ السَّدُوسِيُّ رَحِمَهُ اللَّهُ: اللَّهُ أَعْلَمُ بِثُنْيَاهُ- أَيْ بِمَنِ اسْتَثْنَاهُ،- وَالْمُهِمُّ أَنَّ كُلَّ مَنْ فِي السَّمَوَاتِ وَالْأَرْضِ يُصْعَقُ إِلَّا مَنْ شَاءَ اللَّهُ تَعَالَى أَلَّا يُصْعَقَ.",
+      "en": "The Salaf and the commentators of the Qurʾān have differed over it, holding several views. Imam Aḥmad ibn Ḥanbal (raḥimahu Allāh) said: They are the martyrs, the wide-eyed maidens of Jannah (al-ḥūr al-ʿīn), the immortal youths, Riḍwān the keeper of Jannah, and the angels of punishment (al-Zabāniyah). The martyrs are alive with their Lord, receiving provision, and it has come in reports that at the time of the blowing of the Trumpet they will be around the Throne of the Most Merciful on noble mounts – that is, thoroughbred camels – of ruby, and so they will not swoon. Likewise the wide-eyed maidens and the immortal youths were created in Jannah to live forever, and the Prophet ﷺ saw them on the journey of al-Isrāʾ and al-Miʿrāj, so they neither die nor swoon. Some of the commentators said: Those excepted are Jibrīl, Mīkāʾīl, Isrāfīl and the Angel of Death. Al-Ḥasan al-Baṣrī (raḥimahu Allāh) said: Rather, all creation will swoon, and none will remain but Allah, the One, the Prevailing. And Qatādah al-Sadūsī (raḥimahu Allāh) said: Allah knows best about His exception – that is, about whom He has excepted. What matters is that everyone in the heavens and the earth will swoon, except those whom Allah taʿālā wills not to swoon."
+    },
+    {
+      "t": "p",
+      "ar": "وَبِمُجَرَّدِ حُصُولِ نَفْخَةِ الصَّعْقِ تَبْدَأُ أَحْدَاثٌ مَهُولَةٌ وَتَغْيِيرٌ شَامِلٌ فِي هَذَا الْعَالَمِ؛ مِنْ تَبْدِيلِ الْأَرْضِ غَيْرَ الْأَرْضِ وَالسَّمَوَاتِ، وَتَشَقُّقِ السَّمَاءِ وَتَسَاقُطِ النُّجُومِ وَالْكَوَاكِبِ، وَتَفَجُّرِ الْبِحَارِ وَتَبَعْثُرِ الْقُبُورِ، وَهُوَ مَا سَنَتَحَدَّثُ عَنْهُ بِالتَّفْصِيلِ فِي الْخُطْبَةِ الْقَادِمَةِ بِإِذْنِ اللَّهِ تَعَالَى.",
+      "en": "As soon as the Blast of Swooning takes place, terrifying events and a total transformation of this world begin: the earth is changed into another earth, and the heavens as well; the sky splits apart; the stars and planets fall; the seas burst forth; and the graves are overturned. This is what we will speak about in detail in the next khuṭbah, by the leave of Allah taʿālā."
+    },
+    {
+      "t": "p",
+      "ar": "نَسْأَلُ اللَّهَ عَزَّ وَجَلَّ أَنْ يَنْفَعَنَا وَإِيَّاكُمْ بِمَا قُلْنَا وَسَمِعْنَا، وَأَنْ يُعِينَنَا عَلَى الْعَمَلِ لِهَذَا الْيَوْمِ الْعَظِيمِ. اللَّهُمَّ أَصْلِحْ لَنَا دِينَنَا الَّذِي هُوَ عِصْمَةُ أَمْرِنَا، وَأَصْلِحْ لَنَا دُنْيَانَا الَّتِي فِيهَا مَعَاشُنَا، وَأَصْلِحْ لَنَا آخِرَتَنَا الَّتِي فِيهَا مَعَادُنَا، وَاجْعَلِ الْحَيَاةَ زِيَادَةً لَنَا فِي كُلِّ خَيْرٍ، وَاجْعَلِ الْمَوْتَ رَاحَةً لَنَا مِنْ كُلِّ شَرٍّ. اللَّهُمَّ إِنَّا نَعُوذُ بِكَ مِنْ زَوَالِ نِعْمَتِكَ، وَمِنْ تَحَوُّلِ عَافِيَتِكَ، وَمِنْ فُجَاءَةِ نِقْمَتِكَ، وَمِنْ جَمِيعِ سَخَطِكَ. اللَّهُمَّ انْصُرِ الْمُسْتَضْعَفِينَ مِنَ الْمُسْلِمِينَ فِي كُلِّ مَكَانٍ، اللَّهُمَّ اشْفِ مَرْضَاهُمْ، وَفُكَّ أَسْرَاهُمْ، وَارْحَمْ مَوْتَاهُمْ، وَانْصُرْهُمْ عَلَى الْقَوْمِ الْكَافِرِينَ، اللَّهُمَّ آمِينَ، وَآخِرُ دَعْوَانَا أَنِ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ.",
+      "en": "We ask Allah (ʿazza wa jall) to benefit us and you by what we have said and heard, and to help us work for this mighty Day. O Allah, set right for us our religion, which is the safeguard of our affairs; set right for us our dunyā, in which is our livelihood; and set right for us our Ākhirah, to which is our return. Make life an increase for us in every good, and make death a relief for us from every evil. O Allah, we seek refuge in You from the loss of Your blessings, the change of the well-being You have given, the suddenness of Your punishment, and all of Your displeasure. O Allah, give victory to the weak and oppressed Muslims everywhere. O Allah, heal their sick, free their captives, have mercy on their dead, and give them victory over the disbelieving people. O Allah, āmīn. And the last of our supplication is: all praise is for Allah, Lord of the worlds."
+    }
+  ]
+}

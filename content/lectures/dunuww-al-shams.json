@@ -1,0 +1,318 @@
+{
+  "title": {
+    "ar": "دُنُوُّ الشَّمْسِ وَالْمُسْتَظِلُّونَ فِي ظِلِّ الْعَرْشِ وَحَوْضُ النَّبِيِّ ﷺ",
+    "en": "The Sun Drawing Near, Those Shaded by the Throne, and the Pond of the Prophet ﷺ"
+  },
+  "kicker": {
+    "en": "The Last Day · Khuṭbah 5 of 10"
+  },
+  "byline": [
+    {
+      "ar": "سِلْسِلَةُ خُطَبٍ عَنِ الْيَوْمِ الْآخِرِ",
+      "en": "A Series of Khuṭbahs on the Last Day"
+    },
+    {
+      "ar": "إِعْدَادُ أ. د. وَلِيدِ بْنِ إِدْرِيسَ بْنِ عَبْدِ الْعَزِيزِ الْمُنَيْسِيِّ",
+      "en": "By Prof. Dr Waleed ibn Idris ibn ʿAbd al-ʿAzīz al-Meneese"
+    },
+    {
+      "ar": "دَارُ الْجَامِعَةِ الْإِسْلَامِيَّةِ بِمِنِيسُوتَا لِلنَّشْرِ",
+      "en": "Islamic University of Minnesota Press"
+    }
+  ],
+  "blocks": [
+    {
+      "t": "part",
+      "ar": "الْخُطْبَةُ الْأُولَى",
+      "en": "The First Khuṭbah"
+    },
+    {
+      "t": "p",
+      "ar": "إِنَّ الْحَمْدَ لِلَّهِ، نَحْمَدُهُ وَنَسْتَعِينُهُ وَنَسْتَغْفِرُهُ، وَنَعُوذُ بِاللَّهِ مِنْ شُرُورِ أَنْفُسِنَا وَمِنْ سَيِّئَاتِ أَعْمَالِنَا، مَنْ يَهْدِهِ اللَّهُ فَلَا مُضِلَّ لَهُ، وَمَنْ يُضْلِلْ فَلَا هَادِيَ لَهُ، وَأَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ صَلَّى اللَّهُ عَلَيْهِ وَعَلَى آلِهِ وَصَحْبِهِ وَسَلَّمَ.",
+      "en": "Indeed, all praise is for Allah. We praise Him, seek His help and ask His forgiveness, and we seek refuge in Allah from the evils of our own souls and from our bad deeds. Whomever Allah guides, no one can lead astray, and whomever He leaves astray, no one can guide. I bear witness that there is no god but Allah alone, with no partner, and I bear witness that Muhammad is His servant and His Messenger, may Allah send blessings and peace upon him, his family and his Companions."
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ حَقَّ تُقَاتِهِ وَلَا تَمُوتُنَّ إِلَّا وَأَنتُم مُّسْلِمُونَ﴾",
+      "en": "“O you who have believed, fear Allah as He should be feared and do not die except as Muslims.”",
+      "ref": {
+        "ar": "آلِ عِمْرَانَ: 102",
+        "en": "Āl ʿImrān 3:102"
+      }
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿يَا أَيُّهَا النَّاسُ اتَّقُوا رَبَّكُمُ الَّذِي خَلَقَكُم مِّن نَّفْسٍ وَاحِدَةٍ وَخَلَقَ مِنْهَا زَوْجَهَا وَبَثَّ مِنْهُمَا رِجَالًا كَثِيرًا وَنِسَاءً وَاتَّقُوا اللَّهَ الَّذِي تَسَاءَلُونَ بِهِ وَالْأَرْحَامَ إِنَّ اللَّهَ كَانَ عَلَيْكُمْ رَقِيبًا﴾",
+      "en": "“O mankind, fear your Lord, who created you from one soul and created from it its mate and dispersed from both of them many men and women. And fear Allah, through whom you ask one another, and the wombs. Indeed Allah is ever, over you, an Observer.”",
+      "ref": {
+        "ar": "النِّسَاءِ: 1",
+        "en": "al-Nisāʾ 4:1"
+      }
+    },
+    {
+      "t": "ayah",
+      "ar": "﴿يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَقُولُوا قَوْلًا سَدِيدًا ۝ يُصْلِحْ لَكُمْ أَعْمَالَكُمْ وَيَغْفِرْ لَكُمْ ذُنُوبَكُمْ وَمَن يُطِعِ اللَّهَ وَرَسُولَهُ فَقَدْ فَازَ فَوْزًا عَظِيمًا﴾",
+      "en": "“O you who have believed, fear Allah and speak words of appropriate justice. He will amend for you your deeds and forgive you your sins. And whoever obeys Allah and His Messenger has certainly attained a great attainment.”",
+      "ref": {
+        "ar": "الْأَحْزَابِ: 70–71",
+        "en": "al-Aḥzāb 33:70–71"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "أَمَّا بَعْدُ، فَإِنَّ أَصْدَقَ الْحَدِيثِ كِتَابُ اللَّهِ، وَخَيْرَ الْهَدْيِ هَدْيُ مُحَمَّدٍ ﷺ، وَشَرَّ الْأُمُورِ مُحْدَثَاتُهَا، وَكُلَّ مُحْدَثَةٍ بِدْعَةٌ، وَكُلَّ بِدْعَةٍ ضَلَالَةٌ، وَكُلَّ ضَلَالَةٍ فِي النَّارِ، وَمَا قَلَّ وَكَفَى خَيْرٌ مِمَّا كَثُرَ وَأَلْهَى، وَ﴿إِنَّ مَا تُوعَدُونَ لَآتٍ وَمَا أَنتُم بِمُعْجِزِينَ﴾ [الْأَنْعَامِ: 134].",
+      "en": "Ammā baʿd: the truest speech is the Book of Allah, and the best guidance is the guidance of Muhammad ﷺ. The worst of matters are those newly invented; every newly invented matter is an innovation, every innovation is misguidance, and every misguidance is in the Fire. What is little and suffices is better than what is plentiful and distracts; and “Indeed, what you are promised is coming, and you will not cause failure [to Allah]” (al-Anʿām 6:134)."
+    },
+    {
+      "t": "p",
+      "ar": "أَيُّهَا الْإِخْوَةُ الْكِرَامُ، إِذَا كَانَ يَوْمُ الْقِيَامَةِ وَحُشِرَ الْخَلْقُ فِي أَرْضِ الْمَحْشَرِ، تَدْنُو الشَّمْسُ مِنَ الرُّؤُوسِ حَتَّى تَكُونَ عَلَى مِقْدَارِ مِيلٍ، فَيَشْتَدُّ الْحَرُّ وَيَعْرَقُ النَّاسُ عَلَى قَدْرِ أَعْمَالِهِمْ؛ فَقَدْ ثَبَتَ فِي صَحِيحِ مُسْلِمٍ مِنْ حَدِيثِ الْمِقْدَادِ بْنِ الْأَسْوَدِ رَضِيَ اللَّهُ عَنْهُ أَنَّ النَّبِيَّ ﷺ قَالَ: «تُدْنَى الشَّمْسُ يَوْمَ الْقِيَامَةِ مِنَ الْخَلْقِ حَتَّى تَكُونَ مِنْهُمْ كَمِقْدَارِ مِيلٍ»- قَالَ سُلَيْمُ بْنُ عَامِرٍ رَاوِي الْحَدِيثِ: فَوَاللَّهِ مَا أَدْرِي مَا يَعْنِي بِالْمِيلِ؛ أَمَسَافَةَ الْأَرْضِ أَمِ الْمِيلَ الَّذِي تُكْتَحَلُ بِهِ الْعَيْنُ،- قَالَ ﷺ:",
+      "en": "Dear brothers, when the Day of Resurrection comes and all creation is gathered on the plain of the Gathering (al-Ḥashr), the sun will draw near to their heads until it is a mile away. The heat will grow fierce, and people will sweat according to their deeds. It is established in Ṣaḥīḥ Muslim, in the hadith of al-Miqdād ibn al-Aswad (raḍiya Allāhu ʿanhu), that the Prophet ﷺ said: “On the Day of Resurrection the sun will be brought near to creation until it is as close to them as a mile” – Sulaym ibn ʿĀmir, the narrator of the hadith, said: By Allah, I do not know what he meant by the mīl, whether the mile of distance on land or the mīl, the little stick with which kohl is put on the eye – he ﷺ said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«فَيَكُونُ النَّاسُ عَلَى قَدْرِ أَعْمَالِهِمْ فِي الْعَرَقِ؛ فَمِنْهُمْ مَنْ يَكُونُ إِلَى كَعْبَيْهِ، وَمِنْهُمْ مَنْ يَكُونُ إِلَى رُكْبَتَيْهِ، وَمِنْهُمْ مَنْ يَكُونُ إِلَى حَقْوَيْهِ- أَيْ خَاصِرَتَيْهِ وَجَانِبَيْ بَطْنِهِ،- وَمِنْهُمْ مَنْ يُلْجِمُهُ الْعَرَقُ إِلْجَامًا»",
+      "en": "“Then the people will be in sweat according to their deeds. Among them will be one in it up to his ankles, one up to his knees, and one up to his waist – that is, his flanks and the sides of his belly – and among them will be one whom the sweat bridles completely.”",
+      "ref": {
+        "ar": "أَخْرَجَهُ مُسْلِمٌ",
+        "en": "Muslim"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَفِي الصَّحِيحَيْنِ مِنْ حَدِيثِ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ أَنَّ النَّبِيَّ ﷺ قَالَ:",
+      "en": "In the two Ṣaḥīḥs, in the hadith of Abū Hurayrah (raḍiya Allāhu ʿanhu), the Prophet ﷺ said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«يَعْرَقُ النَّاسُ يَوْمَ الْقِيَامَةِ حَتَّى يَذْهَبَ عَرَقُهُمْ فِي الْأَرْضِ سَبْعِينَ ذِرَاعًا، وَيُلْجِمُهُمْ حَتَّى يَبْلُغَ آذَانَهُمْ»",
+      "en": "“On the Day of Resurrection people will sweat until their sweat goes seventy cubits down into the earth, and it will bridle them until it reaches their ears.”",
+      "ref": {
+        "ar": "مُتَّفَقٌ عَلَيْهِ",
+        "en": "al-Bukhārī and Muslim"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَفِي ذَلِكَ الْمَوْقِفِ الرَّهِيبِ وَالْحَرِّ الشَّدِيدِ يَحْفَظُ اللَّهُ تَعَالَى أَصْنَافًا مِنْ عِبَادِهِ الْمُؤْمِنِينَ فَيُظِلُّهُمْ فِي ظِلِّ عَرْشِهِ يَوْمَ لَا ظِلَّ إِلَّا ظِلُّهُ؛ وَعَلَى رَأْسِهِمُ السَّبْعَةُ الَّذِينَ جَاءَ ذِكْرُهُمْ فِي الصَّحِيحَيْنِ مِنْ حَدِيثِ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ أَنَّ النَّبِيَّ ﷺ قَالَ:",
+      "en": "At that dreadful Standing, in that fierce heat, Allah taʿālā protects certain kinds of His believing servants and shades them in the shade of His Throne on the Day when there is no shade but His. At their head are the seven mentioned in the two Ṣaḥīḥs, in the hadith of Abū Hurayrah (raḍiya Allāhu ʿanhu), where the Prophet ﷺ said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«سَبْعَةٌ يُظِلُّهُمُ اللَّهُ فِي ظِلِّهِ يَوْمَ لَا ظِلَّ إِلَّا ظِلُّهُ: الْإِمَامُ الْعَادِلُ، وَشَابٌّ نَشَأَ فِي عِبَادَةِ رَبِّهِ، وَرَجُلٌ قَلْبُهُ مُعَلَّقٌ فِي الْمَسَاجِدِ، وَرَجُلَانِ تَحَابَّا فِي اللَّهِ اجْتَمَعَا عَلَيْهِ وَتَفَرَّقَا عَلَيْهِ، وَرَجُلٌ طَلَبَتْهُ امْرَأَةٌ ذَاتُ مَنْصِبٍ وَجَمَالٍ فَقَالَ: إِنِّي أَخَافُ اللَّهَ، وَرَجُلٌ تَصَدَّقَ أَخْفَى حَتَّى لَا تَعْلَمَ شِمَالُهُ مَا تُنْفِقُ يَمِينُهُ، وَرَجُلٌ ذَكَرَ اللَّهَ خَالِيًا فَفَاضَتْ عَيْنَاهُ»",
+      "en": "“Seven whom Allah will shade in His shade on the Day when there is no shade but His: a just ruler; a young man who grew up in the worship of his Lord; a man whose heart is attached to the masājid; two men who love each other for the sake of Allah, coming together for it and parting for it; a man who is invited by a woman of rank and beauty and says, ‘I fear Allah’; a man who gives in ṣadaqah and conceals it, so that his left hand does not know what his right hand spends; and a man who remembers Allah when alone, and his eyes overflow with tears.”",
+      "ref": {
+        "ar": "مُتَّفَقٌ عَلَيْهِ",
+        "en": "al-Bukhārī and Muslim"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "كَمَا وَرَدَتْ أَحَادِيثُ صَحِيحَةٌ أُخْرَى فِي أَصْنَافٍ يُظِلُّهُمُ اللَّهُ فِي ظِلِّ عَرْشِهِ؛ مِنْهَا مَا ثَبَتَ فِي صَحِيحِ مُسْلِمٍ مِنْ حَدِيثِ أَبِي الْيَسَرِ رَضِيَ اللَّهُ عَنْهُ أَنَّ النَّبِيَّ ﷺ قَالَ:",
+      "en": "Other authentic hadiths have also come about kinds of people whom Allah shades in the shade of His Throne. Among them is what is established in Ṣaḥīḥ Muslim, in the hadith of Abū al-Yasar (raḍiya Allāhu ʿanhu), that the Prophet ﷺ said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«مَنْ أَنْظَرَ مُعْسِرًا أَوْ وَضَعَ عَنْهُ أَظَلَّهُ اللَّهُ فِي ظِلِّهِ»",
+      "en": "“Whoever grants respite to one in hardship, or lets him off, Allah will shade him in His shade.”",
+      "ref": {
+        "ar": "أَخْرَجَهُ مُسْلِمٌ",
+        "en": "Muslim"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "أَيْ مَنْ أَمْهَلَ مَدِينًا مُعْسِرًا حَتَّى يُوَسِّعَ اللَّهُ عَلَيْهِ، أَوْ أَسْقَطَ عَنْهُ الدَّيْنَ أَوْ جُزْءًا مِنْهُ. وَمِنْهَا مَا رَوَاهُ التِّرْمِذِيُّ وَأَحْمَدُ بِإِسْنَادٍ صَحِيحٍ عَنْ سَهْلِ بْنِ حُنَيْفٍ رَضِيَ اللَّهُ عَنْهُ أَنَّ النَّبِيَّ ﷺ قَالَ:",
+      "en": "That is, whoever gives a debtor in hardship more time until Allah eases his situation, or drops the debt from him, or part of it. Among them too is what al-Tirmidhī and Aḥmad narrated with an authentic chain from Sahl ibn Ḥunayf (raḍiya Allāhu ʿanhu), that the Prophet ﷺ said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«مَنْ أَعَانَ مُجَاهِدًا فِي سَبِيلِ اللَّهِ، أَوْ غَارِمًا فِي عُسْرَتِهِ، أَوْ مُكَاتَبًا فِي رَقَبَتِهِ- أَيْ عَبْدًا يَسْعَى فِي فَكَاكِ رَقَبَتِهِ مِنَ الرِّقِّ- أَظَلَّهُ اللَّهُ فِي ظِلِّهِ يَوْمَ لَا ظِلَّ إِلَّا ظِلُّهُ»",
+      "en": "“Whoever helps one who fights in the path of Allah, or a debtor in his hardship, or a mukātab in freeing his neck – that is, a slave striving to free his neck from slavery – Allah will shade him in His shade on the Day when there is no shade but His.”",
+      "ref": {
+        "ar": "أَخْرَجَهُ أَحْمَدُ وَالتِّرْمِذِيُّ",
+        "en": "Aḥmad and al-Tirmidhī"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "أَيُّهَا الْإِخْوَةُ الْكِرَامُ، وَعِنْدَمَا يَشْتَدُّ الْحَرُّ وَالظَّمَأُ بِالنَّاسِ فِي أَرْضِ الْمَحْشَرِ يُكْرِمُ اللَّهُ تَعَالَى الْمُؤْمِنِينَ الْمُوَحِّدِينَ مِنْ أُمَّةِ نَبِيِّنَا مُحَمَّدٍ ﷺ وَمِنْ أَتْبَاعِ الْأَنْبِيَاءِ السَّابِقِينَ بِالْوُرُودِ عَلَى أَحْوَاضِ أَنْبِيَائِهِمْ؛ فَلِكُلِّ نَبِيٍّ يَوْمَ الْقِيَامَةِ حَوْضٌ يَرِدُهُ الْمُؤْمِنُونَ مِنْ أُمَّتِهِ، كَمَا قَالَ النَّبِيُّ ﷺ فِي حَدِيثِ سَمُرَةَ بْنِ جُنْدُبٍ رَضِيَ اللَّهُ عَنْهُ:",
+      "en": "Dear brothers, when heat and thirst press hard upon the people on the plain of the Gathering, Allah taʿālā honors the believers who single Him out in worship, from the ummah of our Prophet Muhammad ﷺ and from the followers of the earlier prophets, by letting them come to the ponds of their prophets. For on the Day of Resurrection every prophet will have a pond, to which the believers of his ummah will come, as the Prophet ﷺ said in the hadith of Samurah ibn Jundub (raḍiya Allāhu ʿanhu):"
+    },
+    {
+      "t": "quote",
+      "ar": "«إِنَّ لِكُلِّ نَبِيٍّ حَوْضًا، وَإِنَّهُمْ يَتَبَاهَوْنَ أَيُّهُمْ أَكْثَرُ وَارِدَةً، وَإِنِّي لَأَرْجُو أَنْ أَكُونَ أَكْثَرَهُمْ وَارِدَةً»",
+      "en": "“Every prophet has a pond, and they will vie with one another over which of them has the most people coming to drink. And I hope that I will be the one with the most coming to drink.”",
+      "ref": {
+        "ar": "أَخْرَجَهُ التِّرْمِذِيُّ وَصَحَّحَهُ الْأَلْبَانِيُّ",
+        "en": "Narrated by al-Tirmidhī; graded ṣaḥīḥ by al-Albānī"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَفِي رِوَايَةٍ:",
+      "en": "And in one narration:"
+    },
+    {
+      "t": "quote",
+      "ar": "«وَمَعَ كُلِّ نَبِيٍّ عَصًا يَدْعُو مَنْ عَرَفَ مِنْ أُمَّتِهِ»",
+      "en": "“And with every prophet will be a staff; he will call those of his ummah whom he recognizes.”",
+      "ref": {
+        "ar": "أَخْرَجَهُ الطَّبَرَانِيُّ",
+        "en": "al-Ṭabarānī"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَأَعْظَمُ هَذِهِ الْحِيَاضِ وَأَوْسَعُهَا وَأَكْثَرُهَا وَارِدَةً هُوَ حَوْضُ نَبِيِّنَا مُحَمَّدٍ ﷺ، وَقَدْ تَوَاتَرَتِ الْأَحَادِيثُ فِي وَصْفِهِ عَنْ بِضْعَةٍ وَخَمْسِينَ صَحَابِيًّا رَضِيَ اللَّهُ عَنْهُمْ.",
+      "en": "The greatest of these ponds, the widest, and the one with the most coming to drink is the Pond (al-Ḥawḍ) of our Prophet Muhammad ﷺ. The hadiths describing it are mass-transmitted (mutawātir), coming from more than fifty Companions (raḍiya Allāhu ʿanhum)."
+    },
+    {
+      "t": "p",
+      "ar": "وَيُسْتَفَادُ مِنْ مَجْمُوعِ هَذِهِ الْأَحَادِيثِ الْمُتَوَاتِرَةِ صِفَاتٌ عَظِيمَةٌ لِحَوْضِ الْمُصْطَفَى ﷺ:",
+      "en": "Taken together, these mass-transmitted hadiths tell us of great qualities of the Pond of the Chosen Prophet ﷺ:"
+    },
+    {
+      "t": "p",
+      "ar": "أَوَّلُهَا: سَعَتُهُ الْهَائِلَةُ، فَهُوَ حَوْضٌ مُرَبَّعٌ زَوَايَاهُ سَوَاءٌ، طُولُ كُلِّ ضِلْعٍ مِنْ أَضْلَاعِهِ مَسِيرَةُ شَهْرٍ، أَوْ كَمَا بَيْنَ أَيْلَةَ- وَهِيَ مِينَاءُ الْعَقَبَةِ عَلَى الْبَحْرِ الْأَحْمَرِ- إِلَى عَدَنٍ فِي أَقْصَى جَنُوبِ الْجَزِيرَةِ الْعَرَبِيَّةِ.",
+      "en": "The first is its vast size. It is a square pond whose corners are equal, and each of its sides is a month’s journey long, or the distance from Aylah – the port of Aqaba on the Red Sea – to Aden in the far south of the Arabian Peninsula."
+    },
+    {
+      "t": "p",
+      "ar": "وَثَانِيهَا: طِيبُ مَائِهِ وَبَهَاؤُهُ؛ فَقَدْ قَالَ ﷺ فِي الصَّحِيحَيْنِ مِنْ حَدِيثِ عَبْدِ اللَّهِ بْنِ عَمْرٍو رَضِيَ اللَّهُ عَنْهُمَا:",
+      "en": "The second is the goodness and splendor of its water. He ﷺ said, as reported in the two Ṣaḥīḥs in the hadith of ʿAbdullāh ibn ʿAmr (raḍiya Allāhu ʿanhumā):"
+    },
+    {
+      "t": "quote",
+      "ar": "«حَوْضِي مَسِيرَةُ شَهْرٍ، مَاؤُهُ أَبْيَضُ مِنَ اللَّبَنِ، وَرِيحُهُ أَطْيَبُ مِنَ الْمِسْكِ، وَكِيزَانُهُ كَنُجُومِ السَّمَاءِ، مَنْ شَرِبَ مِنْهُ فَلَا يَظْمَأُ أَبَدًا»",
+      "en": "“My Pond is a month’s journey across. Its water is whiter than milk, its scent is sweeter than musk, and its cups are like the stars of the sky. Whoever drinks from it will never thirst again.”",
+      "ref": {
+        "ar": "مُتَّفَقٌ عَلَيْهِ",
+        "en": "al-Bukhārī and Muslim"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَفِي صَحِيحِ مُسْلِمٍ عَنْ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ:",
+      "en": "And in Ṣaḥīḥ Muslim, from Abū Hurayrah (raḍiya Allāhu ʿanhu):"
+    },
+    {
+      "t": "quote",
+      "ar": "«إِنَّ حَوْضِي أَبْعَدُ مِنْ أَيْلَةَ مِنْ عَدَنٍ، لَهُوَ أَشَدُّ بَيَاضًا مِنَ الثَّلْجِ، وَأَحْلَى مِنَ الْعَسَلِ بِاللَّبَنِ، وَلَآنِيَتُهُ أَكْثَرُ مِنْ عَدَدِ النُّجُومِ»",
+      "en": "“My Pond is wider than the distance from Aylah to Aden. It is whiter than snow and sweeter than honey mixed with milk, and its vessels are more numerous than the stars.”",
+      "ref": {
+        "ar": "أَخْرَجَهُ مُسْلِمٌ",
+        "en": "Muslim"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَثَالِثُهَا: أَنَّ هَذَا الْحَوْضَ الْمُبَارَكَ يَسْتَمِدُّ مَاءَهُ مِنْ نَهْرِ الْكَوْثَرِ الَّذِي أَعْطَاهُ اللَّهُ لِنَبِيِّنَا ﷺ فِي الْجَنَّةِ؛ وَهُوَ نَهْرٌ عَظِيمٌ حَافَّتَاهُ قِبَابُ اللُّؤْلُؤِ الْمُجَوَّفِ، يَصُبُّ مِنْهُ فِي الْحَوْضِ مِيزَابَانِ: أَحَدُهُمَا مِنْ ذَهَبٍ وَالْآخَرُ مِنْ وَرِقٍ- أَيْ فِضَّةٍ،- فَلِذَلِكَ يَحْمِلُ مَاءُ الْحَوْضِ نَفْسَ خَصَائِصِ مَاءِ الْكَوْثَرِ فِي بَيَاضِهِ وَبَرْدِهِ وَحَلَاوَتِهِ وَطِيبِ رِيحِهِ.",
+      "en": "The third is that this blessed Pond draws its water from the river al-Kawthar, which Allah has given to our Prophet ﷺ in Jannah. It is a mighty river whose banks are domes of hollow pearl. Two spouts pour from it into the Pond, one of gold and the other of wariq – that is, silver – and so the water of the Pond carries the very qualities of the water of al-Kawthar: its whiteness, its coolness, its sweetness and its fragrance."
+    },
+    {
+      "t": "p",
+      "ar": "وَرَابِعُهَا: أَنَّ آنِيَتَهُ مِنْ أَبَارِيقَ وَكِيزَانٍ ذَوَاتِ عُرًى يُمْسَكُ بِهَا، وَعَدَدُهَا كَعَدَدِ نُجُومِ السَّمَاءِ أَوْ أَكْثَرُ. نَسْأَلُ اللَّهَ تَعَالَى أَنْ يَسْقِيَنَا مِنْ حَوْضِ نَبِيِّهِ ﷺ شَرْبَةً هَنِيئَةً مَرِيئَةً لَا نَظْمَأُ بَعْدَهَا أَبَدًا، وَأَقُولُ قَوْلِي هَذَا وَأَسْتَغْفِرُ اللَّهَ لِي وَلَكُمْ.",
+      "en": "The fourth is that its vessels are pitchers and cups with handles to hold them by, and they are as many as the stars of the sky, or more. We ask Allah taʿālā to give us a drink from the Pond of His Prophet ﷺ, a pleasant and wholesome drink after which we will never thirst again. I say these words of mine, and I ask Allah’s forgiveness for myself and for you."
+    },
+    {
+      "t": "part",
+      "ar": "الْخُطْبَةُ الثَّانِيَةُ",
+      "en": "The Second Khuṭbah"
+    },
+    {
+      "t": "p",
+      "ar": "الْحَمْدُ لِلَّهِ، وَالصَّلَاةُ وَالسَّلَامُ عَلَى رَسُولِ اللَّهِ، وَعَلَى آلِهِ وَصَحْبِهِ وَمَنِ اتَّبَعَ هَدْيَهُ إِلَى يَوْمِ الدِّينِ.",
+      "en": "All praise is for Allah, and peace and blessings be upon the Messenger of Allah, and upon his family, his Companions and all who follow his guidance until the Day of Judgment."
+    },
+    {
+      "t": "p",
+      "ar": "أَمَّا بَعْدُ، أَيُّهَا الْإِخْوَةُ الْكِرَامُ، إِنَّ مِمَّا وَرَدَ فِي خَبَرِ حَوْضِ الْمُصْطَفَى ﷺ أَنَّ مِنْبَرَهُ الشَّرِيفَ يُوضَعُ يَوْمَ الْقِيَامَةِ عَلَى حَافَّةِ حَوْضِهِ، وَيَكُونُ النَّبِيُّ ﷺ أَوَّلَ مَنْ يَسْبِقُ إِلَيْهِ لِيَسْتَقْبِلَ أُمَّتَهُ؛ كَمَا قَالَ ﷺ فِي الصَّحِيحَيْنِ: «مَا بَيْنَ بَيْتِي وَمِنْبَرِي رَوْضَةٌ مِنْ رِيَاضِ الْجَنَّةِ، وَمِنْبَرِي عَلَى حَوْضِي»، وَقَالَ:",
+      "en": "Ammā baʿd: dear brothers, among the reports about the Pond of the Chosen Prophet ﷺ is that his noble minbar will be set at the edge of his Pond on the Day of Resurrection, and that the Prophet ﷺ will be the first to hasten there, to welcome his ummah. As he ﷺ said, in the two Ṣaḥīḥs, “What lies between my house and my minbar is a garden from the gardens of Jannah, and my minbar is over my Pond.” And he said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«أَنَا فَرَطُكُمْ عَلَى الْحَوْضِ»",
+      "en": "“I will be your forerunner at the Pond.”",
+      "ref": {
+        "ar": "مُتَّفَقٌ عَلَيْهِ",
+        "en": "al-Bukhārī and Muslim"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَالْفَرَطُ هُوَ السَّابِقُ الَّذِي يَتَقَدَّمُ الْقَوْمَ لِيُهَيِّئَ لَهُمُ الْمَاءَ. وَأَوَّلُ مَنْ يَرِدُ الْحَوْضَ وَيَشْرَبُ مِنْهُ فُقَرَاءُ الْمُهَاجِرِينَ؛ لِقَوْلِهِ ﷺ فِي حَدِيثِ ثَوْبَانَ رَضِيَ اللَّهُ عَنْهُ:",
+      "en": "The forerunner (al-faraṭ) is the one who goes on ahead of the people to make the water ready for them. And the first to come to the Pond and drink from it will be the poor among the Emigrants (al-Muhājirūn), because of his ﷺ words in the hadith of Thawbān (raḍiya Allāhu ʿanhu):"
+    },
+    {
+      "t": "quote",
+      "ar": "«أَوَّلُ النَّاسِ وُرُودًا عَلَيْهِ فُقَرَاءُ الْمُهَاجِرِينَ؛ الشُّعْثُ رُؤُوسًا، الدُّنْسُ ثِيَابًا، الَّذِينَ لَا يَنْكِحُونَ الْمُتَنَعِّمَاتِ، وَلَا تُفْتَحُ لَهُمُ السُّدَدُ»",
+      "en": "“The first of people to come to it will be the poor of the Emigrants: those with disheveled hair and soiled clothes, who do not marry women used to comfort, and for whom doors are not opened.”",
+      "ref": {
+        "ar": "أَخْرَجَهُ أَحْمَدُ وَالتِّرْمِذِيُّ",
+        "en": "Aḥmad and al-Tirmidhī"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَلَا يَتَعَارَضُ هَذَا مَعَ أَمْرِ الْإِسْلَامِ بِالنَّظَافَةِ وَالتَّجَمُّلِ وَتَرْجِيلِ الشَّعْرِ فِي قَوْلِهِ ﷺ:",
+      "en": "Nor does this conflict with Islam’s command to be clean, to look one’s best and to groom one’s hair, as in his ﷺ words:"
+    },
+    {
+      "t": "quote",
+      "ar": "«إِنَّ اللَّهَ جَمِيلٌ يُحِبُّ الْجَمَالَ»",
+      "en": "“Allah is beautiful and loves beauty.”",
+      "ref": {
+        "ar": "أَخْرَجَهُ مُسْلِمٌ",
+        "en": "Muslim"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "لِأَنَّ هَؤُلَاءِ الْفُقَرَاءَ لَمْ يَتَعَمَّدُوا تَرْكَ التَّزَيُّنِ، وَإِنَّمَا حَبَسَهُمْ شِدَّةُ الْفَقْرِ وَالْجِهَادِ عَنِ الدُّنْيَا وَمَلَاذِّهَا وَالزَّوَاجِ مِنَ الْمُتَنَعِّمَاتِ وَدُخُولِ أَبْوَابِ الْأُمَرَاءِ، فَعَوَّضَهُمُ اللَّهُ تَعَالَى بِأَنْ جَعَلَهُمْ أَسْبَقَ النَّاسِ وُرُودًا عَلَى الْحَوْضِ وَأَوَّلَهُمْ دُخُولًا إِلَى الْجَنَّةِ.",
+      "en": "For these poor ones did not deliberately neglect to adorn themselves. Rather, the severity of their poverty and of jihad kept them from the dunyā and its pleasures, from marrying women used to comfort, and from entering the doors of rulers. So Allah taʿālā made it up to them by making them the first of people to come to the Pond and the first to enter Jannah."
+    },
+    {
+      "t": "p",
+      "ar": "وَيَعْرِفُ النَّبِيُّ ﷺ أُمَّتَهُ يَوْمَ الْقِيَامَةِ وَيُمَيِّزُهُمْ عَنْ سَائِرِ الْأُمَمِ بِنُورِ الْوُضُوءِ فِي وُجُوهِهِمْ وَأَيْدِيهِمْ وَأَرْجُلِهِمْ؛ فَلَمَّا سَأَلَهُ الصَّحَابَةُ: كَيْفَ تَعْرِفُ أُمَّتَكَ يَوْمَئِذٍ يَا رَسُولَ اللَّهِ؟ قَالَ ﷺ:",
+      "en": "The Prophet ﷺ will know his ummah on the Day of Resurrection and tell them apart from all other nations by the light of wuḍūʾ on their faces, hands and feet. When the Companions asked him, “How will you know your ummah on that day, O Messenger of Allah?” he ﷺ said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«إِنَّ لِكُلِّ أُمَّةٍ سِيمًا، وَسِيمَا أُمَّتِي الْغُرَّةُ وَالتَّحْجِيلُ مِنْ أَثَرِ الْوُضُوءِ، فَمَنِ اسْتَطَاعَ مِنْكُمْ أَنْ يُطِيلَ غُرَّتَهُ وَتَحْجِيلَهُ فَلْيَفْعَلْ»",
+      "en": "“Every nation has a mark, and the mark of my ummah is the white blaze on the forehead and the white on the limbs (al-ghurrah wa al-taḥjīl), from the traces of wuḍūʾ. So whoever of you is able to lengthen his blaze and the white on his limbs, let him do so.”",
+      "ref": {
+        "ar": "مُتَّفَقٌ عَلَيْهِ",
+        "en": "al-Bukhārī and Muslim"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَأَصْلُ الْغُرَّةِ بَيَاضٌ فِي جَبِينِ الْفَرَسِ، وَالتَّحْجِيلُ بَيَاضٌ فِي قَوَائِمِهِ، وَمَعْنَى إِطَالَتِهِمَا إِسْبَاغُ الْوُضُوءِ، وَقَدِ اسْتَحَبَّ جَمْعٌ مِنَ الصَّحَابَةِ وَالْفُقَهَاءِ- كَأَبِي هُرَيْرَةَ وَابْنِ عُمَرَ رَضِيَ اللَّهُ عَنْهُمْ- مُجَاوَزَةَ مَحَلِّ الْفَرْضِ فِي غَسْلِ الْيَدَيْنِ إِلَى جُزْءٍ مِنَ الْعَضُدِ، وَفِي غَسْلِ الرِّجْلَيْنِ إِلَى جُزْءٍ مِنَ السَّاقِ.",
+      "en": "Ghurrah originally means a white blaze on a horse’s forehead, and taḥjīl white on its legs; and lengthening them means doing wuḍūʾ fully and thoroughly. A number of the Companions and jurists – such as Abū Hurayrah and Ibn ʿUmar (raḍiya Allāhu ʿanhum) – held it recommended to go beyond the obligatory limit: when washing the arms, on to part of the upper arm, and when washing the feet, on to part of the shin."
+    },
+    {
+      "t": "p",
+      "ar": "وَفِي ذَلِكَ الْمَوْقِفِ يَطْرُدُ النَّبِيُّ ﷺ عَنْ حَوْضِهِ مَنْ أَرَادَ الشُّرْبَ مِنْهُ مِنْ غَيْرِ أُمَّتِهِ كَمَا يَطْرُدُ الرَّجُلُ الْإِبِلَ الْغَرِيبَةَ عَنْ حَوْضِ إِبِلِهِ، كَمَا تَطْرُدُ الْمَلَائِكَةُ أُنَاسًا مِنْ هَذِهِ الْأُمَّةِ عَلَيْهِمْ سِيمَا الْوُضُوءِ فَيَذُودُونَهُمْ عَنِ الْحَوْضِ؛ وَهُمُ الْمُرْتَدُّونَ، وَأَهْلُ الْبِدَعِ وَالْأَهْوَاءِ الَّذِينَ غَيَّرُوا وَبَدَّلُوا فِي الدِّينِ، وَالظَّلَمَةُ الْمُجَاهِرُونَ بِالْفِسْقِ، كَمَا ثَبَتَ فِي الصَّحِيحَيْنِ أَنَّ النَّبِيَّ ﷺ قَالَ:",
+      "en": "At that Standing the Prophet ﷺ will drive away from his Pond anyone not of his ummah who wants to drink from it, as a man drives strange camels away from his own camels’ trough. And likewise the angels will drive away people of this ummah who bear the mark of wuḍūʾ, keeping them back from the Pond. These are the apostates; the people of innovations and whims, who altered and changed the religion; and the wrongdoers who openly flaunt their sins. As is established in the two Ṣaḥīḥs, the Prophet ﷺ said:"
+    },
+    {
+      "t": "quote",
+      "ar": "«لَيُذَادَنَّ رِجَالٌ عَنْ حَوْضِي كَمَا يُذَادُ الْبَعِيرُ الضَّالُّ، أُنَادِيهِمْ: أَلَا هَلُمَّ، فَيُقَالُ: إِنَّهُمْ قَدْ بَدَّلُوا بَعْدَكَ وَلَمْ يَزَالُوا يَرْجِعُونَ عَلَى أَعْقَابِهِمْ، فَأَقُولُ: سُحْقًا سُحْقًا لِمَنْ غَيَّرَ بَعْدِي»",
+      "en": "“Men will surely be driven away from my Pond as a stray camel is driven away. I will call out to them, ‘Come here!’ and it will be said, ‘They changed things after you, and they kept turning back on their heels.’ So I will say, ‘Away with them, away with whoever changed things after me!’”",
+      "ref": {
+        "ar": "مُتَّفَقٌ عَلَيْهِ",
+        "en": "al-Bukhārī and Muslim"
+      }
+    },
+    {
+      "t": "p",
+      "ar": "وَفِي هَذَا تَحْذِيرٌ شَدِيدٌ مِنْ خُطُورَةِ الْبِدَعِ وَحَثٌّ عَلَى لُزُومِ سُنَّةِ النَّبِيِّ ﷺ وَهَدْيِ صَحَابَتِهِ الْكِرَامِ.",
+      "en": "In this is a stern warning of the danger of innovations, and an urging to hold fast to the Sunnah of the Prophet ﷺ and the guidance of his noble Companions."
+    },
+    {
+      "t": "p",
+      "ar": "نَسْأَلُ اللَّهَ سُبْحَانَهُ وَتَعَالَى أَنْ يَنْفَعَنَا وَإِيَّاكُمْ بِمَا قُلْنَا وَسَمِعْنَا، وَأَنْ يَسْقِيَنَا مِنْ حَوْضِ نَبِيِّهِ ﷺ شَرْبَةً هَنِيئَةً مَرِيئَةً لَا نَظْمَأُ بَعْدَهَا أَبَدًا. اللَّهُمَّ أَصْلِحْ لَنَا دِينَنَا الَّذِي هُوَ عِصْمَةُ أَمْرِنَا، وَأَصْلِحْ لَنَا دُنْيَانَا الَّتِي فِيهَا مَعَاشُنَا، وَأَصْلِحْ لَنَا آخِرَتَنَا الَّتِي فِيهَا مَعَادُنَا، وَاجْعَلِ الْحَيَاةَ زِيَادَةً لَنَا فِي كُلِّ خَيْرٍ، وَاجْعَلِ الْمَوْتَ رَاحَةً لَنَا مِنْ كُلِّ شَرٍّ. اللَّهُمَّ اقْسِمْ لَنَا مِنْ خَشْيَتِكَ مَا تَحُولُ بِهِ بَيْنَنَا وَبَيْنَ مَعْصِيَتِكَ، وَمِنْ طَاعَتِكَ مَا تُبَلِّغُنَا بِهِ جَنَّتَكَ، وَمِنَ الْيَقِينِ مَا تُهَوِّنُ بِهِ عَلَيْنَا مَصَائِبَ الدُّنْيَا، وَمَتِّعْنَا بِأَسْمَاعِنَا وَأَبْصَارِنَا وَقُوَّتِنَا مَا أَحْيَيْتَنَا، وَاجْعَلْهُ الْوَارِثَ مِنَّا، وَاجْعَلْ ثَأْرَنَا عَلَى مَنْ ظَلَمَنَا، وَانْصُرْنَا عَلَى مَنْ عَادَانَا، وَلَا تَجْعَلْ مُصِيبَتَنَا فِي دِينِنَا، وَلَا تَجْعَلِ الدُّنْيَا أَكْبَرَ هَمِّنَا وَلَا مَبْلَغَ عِلْمِنَا، وَلَا تُسَلِّطْ عَلَيْنَا مَنْ لَا يَرْحَمُنَا، اللَّهُمَّ آمِينَ، وَآخِرُ دَعْوَانَا أَنِ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ.",
+      "en": "We ask Allah (subḥānahu wa taʿālā) to benefit us and you by what we have said and heard, and to give us a drink from the Pond of His Prophet ﷺ, a pleasant and wholesome drink after which we will never thirst again. O Allah, set right for us our religion, which is the safeguard of our affairs; set right for us our dunyā, in which is our livelihood; and set right for us our Ākhirah, to which is our return. Make life an increase for us in every good, and make death a relief for us from every evil. O Allah, apportion to us such fear of You as will stand between us and disobedience to You, such obedience to You as will bring us to Your Jannah, and such certainty as will make the calamities of the dunyā light for us. Let us enjoy our hearing, our sight and our strength for as long as You keep us alive, and make that last with us to the end. Let our vengeance fall on those who have wronged us, and give us victory over those who are hostile to us. Do not let our calamity be in our religion, do not make the dunyā our greatest concern or the limit of our knowledge, and do not give power over us to those who will show us no mercy. O Allah, āmīn. And the last of our call is: all praise is for Allah, Lord of the worlds."
+    }
+  ]
+}
