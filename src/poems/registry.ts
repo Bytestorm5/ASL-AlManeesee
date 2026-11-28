@@ -64,4 +64,20 @@ export const REGISTRY: PoemConfig[] = [
     chapterLabel: 'Poem',
     numbering: 'per-chapter',
   },
+  {
+    id: 'karamat-al-awliya',
+    titleAr: 'كَرَامَاتُ الْأَوْلِيَاءِ',
+    shortAr: 'كَرَامَاتُ الْأَوْلِيَاءِ',
+    titleEn: 'Karāmāt al-Awliyāʾ',
+    shortEn: 'Karāmāt al-Awliyāʾ',
+    description:
+      'Shaykh Dr Waleed Idris al-Meneese’s poem on the karāmāt of the awliyāʾ as Ahl al-Sunnah believe in them: who the friends of Allah are, how a karāmah differs from a prophet’s miracle and from what is satanic, and examples from the Qurʾān and the Sunnah. With the commentary of Abdullah Badat.',
+    subject: 'The Miracles of the Righteous',
+    author: { name: 'Shaykh Dr Waleed Idris al-Meneese' },
+    metre: 'Rajaz',
+    verses: 41,
+    accent: 'lagoon',
+    closing: { ar: 'الْحَمْدُ لِلَّهِ الَّذِي بِنِعْمَتِهِ تَتِمُّ الصَّالِحَاتُ', en: '“All praise belongs to Allah, by whose blessing all righteous deeds are brought to completion.”' },
+    explanations: { by: 'Abdullah Badat, The Miracles of the Righteous', defaultOn: true },
+  },
 ];

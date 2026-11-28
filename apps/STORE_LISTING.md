@@ -51,7 +51,7 @@ Each poem is set out bayt by bayt in fully vowelled Arabic, with:
 • An explanation of each bayt, laid out like the book it comes from, with the āyāt and aḥādīth it quotes and their references
 • Chapters, a contents grid, and search in Arabic (no diacritics needed)
 
-His poems include counsel for those who memorise the Qurʾān, a poem on Islamic governance with the Shaykh's own commentary, and a collection of poems on Qurʾānic recitation, language and scholarly etiquette.
+His poems include counsel for those who memorise the Qurʾān, a poem on Islamic governance with the Shaykh's own commentary, a poem on the karāmāt of the awliyāʾ (the miracles of the righteous), and a collection of poems on Qurʾānic recitation, language and scholarly etiquette.
 
 LECTURES AND KHUTBAHS
 Read the Shaykh's khutbahs on their own pages: the Arabic paragraph by paragraph, with the English under each one. Āyāt are set apart with their reference, and aḥādīth in a shaded box. Show both languages, Arabic only, or English only. New lectures are added as they are published.
@@ -136,7 +136,7 @@ Each poem is set out bayt by bayt in fully vowelled Arabic, with:
 • An explanation of each bayt, laid out like the book it comes from, with the ayat and ahadith it quotes and their references
 • Chapters, a contents grid, and search in Arabic (no diacritics needed)
 
-His poems include counsel for those who memorise the Quran, a poem on Islamic governance with the Shaykh's own commentary, and a collection of poems on Quranic recitation, language and scholarly etiquette.
+His poems include counsel for those who memorise the Quran, a poem on Islamic governance with the Shaykh's own commentary, a poem on the miracles of the righteous (karamat al-awliya), and a collection of poems on Quranic recitation, language and scholarly etiquette.
 
 LECTURES AND KHUTBAHS
 Read the Shaykh's khutbahs on their own pages: the Arabic paragraph by paragraph, with the English under each one. Ayat are set apart with their reference, and ahadith in a shaded box. Show both languages, Arabic only, or English only. New lectures are added as they are published.

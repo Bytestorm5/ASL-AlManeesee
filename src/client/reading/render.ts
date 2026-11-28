@@ -125,6 +125,12 @@ export function renderPoem(p: PoemConfig): boolean {
   const chapterCount = document.getElementById('chapterCount');
   if (chapterCount) chapterCount.textContent = String(CH.length);
   if (!CH.length) return false;
+  /* A poem the book gives no chapters to is one chapter: no chapter count
+     and no one-card contents grid. */
+  if (CH.length === 1) {
+    chapterCount?.parentElement?.remove();
+    document.querySelector<HTMLElement>('.toc-wrap')?.setAttribute('hidden', '');
+  }
 
   const urdu = (s: string) => (p.arabicInUrdu ? arInUrdu(s) : s);
   const expBy = p.explanations?.by;
