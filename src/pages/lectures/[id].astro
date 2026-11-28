@@ -155,11 +155,8 @@ const description = lecture.description
   })}
 </article>
 
-<p class="ls-note">{both
-  ? (doc.translator
-    ? `The Arabic is the Shaykh’s. The English under it is ${doc.translator}’s translation; the few lines it leaves out were translated for this site.`
-    : 'The Arabic is the Shaykh’s. The English under it is a translation of the meaning, made for this site.')
-  : `Translated from the Shaykh’s Arabic by ${doc.translator}. The English renders the meanings of the āyāt and aḥādīth it quotes.`}</p>
+{/* only a translation that is not this site's own is credited */}
+{doc.translator && <p class="ls-note">English translation by {doc.translator}.</p>}
 <footer class="gf">{SITE.org.name} · <a href={sec.list.path}>{sec.en}</a> · <a href="/">Home</a></footer>
 </div>
 <script>import '../../client/entries/lesson.ts';</script>
